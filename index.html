@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Qatar - Tourism</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>QATAR TOURISM</h1>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">About Qatar ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#geography">Geography of Qatar</a></li>
+                        <li><a href="#history">History of Qatar</a></li>
+                        <li><a href="#climate">Qatar's Climate</a></li>
+                        <li><a href="#cities">Towns & Cities</a></li>
+                        <li><a href="#traditions">Traditions in Qatar</a></li>
+                        <li><a href="#cuisine">Local Cuisine</a></li>
+                        <li><a href="#wildlife">Wildlife</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Plan Your Trip ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#visas">Visas</a></li>
+                        <li><a href="#accommodation">Accommodation in Qatar</a></li>
+                        <li><a href="#flights">Getting to Qatar</a></li>
+                        <li><a href="#transportation">Transportation</a></li>
+                        <li><a href="#airport">Hamad Intl. Airport</a></li>
+                        <li><a href="#tours">Tour Operators</a></li>
+                        <li><a href="#safety">Safety in Qatar</a></li>
+                        <li><a href="#concierge">Concierge Services</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Things To Do ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#adventure">Adventure</a></li>
+                        <li><a href="#art-culture">Art & Culture</a></li>
+                        <li><a href="#romantic">Romantic Getaway</a></li>
+                        <li><a href="#beach">Beach Holiday</a></li>
+                        <li><a href="#family">Family Break</a></li>
+                        <li><a href="#dining">Dining</a></li>
+                        <li><a href="#spa">Spa & Wellness</a></li>
+                        <li><a href="#shopping">Shopping</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Events ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#upcoming">Upcoming Events</a></li>
+                        <li><a href="#festivals">Festivals in Qatar</a></li>
+                        <li><a href="#sports">Sports Events</a></li>
+                        <li><a href="#concerts">Concerts & Shows</a></li>
+                        <li><a href="#cultural-ex">Cultural Exhibitions</a></li>
+                        <li><a href="#national">National Celebrations</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Travel Guide ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#best-time">Best Time to Visit</a></li>
+                        <li><a href="#laws">Local Laws & Customs</a></li>
+                        <li><a href="#dress-code">Dress Code & Etiquette</a></li>
+                        <li><a href="#currency">Currency & Payments</a></li>
+                        <li><a href="#language">Language in Qatar</a></li>
+                        <li><a href="#internet">Internet & SIM Cards</a></li>
+                        <li><a href="#emergency">Emergency Numbers</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <div class="nav-actions">
+                {% if session.first_name %}
+                    <div class="dropdown profile-dropdown">
+                        <a href="#" class="dropdown-toggle">
+                            <span class="profile-icon">👤</span> {{ session.first_name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="{{ url_for('profile') }}">👤 My Profile</a></li>
+                            <li><a href="{{ url_for('my_bookings') }}">📘 My Bookings</a></li>
+                            <li><a href="{{ url_for('logout') }}">🚪 Logout</a></li>
+                        </ul>
+                    </div>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="btn-nav">Log In</a>
+                    <a href="{{ url_for('register') }}" class="btn-nav-primary">Sign Up</a>
+                {% endif %}
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Discover Qatar</h1>
+            <p class="hero-subtitle">Where Tradition Meets Innovation</p>
+            <a href="#accommodation" class="btn-hero">Explore Now</a>
+        </div>
+    </section>
+
+    <section id="flights" class="content-section flight-section">
+        <div class="container">
+            <h2 class="section-title">Book Your Flight</h2>
+            <p class="partnership-text">In partnership with <strong>Qatar Airways</strong></p>
+            
+            <div class="flight-booking-widget">
+                <div class="trip-type">
+                    <label><input type="radio" name="tripType" value="return" checked> Return</label>
+                    <label><input type="radio" name="tripType" value="oneway"> One way</label>
+                    <label><input type="radio" name="tripType" value="multicity"> Multi-city</label>
+                </div>
+                
+                <div class="flight-form">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>From</label>
+                            <input type="text" id="fromCity" placeholder="Aberdeen ZXA" required>
+                        </div>
+                        <div class="swap-btn">⇄</div>
+                        <div class="form-field">
+                            <label>To</label>
+                            <input type="text" id="toCity" value="Doha (DOH)" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Departure</label>
+                            <input type="date" id="departureDate" required>
+                        </div>
+                        <div class="form-field">
+                            <label>Return</label>
+                            <input type="date" id="returnDate" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Passenger / Room</label>
+                            <input type="text" value="2 Passengers, 1 room" readonly>
+                        </div>
+                        <div class="form-field">
+                            <label>Class</label>
+                            <select id="cabinClass">
+                                <option>Economy</option>
+                                <option>Business</option>
+                                <option>First Class</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="stopover-section">
+                        <p>Explore Qatar during your journey with amazing stopover packages starting from USD 14 pp at 4-star and 5-star hotels.</p>
+                        
+                        <div class="stopover-options">
+                            <div>
+                                <p><strong>When would you like to add a stop in Doha during your journey?</strong></p>
+                                <label><input type="radio" name="stopTime" value="departure" checked> Departure</label>
+                                <label><input type="radio" name="stopTime" value="return"> Return</label>
+                            </div>
+                            
+                            <div>
+                                <p><strong>How many days would you like to stay in Qatar?</strong></p>
+                                <div class="day-counter">
+                                    <button class="btn-count">−</button>
+                                    <input type="number" value="1" min="1" max="30" id="stopoverDays">
+                                    <button class="btn-count">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <a href="#" class="promo-link">+ Add promo code</a>
+                        <button class="btn-search-flights" onclick="searchFlights()">Search flights</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="accommodation" class="content-section">
+        <div class="container">
+            <h2 class="section-title">Accommodation in Qatar</h2>
+            <div class="items-grid">
+                {% for hotel in hotels %}
+                <div class="item-card">
+                    <div class="item-image" style="background: linear-gradient(135deg, #8C1D40 0%, #0C616F 100%);"></div>
+                    <div class="item-content">
+                        <div class="hotel-header">
+                            <h3>{{ hotel.name }}</h3>
+                            <div class="rating">{'⭐' * hotel.rating }}</div>
+                        </div>
+                        <p class="hotel-location">📍 {{ hotel.location }}</p>
+                        <p class="hotel-category">{{ hotel.category }}</p>
+                        <div class="item-footer">
+                            <span class="item-price">${{ hotel.price }} / night</span>
+                            <button class="btn-book" onclick="openBookingModal('hotel', '{{ hotel.name }}', {{ hotel.price }})">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    {% for category, acts in activities.items() %}
+    <section id="{{ category.lower().replace(' ', '-').replace('&', '') }}" class="content-section">
+        <div class="container">
+            <h2 class="section-title">{{ category }}</h2>
+            <div class="items-grid">
+                {% for activity in acts %}
+                <div class="item-card">
+                    <div class="item-image" style="background: linear-gradient(135deg, #A12852 0%, #0C616F 100%);"></div>
+                    <div class="item-content">
+                        <h3>{{ activity.name }}</h3>
+                        <p>{{ activity.description }}</p>
+                        <div class="item-footer">
+                            <span class="item-price">${{ activity.price }}</span>
+                            <button class="btn-book" onclick="openBookingModal('activity', '{{ activity.name }}', {{ activity.price }})">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+
+    <section id="upcoming" class="content-section">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            <div class="items-grid">
+                {% for event in events %}
+                <div class="item-card">
+                    <div class="item-image" style="background: linear-gradient(135deg, #8C1D40 0%, #A12852 100%);"></div>
+                    <div class="item-content">
+                        <span class="item-category">{{ event.category }}</span>
+                        <h3>{{ event.name }}</h3>
+                        <p class="event-date">📅 {{ event.date }}</p>
+                        <div class="item-footer">
+                            <span class="item-price">${{ event.price }}</span>
+                            <button class="btn-book" onclick="openBookingModal('event', '{{ event.name }}', {{ event.price }})">Book Tickets</button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>QATAR TOURISM</h3>
+                    <p>Your gateway to Arabian excellence</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#accommodation">Hotels</a></li>
+                        <li><a href="#flights">Flights</a></li>
+                        <li><a href="#upcoming">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@discoverqatar.com</p>
+                    <p>Phone: +974 1234 5678</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Qatar Tourism. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <h2>Book Your Experience</h2>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label>Experience:</label>
+                    <input type="text" id="itemName" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Date:</label>
+                    <input type="date" id="bookingDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Number of People:</label>
+                    <input type="number" id="numPeople" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label>Total Price:</label>
+                    <input type="text" id="totalPrice" readonly>
+                </div>
+                <button type="submit" class="btn-primary">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
