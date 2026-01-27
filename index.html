@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discover Qatar - Tourism</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"></head>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
     <nav class="navbar">
         <div class="container">
@@ -81,21 +82,8 @@
             </ul>
             
             <div class="nav-actions">
-                {% if session.first_name %}
-                    <div class="dropdown profile-dropdown">
-                        <a href="#" class="dropdown-toggle">
-                            <span class="profile-icon">👤</span> {{ session.first_name }}
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="{{ url_for('profile') }}">👤 My Profile</a></li>
-                            <li><a href="{{ url_for('my_bookings') }}">📘 My Bookings</a></li>
-                            <li><a href="{{ url_for('logout') }}">🚪 Logout</a></li>
-                        </ul>
-                    </div>
-                {% else %}
-                    <a href="{{ url_for('login') }}" class="btn-nav">Log In</a>
-                    <a href="{{ url_for('register') }}" class="btn-nav-primary">Sign Up</a>
-                {% endif %}
+                <a href="#" class="btn-nav">Log In</a>
+                <a href="#" class="btn-nav-primary">Sign Up</a>
             </div>
             
             <div class="hamburger" id="hamburger">
@@ -199,68 +187,177 @@
         <div class="container">
             <h2 class="section-title">Accommodation in Qatar</h2>
             <div class="items-grid">
-                {% for hotel in hotels %}
                 <div class="item-card">
                     <div class="item-image" style="background: linear-gradient(135deg, #8C1D40 0%, #0C616F 100%);"></div>
                     <div class="item-content">
                         <div class="hotel-header">
-                            <h3>{{ hotel.name }}</h3>
-                            <div class="rating">{'⭐' * hotel.rating }}</div>
+                            <h3>Four Seasons Doha</h3>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
                         </div>
-                        <p class="hotel-location">📍 {{ hotel.location }}</p>
-                        <p class="hotel-category">{{ hotel.category }}</p>
+                        <p class="hotel-location">📍 West Bay</p>
+                        <p class="hotel-category">Luxury</p>
                         <div class="item-footer">
-                            <span class="item-price">${{ hotel.price }} / night</span>
-                            <button class="btn-book" onclick="openBookingModal('hotel', '{{ hotel.name }}', {{ hotel.price }})">Book Now</button>
+                            <span class="item-price">$450 / night</span>
+                            <button class="btn-book" onclick="openBookingModal('hotel', 'Four Seasons Doha', 450)">Book Now</button>
                         </div>
                     </div>
                 </div>
-                {% endfor %}
+
+                <div class="item-card">
+                    <div class="item-image" style="background: linear-gradient(135deg, #8C1D40 0%, #0C616F 100%);"></div>
+                    <div class="item-content">
+                        <div class="hotel-header">
+                            <h3>Souq Waqif Boutique Hotels</h3>
+                            <div class="rating">⭐⭐⭐⭐</div>
+                        </div>
+                        <p class="hotel-location">📍 Souq Waqif</p>
+                        <p class="hotel-category">Boutique</p>
+                        <div class="item-footer">
+                            <span class="item-price">$280 / night</span>
+                            <button class="btn-book" onclick="openBookingModal('hotel', 'Souq Waqif Boutique Hotels', 280)">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-image" style="background: linear-gradient(135deg, #8C1D40 0%, #0C616F 100%);"></div>
+                    <div class="item-content">
+                        <div class="hotel-header">
+                            <h3>The Pearl Gates Hotel</h3>
+                            <div class="rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <p class="hotel-location">📍 The Pearl</p>
+                        <p class="hotel-category">Luxury</p>
+                        <div class="item-footer">
+                            <span class="item-price">$380 / night</span>
+                            <button class="btn-book" onclick="openBookingModal('hotel', 'The Pearl Gates Hotel', 380)">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-image" style="background: linear-gradient(135deg, #8C1D40 0%, #0C616F 100%);"></div>
+                    <div class="item-content">
+                        <div class="hotel-header">
+                            <h3>City Centre Rotana</h3>
+                            <div class="rating">⭐⭐⭐⭐</div>
+                        </div>
+                        <p class="hotel-location">📍 City Centre</p>
+                        <p class="hotel-category">Business</p>
+                        <div class="item-footer">
+                            <span class="item-price">$220 / night</span>
+                            <button class="btn-book" onclick="openBookingModal('hotel', 'City Centre Rotana', 220)">Book Now</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    {% for category, acts in activities.items() %}
-    <section id="{{ category.lower().replace(' ', '-').replace('&', '') }}" class="content-section">
+    <section id="adventure" class="content-section">
         <div class="container">
-            <h2 class="section-title">{{ category }}</h2>
+            <h2 class="section-title">Adventure</h2>
             <div class="items-grid">
-                {% for activity in acts %}
                 <div class="item-card">
                     <div class="item-image" style="background: linear-gradient(135deg, #A12852 0%, #0C616F 100%);"></div>
                     <div class="item-content">
-                        <h3>{{ activity.name }}</h3>
-                        <p>{{ activity.description }}</p>
+                        <h3>Desert Safari</h3>
+                        <p>Thrilling dune bashing</p>
                         <div class="item-footer">
-                            <span class="item-price">${{ activity.price }}</span>
-                            <button class="btn-book" onclick="openBookingModal('activity', '{{ activity.name }}', {{ activity.price }})">Book Now</button>
+                            <span class="item-price">$150</span>
+                            <button class="btn-book" onclick="openBookingModal('activity', 'Desert Safari', 150)">Book Now</button>
                         </div>
                     </div>
                 </div>
-                {% endfor %}
+
+                <div class="item-card">
+                    <div class="item-image" style="background: linear-gradient(135deg, #A12852 0%, #0C616F 100%);"></div>
+                    <div class="item-content">
+                        <h3>Kayaking</h3>
+                        <p>Mangrove kayaking</p>
+                        <div class="item-footer">
+                            <span class="item-price">$90</span>
+                            <button class="btn-book" onclick="openBookingModal('activity', 'Kayaking', 90)">Book Now</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    {% endfor %}
+
+    <section id="art-culture" class="content-section">
+        <div class="container">
+            <h2 class="section-title">Art & Culture</h2>
+            <div class="items-grid">
+                <div class="item-card">
+                    <div class="item-image" style="background: linear-gradient(135deg, #A12852 0%, #0C616F 100%);"></div>
+                    <div class="item-content">
+                        <h3>Museum Tour</h3>
+                        <p>Guided museum experience</p>
+                        <div class="item-footer">
+                            <span class="item-price">$60</span>
+                            <button class="btn-book" onclick="openBookingModal('activity', 'Museum Tour', 60)">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-image" style="background: linear-gradient(135deg, #A12852 0%, #0C616F 100%);"></div>
+                    <div class="item-content">
+                        <h3>Katara Village Tour</h3>
+                        <p>Cultural exploration</p>
+                        <div class="item-footer">
+                            <span class="item-price">$50</span>
+                            <button class="btn-book" onclick="openBookingModal('activity', 'Katara Village Tour', 50)">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="upcoming" class="content-section">
         <div class="container">
             <h2 class="section-title">Upcoming Events</h2>
             <div class="items-grid">
-                {% for event in events %}
                 <div class="item-card">
                     <div class="item-image" style="background: linear-gradient(135deg, #8C1D40 0%, #A12852 100%);"></div>
                     <div class="item-content">
-                        <span class="item-category">{{ event.category }}</span>
-                        <h3>{{ event.name }}</h3>
-                        <p class="event-date">📅 {{ event.date }}</p>
+                        <span class="item-category">Festivals</span>
+                        <h3>Qatar Food Festival</h3>
+                        <p class="event-date">📅 2026-03-15</p>
                         <div class="item-footer">
-                            <span class="item-price">${{ event.price }}</span>
-                            <button class="btn-book" onclick="openBookingModal('event', '{{ event.name }}', {{ event.price }})">Book Tickets</button>
+                            <span class="item-price">$45</span>
+                            <button class="btn-book" onclick="openBookingModal('event', 'Qatar Food Festival', 45)">Book Tickets</button>
                         </div>
                     </div>
                 </div>
-                {% endfor %}
+
+                <div class="item-card">
+                    <div class="item-image" style="background: linear-gradient(135deg, #8C1D40 0%, #A12852 100%);"></div>
+                    <div class="item-content">
+                        <span class="item-category">Cultural</span>
+                        <h3>Doha Cultural Festival</h3>
+                        <p class="event-date">📅 2026-04-20</p>
+                        <div class="item-footer">
+                            <span class="item-price">$35</span>
+                            <button class="btn-book" onclick="openBookingModal('event', 'Doha Cultural Festival', 35)">Book Tickets</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-image" style="background: linear-gradient(135deg, #8C1D40 0%, #A12852 100%);"></div>
+                    <div class="item-content">
+                        <span class="item-category">Sports</span>
+                        <h3>Formula 1 Qatar</h3>
+                        <p class="event-date">📅 2026-11-25</p>
+                        <div class="item-footer">
+                            <span class="item-price">$250</span>
+                            <button class="btn-book" onclick="openBookingModal('event', 'Formula 1 Qatar', 250)">Book Tickets</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -318,5 +415,6 @@
         </div>
     </div>
 
-<script src="{{ url_for('static', filename='js/script.js') }}"></script></body>
+    <script src="script.js"></script>
+</body>
 </html>
