@@ -1470,3 +1470,161 @@ body {
         padding: 2rem;
     }
 }
+
+/* Traditions Page Styles */
+.traditions-showcase {
+    margin-top: 3rem;
+}
+
+.tradition-featured {
+    background: linear-gradient(135deg, #f8f5f0 0%, #ffffff 100%);
+    padding: 4rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    border-left: 4px solid #8C1D40;
+}
+
+.tradition-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.tradition-featured h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #8C1D40;
+    margin-bottom: 1rem;
+}
+
+.tradition-quote {
+    font-style: italic;
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.tradition-description {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: #555;
+    font-size: 1.05rem;
+}
+
+.tradition-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.tradition-card {
+    background: white;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.tradition-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.tradition-card-icon {
+    font-size: 3rem;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8f5f0 0%, #ffffff 100%);
+}
+
+.tradition-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #2c2c2c;
+    padding: 0 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.tradition-details {
+    padding: 0 2rem 2rem;
+}
+
+.tradition-details p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.tradition-details strong {
+    color: #8C1D40;
+    font-weight: 600;
+}
+
+.tradition-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.tradition-details li {
+    padding: 0.6rem 0;
+    padding-left: 1.5rem;
+    color: #666;
+    position: relative;
+    line-height: 1.6;
+}
+
+.tradition-details li:before {
+    content: "◆";
+    position: absolute;
+    left: 0;
+    color: #8C1D40;
+    font-size: 0.7rem;
+}
+
+.tradition-note {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #fafafa;
+    border-left: 3px solid #8C1D40;
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+.celebrations-list {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.celebration-item {
+    padding: 2rem;
+    background: white;
+    border-left: 4px solid #8C1D40;
+}
+
+.celebration-item h4 {
+    font-size: 1.3rem;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.celebration-item p {
+    color: #666;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .tradition-featured {
+        padding: 2rem;
+    }
+    
+    .tradition-featured h2 {
+        font-size: 2rem;
+    }
+    
+    .tradition-grid {
+        grid-template-columns: 1fr;
+    }
+}
