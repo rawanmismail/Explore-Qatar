@@ -1099,3 +1099,153 @@ body {
         left: auto !important;
     }
 }
+
+/* Climate Page Styles */
+.seasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.season-card {
+    background: white;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+}
+
+.season-header {
+    padding: 2rem;
+    color: white;
+    text-align: center;
+}
+
+.season-card.winter .season-header {
+    background: linear-gradient(135deg, #5B9BD5 0%, #3A7AB8 100%);
+}
+
+.season-card.spring .season-header {
+    background: linear-gradient(135deg, #70AD47 0%, #4F8B2F 100%);
+}
+
+.season-card.summer .season-header {
+    background: linear-gradient(135deg, #FFC000 0%, #D9A000 100%);
+}
+
+.season-card.autumn .season-header {
+    background: linear-gradient(135deg, #ED7D31 0%, #C55A11 100%);
+}
+
+.season-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.season-months {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    letter-spacing: 1px;
+}
+
+.season-details {
+    padding: 2rem;
+}
+
+.temp-range {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: #fafafa;
+}
+
+.temp-range span {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #8C1D40;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.temp-range small {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.season-description {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.season-highlights {
+    list-style: none;
+    padding: 0;
+}
+
+.season-highlights li {
+    padding: 0.5rem 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.season-highlights li:before {
+    content: "✓";
+    color: #8C1D40;
+    font-weight: bold;
+    margin-right: 0.8rem;
+}
+
+.weather-table {
+    overflow-x: auto;
+    margin-top: 2rem;
+}
+
+.weather-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.weather-table th {
+    background: #8C1D40;
+    color: white;
+    padding: 1.2rem;
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.weather-table td {
+    padding: 1.2rem;
+    border-bottom: 1px solid #f0f0f0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.weather-table tr:hover {
+    background: #fafafa;
+}
+
+.weather-table td:first-child {
+    font-weight: 600;
+    color: #2c2c2c;
+}
+
+@media (max-width: 768px) {
+    .seasons-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .weather-table {
+        font-size: 0.85rem;
+    }
+    
+    .weather-table th,
+    .weather-table td {
+        padding: 0.8rem 0.5rem;
+    }
+}
