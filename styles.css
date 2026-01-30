@@ -1628,3 +1628,626 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* Cuisine Page Styles */
+.signature-dish {
+    background: white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    margin: 3rem 0;
+    overflow: hidden;
+}
+
+.signature-content {
+    padding: 4rem;
+    text-align: center;
+}
+
+.dish-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.signature-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #8C1D40;
+    margin-bottom: 0.5rem;
+}
+
+.dish-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.dish-description {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+    color: #555;
+    font-size: 1.05rem;
+}
+
+.dish-varieties {
+    background: #fafafa;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.dish-varieties h4 {
+    color: #2c2c2c;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.varieties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.variety {
+    padding: 1.5rem;
+    background: white;
+    border-left: 3px solid #8C1D40;
+}
+
+.variety strong {
+    display: block;
+    color: #8C1D40;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.variety p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.dish-card {
+    background: white;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.dish-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.dish-card-header {
+    background: linear-gradient(135deg, #f8f5f0 0%, #ffffff 100%);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.dish-emoji {
+    font-size: 2.5rem;
+}
+
+.dish-card-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #2c2c2c;
+}
+
+.dish-card-content {
+    padding: 2rem;
+}
+
+.dish-type {
+    color: #8C1D40;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.dish-info {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.dish-ingredients {
+    padding-top: 1.5rem;
+    border-top: 1px solid #f0f0f0;
+    font-size: 0.9rem;
+}
+
+.dish-ingredients strong {
+    color: #2c2c2c;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.ingredients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.ingredient-item {
+    padding: 2rem;
+    background: white;
+    border-left: 3px solid #8C1D40;
+}
+
+.ingredient-item h4 {
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.ingredient-item p {
+    color: #666;
+    line-height: 1.7;
+}
+
+.dining-recommendations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.dining-category {
+    background: white;
+    padding: 2rem;
+    border-left: 3px solid #8C1D40;
+}
+
+.dining-category h4 {
+    color: #2c2c2c;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.dining-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dining-category li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #666;
+}
+
+.dining-category li:last-child {
+    border-bottom: none;
+}
+
+.dining-category strong {
+    color: #8C1D40;
+    font-weight: 600;
+}
+
+.etiquette-tips {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.tip {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: white;
+    align-items: start;
+}
+
+.tip strong {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.tip strong:first-child {
+    color: #4CAF50;
+}
+
+.tip p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .signature-content {
+        padding: 2rem;
+    }
+    
+    .signature-content h2 {
+        font-size: 2rem;
+    }
+    
+    .dishes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .varieties-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Wildlife Page Styles */
+.wildlife-hero {
+    background: white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    margin: 3rem 0;
+}
+
+.wildlife-hero-content {
+    padding: 4rem;
+    text-align: center;
+}
+
+.wildlife-hero-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.wildlife-hero-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #8C1D40;
+    margin-bottom: 0.5rem;
+}
+
+.wildlife-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.wildlife-description {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+    color: #555;
+    font-size: 1.05rem;
+}
+
+.wildlife-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    background: #fafafa;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item strong {
+    display: block;
+    color: #2c2c2c;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-item p {
+    color: #8C1D40;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.wildlife-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.wildlife-card {
+    background: white;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.wildlife-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.wildlife-icon {
+    font-size: 4rem;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8f5f0 0%, #ffffff 100%);
+}
+
+.wildlife-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #2c2c2c;
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+}
+
+.wildlife-info {
+    padding: 0 2rem 2rem;
+}
+
+.wildlife-info p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.wildlife-details {
+    background: #fafafa;
+    padding: 1.5rem;
+    border-left: 3px solid #8C1D40;
+    margin-top: 1rem;
+}
+
+.wildlife-details p {
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.wildlife-details p:last-child {
+    margin-bottom: 0;
+}
+
+.wildlife-details strong {
+    color: #8C1D40;
+}
+
+.birds-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.bird-category {
+    background: white;
+    padding: 2rem;
+    border-left: 3px solid #8C1D40;
+}
+
+.bird-category h4 {
+    color: #2c2c2c;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.bird-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.bird-item strong {
+    display: block;
+    color: #8C1D40;
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+}
+
+.bird-item p {
+    color: #666;
+    line-height: 1.7;
+}
+
+.marine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.marine-card {
+    background: white;
+    padding: 2rem;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+
+.marine-card:hover {
+    transform: translateY(-5px);
+}
+
+.marine-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.marine-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+}
+
+.marine-card p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.conservation-status {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 1rem;
+}
+
+.conservation-status.endangered {
+    background: #ffebee;
+    color: #c62828;
+}
+
+.conservation-status.vulnerable {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+.conservation-status.protected {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.conservation-status.common {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+.reptiles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.reptile-item {
+    background: white;
+    padding: 2rem;
+    border-left: 3px solid #8C1D40;
+}
+
+.reptile-item h4 {
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.reptile-item p {
+    color: #666;
+    line-height: 1.7;
+}
+
+.insects-list {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.insect-item {
+    display: flex;
+    gap: 1.5rem;
+    background: white;
+    padding: 1.5rem;
+    align-items: start;
+    border-left: 3px solid #8C1D40;
+}
+
+.insect-emoji {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.insect-item strong {
+    display: block;
+    color: #2c2c2c;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.insect-item p {
+    color: #666;
+    line-height: 1.7;
+}
+
+.conservation-areas {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.area-card {
+    background: white;
+    padding: 2rem;
+    border-left: 4px solid #8C1D40;
+}
+
+.area-card h4 {
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.area-card p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+}
+
+.area-card strong {
+    color: #8C1D40;
+}
+
+.wildlife-seasons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.season-wildlife {
+    background: white;
+    padding: 2rem;
+    border-left: 3px solid #8C1D40;
+}
+
+.season-wildlife h4 {
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.season-wildlife p {
+    color: #666;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .wildlife-hero-content {
+        padding: 2rem;
+    }
+    
+    .wildlife-hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .wildlife-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .wildlife-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+}
