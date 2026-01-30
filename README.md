@@ -1,1 +1,1 @@
-# Explor
+# Explore
