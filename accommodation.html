@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation in Qatar - Discover Qatar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="accommodation.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <h1>QATAR TOURISM</h1>
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">About Qatar ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="geography.html">Geography of Qatar</a></li>
+                        <li><a href="history.html">History of Qatar</a></li>
+                        <li><a href="climate.html">Qatar's Climate</a></li>
+                        <li><a href="cities.html">Towns & Cities</a></li>
+                        <li><a href="traditions.html">Traditions in Qatar</a></li>
+                        <li><a href="cusine.html">Local Cuisine</a></li>
+                        <li><a href="wildlife.html">Wildlife</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Plan Your Trip ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="visas.html">Visas</a></li>
+                        <li><a href="accommodation.html">Accommodation in Qatar</a></li>
+                        <li><a href="index.html#flights">Getting to Qatar</a></li>
+                        <li><a href="transportation.html">Transportation</a></li>
+                        <li><a href="airport.html">Hamad Intl. Airport</a></li>
+                        <li><a href="tours.html">Tour Operators</a></li>
+                        <li><a href="safety.html">Safety in Qatar</a></li>
+                        <li><a href="concierge.html">Concierge Services</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Things To Do ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#adventure">Adventure</a></li>
+                        <li><a href="index.html#art-culture">Art & Culture</a></li>
+                        <li><a href="index.html#romantic">Romantic Getaway</a></li>
+                        <li><a href="index.html#beach">Beach Holiday</a></li>
+                        <li><a href="index.html#family">Family Break</a></li>
+                        <li><a href="index.html#dining">Dining</a></li>
+                        <li><a href="index.html#spa">Spa & Wellness</a></li>
+                        <li><a href="index.html#shopping">Shopping</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Events ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#upcoming">Upcoming Events</a></li>
+                        <li><a href="festivals.html">Festivals in Qatar</a></li>
+                        <li><a href="sports.html">Sports Events</a></li>
+                        <li><a href="concerts.html">Concerts & Shows</a></li>
+                        <li><a href="exhibitions.html">Cultural Exhibitions</a></li>
+                        <li><a href="national.html">National Celebrations</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Travel Guide ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="best-time.html">Best Time to Visit</a></li>
+                        <li><a href="laws.html">Local Laws & Customs</a></li>
+                        <li><a href="dress-code.html">Dress Code & Etiquette</a></li>
+                        <li><a href="currency.html">Currency & Payments</a></li>
+                        <li><a href="language.html">Language in Qatar</a></li>
+                        <li><a href="internet.html">Internet & SIM Cards</a></li>
+                        <li><a href="emergency.html">Emergency Numbers</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="#" class="btn-nav">Log In</a>
+                <a href="#" class="btn-nav-primary">Sign Up</a>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-hero-title">Accommodation in Qatar</h1>
+            <p class="page-hero-subtitle">Discover luxury and comfort in Qatar's finest hotels</p>
+        </div>
+    </section>
+
+    <!-- Search & Filter Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-widget">
+                <div class="search-row">
+                    <div class="search-field">
+                        <label>Check-in</label>
+                        <input type="date" id="checkInDate">
+                    </div>
+                    <div class="search-field">
+                        <label>Check-out</label>
+                        <input type="date" id="checkOutDate">
+                    </div>
+                    <div class="search-field">
+                        <label>Guests</label>
+                        <input type="number" id="guests" min="1" max="10" value="2">
+                    </div>
+                </div>
+                
+                <div class="filter-row">
+                    <div class="filter-field">
+                        <label>Location</label>
+                        <select id="locationFilter">
+                            <option value="all">All Locations</option>
+                            <option value="West Bay">West Bay</option>
+                            <option value="Souq Waqif">Souq Waqif</option>
+                            <option value="The Pearl">The Pearl</option>
+                            <option value="Doha">Doha</option>
+                            <option value="Banana Island">Banana Island</option>
+                            <option value="Al Wakrah">Al Wakrah</option>
+                        </select>
+                    </div>
+                    <div class="filter-field">
+                        <label>Type</label>
+                        <select id="typeFilter">
+                            <option value="all">All Types</option>
+                            <option value="Luxury">Luxury</option>
+                            <option value="Boutique">Boutique</option>
+                            <option value="Business">Business</option>
+                            <option value="Resort">Resort</option>
+                        </select>
+                    </div>
+                    <div class="filter-field">
+                        <label>Price Range</label>
+                        <select id="priceFilter">
+                            <option value="all">All Prices</option>
+                            <option value="budget">Under $200</option>
+                            <option value="mid">$200 - $400</option>
+                            <option value="luxury">$400+</option>
+                        </select>
+                    </div>
+                    <div class="filter-field">
+                        <label>Sort By</label>
+                        <select id="sortBy" onchange="sortHotels()">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button class="btn-search" onclick="searchHotels()">Search Hotels</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hotels Grid -->
+    <section class="hotels-section">
+        <div class="container">
+            <div id="hotelsGrid" class="hotels-grid"></div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content booking-modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            
+            <div class="modal-layout">
+                <!-- Left Side - Hotel Details -->
+                <div class="modal-hotel-info">
+                    <div id="modalHotelImage" class="modal-hotel-image"></div>
+                    <h2 id="modalHotelName" class="modal-hotel-title"></h2>
+                    <p id="modalLocation" class="modal-hotel-location"></p>
+                    <div class="modal-hotel-meta">
+                        <span id="modalRating" class="modal-rating"></span>
+                        <span id="modalType" class="modal-type"></span>
+                    </div>
+                    <div id="modalAmenities" class="modal-amenities"></div>
+                </div>
+                
+                <!-- Right Side - Booking Form -->
+                <div class="modal-booking-form">
+                    <h3>Complete Your Booking</h3>
+                    
+                    <!-- Booking Summary -->
+                    <div class="booking-summary">
+                        <h4>Your Stay</h4>
+                        <div class="summary-row">
+                            <span>Check-in:</span>
+                            <strong id="summaryCheckIn">-</strong>
+                        </div>
+                        <div class="summary-row">
+                            <span>Check-out:</span>
+                            <strong id="summaryCheckOut">-</strong>
+                        </div>
+                        <div class="summary-row">
+                            <span>Guests:</span>
+                            <strong id="summaryGuests">2</strong>
+                        </div>
+                        <div class="summary-row">
+                            <span>Nights:</span>
+                            <strong id="summaryNights">0</strong>
+                        </div>
+                    </div>
+                    
+                    <!-- Guest Information Form -->
+                    <form id="bookingForm" onsubmit="submitBooking(event)">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" id="guestName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" id="guestEmail" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Phone <span class="optional">(optional)</span></label>
+                            <input type="tel" id="guestPhone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Room Type / Preferences <span class="optional">(optional)</span></label>
+                            <select id="roomType">
+                                <option value="">Select room type</option>
+                                <option value="standard">Standard Room</option>
+                                <option value="deluxe">Deluxe Room</option>
+                                <option value="suite">Suite</option>
+                                <option value="executive">Executive Suite</option>
+                                <option value="presidential">Presidential Suite</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Special Requests <span class="optional">(optional)</span></label>
+                            <textarea id="specialRequests" rows="3" placeholder="Any special requirements or requests..."></textarea>
+                        </div>
+                        
+                        <!-- Price Breakdown -->
+                        <div class="price-breakdown">
+                            <h4>Price Details</h4>
+                            <div class="price-row">
+                                <span id="priceDetail">-</span>
+                                <span id="subtotal">$0.00</span>
+                            </div>
+                            <div class="price-row">
+                                <span>Taxes & Fees (12%)</span>
+                                <span id="taxes">$0.00</span>
+                            </div>
+                            <div class="price-row total-row">
+                                <strong>Total</strong>
+                                <strong id="totalPrice">$0.00</strong>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Confirm Booking</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>QATAR TOURISM</h3>
+                    <p>Your gateway to Arabian excellence</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="accommodation.html">Hotels</a></li>
+                        <li><a href="index.html#flights">Flights</a></li>
+                        <li><a href="index.html#upcoming">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@discoverqatar.com</p>
+                    <p>Phone: +974 1234 5678</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Qatar Tourism. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="accommodation.js"></script>
+</body>
+</html>

@@ -654,3 +654,427 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Accommodation Page JavaScript
+// Hotel Database
+const hotels = [
+    {
+        id: 1,
+        name: "Four Seasons Hotel Doha",
+        location: "West Bay",
+        type: "Luxury",
+        rating: 5,
+        price: 450,
+        image: "linear-gradient(135deg, #8C1D40 0%, #0C616F 100%)",
+        amenities: ["Pool", "Spa", "Restaurant", "Gym", "Free WiFi", "Beach Access", "Concierge"],
+        description: "Luxurious beachfront hotel with world-class amenities and stunning views of the Arabian Gulf"
+    },
+    {
+        id: 2,
+        name: "The St. Regis Doha",
+        location: "West Bay",
+        type: "Luxury",
+        rating: 5,
+        price: 520,
+        image: "linear-gradient(135deg, #A12852 0%, #8C1D40 100%)",
+        amenities: ["Pool", "Spa", "Fine Dining", "Butler Service", "Gym", "Beach", "Kids Club"],
+        description: "Opulent luxury with personalized butler service and exceptional dining experiences"
+    },
+    {
+        id: 3,
+        name: "Souq Waqif Boutique Hotels",
+        location: "Souq Waqif",
+        type: "Boutique",
+        rating: 4,
+        price: 280,
+        image: "linear-gradient(135deg, #0C616F 0%, #A12852 100%)",
+        amenities: ["Restaurant", "Traditional Design", "Rooftop Terrace", "Free WiFi", "Concierge"],
+        description: "Authentic Qatari experience in the heart of the historic Souq Waqif marketplace"
+    },
+    {
+        id: 4,
+        name: "The Pearl Gates Hotel",
+        location: "The Pearl",
+        type: "Luxury",
+        rating: 5,
+        price: 380,
+        image: "linear-gradient(135deg, #8C1D40 0%, #0C616F 100%)",
+        amenities: ["Pool", "Spa", "Marina View", "Restaurant", "Gym", "Free WiFi"],
+        description: "Stunning island location with spectacular marina views and upscale shopping nearby"
+    },
+    {
+        id: 5,
+        name: "City Centre Rotana Doha",
+        location: "Doha",
+        type: "Business",
+        rating: 4,
+        price: 220,
+        image: "linear-gradient(135deg, #A12852 0%, #0C616F 100%)",
+        amenities: ["Pool", "Gym", "Business Center", "Restaurant", "Free WiFi"],
+        description: "Modern business hotel with excellent facilities for both work and relaxation"
+    },
+    {
+        id: 6,
+        name: "Marsa Malaz Kempinski",
+        location: "The Pearl",
+        type: "Resort",
+        rating: 5,
+        price: 580,
+        image: "linear-gradient(135deg, #0C616F 0%, #8C1D40 100%)",
+        amenities: ["Private Beach", "Multiple Pools", "Spa", "Fine Dining", "Water Sports", "Kids Club"],
+        description: "Exclusive private island resort with pristine beach and luxury amenities for families"
+    },
+    {
+        id: 7,
+        name: "Mondrian Doha",
+        location: "West Bay",
+        type: "Luxury",
+        rating: 5,
+        price: 410,
+        image: "linear-gradient(135deg, #A12852 0%, #8C1D40 100%)",
+        amenities: ["Rooftop Pool", "Spa", "Nightclub", "Restaurant", "Gym", "Art Gallery"],
+        description: "Contemporary luxury hotel with stunning design, art installations, and vibrant nightlife"
+    },
+    {
+        id: 8,
+        name: "Al Aziziyah Boutique Hotel",
+        location: "Souq Waqif",
+        type: "Boutique",
+        rating: 4,
+        price: 195,
+        image: "linear-gradient(135deg, #8C1D40 0%, #A12852 100%)",
+        amenities: ["Traditional Architecture", "Restaurant", "Rooftop", "Free WiFi"],
+        description: "Charming boutique hotel featuring authentic Arabian architecture and cultural ambiance"
+    },
+    {
+        id: 9,
+        name: "W Doha Hotel & Residences",
+        location: "West Bay",
+        type: "Luxury",
+        rating: 5,
+        price: 460,
+        image: "linear-gradient(135deg, #0C616F 0%, #A12852 100%)",
+        amenities: ["Pool", "Spa", "Multiple Restaurants", "Beach", "Nightlife", "Gym"],
+        description: "Trendy luxury hotel perfect for those seeking vibrant nightlife and modern sophistication"
+    },
+    {
+        id: 10,
+        name: "Banana Island Resort",
+        location: "Banana Island",
+        type: "Resort",
+        rating: 5,
+        price: 650,
+        image: "linear-gradient(135deg, #A12852 0%, #0C616F 100%)",
+        amenities: ["Private Island", "Beach", "Water Park", "Spa", "Multiple Pools", "Kids Activities"],
+        description: "Exclusive private island resort paradise with water park and family-friendly facilities"
+    },
+    {
+        id: 11,
+        name: "Alwadi Hotel Doha MGallery",
+        location: "Doha",
+        type: "Business",
+        rating: 4,
+        price: 240,
+        image: "linear-gradient(135deg, #8C1D40 0%, #0C616F 100%)",
+        amenities: ["Pool", "Restaurant", "Gym", "Business Center", "Free WiFi"],
+        description: "Stylish hotel blending traditional Qatari elements with modern business facilities"
+    },
+    {
+        id: 12,
+        name: "Ezdan Hotel",
+        location: "Al Wakrah",
+        type: "Business",
+        rating: 4,
+        price: 180,
+        image: "linear-gradient(135deg, #0C616F 0%, #8C1D40 100%)",
+        amenities: ["Pool", "Gym", "Restaurant", "Free Parking", "Free WiFi"],
+        description: "Comfortable hotel conveniently located near Al Janoub Stadium and local attractions"
+    }
+];
+
+let currentHotel = null;
+let filteredHotels = [...hotels];
+
+// Initialize on page load
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('Accommodation.js loaded successfully');
+    console.log('Hotels database has', hotels.length, 'hotels');
+    
+    const today = new Date().toISOString().split('T')[0];
+    const checkInInput = document.getElementById('checkInDate');
+    const checkOutInput = document.getElementById('checkOutDate');
+    
+    console.log('Check-in input:', checkInInput);
+    console.log('Check-out input:', checkOutInput);
+    
+    if (checkInInput) {
+        checkInInput.min = today;
+    }
+    if (checkOutInput) {
+        checkOutInput.min = today;
+    }
+    
+    // Display all hotels initially
+    console.log('Displaying hotels...');
+    displayHotels(hotels);
+    console.log('Hotels displayed successfully');
+    
+    // Update check-out min date when check-in changes
+    if (checkInInput) {
+        checkInInput.addEventListener('change', () => {
+            checkOutInput.min = checkInInput.value;
+            if (checkOutInput.value && checkOutInput.value < checkInInput.value) {
+                checkOutInput.value = checkInInput.value;
+            }
+        });
+    }
+    
+    // Verify modal exists
+    const modal = document.getElementById('bookingModal');
+    console.log('Booking modal element:', modal);
+    if (!modal) {
+        console.error('ERROR: Booking modal not found in HTML!');
+    }
+});
+
+// Display hotels in grid
+function displayHotels(hotelsToDisplay) {
+    const grid = document.getElementById('hotelsGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    if (hotelsToDisplay.length === 0) {
+        grid.innerHTML = '<p style="text-align: center; color: #666; padding: 3rem; grid-column: 1/-1;">No hotels found matching your criteria. Please adjust your filters.</p>';
+        return;
+    }
+    
+    hotelsToDisplay.forEach(hotel => {
+        const card = document.createElement('div');
+        card.className = 'hotel-card';
+        card.innerHTML = `
+            <div class="hotel-card-image" style="background: ${hotel.image};"></div>
+            <div class="hotel-card-content">
+                <div class="hotel-card-header">
+                    <h3>${hotel.name}</h3>
+                    <div class="hotel-rating">
+                        ${'⭐'.repeat(hotel.rating)}
+                    </div>
+                </div>
+                <p class="hotel-location">📍 ${hotel.location}</p>
+                <p class="hotel-type">${hotel.type}</p>
+                <p class="hotel-description">${hotel.description}</p>
+                <div class="hotel-amenities-preview">
+                    ${hotel.amenities.slice(0, 3).map(a => `<span class="amenity-tag">${a}</span>`).join('')}
+                    ${hotel.amenities.length > 3 ? `<span class="amenity-more">+${hotel.amenities.length - 3} more</span>` : ''}
+                </div>
+                <div class="hotel-card-footer">
+                    <div class="hotel-price">
+                        <span class="price-label">From</span>
+                        <span class="price-amount">$${hotel.price}</span>
+                        <span class="price-period">/ night</span>
+                    </div>
+                    <button class="btn-book-hotel" onclick="openBooking(${hotel.id})">Book Now</button>
+                </div>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+// Search hotels based on filters
+function searchHotels() {
+    const checkIn = document.getElementById('checkInDate').value;
+    const checkOut = document.getElementById('checkOutDate').value;
+    const location = document.getElementById('locationFilter').value;
+    const type = document.getElementById('typeFilter').value;
+    const priceRange = document.getElementById('priceFilter').value;
+    
+    if (!checkIn || !checkOut) {
+        alert('Please select check-in and check-out dates');
+        return;
+    }
+    
+    // Validate dates
+    if (new Date(checkOut) <= new Date(checkIn)) {
+        alert('Check-out date must be after check-in date');
+        return;
+    }
+    
+    let filtered = [...hotels];
+    
+    // Filter by location
+    if (location !== 'all') {
+        filtered = filtered.filter(h => h.location === location);
+    }
+    
+    // Filter by type
+    if (type !== 'all') {
+        filtered = filtered.filter(h => h.type === type);
+    }
+    
+    // Filter by price range
+    if (priceRange !== 'all') {
+        if (priceRange === 'budget') {
+            filtered = filtered.filter(h => h.price < 200);
+        } else if (priceRange === 'mid') {
+            filtered = filtered.filter(h => h.price >= 200 && h.price < 400);
+        } else if (priceRange === 'luxury') {
+            filtered = filtered.filter(h => h.price >= 400);
+        }
+    }
+    
+    filteredHotels = filtered;
+    displayHotels(filteredHotels);
+    
+    // Scroll to results
+    document.querySelector('.hotels-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Sort hotels
+function sortHotels() {
+    const sortBy = document.getElementById('sortBy').value;
+    let sorted = [...filteredHotels];
+    
+    if (sortBy === 'price-low') {
+        sorted.sort((a, b) => a.price - b.price);
+    } else if (sortBy === 'price-high') {
+        sorted.sort((a, b) => b.price - a.price);
+    } else if (sortBy === 'rating') {
+        sorted.sort((a, b) => b.rating - a.rating);
+    }
+    // 'featured' keeps the original order
+    
+    displayHotels(sorted);
+}
+
+// Open booking modal
+function openBooking(hotelId) {
+    console.log('openBooking called with hotelId:', hotelId);
+    
+    const hotel = hotels.find(h => h.id === hotelId);
+    console.log('Found hotel:', hotel);
+    
+    if (!hotel) {
+        console.error('Hotel not found!');
+        return;
+    }
+    
+    currentHotel = hotel;
+    
+    // Populate hotel information
+    console.log('Populating modal with hotel data...');
+    document.getElementById('modalHotelName').textContent = hotel.name;
+    document.getElementById('modalHotelImage').style.background = hotel.image;
+    document.getElementById('modalLocation').textContent = `📍 ${hotel.location}`;
+    document.getElementById('modalRating').textContent = '⭐'.repeat(hotel.rating);
+    document.getElementById('modalType').textContent = hotel.type;
+    
+    // Populate amenities
+    const amenitiesList = document.getElementById('modalAmenities');
+    amenitiesList.innerHTML = hotel.amenities.map(a => `<span class="modal-amenity">${a}</span>`).join('');
+    
+    // Get booking details from search form
+    const checkIn = document.getElementById('checkInDate').value;
+    const checkOut = document.getElementById('checkOutDate').value;
+    const guests = document.getElementById('guests').value;
+    
+    // Update booking summary
+    document.getElementById('summaryCheckIn').textContent = checkIn || '-';
+    document.getElementById('summaryCheckOut').textContent = checkOut || '-';
+    document.getElementById('summaryGuests').textContent = guests || '2';
+    
+    // Calculate nights and pricing
+    if (checkIn && checkOut) {
+        const nights = calculateNights(checkIn, checkOut);
+        document.getElementById('summaryNights').textContent = nights;
+        updatePricing(hotel.price, nights);
+    } else {
+        document.getElementById('summaryNights').textContent = '0';
+        updatePricing(hotel.price, 0);
+    }
+    
+    // Show modal
+    const modal = document.getElementById('bookingModal');
+    console.log('Modal element:', modal);
+    console.log('Setting modal display to block...');
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    console.log('Modal should now be visible');
+}
+
+// Calculate number of nights
+function calculateNights(checkIn, checkOut) {
+    const start = new Date(checkIn);
+    const end = new Date(checkOut);
+    const diffTime = Math.abs(end - start);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays;
+}
+
+// Update pricing breakdown
+function updatePricing(pricePerNight, nights) {
+    const subtotal = pricePerNight * nights;
+    const taxes = subtotal * 0.12; // 12% taxes and fees
+    const total = subtotal + taxes;
+    
+    document.getElementById('priceDetail').textContent = `$${pricePerNight} × ${nights} night${nights !== 1 ? 's' : ''}`;
+    document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+    document.getElementById('taxes').textContent = `$${taxes.toFixed(2)}`;
+    document.getElementById('totalPrice').textContent = `$${total.toFixed(2)}`;
+}
+
+// Close booking modal
+function closeBookingModal() {
+    document.getElementById('bookingModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+    document.getElementById('bookingForm').reset();
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('bookingModal');
+    if (event.target === modal) {
+        closeBookingModal();
+    }
+}
+
+// Submit booking
+function submitBooking(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('guestName').value;
+    const email = document.getElementById('guestEmail').value;
+    const phone = document.getElementById('guestPhone').value;
+    const roomType = document.getElementById('roomType').value;
+    const specialRequests = document.getElementById('specialRequests').value;
+    const checkIn = document.getElementById('summaryCheckIn').textContent;
+    const checkOut = document.getElementById('summaryCheckOut').textContent;
+    const guests = document.getElementById('summaryGuests').textContent;
+    const nights = document.getElementById('summaryNights').textContent;
+    const total = document.getElementById('totalPrice').textContent;
+    
+    const bookingData = {
+        hotel: currentHotel.name,
+        hotelLocation: currentHotel.location,
+        guestName: name,
+        email: email,
+        phone: phone,
+        roomType: roomType,
+        specialRequests: specialRequests,
+        checkIn: checkIn,
+        checkOut: checkOut,
+        guests: guests,
+        nights: nights,
+        total: total,
+        bookingDate: new Date().toISOString()
+    };
+    
+    // Log booking data (in real app, this would be sent to server)
+    console.log('Booking submitted:', bookingData);
+    
+    // Show success message
+    alert(`✓ Booking Confirmed!\n\nHotel: ${currentHotel.name}\nGuest: ${name}\nCheck-in: ${checkIn}\nCheck-out: ${checkOut}\nNights: ${nights}\nTotal: ${total}\n\nA confirmation email will be sent to ${email}`);
+    
+    // Close modal and reset
+    closeBookingModal();
+}
