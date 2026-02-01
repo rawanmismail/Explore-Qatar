@@ -2853,3 +2853,354 @@ textarea {
         width: 100%;
     }
 }
+
+/* Flights Page Specific Styles */
+
+.flight-booking-section {
+    background: #fafafa;
+    padding: 60px 20px 80px;
+}
+
+.partnership-banner {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.partnership-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #2c2c2c;
+    margin-bottom: 0.5rem;
+}
+
+.partnership-banner p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.partnership-banner strong {
+    color: #8C1D40;
+    font-weight: 600;
+}
+
+.passenger-selector {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #fafafa;
+    padding: 0.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.passenger-selector input {
+    border: none;
+    background: transparent;
+    text-align: center;
+    width: 60px;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.stopover-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+}
+
+.stopover-toggle {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #8C1D40;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.stopover-option {
+    margin: 1.5rem 0;
+}
+
+.stopover-option p {
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #2c2c2c;
+}
+
+.stopover-option label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.promo-code-field {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    align-items: center;
+}
+
+.promo-code-field input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid #e0e0e0;
+    font-size: 0.95rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-apply {
+    padding: 0.8rem 2rem;
+    background: #8C1D40;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+}
+
+.btn-apply:hover {
+    background: #6d1532;
+}
+
+/* Why Qatar Airways Section */
+.why-section {
+    padding: 80px 20px;
+    background: white;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.benefit-card {
+    text-align: center;
+    padding: 2rem;
+    background: #fafafa;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.benefit-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #2c2c2c;
+    margin-bottom: 0.8rem;
+}
+
+.benefit-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Popular Routes Section */
+.routes-section {
+    padding: 80px 20px;
+    background: #f8f5f0;
+}
+
+.routes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.route-card {
+    background: white;
+    padding: 2rem;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.route-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.route-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.route-cities {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.route-city {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #2c2c2c;
+    font-weight: 600;
+}
+
+.route-arrow {
+    color: #8C1D40;
+    font-size: 1.2rem;
+}
+
+.route-flag {
+    font-size: 2rem;
+}
+
+.route-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.route-info {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.route-info strong {
+    color: #2c2c2c;
+}
+
+.route-price {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.price-label {
+    font-size: 0.85rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.price-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #8C1D40;
+    font-weight: 600;
+    display: block;
+    margin: 0.5rem 0;
+}
+
+.price-note {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.btn-select-route {
+    width: 100%;
+    padding: 0.9rem;
+    background: #8C1D40;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.btn-select-route:hover {
+    background: #6d1532;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .stopover-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .partnership-banner h2 {
+        font-size: 2rem;
+    }
+    
+    .routes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .route-cities {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .route-arrow {
+        transform: rotate(90deg);
+    }
+}

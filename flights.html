@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting to Qatar - Flights - Discover Qatar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="flights.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <h1>QATAR TOURISM</h1>
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">About Qatar ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="geography.html">Geography of Qatar</a></li>
+                        <li><a href="history.html">History of Qatar</a></li>
+                        <li><a href="climate.html">Qatar's Climate</a></li>
+                        <li><a href="cities.html">Towns & Cities</a></li>
+                        <li><a href="traditions.html">Traditions in Qatar</a></li>
+                        <li><a href="cusine.html">Local Cuisine</a></li>
+                        <li><a href="wildlife.html">Wildlife</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Plan Your Trip ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="visas.html">Visas</a></li>
+                        <li><a href="accommodation.html">Accommodation in Qatar</a></li>
+                        <li><a href="flights.html">Getting to Qatar</a></li>
+                        <li><a href="transportation.html">Transportation</a></li>
+                        <li><a href="airport.html">Hamad Intl. Airport</a></li>
+                        <li><a href="tours.html">Tour Operators</a></li>
+                        <li><a href="safety.html">Safety in Qatar</a></li>
+                        <li><a href="concierge.html">Concierge Services</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Things To Do ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#adventure">Adventure</a></li>
+                        <li><a href="index.html#art-culture">Art & Culture</a></li>
+                        <li><a href="index.html#romantic">Romantic Getaway</a></li>
+                        <li><a href="index.html#beach">Beach Holiday</a></li>
+                        <li><a href="index.html#family">Family Break</a></li>
+                        <li><a href="index.html#dining">Dining</a></li>
+                        <li><a href="index.html#spa">Spa & Wellness</a></li>
+                        <li><a href="index.html#shopping">Shopping</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Events ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#upcoming">Upcoming Events</a></li>
+                        <li><a href="festivals.html">Festivals in Qatar</a></li>
+                        <li><a href="sports.html">Sports Events</a></li>
+                        <li><a href="concerts.html">Concerts & Shows</a></li>
+                        <li><a href="exhibitions.html">Cultural Exhibitions</a></li>
+                        <li><a href="national.html">National Celebrations</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Travel Guide ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="best-time.html">Best Time to Visit</a></li>
+                        <li><a href="laws.html">Local Laws & Customs</a></li>
+                        <li><a href="dress-code.html">Dress Code & Etiquette</a></li>
+                        <li><a href="currency.html">Currency & Payments</a></li>
+                        <li><a href="language.html">Language in Qatar</a></li>
+                        <li><a href="internet.html">Internet & SIM Cards</a></li>
+                        <li><a href="emergency.html">Emergency Numbers</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="#" class="btn-nav">Log In</a>
+                <a href="#" class="btn-nav-primary">Sign Up</a>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-hero-title">Getting to Qatar</h1>
+            <p class="page-hero-subtitle">Book your flight with Qatar Airways and explore Arabian excellence</p>
+        </div>
+    </section>
+
+    <!-- Flight Booking Section -->
+    <section class="flight-booking-section">
+        <div class="container">
+            <div class="partnership-banner">
+                <h2>Book Your Flight</h2>
+                <p>In partnership with <strong>Qatar Airways</strong></p>
+            </div>
+            
+            <div class="flight-booking-widget">
+                <div class="trip-type">
+                    <label><input type="radio" name="tripType" value="return" checked onchange="toggleReturnDate()"> Return</label>
+                    <label><input type="radio" name="tripType" value="oneway" onchange="toggleReturnDate()"> One way</label>
+                    <label><input type="radio" name="tripType" value="multicity" onchange="toggleReturnDate()"> Multi-city</label>
+                </div>
+                
+                <div class="flight-form">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>From</label>
+                            <input type="text" id="fromCity" list="cities" placeholder="Enter city or airport" required>
+                            <datalist id="cities">
+                                <option value="London (LHR)">
+                                <option value="New York (JFK)">
+                                <option value="Dubai (DXB)">
+                                <option value="Paris (CDG)">
+                                <option value="Singapore (SIN)">
+                                <option value="Tokyo (NRT)">
+                                <option value="Sydney (SYD)">
+                                <option value="Los Angeles (LAX)">
+                                <option value="Mumbai (BOM)">
+                                <option value="Frankfurt (FRA)">
+                            </datalist>
+                        </div>
+                        <div class="swap-btn" onclick="swapCities()">⇄</div>
+                        <div class="form-field">
+                            <label>To</label>
+                            <input type="text" id="toCity" value="Doha (DOH)" list="cities" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Departure Date</label>
+                            <input type="date" id="departureDate" required>
+                        </div>
+                        <div class="form-field" id="returnDateField">
+                            <label>Return Date</label>
+                            <input type="date" id="returnDate" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Passengers</label>
+                            <div class="passenger-selector">
+                                <button type="button" class="btn-count" onclick="changePassengers(-1)">−</button>
+                                <input type="number" id="passengers" value="1" min="1" max="9" readonly>
+                                <button type="button" class="btn-count" onclick="changePassengers(1)">+</button>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label>Class</label>
+                            <select id="cabinClass">
+                                <option value="economy">Economy</option>
+                                <option value="premium">Premium Economy</option>
+                                <option value="business">Business Class</option>
+                                <option value="first">First Class</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Stopover Section -->
+                    <div class="stopover-section">
+                        <h3>Add a Stopover in Doha</h3>
+                        <p>Explore Qatar during your journey with amazing stopover packages starting from USD 14 per person at 4-star and 5-star hotels.</p>
+                        
+                        <div class="stopover-toggle">
+                            <label class="switch">
+                                <input type="checkbox" id="addStopover" onchange="toggleStopover()">
+                                <span class="slider"></span>
+                            </label>
+                            <span>I want to add a stopover in Doha</span>
+                        </div>
+                        
+                        <div id="stopoverOptions" class="stopover-options" style="display: none;">
+                            <div class="stopover-option">
+                                <p><strong>When would you like to add a stop in Doha?</strong></p>
+                                <label><input type="radio" name="stopTime" value="departure" checked> On the way there</label>
+                                <label><input type="radio" name="stopTime" value="return"> On the way back</label>
+                            </div>
+                            
+                            <div class="stopover-option">
+                                <p><strong>How many days would you like to stay?</strong></p>
+                                <div class="day-counter">
+                                    <button type="button" class="btn-count" onclick="changeStopoverDays(-1)">−</button>
+                                    <input type="number" value="2" min="1" max="14" id="stopoverDays" readonly>
+                                    <button type="button" class="btn-count" onclick="changeStopoverDays(1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <a href="#" class="promo-link" onclick="togglePromoCode(); return false;">+ Add promo code</a>
+                        <div id="promoCodeField" class="promo-code-field" style="display: none;">
+                            <input type="text" id="promoCode" placeholder="Enter promo code">
+                            <button type="button" class="btn-apply" onclick="applyPromoCode()">Apply</button>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-search-flights" onclick="searchFlights()">Search Flights</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Qatar Airways Section -->
+    <section class="why-section">
+        <div class="container">
+            <h2 class="section-title">Why Fly Qatar Airways?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">✈️</div>
+                    <h3>Award-Winning Service</h3>
+                    <p>Multiple times voted the World's Best Airline by Skytrax</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌍</div>
+                    <h3>Global Network</h3>
+                    <p>Connecting 160+ destinations across 6 continents</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💺</div>
+                    <h3>Luxury Comfort</h3>
+                    <p>Award-winning Qsuite business class and spacious cabins</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎬</div>
+                    <h3>Oryx One Entertainment</h3>
+                    <p>Over 6,000 entertainment options on every flight</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Routes Section -->
+    <section class="routes-section">
+        <div class="container">
+            <h2 class="section-title">Popular Routes to Doha</h2>
+            <div class="routes-grid" id="routesGrid"></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>QATAR TOURISM</h3>
+                    <p>Your gateway to Arabian excellence</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="accommodation.html">Hotels</a></li>
+                        <li><a href="flights.html">Flights</a></li>
+                        <li><a href="index.html#upcoming">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@discoverqatar.com</p>
+                    <p>Phone: +974 1234 5678</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Qatar Tourism. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="flights.js"></script>
+</body>
+</html>

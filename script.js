@@ -1078,3 +1078,397 @@ function submitBooking(event) {
     // Close modal and reset
     closeBookingModal();
 }
+
+// Flights Page JavaScript
+
+// Popular routes data
+const popularRoutes = [
+    {
+        from: "London",
+        fromCode: "LHR",
+        to: "Doha",
+        toCode: "DOH",
+        flag: "🇬🇧",
+        duration: "6h 30m",
+        frequency: "Daily",
+        airline: "Qatar Airways",
+        priceFrom: 450
+    },
+    {
+        from: "New York",
+        fromCode: "JFK",
+        to: "Doha",
+        toCode: "DOH",
+        flag: "🇺🇸",
+        duration: "12h 15m",
+        frequency: "Daily",
+        airline: "Qatar Airways",
+        priceFrom: 850
+    },
+    {
+        from: "Dubai",
+        fromCode: "DXB",
+        to: "Doha",
+        toCode: "DOH",
+        flag: "🇦🇪",
+        duration: "1h 10m",
+        frequency: "Multiple daily",
+        airline: "Qatar Airways",
+        priceFrom: 180
+    },
+    {
+        from: "Paris",
+        fromCode: "CDG",
+        to: "Doha",
+        toCode: "DOH",
+        flag: "🇫🇷",
+        duration: "6h 20m",
+        frequency: "Daily",
+        airline: "Qatar Airways",
+        priceFrom: 480
+    },
+    {
+        from: "Singapore",
+        fromCode: "SIN",
+        to: "Doha",
+        toCode: "DOH",
+        flag: "🇸🇬",
+        duration: "7h 45m",
+        frequency: "Daily",
+        airline: "Qatar Airways",
+        priceFrom: 620
+    },
+    {
+        from: "Mumbai",
+        fromCode: "BOM",
+        to: "Doha",
+        toCode: "DOH",
+        flag: "🇮🇳",
+        duration: "3h 30m",
+        frequency: "Multiple daily",
+        airline: "Qatar Airways",
+        priceFrom: 320
+    },
+    {
+        from: "Sydney",
+        fromCode: "SYD",
+        to: "Doha",
+        toCode: "DOH",
+        flag: "🇦🇺",
+        duration: "14h 30m",
+        frequency: "Daily",
+        airline: "Qatar Airways",
+        priceFrom: 950
+    },
+    {
+        from: "Frankfurt",
+        fromCode: "FRA",
+        to: "Doha",
+        toCode: "DOH",
+        flag: "🇩🇪",
+        duration: "5h 50m",
+        frequency: "Daily",
+        airline: "Qatar Airways",
+        priceFrom: 420
+    }
+];
+
+// Initialize on page load
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('Flights.js loaded successfully');
+    
+    // Set minimum date to today
+    const today = new Date().toISOString().split('T')[0];
+    const departureInput = document.getElementById('departureDate');
+    const returnInput = document.getElementById('returnDate');
+    
+    if (departureInput) {
+        departureInput.min = today;
+    }
+    if (returnInput) {
+        returnInput.min = today;
+    }
+    
+    // Update return date minimum when departure changes
+    if (departureInput) {
+        departureInput.addEventListener('change', () => {
+            if (returnInput) {
+                returnInput.min = departureInput.value;
+                if (returnInput.value && returnInput.value < departureInput.value) {
+                    returnInput.value = departureInput.value;
+                }
+            }
+        });
+    }
+    
+    // Display popular routes
+    displayRoutes();
+});
+
+// Display popular routes
+function displayRoutes() {
+    const grid = document.getElementById('routesGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    popularRoutes.forEach(route => {
+        const card = document.createElement('div');
+        card.className = 'route-card';
+        card.innerHTML = `
+            <div class="route-header">
+                <div class="route-cities">
+                    <span class="route-city">${route.fromCode}</span>
+                    <span class="route-arrow">→</span>
+                    <span class="route-city">${route.toCode}</span>
+                </div>
+                <span class="route-flag">${route.flag}</span>
+            </div>
+            <div class="route-details">
+                <div class="route-info">
+                    <span>Duration:</span>
+                    <strong>${route.duration}</strong>
+                </div>
+                <div class="route-info">
+                    <span>Frequency:</span>
+                    <strong>${route.frequency}</strong>
+                </div>
+                <div class="route-info">
+                    <span>Airline:</span>
+                    <strong>${route.airline}</strong>
+                </div>
+            </div>
+            <div class="route-price">
+                <span class="price-label">From</span>
+                <span class="price-amount">$${route.priceFrom}</span>
+                <span class="price-note">per person</span>
+            </div>
+            <button class="btn-select-route" onclick="selectRoute('${route.from}', '${route.fromCode}')">Select This Route</button>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+// Select a route and populate the form
+function selectRoute(city, code) {
+    const fromCity = document.getElementById('fromCity');
+    if (fromCity) {
+        fromCity.value = `${city} (${code})`;
+    }
+    
+    // Scroll to booking form
+    document.querySelector('.flight-booking-widget').scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+    });
+    
+    // Highlight the form briefly
+    const widget = document.querySelector('.flight-booking-widget');
+    widget.style.boxShadow = '0 0 20px rgba(140, 29, 64, 0.3)';
+    setTimeout(() => {
+        widget.style.boxShadow = '0 5px 30px rgba(0,0,0,0.08)';
+    }, 2000);
+}
+
+// Swap cities
+function swapCities() {
+    const fromCity = document.getElementById('fromCity');
+    const toCity = document.getElementById('toCity');
+    
+    if (fromCity && toCity) {
+        const temp = fromCity.value;
+        fromCity.value = toCity.value;
+        toCity.value = temp;
+    }
+}
+
+// Toggle return date field
+function toggleReturnDate() {
+    const tripType = document.querySelector('input[name="tripType"]:checked').value;
+    const returnField = document.getElementById('returnDateField');
+    const returnInput = document.getElementById('returnDate');
+    
+    if (tripType === 'oneway') {
+        returnField.style.display = 'none';
+        returnInput.removeAttribute('required');
+    } else {
+        returnField.style.display = 'block';
+        returnInput.setAttribute('required', 'required');
+    }
+}
+
+// Change passenger count
+function changePassengers(change) {
+    const input = document.getElementById('passengers');
+    let value = parseInt(input.value);
+    value += change;
+    
+    if (value >= 1 && value <= 9) {
+        input.value = value;
+    }
+}
+
+// Toggle stopover options
+function toggleStopover() {
+    const checkbox = document.getElementById('addStopover');
+    const options = document.getElementById('stopoverOptions');
+    
+    if (checkbox.checked) {
+        options.style.display = 'grid';
+    } else {
+        options.style.display = 'none';
+    }
+}
+
+// Change stopover days
+function changeStopoverDays(change) {
+    const input = document.getElementById('stopoverDays');
+    let value = parseInt(input.value);
+    value += change;
+    
+    if (value >= 1 && value <= 14) {
+        input.value = value;
+    }
+}
+
+// Toggle promo code field
+function togglePromoCode() {
+    const field = document.getElementById('promoCodeField');
+    if (field.style.display === 'none') {
+        field.style.display = 'flex';
+        document.getElementById('promoCode').focus();
+    } else {
+        field.style.display = 'none';
+    }
+}
+
+// Apply promo code
+function applyPromoCode() {
+    const promoInput = document.getElementById('promoCode');
+    const code = promoInput.value.trim().toUpperCase();
+    
+    if (!code) {
+        alert('Please enter a promo code');
+        return;
+    }
+    
+    // Simulate promo code validation
+    const validCodes = ['QATAR2026', 'WELCOME10', 'SUMMER25'];
+    
+    if (validCodes.includes(code)) {
+        alert(`✓ Promo code "${code}" applied successfully!\n\nYou'll see the discount at checkout.`);
+        promoInput.value = code;
+        promoInput.style.borderColor = '#4CAF50';
+    } else {
+        alert('❌ Invalid promo code. Please try again.');
+        promoInput.style.borderColor = '#f44336';
+    }
+}
+
+// Search flights
+function searchFlights() {
+    console.log('Search flights clicked');
+    
+    const fromCity = document.getElementById('fromCity').value;
+    const toCity = document.getElementById('toCity').value;
+    const departureDate = document.getElementById('departureDate').value;
+    const returnDate = document.getElementById('returnDate').value;
+    const passengers = document.getElementById('passengers').value;
+    const cabinClass = document.getElementById('cabinClass').value;
+    const tripType = document.querySelector('input[name="tripType"]:checked').value;
+    
+    // Validation
+    if (!fromCity) {
+        alert('Please enter departure city');
+        document.getElementById('fromCity').focus();
+        return;
+    }
+    
+    if (!toCity) {
+        alert('Please enter destination city');
+        document.getElementById('toCity').focus();
+        return;
+    }
+    
+    if (!departureDate) {
+        alert('Please select departure date');
+        document.getElementById('departureDate').focus();
+        return;
+    }
+    
+    if (tripType === 'return' && !returnDate) {
+        alert('Please select return date');
+        document.getElementById('returnDate').focus();
+        return;
+    }
+    
+    // Validate return date is after departure
+    if (tripType === 'return' && new Date(returnDate) <= new Date(departureDate)) {
+        alert('Return date must be after departure date');
+        document.getElementById('returnDate').focus();
+        return;
+    }
+    
+    // Collect stopover info
+    const addStopover = document.getElementById('addStopover').checked;
+    let stopoverInfo = null;
+    
+    if (addStopover) {
+        const stopTime = document.querySelector('input[name="stopTime"]:checked').value;
+        const stopoverDays = document.getElementById('stopoverDays').value;
+        stopoverInfo = {
+            when: stopTime,
+            days: stopoverDays
+        };
+    }
+    
+    // Collect promo code
+    const promoCode = document.getElementById('promoCode').value;
+    
+    // Create booking data
+    const bookingData = {
+        from: fromCity,
+        to: toCity,
+        departure: departureDate,
+        return: returnDate,
+        passengers: passengers,
+        class: cabinClass,
+        tripType: tripType,
+        stopover: stopoverInfo,
+        promoCode: promoCode || null,
+        timestamp: new Date().toISOString()
+    };
+    
+    console.log('Flight search data:', bookingData);
+    
+    // In a real application, this would redirect to Qatar Airways booking page
+    // or open a booking modal. For now, show confirmation
+    
+    let message = `✈️ Flight Search Summary\n\n`;
+    message += `From: ${fromCity}\n`;
+    message += `To: ${toCity}\n`;
+    message += `Departure: ${departureDate}\n`;
+    if (tripType === 'return') {
+        message += `Return: ${returnDate}\n`;
+    }
+    message += `Passengers: ${passengers}\n`;
+    message += `Class: ${cabinClass}\n`;
+    
+    if (addStopover) {
+        message += `\n🏨 Stopover in Doha:\n`;
+        message += `  - ${stopoverInfo.days} day(s)\n`;
+        message += `  - ${stopoverInfo.when === 'departure' ? 'On the way there' : 'On the way back'}\n`;
+    }
+    
+    if (promoCode) {
+        message += `\n🎟️ Promo code: ${promoCode}\n`;
+    }
+    
+    message += `\n✓ Searching for available flights...\n`;
+    message += `You will be redirected to Qatar Airways booking system.`;
+    
+    alert(message);
+    
+    // In production, redirect to Qatar Airways with these parameters
+    // window.location.href = `https://www.qatarairways.com/booking?from=${fromCity}&to=${toCity}...`;
+}
