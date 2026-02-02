@@ -3204,3 +3204,1637 @@ input:checked + .slider:before {
         transform: rotate(90deg);
     }
 }
+
+/* Transportation Page Specific Styles */
+
+.transport-options-section {
+    padding: 80px 20px;
+    background: #fafafa;
+}
+
+.transport-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.transport-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+    cursor: pointer;
+    border-top: 4px solid transparent;
+}
+
+.transport-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    border-top-color: #8C1D40;
+}
+
+.transport-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.transport-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+}
+
+.transport-card p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.transport-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.detail-row strong {
+    color: #2c2c2c;
+}
+
+/* Metro Section */
+.metro-section {
+    padding: 80px 20px;
+    background: white;
+}
+
+.metro-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    justify-content: center;
+}
+
+.metro-icon {
+    font-size: 5rem;
+}
+
+.metro-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+.metro-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.metro-lines h3,
+.metro-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #2c2c2c;
+    margin-bottom: 2rem;
+}
+
+.line-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.line-card {
+    padding: 1.5rem;
+    border-left: 5px solid;
+    background: #fafafa;
+}
+
+.line-card.red-line {
+    border-left-color: #E3170A;
+}
+
+.line-card.green-line {
+    border-left-color: #00A878;
+}
+
+.line-card.gold-line {
+    border-left-color: #FFB81C;
+}
+
+.line-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.line-badge {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #2c2c2c;
+}
+
+.line-stations {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.line-card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.fare-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.fare-card {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f8f5f0;
+    border: 2px solid #e0e0e0;
+}
+
+.fare-card h4 {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.fare-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #8C1D40;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.fare-card p {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.metro-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.feature {
+    padding: 1rem;
+    background: #fafafa;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Taxi Services Section */
+.taxi-section {
+    padding: 80px 20px;
+    background: #f8f5f0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.service-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.service-logo {
+    font-size: 3rem;
+}
+
+.service-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #2c2c2c;
+}
+
+.service-type {
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.service-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.service-features li {
+    list-style: none;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #555;
+    line-height: 1.6;
+}
+
+.service-features li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #8C1D40;
+    font-weight: bold;
+}
+
+.service-pricing {
+    background: #fafafa;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.service-pricing strong {
+    display: block;
+    color: #2c2c2c;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.service-pricing span {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Bus Section */
+.bus-section {
+    padding: 80px 20px;
+    background: white;
+}
+
+.bus-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.bus-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+}
+
+.bus-info > p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.bus-features {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.bus-feature strong {
+    display: block;
+    color: #2c2c2c;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.bus-feature p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.bus-card {
+    background: #f8f5f0;
+    padding: 2rem;
+    border-left: 4px solid #8C1D40;
+}
+
+.bus-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #2c2c2c;
+    margin-bottom: 1.5rem;
+}
+
+.bus-card ol {
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+}
+
+.bus-card li {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+}
+
+/* Tram Section */
+.tram-section {
+    padding: 80px 20px;
+    background: #fafafa;
+}
+
+.tram-content {
+    margin-top: 3rem;
+}
+
+.tram-info {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.tram-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.tram-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+}
+
+.tram-info p {
+    max-width: 800px;
+    margin: 0 auto;
+    color: #666;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.tram-details {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.tram-stat {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.tram-stat strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #8C1D40;
+    margin-bottom: 0.5rem;
+}
+
+.tram-stat span {
+    color: #666;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tram-features {
+    background: white;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.tram-features p {
+    color: #555;
+    line-height: 1.7;
+}
+
+/* Cycling Section */
+.cycling-section {
+    padding: 80px 20px;
+    background: white;
+}
+
+.cycling-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.cycling-card {
+    background: #fafafa;
+    padding: 2.5rem;
+    border-top: 4px solid #8C1D40;
+}
+
+.cycling-icon {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.cycling-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+}
+
+.cycling-card p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.cycling-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.cycling-card li {
+    padding: 0.6rem 0;
+    padding-left: 1.5rem;
+    color: #555;
+    position: relative;
+}
+
+.cycling-card li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #8C1D40;
+    font-weight: bold;
+}
+
+.btn-secondary {
+    width: 100%;
+    padding: 1rem;
+    background: white;
+    color: #8C1D40;
+    border: 2px solid #8C1D40;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.btn-secondary:hover {
+    background: #8C1D40;
+    color: white;
+}
+
+/* Car Rental Section */
+.car-rental-section {
+    padding: 80px 20px;
+    background: #f8f5f0;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-top: -2rem;
+    margin-bottom: 3rem;
+}
+
+.rental-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.rental-card {
+    background: white;
+    padding: 2rem;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+
+.rental-card:hover {
+    transform: translateY(-5px);
+}
+
+.rental-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.rental-logo {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.rental-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #2c2c2c;
+}
+
+.rental-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.rental-info div {
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.rental-info strong {
+    color: #2c2c2c;
+}
+
+.rental-price {
+    text-align: center;
+    padding: 1.5rem;
+    background: #fafafa;
+    margin-bottom: 1rem;
+}
+
+.rental-price .price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #8C1D40;
+    font-weight: 600;
+}
+
+.rental-price small {
+    display: block;
+    color: #999;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+/* Tips Section */
+.tips-section {
+    padding: 80px 20px;
+    background: white;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.tip-card {
+    background: #fafafa;
+    padding: 2rem;
+    text-align: center;
+    border-top: 3px solid #8C1D40;
+}
+
+.tip-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.tip-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+}
+
+.tip-card p {
+    color: #666;
+    line-height: 1.7;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .metro-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .bus-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .tram-details {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .tram-features {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .metro-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .fare-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .metro-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .tram-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+/* STUNNING Hamad Airport Page Styles */
+
+/* Hero Section with Gradient Overlay */
+.airport-hero {
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #8C1D40 0%, #5C0E24 40%, #0C616F 100%);
+    overflow: hidden;
+    padding: 120px 20px 80px;
+}
+
+.hero-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(161, 40, 82, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(12, 97, 111, 0.3) 0%, transparent 50%);
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.03) 35px, rgba(255,255,255,0.03) 70px);
+}
+
+.hero-content-airport {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+.award-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: fadeInDown 1s ease;
+}
+
+.airport-hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+.airport-hero-subtitle {
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    opacity: 0.95;
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+.hero-stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    animation: fadeInUp 1s ease 0.6s both;
+}
+
+.hero-stat {
+    text-align: center;
+}
+
+.stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.9;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Quick Navigation Sticky Bar */
+.quick-navigation {
+    position: sticky;
+    top: 76px;
+    background: white;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    z-index: 99;
+    padding: 1rem 0;
+}
+
+.quick-navigation .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.quick-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    color: #2c2c2c;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.quick-link:hover {
+    background: linear-gradient(135deg, #f8f5f0 0%, #fafafa 100%);
+    color: #8C1D40;
+    transform: translateY(-3px);
+}
+
+.quick-icon {
+    font-size: 2rem;
+}
+
+.quick-link span:last-child {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Section Headers */
+.section-header-center {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-subtitle {
+    color: #666;
+    font-size: 1.15rem;
+    margin-top: 1rem;
+}
+
+/* Terminal Map Section */
+.map-section {
+    padding: 100px 20px;
+    background: linear-gradient(to bottom, #fafafa 0%, white 100%);
+}
+
+.terminal-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+}
+
+.terminal-tab {
+    padding: 1.2rem 2.5rem;
+    background: white;
+    border: 2px solid #e0e0e0;
+    color: #2c2c2c;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.terminal-tab:hover {
+    border-color: #8C1D40;
+    color: #8C1D40;
+    transform: translateY(-2px);
+}
+
+.terminal-tab.active {
+    background: linear-gradient(135deg, #8C1D40 0%, #A12852 100%);
+    border-color: #8C1D40;
+    color: white;
+    box-shadow: 0 4px 15px rgba(140, 29, 64, 0.3);
+}
+
+.terminal-map-display {
+    background: white;
+    padding: 4rem;
+    min-height: 500px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    margin-bottom: 3rem;
+}
+
+.map-area-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.map-facility {
+    padding: 2rem;
+    background: #f8f5f0;
+    border-left: 4px solid;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.map-facility:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.map-facility h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: #2c2c2c;
+}
+
+.map-facility p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.map-legend-box {
+    background: white;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border-radius: 8px;
+}
+
+.map-legend-box h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #2c2c2c;
+}
+
+.legend-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.color-box {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Duty Free Section */
+.duty-free-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #f8f5f0 0%, white 50%, #fafafa 100%);
+}
+
+.section-header-icon {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-icon-big {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.duty-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+}
+
+.duty-stat {
+    background: white;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border-top: 4px solid #8C1D40;
+    transition: all 0.3s ease;
+}
+
+.duty-stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.duty-stat strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #8C1D40;
+    margin-bottom: 0.5rem;
+}
+
+.duty-stat span {
+    color: #666;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.duty-free-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.duty-category {
+    background: white;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.duty-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #8C1D40, #A12852, #8C1D40);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.duty-category:hover::before {
+    transform: scaleX(1);
+}
+
+.duty-category:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+.category-icon {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.duty-category h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+}
+
+.duty-category p {
+    color: #666;
+    line-height: 1.7;
+}
+
+.luxury-brands {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.luxury-brands h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #2c2c2c;
+    margin-bottom: 2.5rem;
+}
+
+.brand-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.brand {
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #8C1D40 0%, #A12852 100%);
+    color: white;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(140, 29, 64, 0.2);
+}
+
+.brand:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 8px 25px rgba(140, 29, 64, 0.4);
+}
+
+/* Dining Section */
+.dining-section {
+    padding: 100px 20px;
+    background: white;
+}
+
+.dining-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.dining-card {
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.dining-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+}
+
+.dining-visual {
+    height: 220px;
+    background: linear-gradient(135deg, #8C1D40 0%, #0C616F 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.dining-visual::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.3) 100%);
+}
+
+.dining-info {
+    padding: 2rem;
+}
+
+.dining-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #2c2c2c;
+    margin-bottom: 0.5rem;
+}
+
+.cuisine-tag {
+    color: #8C1D40;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.dining-card p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.dining-meta {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/* Lounges Section */
+.lounges-section {
+    padding: 100px 20px;
+    background: #f8f5f0;
+}
+
+.lounges-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.lounge-card {
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.lounge-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.lounge-banner {
+    background: linear-gradient(135deg, #8C1D40 0%, #A12852 100%);
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.lounge-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.lounge-type {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.lounge-details {
+    padding: 2rem;
+}
+
+.lounge-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.lounge-details li {
+    padding: 1rem 0;
+    padding-left: 2rem;
+    position: relative;
+    color: #555;
+    border-bottom: 1px solid #f0f0f0;
+    line-height: 1.6;
+}
+
+.lounge-details li:last-child {
+    border-bottom: none;
+}
+
+.lounge-details li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #8C1D40;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+/* Activities Section */
+.activities-section {
+    padding: 100px 20px;
+    background: linear-gradient(to bottom, white 0%, #fafafa 100%);
+}
+
+.activities-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.showcase-card {
+    display: flex;
+    background: white;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.showcase-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+.showcase-bg {
+    flex: 0 0 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.showcase-emoji {
+    font-size: 6rem;
+    position: relative;
+    z-index: 2;
+}
+
+.showcase-content {
+    flex: 1;
+    padding: 2.5rem;
+}
+
+.showcase-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+}
+
+.showcase-card p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.showcase-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.showcase-features span {
+    padding: 0.5rem 1rem;
+    background: #f8f5f0;
+    color: #555;
+    font-size: 0.85rem;
+    border-radius: 20px;
+}
+
+/* Services Section */
+.services-section {
+    padding: 100px 20px;
+    background: white;
+}
+
+.services-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.service-box {
+    background: #fafafa;
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 3px solid #8C1D40;
+    transition: all 0.3s ease;
+}
+
+.service-box:hover {
+    background: white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.service-emoji {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.service-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+}
+
+.service-box p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Transportation Section */
+.transport-section {
+    padding: 100px 20px;
+    background: #f8f5f0;
+}
+
+.transport-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.transport-card-big {
+    background: white;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.transport-card-big:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.transport-emoji {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.transport-card-big h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #2c2c2c;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.transport-card-big > p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.transport-info {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.transport-info li {
+    padding: 0.8rem 0;
+    color: #555;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.transport-info li:last-child {
+    border-bottom: none;
+}
+
+/* Tips Section */
+.tips-section {
+    padding: 100px 20px;
+    background: white;
+}
+
+.tips-grid-special {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.tip-box {
+    background: linear-gradient(135deg, #8C1D40 0%, #5C0E24 100%);
+    color: white;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.tip-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+}
+
+.tip-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(140, 29, 64, 0.4);
+}
+
+.tip-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 700;
+    opacity: 0.2;
+    margin-bottom: 1rem;
+}
+
+.tip-box h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.tip-box p {
+    line-height: 1.7;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+}
+
+/* Contact Section */
+.contact-section-airport {
+    padding: 80px 20px;
+    background: #fafafa;
+}
+
+.contact-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2.5rem;
+}
+
+.contact-box {
+    background: white;
+    padding: 3rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.contact-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #2c2c2c;
+    margin-bottom: 2rem;
+}
+
+.contact-box p {
+    padding: 1rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #555;
+}
+
+.contact-box p:last-child {
+    border-bottom: none;
+}
+
+.contact-box a {
+    color: #8C1D40;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-box a:hover {
+    color: #6d1532;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .airport-hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-stats-row {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .duty-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .activities-showcase {
+        grid-template-columns: 1fr;
+    }
+    
+    .showcase-card {
+        flex-direction: column;
+    }
+    
+    .showcase-bg {
+        flex: 0 0 200px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .airport-hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .stat-value {
+        font-size: 2.5rem;
+    }
+    
+    .quick-navigation .container {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: start;
+    }
+    
+    .terminal-tabs {
+        flex-direction: column;
+    }
+    
+    .brand-carousel {
+        gap: 0.5rem;
+    }
+    
+    .brand {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}

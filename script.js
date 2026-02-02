@@ -1472,3 +1472,693 @@ function searchFlights() {
     // In production, redirect to Qatar Airways with these parameters
     // window.location.href = `https://www.qatarairways.com/booking?from=${fromCity}&to=${toCity}...`;
 }
+
+// Transportation Page JavaScript
+
+// Transportation options data
+const transportOptions = [
+    {
+        icon: "🚇",
+        name: "Doha Metro",
+        description: "State-of-the-art metro system with 3 lines connecting major areas",
+        details: {
+            "Fare": "QR 2 - 6",
+            "Operating Hours": "6:00 AM - 11:00 PM",
+            "Frequency": "Every 3-5 minutes"
+        }
+    },
+    {
+        icon: "🚕",
+        name: "Taxi Services",
+        description: "Reliable taxi services including Karwa, Uber, and Careem",
+        details: {
+            "Starting Fare": "QR 4 - 10",
+            "Availability": "24/7",
+            "Booking": "App or street hail"
+        }
+    },
+    {
+        icon: "🚌",
+        name: "Public Buses",
+        description: "Extensive bus network covering all areas of Doha",
+        details: {
+            "Fare": "QR 2 - 4",
+            "Routes": "100+ routes",
+            "Payment": "Karwa Smartcard or cash"
+        }
+    },
+    {
+        icon: "🚊",
+        name: "Lusail Tram",
+        description: "Modern tram system in Lusail City with 4 lines",
+        details: {
+            "Fare": "QR 2",
+            "Lines": "4 lines, 25 stations",
+            "Coverage": "19 km network"
+        }
+    },
+    {
+        icon: "🚴",
+        name: "Bike Sharing",
+        description: "NextBike stations across Doha for eco-friendly travel",
+        details: {
+            "Cost": "QR 10/hour",
+            "Stations": "100+ locations",
+            "Availability": "24/7"
+        }
+    },
+    {
+        icon: "🚗",
+        name: "Car Rental",
+        description: "Major car rental companies at competitive prices",
+        details: {
+            "Price": "From QR 80/day",
+            "Companies": "10+ providers",
+            "Requirements": "Valid license + ID"
+        }
+    }
+];
+
+// Taxi services data
+const taxiServices = [
+    {
+        logo: "🚖",
+        name: "Karwa Taxi",
+        type: "Official Taxi Service",
+        features: [
+            "Metered fares (starting QR 4)",
+            "Available 24/7 across Qatar",
+            "Booking via Karwa app",
+            "Airport pickup service",
+            "Wheelchair accessible vehicles"
+        ],
+        pricing: "Starting at QR 4 + QR 1.2 per km"
+    },
+    {
+        logo: "📱",
+        name: "Uber",
+        type: "Ride-Hailing App",
+        features: [
+            "Cashless payment via app",
+            "Real-time tracking",
+            "Multiple vehicle options (UberX, Comfort, XL)",
+            "Fare estimates before booking",
+            "24/7 availability"
+        ],
+        pricing: "Dynamic pricing (typically QR 10-15 start)"
+    },
+    {
+        logo: "🚗",
+        name: "Careem",
+        type: "Ride-Hailing App",
+        features: [
+            "Popular Middle East app",
+            "Multiple payment options",
+            "Economy to Business class",
+            "Schedule rides in advance",
+            "Ladies-only option (Careem Kids)"
+        ],
+        pricing: "From QR 8 + per km charges"
+    },
+    {
+        logo: "🏨",
+        name: "Hotel Transfers",
+        type: "Private Transfer Service",
+        features: [
+            "Pre-booked hotel pickups",
+            "Luxury vehicles available",
+            "Airport meet & greet",
+            "Fixed pricing (no surprises)",
+            "Professional chauffeurs"
+        ],
+        pricing: "From QR 150 (airport transfer)"
+    }
+];
+
+// Car rental companies data
+const carRentals = [
+    {
+        logo: "🚙",
+        name: "Budget",
+        priceFrom: 80,
+        features: {
+            "Car Types": "Economy to SUV",
+            "Locations": "Airport & city",
+            "Insurance": "Full coverage available"
+        }
+    },
+    {
+        logo: "🚗",
+        name: "Avis",
+        priceFrom: 90,
+        features: {
+            "Car Types": "Wide selection",
+            "Locations": "Multiple locations",
+            "Insurance": "CDW included"
+        }
+    },
+    {
+        logo: "🚕",
+        name: "Hertz",
+        priceFrom: 95,
+        features: {
+            "Car Types": "Economy to luxury",
+            "Locations": "Airport & hotels",
+            "Insurance": "Optional packages"
+        }
+    },
+    {
+        logo: "🏎️",
+        name: "Sixt",
+        priceFrom: 100,
+        features: {
+            "Car Types": "Premium fleet",
+            "Locations": "Airport & premium",
+            "Insurance": "Premium coverage"
+        }
+    },
+    {
+        logo: "🚐",
+        name: "Europcar",
+        priceFrom: 85,
+        features: {
+            "Car Types": "All categories",
+            "Locations": "Nationwide",
+            "Insurance": "Flexible options"
+        }
+    },
+    {
+        logo: "🔑",
+        name: "Thrifty",
+        priceFrom: 75,
+        features: {
+            "Car Types": "Budget-friendly",
+            "Locations": "Airport & city",
+            "Insurance": "Basic included"
+        }
+    }
+];
+
+// Initialize on page load
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('Transportation.js loaded successfully');
+    
+    displayTransportOptions();
+    displayTaxiServices();
+    displayCarRentals();
+});
+
+// Display transportation options
+function displayTransportOptions() {
+    const grid = document.getElementById('transportGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    transportOptions.forEach(option => {
+        const card = document.createElement('div');
+        card.className = 'transport-card';
+        
+        let detailsHTML = '';
+        for (const [key, value] of Object.entries(option.details)) {
+            detailsHTML += `
+                <div class="detail-row">
+                    <span>${key}:</span>
+                    <strong>${value}</strong>
+                </div>
+            `;
+        }
+        
+        card.innerHTML = `
+            <div class="transport-icon">${option.icon}</div>
+            <h3>${option.name}</h3>
+            <p>${option.description}</p>
+            <div class="transport-details">
+                ${detailsHTML}
+            </div>
+        `;
+        
+        grid.appendChild(card);
+    });
+}
+
+// Display taxi services
+function displayTaxiServices() {
+    const grid = document.getElementById('taxiGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    taxiServices.forEach(service => {
+        const card = document.createElement('div');
+        card.className = 'service-card';
+        card.innerHTML = `
+            <div class="service-header">
+                <div class="service-logo">${service.logo}</div>
+                <div>
+                    <h3>${service.name}</h3>
+                    <div class="service-type">${service.type}</div>
+                </div>
+            </div>
+            <ul class="service-features">
+                ${service.features.map(f => `<li>${f}</li>`).join('')}
+            </ul>
+            <div class="service-pricing">
+                <strong>Typical Pricing:</strong>
+                <span>${service.pricing}</span>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+// Display car rental options
+function displayCarRentals() {
+    const grid = document.getElementById('carRentalGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    carRentals.forEach(rental => {
+        const card = document.createElement('div');
+        card.className = 'rental-card';
+        
+        let featuresHTML = '';
+        for (const [key, value] of Object.entries(rental.features)) {
+            featuresHTML += `
+                <div>
+                    <span>${key}:</span>
+                    <strong>${value}</strong>
+                </div>
+            `;
+        }
+        
+        card.innerHTML = `
+            <div class="rental-header">
+                <div class="rental-logo">${rental.logo}</div>
+                <h3>${rental.name}</h3>
+            </div>
+            <div class="rental-info">
+                ${featuresHTML}
+            </div>
+            <div class="rental-price">
+                <div class="price">QR ${rental.priceFrom}</div>
+                <small>per day (starting price)</small>
+            </div>
+            <button class="btn-primary" onclick="bookRental('${rental.name}', ${rental.priceFrom})">Book Now</button>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+// Open cycling info (placeholder)
+function openCyclingInfo(type) {
+    let message = '';
+    
+    if (type === 'bike') {
+        message = `🚴 NextBike Qatar
+
+Download the NextBike app to:
+• Find nearest bike station
+• Unlock bikes with QR code
+• Pay via app (QR 10/hour or QR 50/month)
+• Return to any station
+
+Over 100 stations across:
+✓ Doha Corniche
+✓ The Pearl
+✓ Education City
+✓ Katara Cultural Village
+✓ MIA Park
+
+Download: Search "NextBike" in App Store or Google Play`;
+    } else if (type === 'scooter') {
+        message = `🛴 E-Scooter Services
+
+Available apps:
+• Lime - Green scooters
+• Tier - Orange scooters  
+• Careem - Integrated with ride app
+
+How to use:
+1. Download app
+2. Find nearby scooter on map
+3. Scan QR code to unlock
+4. Ride (max 20 km/h)
+5. Park responsibly & lock
+
+Cost: ~QR 2 unlock + QR 1/minute
+
+Areas: The Pearl, West Bay, Msheireb, Katara`;
+    } else if (type === 'walk') {
+        message = `🚶 Best Walking Routes in Qatar
+
+Popular pedestrian areas:
+• Doha Corniche (7 km waterfront)
+• MIA Park & surrounding area
+• The Pearl Marina walkways
+• Katara Cultural Village
+• Souq Waqif historic district
+• Education City campus paths
+• Aspire Park jogging trails
+
+Tips:
+✓ Walk early morning or evening (cooler)
+✓ Stay hydrated
+✓ Use covered walkways where available
+✓ Most areas have drinking fountains`;
+    }
+    
+    alert(message);
+}
+
+// Book rental (placeholder)
+function bookRental(company, price) {
+    const message = `🚗 Car Rental Booking
+
+Company: ${company}
+Starting Price: QR ${price} per day
+
+To book:
+1. Visit ${company}'s website or app
+2. Select dates and vehicle type
+3. Provide license and ID
+4. Choose insurance options
+5. Pick up at airport or city location
+
+Requirements:
+✓ Valid driving license (International or home country)
+✓ Passport or Qatar ID
+✓ Credit card for deposit
+✓ Minimum age: 21 years (varies by company)
+
+Would you like to proceed to ${company}'s booking page?`;
+    
+    const proceed = confirm(message);
+    if (proceed) {
+        // In production, this would redirect to the actual booking page
+        alert(`Redirecting to ${company} booking system...`);
+    }
+}
+
+
+
+// Hamad International Airport JavaScript
+
+// Terminal Map Data
+const terminalData = {
+    'concourse-a': [
+        { name: 'Gates A1-A10', type: 'gates', color: '#9C27B0', description: 'International departures to Europe & Americas' },
+        { name: 'Duty Free Luxury', type: 'shopping', color: '#8C1D40', description: 'Hermès, Gucci, Cartier, Dior' },
+        { name: 'Al Maha Lounge', type: 'lounge', color: '#FFB81C', description: 'Premium lounge with dining & showers' },
+        { name: 'Food Court', type: 'dining', color: '#0C616F', description: 'International cuisine & quick bites' },
+        { name: 'Prayer Room', type: 'services', color: '#4CAF50', description: 'Washing facilities available' },
+        { name: 'Pharmacy', type: 'services', color: '#4CAF50', description: '24/7 medical supplies' }
+    ],
+    'concourse-b': [
+        { name: 'Gates B1-B15', type: 'gates', color: '#9C27B0', description: 'Asia & Middle East flights' },
+        { name: 'Qatar Duty Free', type: 'shopping', color: '#8C1D40', description: 'Cosmetics, perfumes, chocolates' },
+        { name: 'Oryx Lounge', type: 'lounge', color: '#FFB81C', description: 'Business class lounge' },
+        { name: 'Nobu', type: 'dining', color: '#0C616F', description: 'Japanese fine dining' },
+        { name: 'Harrods Tea Room', type: 'dining', color: '#0C616F', description: 'British afternoon tea experience' },
+        { name: 'Kids Play Area', type: 'services', color: '#4CAF50', description: 'Supervised play zone' }
+    ],
+    'concourse-c': [
+        { name: 'Gates C1-C12', type: 'gates', color: '#9C27B0', description: 'Regional & domestic flights' },
+        { name: 'Fashion Avenue', type: 'shopping', color: '#8C1D40', description: 'Burberry, Prada, Coach' },
+        { name: 'Premium Lounge', type: 'lounge', color: '#FFB81C', description: 'First class amenities' },
+        { name: 'Bistro', type: 'dining', color: '#0C616F', description: 'French café & bakery' },
+        { name: 'Massage Center', type: 'services', color: '#4CAF50', description: 'Relaxation services' },
+        { name: 'Currency Exchange', type: 'services', color: '#4CAF50', description: 'Multiple currencies' }
+    ],
+    'concourse-d': [
+        { name: 'Gates D1-D20', type: 'gates', color: '#9C27B0', description: 'Major international carriers' },
+        { name: 'Watch Gallery', type: 'shopping', color: '#8C1D40', description: 'Rolex, Omega, Patek Philippe' },
+        { name: 'Al Mourjan Lounge', type: 'lounge', color: '#FFB81C', description: 'Qatar Airways flagship lounge' },
+        { name: 'Gordon Ramsay Plane Food', type: 'dining', color: '#0C616F', description: 'Celebrity chef cuisine' },
+        { name: 'Starbucks', type: 'dining', color: '#0C616F', description: 'Coffee & light refreshments' },
+        { name: 'Sleeping Pods', type: 'services', color: '#4CAF50', description: 'Hourly rental available' }
+    ],
+    'concourse-e': [
+        { name: 'Gates E1-E15', type: 'gates', color: '#9C27B0', description: 'African & South Asian routes' },
+        { name: 'Tech & Electronics', type: 'shopping', color: '#8C1D40', description: 'Latest gadgets & accessories' },
+        { name: 'Garden Lounge', type: 'lounge', color: '#FFB81C', description: 'Zen garden atmosphere' },
+        { name: 'Sushi Bar', type: 'dining', color: '#0C616F', description: 'Fresh Japanese cuisine' },
+        { name: 'Business Center', type: 'services', color: '#4CAF50', description: 'Printing, meeting rooms' },
+        { name: 'Wellness Center', type: 'services', color: '#4CAF50', description: 'Gym & spa facilities' }
+    ]
+};
+
+// Duty Free Categories
+const dutyFreeCategories = [
+    { icon: '💎', name: 'Luxury Fashion', description: 'Chanel, Hermès, Gucci, Dior, Louis Vuitton, Prada, Burberry' },
+    { icon: '⌚', name: 'Watches & Jewelry', description: 'Rolex, Cartier, Omega, Tiffany & Co., Bvlgari, Patek Philippe' },
+    { icon: '💄', name: 'Beauty & Cosmetics', description: 'La Mer, Dior, Chanel, MAC, Estée Lauder, SK-II' },
+    { icon: '🍫', name: 'Gourmet & Sweets', description: 'Premium chocolates, Qatari dates, honey, specialty teas' },
+    { icon: '🍾', name: 'Wines & Spirits', description: 'Fine wines, champagnes, rare whiskies, premium liquors' },
+    { icon: '🧳', name: 'Travel Essentials', description: 'Luggage, travel accessories, electronics, gadgets' },
+    { icon: '🎨', name: 'Art & Souvenirs', description: 'Local crafts, Arabic perfumes, traditional gifts' },
+    { icon: '👶', name: 'Kids & Toys', description: 'Educational toys, books, games, children\'s fashion' }
+];
+
+// Dining Options
+const diningOptions = [
+    { icon: '🍱', name: 'Nobu', cuisine: 'Japanese', description: 'World-renowned Japanese cuisine with Qatar flair', location: 'Concourse B', price: '$$$$' },
+    { icon: '🍔', name: 'Gordon Ramsay Plane Food', cuisine: 'British', description: 'Celebrity chef Gordon Ramsay\'s airport restaurant', location: 'Concourse D', price: '$$$' },
+    { icon: '☕', name: 'Harrods Tea Room', cuisine: 'British', description: 'Quintessential British afternoon tea experience', location: 'Concourse B', price: '$$$' },
+    { icon: '🍕', name: 'Jamie\'s Italian', cuisine: 'Italian', description: 'Jamie Oliver\'s famous Italian dishes', location: 'Concourse C', price: '$$' },
+    { icon: '☕', name: 'Starbucks', cuisine: 'Café', description: 'Your favorite coffee and pastries', location: 'Multiple', price: '$' },
+    { icon: '🥗', name: 'Evergreen Organics', cuisine: 'Healthy', description: 'Fresh organic salads and juices', location: 'Concourse A', price: '$$' },
+    { icon: '🍜', name: 'Wagamama', cuisine: 'Asian', description: 'Pan-Asian noodles and fresh dishes', location: 'Concourse E', price: '$$' },
+    { icon: '🥙', name: 'Arabian Delights', cuisine: 'Middle Eastern', description: 'Authentic Qatari and Lebanese cuisine', location: 'Concourse C', price: '$$' }
+];
+
+// Lounges
+const lounges = [
+    {
+        name: 'Al Mourjan Business Lounge',
+        class: 'Business & First Class',
+        features: ['Gourmet dining', 'Premium bar', 'Shower facilities', 'Quiet zones', 'Business center', 'Prayer rooms', 'Family area', 'Personal concierge'],
+        access: 'Qatar Airways Business/First, Oneworld Emerald/Sapphire'
+    },
+    {
+        name: 'Al Maha Lounge',
+        class: 'Premium',
+        features: ['Hot & cold buffet', 'Comfortable seating', 'Showers', 'WiFi', 'Newspapers & magazines', 'TV lounge', 'Children\'s area'],
+        access: 'Premium cabin passengers, Priority Pass members'
+    },
+    {
+        name: 'Oryx Lounge',
+        class: 'Business Class',
+        features: ['À la carte dining', 'Private sleeping rooms', 'Spa services', 'Meeting rooms', 'Entertainment area', 'Duty-free shopping'],
+        access: 'Business class, Gold frequent flyers'
+    },
+    {
+        name: 'Plaza Premium Lounge',
+        class: 'Pay-Per-Use',
+        features: ['Buffet service', 'Comfortable seating', 'WiFi', 'Showers', 'Business facilities', 'TV & entertainment'],
+        access: 'All passengers (QR 275 for 3 hours)'
+    }
+];
+
+// Services
+const services = [
+    { icon: '💱', name: 'Currency Exchange', description: 'Multiple exchange bureaus with competitive rates' },
+    { icon: '🏧', name: 'ATMs', description: 'Cash withdrawal machines throughout the airport' },
+    { icon: '🙏', name: 'Prayer Rooms', description: 'Multi-faith prayer rooms on every level' },
+    { icon: '🛏️', name: 'Sleep Pods', description: 'Private pods for rest (QR 55/hour)' },
+    { icon: '💆', name: 'Spa & Wellness', description: 'Massage, facials, and relaxation treatments' },
+    { icon: '🏊', name: 'Swimming Pool', description: 'Full-size pool with lounge area' },
+    { icon: '💼', name: 'Business Center', description: 'Meeting rooms, printing, secretarial services' },
+    { icon: '👨‍⚕️', name: 'Medical Center', description: '24/7 medical care and pharmacy' },
+    { icon: '🎮', name: 'Gaming Lounges', description: 'Free PlayStation and entertainment zones' },
+    { icon: '👶', name: 'Baby Care Rooms', description: 'Private nursing and changing facilities' },
+    { icon: '♿', name: 'Special Assistance', description: 'Wheelchair service and accessibility support' },
+    { icon: '📶', name: 'Free WiFi', description: 'High-speed internet throughout the airport' }
+];
+
+// Initialize page
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('Hamad Airport page loaded');
+    showTerminal('concourse-a');
+    loadDutyFreeCategories();
+    loadDiningOptions();
+    loadLounges();
+    loadServices();
+    setupTerminalTabs();
+});
+
+// Setup terminal tabs
+function setupTerminalTabs() {
+    const tabs = document.querySelectorAll('.terminal-tab');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            tabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            const terminal = this.getAttribute('data-terminal');
+            showTerminal(terminal);
+        });
+    });
+}
+
+// Show terminal map
+function showTerminal(terminal) {
+    const container = document.getElementById('terminalMapDisplay');
+    if (!container) return;
+    
+    const data = terminalData[terminal] || terminalData['concourse-a'];
+    
+    container.innerHTML = `
+        <div class="map-area-grid">
+            ${data.map(facility => `
+                <div class="map-facility" style="border-left-color: ${facility.color};">
+                    <h4>${facility.name}</h4>
+                    <p>${facility.description}</p>
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
+// Load duty free categories
+function loadDutyFreeCategories() {
+    const container = document.getElementById('dutyFreeCategories');
+    if (!container) return;
+    
+    container.innerHTML = dutyFreeCategories.map(category => `
+        <div class="duty-category">
+            <div class="category-icon">${category.icon}</div>
+            <h3>${category.name}</h3>
+            <p>${category.description}</p>
+        </div>
+    `).join('');
+}
+
+// Load dining options
+function loadDiningOptions() {
+    const container = document.getElementById('diningOptions');
+    if (!container) return;
+    
+    container.innerHTML = diningOptions.map(dining => `
+        <div class="dining-card">
+            <div class="dining-visual">
+                <span style="font-size: 5rem; position: relative; z-index: 3;">${dining.icon}</span>
+            </div>
+            <div class="dining-info">
+                <h3>${dining.name}</h3>
+                <div class="cuisine-tag">${dining.cuisine}</div>
+                <p>${dining.description}</p>
+                <div class="dining-meta">
+                    <span>📍 ${dining.location}</span>
+                    <span>💰 ${dining.price}</span>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Load lounges
+function loadLounges() {
+    const container = document.getElementById('loungesList');
+    if (!container) return;
+    
+    container.innerHTML = lounges.map(lounge => `
+        <div class="lounge-card">
+            <div class="lounge-banner">
+                <h3>${lounge.name}</h3>
+                <div class="lounge-type">${lounge.class}</div>
+            </div>
+            <div class="lounge-details">
+                <ul>
+                    ${lounge.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+                <p style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid #f0f0f0; color: #666;">
+                    <strong>Access:</strong> ${lounge.access}
+                </p>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Load services
+function loadServices() {
+    const container = document.getElementById('servicesFacilities');
+    if (!container) return;
+    
+    container.innerHTML = services.map(service => `
+        <div class="service-box">
+            <div class="service-emoji">${service.icon}</div>
+            <h3>${service.name}</h3>
+            <p>${service.description}</p>
+        </div>
+    `).join('');
+}
+
+// Helper functions for interactive features
+function showMetroInfo() {
+    alert(`🚇 Doha Metro to Airport
+
+Red Line - Airport Station
+
+Operating Hours:
+• Saturday - Thursday: 6:00 AM - 11:00 PM
+• Friday: 9:00 AM - 11:00 PM
+
+Fares:
+• Standard Class: QR 2
+• Gold Class: QR 6
+• Day Pass: QR 6 (unlimited)
+
+Journey Time to City Center: ~20 minutes
+
+Download the Doha Metro app for real-time updates!`);
+}
+
+function bookTaxi() {
+    const message = `🚕 Book Your Airport Taxi
+
+Available Services:
+1. Karwa Taxi (Official)
+   - Metered fares
+   - Airport pickup: Ground Level
+
+2. Uber
+   - Download app
+   - Track your driver
+
+3. Careem  
+   - Local favorite
+   - Multiple payment options
+
+Estimated Fare to City Center:
+QR 35-50 (~20 minutes)
+
+Pickup Location:
+Ground Level - Arrivals Hall
+
+Would you like to proceed with booking?`;
+    
+    if (confirm(message)) {
+        alert('Opening taxi booking options...');
+    }
+}
+
+function showBusRoutes() {
+    alert(`🚌 Mowasalat Airport Buses
+
+Routes Available:
+• Route 747: Airport → City Center → The Pearl
+• Route 777: Airport → West Bay → Doha Festival City
+• Route 757: Airport → Souq Waqif → Msheireb
+
+Operating Hours: 5:00 AM - 12:00 AM
+
+Fare: QR 4 (exact change or Karwa Smartcard)
+
+Frequency: Every 20-30 minutes
+
+Bus Stop Location:
+Ground Level - Outside Arrivals Hall
+
+Download Mowasalat app for live tracking!`);
+}
