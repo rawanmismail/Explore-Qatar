@@ -2162,3 +2162,460 @@ Ground Level - Outside Arrivals Hall
 
 Download Mowasalat app for live tracking!`);
 }
+
+// Tour Operators Database
+
+const tours = [
+    {
+        id: 1,
+        name: "Desert Safari with Dune Bashing",
+        operator: "Qatar Desert Adventures",
+        type: "Desert Safari",
+        duration: "half-day",
+        groupSize: "Small group (up to 6)",
+        rating: 5,
+        price: 350,
+        icon: "🏜️",
+        image: "linear-gradient(135deg, #8C1D40 0%, #D4A574 100%)",
+        description: "Experience the thrill of dune bashing in the Qatari desert, followed by camel riding and traditional Arabic entertainment",
+        highlights: ["4x4 dune bashing", "Camel riding", "Sandboarding", "Desert sunset", "Traditional BBQ dinner"],
+        includes: ["Hotel pickup & drop-off", "Professional 4x4 driver", "All activities", "Refreshments & dinner", "Insurance"],
+        language: "English, Arabic",
+        bestFor: "Adventure seekers"
+    },
+    {
+        id: 2,
+        name: "Doha City Tour - Full Day",
+        operator: "Discover Qatar Tours",
+        type: "City Tour",
+        duration: "full-day",
+        groupSize: "Medium group (up to 15)",
+        rating: 5,
+        price: 280,
+        icon: "🏛️",
+        image: "linear-gradient(135deg, #0C616F 0%, #8C1D40 100%)",
+        description: "Comprehensive tour of Doha's iconic landmarks including Museum of Islamic Art, Souq Waqif, The Pearl, and Katara",
+        highlights: ["Museum of Islamic Art", "Souq Waqif", "The Pearl Qatar", "Katara Cultural Village", "West Bay skyline"],
+        includes: ["Air-conditioned bus", "Professional guide", "Museum entry fees", "Lunch at local restaurant", "Bottled water"],
+        language: "English, French, Spanish",
+        bestFor: "First-time visitors"
+    },
+    {
+        id: 3,
+        name: "Inland Sea (Khor Al Adaid) Adventure",
+        operator: "Qatar Expedition",
+        type: "Adventure",
+        duration: "full-day",
+        groupSize: "Private or small group",
+        rating: 5,
+        price: 550,
+        icon: "🌊",
+        image: "linear-gradient(135deg, #A12852 0%, #0C616F 100%)",
+        description: "Journey to the UNESCO-recognized Inland Sea, where the desert meets the sea in spectacular fashion",
+        highlights: ["Inland Sea visit", "Extreme dune bashing", "Swimming opportunity", "Desert wildlife spotting", "Scenic photography"],
+        includes: ["Private 4x4 vehicle", "Expert driver-guide", "Picnic lunch", "Swimming gear", "Fuel & permits"],
+        language: "English, Arabic",
+        bestFor: "Nature lovers"
+    },
+    {
+        id: 4,
+        name: "Dhow Cruise with Dinner",
+        operator: "Arabian Dhow Cruises",
+        type: "Cultural",
+        duration: "half-day",
+        groupSize: "Large group (up to 50)",
+        rating: 4,
+        price: 220,
+        icon: "⛵",
+        image: "linear-gradient(135deg, #8C1D40 0%, #0C616F 100%)",
+        description: "Sail along Doha's stunning coastline aboard a traditional wooden dhow while enjoying a delicious buffet dinner",
+        highlights: ["Traditional dhow boat", "Doha skyline views", "International buffet", "Live entertainment", "Sunset cruise"],
+        includes: ["Dhow cruise", "Buffet dinner", "Soft drinks", "Hotel pickup", "Traditional music"],
+        language: "English, Arabic, Hindi",
+        bestFor: "Families & couples"
+    },
+    {
+        id: 5,
+        name: "Kayaking at Al Thakira Mangroves",
+        operator: "Qatar Eco Adventures",
+        type: "Water Sports",
+        duration: "half-day",
+        groupSize: "Small group (up to 8)",
+        rating: 5,
+        price: 180,
+        icon: "🛶",
+        image: "linear-gradient(135deg, #4CAF50 0%, #0C616F 100%)",
+        description: "Paddle through the serene mangrove forests of Al Thakira, spotting herons, crabs, and unique coastal wildlife",
+        highlights: ["Mangrove exploration", "Wildlife spotting", "Professional kayak guide", "Eco-friendly tour", "Photography spots"],
+        includes: ["Kayak & equipment", "Safety gear & briefing", "Expert guide", "Snacks & water", "Transportation"],
+        language: "English",
+        bestFor: "Nature & eco tourists"
+    },
+    {
+        id: 6,
+        name: "Private Cultural Heritage Tour",
+        operator: "Heritage Qatar",
+        type: "Private Tour",
+        duration: "full-day",
+        groupSize: "Private (1-7 people)",
+        rating: 5,
+        price: 800,
+        icon: "🕌",
+        image: "linear-gradient(135deg, #8C1D40 0%, #A12852 100%)",
+        description: "Exclusive private tour exploring Qatar's rich heritage including Al Zubarah Fort, Sheikh Faisal Museum, and traditional villages",
+        highlights: ["Al Zubarah Fort (UNESCO)", "Sheikh Faisal Museum", "Traditional villages", "Film City", "Flexible itinerary"],
+        includes: ["Private luxury vehicle", "Personal guide", "All entrance fees", "Gourmet lunch", "Customizable stops"],
+        language: "English, Arabic, German",
+        bestFor: "History enthusiasts"
+    },
+    {
+        id: 7,
+        name: "Jet Ski Adventure",
+        operator: "Qatar Water Sports",
+        type: "Water Sports",
+        duration: "half-day",
+        groupSize: "Small group (up to 6)",
+        rating: 4,
+        price: 320,
+        icon: "🏍️",
+        image: "linear-gradient(135deg, #0C616F 0%, #FFB81C 100%)",
+        description: "High-speed jet skiing along Qatar's pristine coastline with professional instructors and equipment",
+        highlights: ["Jet ski rental", "Coastal tour", "Safety briefing", "Professional guides", "Stunning views"],
+        includes: ["Jet ski & fuel", "Safety equipment", "Professional instructor", "Locker facilities", "Insurance"],
+        language: "English, Arabic",
+        bestFor: "Thrill seekers"
+    },
+    {
+        id: 8,
+        name: "Falcon Training Experience",
+        operator: "Souq Waqif Falcon Hospital",
+        type: "Cultural",
+        duration: "half-day",
+        groupSize: "Small group (up to 10)",
+        rating: 5,
+        price: 250,
+        icon: "🦅",
+        image: "linear-gradient(135deg, #A12852 0%, #8C1D40 100%)",
+        description: "Learn about Qatar's ancient falconry traditions with hands-on experience and visit to the famous Falcon Hospital",
+        highlights: ["Falcon Hospital tour", "Handle a falcon", "Learn falconry history", "Traditional dress photo", "Educational talk"],
+        includes: ["Hospital entry", "Expert falconer guide", "Falcon handling session", "Refreshments", "Certificate"],
+        language: "English, Arabic",
+        bestFor: "Culture & wildlife lovers"
+    },
+    {
+        id: 9,
+        name: "Al Wakrah Coastal Tour",
+        operator: "Coastal Qatar Tours",
+        type: "City Tour",
+        duration: "half-day",
+        groupSize: "Medium group (up to 12)",
+        rating: 4,
+        price: 150,
+        icon: "🏖️",
+        image: "linear-gradient(135deg, #0C616F 0%, #8C1D40 100%)",
+        description: "Explore the charming coastal town of Al Wakrah with its traditional souq, beach, and restored heritage buildings",
+        highlights: ["Al Wakrah Souq", "Coastal walk", "Traditional architecture", "Heritage museum", "Local cafés"],
+        includes: ["Transportation", "Professional guide", "Museum entry", "Light refreshments", "Photo stops"],
+        language: "English, Arabic",
+        bestFor: "Photography & culture"
+    },
+    {
+        id: 10,
+        name: "Overnight Desert Camping",
+        operator: "Qatar Desert Adventures",
+        type: "Desert Safari",
+        duration: "multi-day",
+        groupSize: "Small group (up to 8)",
+        rating: 5,
+        price: 650,
+        icon: "⛺",
+        image: "linear-gradient(135deg, #8C1D40 0%, #D4A574 100%)",
+        description: "Spend a night under the stars in traditional Bedouin-style camps with BBQ dinner, campfire, and sunrise dune bashing",
+        highlights: ["Overnight camping", "Bedouin tent stay", "BBQ dinner & breakfast", "Stargazing", "Sunrise dune bashing"],
+        includes: ["All meals", "Camping equipment", "Entertainment", "4x4 transport", "Professional guides"],
+        language: "English, Arabic",
+        bestFor: "Adventure & romance"
+    },
+    {
+        id: 11,
+        name: "Food & Culture Walking Tour",
+        operator: "Taste of Qatar",
+        type: "Cultural",
+        duration: "half-day",
+        groupSize: "Small group (up to 10)",
+        rating: 5,
+        price: 280,
+        icon: "🍽️",
+        image: "linear-gradient(135deg, #A12852 0%, #8C1D40 100%)",
+        description: "Guided walking tour through Souq Waqif sampling traditional Qatari cuisine and learning about local food culture",
+        highlights: ["Souq Waqif exploration", "10+ food tastings", "Spice market visit", "Traditional cooking demo", "Tea ceremony"],
+        includes: ["Expert food guide", "All food samples", "Market tour", "Recipe cards", "Drinks"],
+        language: "English",
+        bestFor: "Food lovers"
+    },
+    {
+        id: 12,
+        name: "Banana Island Resort Day Pass",
+        operator: "Banana Island by Anantara",
+        type: "Private Tour",
+        duration: "full-day",
+        groupSize: "Individual or family",
+        rating: 5,
+        price: 450,
+        icon: "🏝️",
+        image: "linear-gradient(135deg, #4CAF50 0%, #0C616F 100%)",
+        description: "Luxury day trip to exclusive Banana Island Resort with beach access, water sports, and gourmet dining",
+        highlights: ["Ferry transfer", "Private beach", "Pool access", "Water sports", "Resort facilities", "Lunch buffet"],
+        includes: ["Round-trip ferry", "Beach & pool access", "Buffet lunch", "Towels & lockers", "Water sports equipment"],
+        language: "English, Arabic, Multiple",
+        bestFor: "Luxury seekers"
+    }
+];
+
+let filteredTours = [...tours];
+let currentTour = null;
+
+// Initialize on page load
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('Tours.js loaded successfully');
+    console.log('Tours database has', tours.length, 'tours');
+    
+    // Set minimum date to today
+    const today = new Date().toISOString().split('T')[0];
+    const tourDateInput = document.getElementById('tourDate');
+    const bookingDateInput = document.getElementById('bookingDate');
+    
+    if (tourDateInput) tourDateInput.min = today;
+    if (bookingDateInput) bookingDateInput.min = today;
+    
+    // Display all tours initially
+    displayTours(tours);
+    
+    // Update pricing when participants change
+    const numParticipantsInput = document.getElementById('numParticipants');
+    if (numParticipantsInput) {
+        numParticipantsInput.addEventListener('change', updatePricing);
+    }
+});
+
+// Display tours in grid
+function displayTours(toursToDisplay) {
+    const grid = document.getElementById('toursGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    if (toursToDisplay.length === 0) {
+        grid.innerHTML = '<p style="text-align: center; color: #666; padding: 3rem; grid-column: 1/-1;">No tours found matching your criteria. Please adjust your filters.</p>';
+        return;
+    }
+    
+    toursToDisplay.forEach(tour => {
+        const card = document.createElement('div');
+        card.className = 'tour-card';
+        card.onclick = () => openBookingModal(tour.id);
+        
+        card.innerHTML = `
+            <div class="tour-card-image" style="background: ${tour.image};">
+                <span style="font-size: 6rem;">${tour.icon}</span>
+                <div class="tour-badge">${tour.type}</div>
+            </div>
+            <div class="tour-card-content">
+                <div class="tour-card-header">
+                    <h3>${tour.name}</h3>
+                    <p class="tour-operator">by ${tour.operator}</p>
+                </div>
+                <div class="tour-meta">
+                    <span class="tour-rating">${'⭐'.repeat(tour.rating)}</span>
+                    <span class="tour-type">${tour.duration.replace('-', ' ')}</span>
+                </div>
+                <p class="tour-description">${tour.description}</p>
+                <div class="tour-highlights">
+                    ${tour.highlights.slice(0, 3).map(h => `<span class="highlight-item">${h}</span>`).join('')}
+                </div>
+                <div class="tour-card-footer">
+                    <div class="tour-price">
+                        <span class="price-label">From</span>
+                        <span class="price-amount">QR ${tour.price}</span>
+                        <span class="price-period">per person</span>
+                    </div>
+                    <button class="btn-book-tour" onclick="event.stopPropagation(); openBookingModal(${tour.id})">Book Now</button>
+                </div>
+            </div>
+        `;
+        
+        grid.appendChild(card);
+    });
+}
+
+// Search tours
+function searchTours() {
+    console.log('Search tours clicked');
+    
+    const typeFilter = document.getElementById('typeFilter').value;
+    const durationFilter = document.getElementById('durationFilter').value;
+    const priceFilter = document.getElementById('priceFilter').value;
+    
+    let filtered = [...tours];
+    
+    // Filter by type
+    if (typeFilter !== 'all') {
+        filtered = filtered.filter(t => t.type === typeFilter);
+    }
+    
+    // Filter by duration
+    if (durationFilter !== 'all') {
+        filtered = filtered.filter(t => t.duration === durationFilter);
+    }
+    
+    // Filter by price range
+    if (priceFilter !== 'all') {
+        if (priceFilter === 'budget') {
+            filtered = filtered.filter(t => t.price < 200);
+        } else if (priceFilter === 'mid') {
+            filtered = filtered.filter(t => t.price >= 200 && t.price <= 500);
+        } else if (priceFilter === 'premium') {
+            filtered = filtered.filter(t => t.price > 500);
+        }
+    }
+    
+    filteredTours = filtered;
+    displayTours(filteredTours);
+    
+    // Scroll to results
+    document.querySelector('.tours-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Sort tours
+function sortTours() {
+    const sortBy = document.getElementById('sortBy').value;
+    let sorted = [...filteredTours];
+    
+    if (sortBy === 'price-low') {
+        sorted.sort((a, b) => a.price - b.price);
+    } else if (sortBy === 'price-high') {
+        sorted.sort((a, b) => b.price - a.price);
+    } else if (sortBy === 'rating') {
+        sorted.sort((a, b) => b.rating - a.rating);
+    }
+    // 'featured' keeps the original order
+    
+    displayTours(sorted);
+}
+
+// Open booking modal
+function openBookingModal(tourId) {
+    const tour = tours.find(t => t.id === tourId);
+    if (!tour) return;
+    
+    currentTour = tour;
+    
+    // Populate tour information
+    document.getElementById('modalTourImage').innerHTML = `<span style="font-size: 6rem;">${tour.icon}</span>`;
+    document.getElementById('modalTourImage').style.background = tour.image;
+    document.getElementById('modalTourName').textContent = tour.name;
+    document.getElementById('modalOperator').textContent = `by ${tour.operator}`;
+    document.getElementById('modalRating').textContent = '⭐'.repeat(tour.rating);
+    document.getElementById('modalType').textContent = tour.type;
+    document.getElementById('modalDescription').textContent = tour.description;
+    
+    // Populate includes
+    const includesList = document.getElementById('modalIncludes');
+    includesList.innerHTML = `
+        <h4>Tour Includes</h4>
+        <ul>
+            ${tour.includes.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+    `;
+    
+    // Update booking summary
+    document.getElementById('summaryDuration').textContent = tour.duration.replace('-', ' ');
+    document.getElementById('summaryGroupSize').textContent = tour.groupSize;
+    document.getElementById('summaryLanguage').textContent = tour.language;
+    
+    // Set initial pricing
+    updatePricing();
+    
+    // Show modal
+    document.getElementById('bookingModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+// Close booking modal
+function closeBookingModal() {
+    document.getElementById('bookingModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+    document.getElementById('bookingForm').reset();
+}
+
+// Update pricing
+function updatePricing() {
+    if (!currentTour) return;
+    
+    const numParticipants = parseInt(document.getElementById('numParticipants').value) || 2;
+    const pricePerPerson = currentTour.price;
+    const subtotal = pricePerPerson * numParticipants;
+    const total = subtotal;
+    
+    document.getElementById('pricePerPerson').textContent = `QR ${pricePerPerson}`;
+    document.getElementById('numPax').textContent = numParticipants;
+    document.getElementById('subtotal').textContent = `QR ${subtotal}`;
+    document.getElementById('total').textContent = `QR ${total}`;
+}
+
+// Submit booking
+function submitBooking(event) {
+    event.preventDefault();
+    
+    if (!currentTour) return;
+    
+    const name = document.getElementById('guestName').value;
+    const email = document.getElementById('guestEmail').value;
+    const phone = document.getElementById('guestPhone').value;
+    const date = document.getElementById('bookingDate').value;
+    const participants = document.getElementById('numParticipants').value;
+    const pickup = document.getElementById('pickupLocation').value;
+    const requests = document.getElementById('specialRequests').value;
+    const total = document.getElementById('total').textContent;
+    
+    // Validate
+    if (!name || !email || !date || !participants) {
+        alert('Please fill in all required fields');
+        return;
+    }
+    
+    // Create booking data
+    const bookingData = {
+        tour: currentTour.name,
+        operator: currentTour.operator,
+        guestName: name,
+        email: email,
+        phone: phone,
+        date: date,
+        participants: participants,
+        pickupLocation: pickup,
+        specialRequests: requests,
+        total: total,
+        bookingDate: new Date().toISOString()
+    };
+    
+    // Log booking data (in real app, this would be sent to server)
+    console.log('Booking submitted:', bookingData);
+    
+    // Show success message
+    alert(`✓ Booking Request Submitted!
+
+Tour: ${currentTour.name}
+Operator: ${currentTour.operator}
+Guest: ${name}
+Date: ${date}
+Participants: ${participants}
+Total: ${total}
+
+A confirmation email will be sent to ${email}
+
+The tour operator will contact you within 24 hours to confirm your booking and arrange pickup details.`);
+    
+    // Close modal and reset
+    closeBookingModal();
+}
