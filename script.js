@@ -2619,3 +2619,617 @@ The tour operator will contact you within 24 hours to confirm your booking and a
     // Close modal and reset
     closeBookingModal();
 }
+
+
+// Safety Information Database
+
+const safetyInfo = [
+    // EMERGENCY SERVICES
+    {
+        id: 1,
+        title: "Emergency Numbers - Police, Fire, Ambulance",
+        category: "emergency",
+        priority: "critical",
+        icon: "🚨",
+        description: "Qatar has a unified emergency number 999 for police, fire, and ambulance services. English-speaking operators available 24/7.",
+        tips: [
+            "Dial 999 for all emergencies",
+            "English operators available",
+            "Stay calm and provide clear location",
+            "Keep your phone charged",
+            "Save your hotel address in Arabic"
+        ],
+        contact: {
+            primary: "999 - All Emergencies",
+            secondary: "+974 4439 2222 - Hamad Hospital"
+        },
+        procedure: "When calling 999: State your emergency clearly, provide your exact location, follow operator instructions, stay on the line until help arrives.",
+        resources: "Emergency services in Qatar are highly efficient with average response times of 10-15 minutes in urban areas."
+    },
+    {
+        id: 2,
+        title: "Medical Services & Hospitals",
+        category: "health",
+        priority: "critical",
+        icon: "🏥",
+        description: "Qatar has world-class medical facilities. Hamad Medical Corporation operates main hospitals with 24/7 emergency services.",
+        tips: [
+            "Hamad Hospital - Main emergency center",
+            "Sidra Medicine - Women & children",
+            "Multiple private hospitals available",
+            "Pharmacies widely available",
+            "Medical insurance recommended"
+        ],
+        contact: {
+            primary: "4439 2222 - Hamad Hospital ER",
+            secondary: "16000 - Medical Hotline (non-emergency)"
+        },
+        procedure: "For medical emergencies: Call 999 for ambulance. For non-emergencies: Visit hospital ER or call 16000 for advice. Most hospitals accept international insurance.",
+        resources: "English-speaking doctors available at all major hospitals. Many doctors trained in UK, US, and Canada."
+    },
+    {
+        id: 3,
+        title: "Tourist Police & Assistance",
+        category: "security",
+        priority: "important",
+        icon: "👮",
+        description: "Qatar has dedicated tourist police trained to assist visitors in multiple languages throughout major tourist areas.",
+        tips: [
+            "Tourist police wear distinctive uniforms",
+            "Available at major tourist sites",
+            "Multilingual assistance",
+            "Can help with directions & info",
+            "Report crimes or lost items"
+        ],
+        contact: {
+            primary: "999 - Emergency",
+            secondary: "4439 2222 - Non-emergency police line"
+        },
+        procedure: "Tourist police patrol Souq Waqif, Corniche, The Pearl, museums, and shopping malls. They can assist with language barriers and provide directions.",
+        resources: "Tourist police speak English, Arabic, Hindi, Urdu, and other languages. They're approachable and helpful."
+    },
+    
+    // HEALTH & MEDICAL
+    {
+        id: 4,
+        title: "Travel Insurance & Healthcare Costs",
+        category: "health",
+        priority: "important",
+        icon: "💊",
+        description: "While Qatar has excellent healthcare, costs can be high for visitors. Travel insurance strongly recommended.",
+        tips: [
+            "Get comprehensive travel insurance",
+            "Emergency care available to all",
+            "Private hospitals are expensive",
+            "Keep insurance documents handy",
+            "Many hotels have medical services"
+        ],
+        contact: {
+            primary: "Check with your insurance provider",
+            secondary: "Your embassy can assist"
+        },
+        procedure: "Emergency treatment is provided regardless of ability to pay. However, you'll be billed later. Insurance covers most costs.",
+        resources: "Average ER visit: QR 500-1000. Specialist consultation: QR 300-600. Private room: QR 1000+/night."
+    },
+    {
+        id: 5,
+        title: "Heat Safety & Hydration",
+        category: "environment",
+        priority: "critical",
+        icon: "☀️",
+        description: "Qatar's summer temperatures can exceed 45°C (113°F). Heat exhaustion and dehydration are serious risks for unprepared visitors.",
+        tips: [
+            "Drink 3-4 liters of water daily",
+            "Avoid midday sun (11 AM - 3 PM)",
+            "Wear lightweight, light-colored clothes",
+            "Use high SPF sunscreen",
+            "Stay in air-conditioned areas"
+        ],
+        contact: {
+            primary: "999 if experiencing heat stroke symptoms",
+            secondary: "16000 for heat-related health advice"
+        },
+        procedure: "Signs of heat stroke: confusion, rapid heartbeat, hot dry skin, headache. Move to shade/AC immediately, drink water, call 999 if severe.",
+        resources: "Peak summer (June-August) can be dangerous. Most activities move indoors. Drink water even if not thirsty."
+    },
+    {
+        id: 6,
+        title: "COVID-19 & Health Regulations",
+        category: "health",
+        priority: "important",
+        icon: "😷",
+        description: "Qatar maintains health protocols. Check current requirements before travel as regulations may change.",
+        tips: [
+            "Check latest entry requirements",
+            "Health declaration may be required",
+            "PCR tests available at airports",
+            "Follow local health guidelines",
+            "Pharmacies stock medical supplies"
+        ],
+        contact: {
+            primary: "16000 - COVID Hotline",
+            secondary: "Ministry of Public Health website"
+        },
+        procedure: "Download Ehteraz app if required. Carry hand sanitizer. Follow posted guidelines in public spaces.",
+        resources: "Qatar has excellent testing facilities. Results usually within 24 hours. Many testing centers across Doha."
+    },
+    
+    // SECURITY & CRIME
+    {
+        id: 7,
+        title: "Crime Rate & Personal Safety",
+        category: "security",
+        priority: "general",
+        icon: "🔒",
+        description: "Qatar has one of the world's lowest crime rates. Violent crime is extremely rare. Petty theft is uncommon but be vigilant.",
+        tips: [
+            "Qatar is very safe day and night",
+            "Violent crime extremely rare",
+            "Petty theft uncommon",
+            "Use hotel safes for valuables",
+            "Be aware in crowded areas"
+        ],
+        contact: {
+            primary: "999 - To report crime",
+            secondary: "Your embassy for assistance"
+        },
+        procedure: "If victim of crime: Call 999, get police report (required for insurance), contact your embassy if passport stolen.",
+        resources: "Qatar consistently ranks as one of the safest countries globally. Women can travel alone safely. Streets well-lit and monitored."
+    },
+    {
+        id: 8,
+        title: "Scams & Tourist Traps",
+        category: "security",
+        priority: "general",
+        icon: "⚠️",
+        description: "Tourist scams are rare in Qatar. However, be aware of inflated taxi fares and unauthorized tour guides.",
+        tips: [
+            "Use official Karwa taxis or apps",
+            "Agree on prices before services",
+            "Licensed tour guides only",
+            "Souq bargaining is normal",
+            "Credit card fraud is rare"
+        ],
+        contact: {
+            primary: "Consumer Protection: 8008080",
+            secondary: "Tourist Police: 999"
+        },
+        procedure: "If overcharged: Get receipt, note taxi number/business name, report to Consumer Protection. Keep credit card in sight during transactions.",
+        resources: "Qatar's economy is strong - aggressive scamming rare. Most businesses are honest. Tourist areas generally safe."
+    },
+    {
+        id: 9,
+        title: "Lost or Stolen Items",
+        category: "security",
+        priority: "important",
+        icon: "📱",
+        description: "Report lost/stolen items immediately. Qatar has excellent recovery rates for lost property.",
+        tips: [
+            "Report to police immediately",
+            "Get police report for insurance",
+            "Contact your embassy if passport lost",
+            "Cancel cards immediately",
+            "Check lost & found offices"
+        ],
+        contact: {
+            primary: "999 - Police",
+            secondary: "4010 6109 - Airport Lost & Found"
+        },
+        procedure: "Lost passport: Police report → Embassy → Temporary travel document. Lost cards: Call bank immediately. Keep copies of documents separately.",
+        resources: "Hotels, malls, and airports have lost & found. Many items returned within days. Qataris are generally honest and helpful."
+    },
+    
+    // TRAVEL SAFETY
+    {
+        id: 10,
+        title: "Road Safety & Driving",
+        category: "travel",
+        priority: "important",
+        icon: "🚗",
+        description: "Qatar has modern roads but aggressive driving is common. Traffic accidents are a leading safety concern.",
+        tips: [
+            "Seatbelts mandatory for all",
+            "Zero tolerance for drunk driving",
+            "Speed cameras everywhere",
+            "Drive defensively",
+            "Parking strictly enforced"
+        ],
+        contact: {
+            primary: "999 - Traffic accidents",
+            secondary: "4488 8888 - Traffic violations"
+        },
+        procedure: "In accident: Don't move vehicles, call 999, exchange info, get police report. Never admit fault. Wait for police.",
+        resources: "International licenses accepted. Driving on the right. Penalties are steep. Always have insurance and registration."
+    },
+    {
+        id: 11,
+        title: "Desert Safety",
+        category: "travel",
+        priority: "critical",
+        icon: "🏜️",
+        description: "Desert can be dangerous. Never venture out alone. Use reputable tour operators for desert activities.",
+        tips: [
+            "Never go alone into desert",
+            "Use professional tour operators",
+            "Carry extra water (5L per person)",
+            "Fully charged phone + power bank",
+            "Tell someone your plans"
+        ],
+        contact: {
+            primary: "999 - Desert rescue",
+            secondary: "Tour operator emergency line"
+        },
+        procedure: "If lost: Stay with vehicle, don't wander. Use phone GPS. Call 999. Stay in shade. Conserve water. Wait for rescue.",
+        resources: "Desert temperatures extreme. No cellular coverage in remote areas. GPS essential. Professional guides know safe routes."
+    },
+    {
+        id: 12,
+        title: "Water Safety & Swimming",
+        category: "travel",
+        priority: "important",
+        icon: "🏊",
+        description: "Beaches and pools are safe but follow guidelines. Strong currents possible at some beaches.",
+        tips: [
+            "Swim at designated beaches only",
+            "Follow lifeguard instructions",
+            "No swimming during red flag",
+            "Beware of jellyfish (seasonal)",
+            "Children must be supervised"
+        ],
+        contact: {
+            primary: "999 - Water emergency",
+            secondary: "Beach lifeguards on duty"
+        },
+        procedure: "Drowning emergency: Call 999 immediately. Most beaches have lifeguards. Hotels have pool safety staff.",
+        resources: "Public beaches: Katara Beach, The Pearl. Private beaches at resorts. Water sports require safety gear."
+    },
+    
+    // LAWS & REGULATIONS
+    {
+        id: 13,
+        title: "Alcohol Laws & Restrictions",
+        category: "laws",
+        priority: "important",
+        icon: "🍷",
+        description: "Alcohol only available in licensed hotels and restaurants. Public intoxication illegal. Strict penalties apply.",
+        tips: [
+            "Only drink in licensed venues",
+            "No alcohol in public spaces",
+            "Zero tolerance for drink-driving",
+            "Don't drink during Ramadan (daytime)",
+            "Keep receipts if transporting"
+        ],
+        contact: {
+            primary: "999 - If arrested",
+            secondary: "Your embassy immediately"
+        },
+        procedure: "Penalties severe: Prison time possible. Don't argue with police. Request embassy contact. Never drink and drive.",
+        resources: "Licensed venues: Hotel bars, restaurants in hotels. QDC stores for residents only (permit needed). Visitors use hotel services."
+    },
+    {
+        id: 14,
+        title: "Dress Code & Public Behavior",
+        category: "laws",
+        priority: "important",
+        icon: "👔",
+        description: "Modest dress required in public. Shoulders and knees covered. Swimwear only at beaches/pools.",
+        tips: [
+            "Cover shoulders and knees",
+            "No shorts in malls/government buildings",
+            "Beachwear only at beach/pool",
+            "Remove shoes at mosques",
+            "No public displays of affection"
+        ],
+        contact: {
+            primary: "Mall security will advise on dress",
+            secondary: "Tourist police can explain"
+        },
+        procedure: "If dress inappropriate: You may be asked to leave or cover up. Carry a light shawl/cardigan. Respect local customs.",
+        resources: "Malls display dress code signs. Hotels more relaxed. Government buildings strict. No one expects full traditional dress."
+    },
+    {
+        id: 15,
+        title: "Photography Restrictions",
+        category: "laws",
+        priority: "general",
+        icon: "📷",
+        description: "Don't photograph people without permission. Military and government buildings prohibited.",
+        tips: [
+            "Ask before photographing people",
+            "No photos of military/government",
+            "Museums may prohibit flash",
+            "Respect prayer times at mosques",
+            "Drones require permit"
+        ],
+        contact: {
+            primary: "Security will stop unauthorized photos",
+            secondary: "Tourist police can advise"
+        },
+        procedure: "If confronted about photos: Apologize, delete if requested, cooperate with security. Don't argue.",
+        resources: "Tourist sites welcome photos. Skyline photos OK. Markets - ask vendors. Most people happy to pose if asked politely."
+    },
+
+    // ENVIRONMENT & WEATHER
+    {
+        id: 16,
+        title: "Sandstorms & Dust",
+        category: "environment",
+        priority: "general",
+        icon: "🌪️",
+        description: "Occasional sandstorms occur, especially in spring. Visibility can drop to zero. Stay indoors during storms.",
+        tips: [
+            "Monitor weather forecasts",
+            "Stay indoors during storms",
+            "Close windows and doors",
+            "Use air purifiers if available",
+            "Carry face mask"
+        ],
+        contact: {
+            primary: "Weather service: meteorology.gov.qa",
+            secondary: "Hotel staff for local advice"
+        },
+        procedure: "During sandstorm: Stay inside, seal windows/doors, use AC filters. Don't drive if visibility poor. Wait it out.",
+        resources: "Storms usually pass in hours. Not dangerous if inside. May disrupt flights. Check flight status during dust events."
+    },
+    {
+        id: 17,
+        title: "Marine Life & Beach Hazards",
+        category: "environment",
+        priority: "general",
+        icon: "🐙",
+        description: "Jellyfish seasonally present. Generally harmless but stings painful. Sea urchins on rocky areas.",
+        tips: [
+            "Wear water shoes on rocky beaches",
+            "Shuffle feet when entering water",
+            "Jellyfish more common in summer",
+            "Vinegar for jellyfish stings",
+            "Seek medical help if severe"
+        ],
+        contact: {
+            primary: "Beach lifeguards",
+            secondary: "999 for severe reactions"
+        },
+        procedure: "Jellyfish sting: Rinse with seawater (not fresh), apply vinegar, remove tentacles with tweezers. Seek medical help if breathing difficulties.",
+        resources: "Most stings are minor. Beaches monitored. Lifeguards trained in first aid. Hotels have medical kits."
+    },
+    {
+        id: 18,
+        title: "Air Quality & Pollution",
+        category: "environment",
+        priority: "general",
+        icon: "💨",
+        description: "Generally good air quality. Dust increases during sandstorms. Some pollution from traffic and construction.",
+        tips: [
+            "Check air quality apps",
+            "Limit outdoor exercise during high pollution",
+            "Keep windows closed during dust",
+            "Stay hydrated",
+            "Asthmatics carry inhaler"
+        ],
+        contact: {
+            primary: "Air quality: aqicn.org/city/qatar",
+            secondary: "16000 for health concerns"
+        },
+        procedure: "Poor air quality days: Reduce outdoor activities, use AC with filters, stay hydrated, seek medical help if breathing difficulties.",
+        resources: "Air quality usually excellent. Winter best. Summer dust more common. Indoor air filtered and clean."
+    }
+];
+
+let filteredSafety = [...safetyInfo];
+let currentSafety = null;
+
+// Initialize on page load
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('Safety.js loaded successfully');
+    console.log('Safety database has', safetyInfo.length, 'topics');
+    
+    // Display all safety info initially
+    displaySafety(safetyInfo);
+});
+
+// Display safety information in grid
+function displaySafety(safetyToDisplay) {
+    const grid = document.getElementById('safetyGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    if (safetyToDisplay.length === 0) {
+        grid.innerHTML = '<p style="text-align: center; color: #666; padding: 3rem; grid-column: 1/-1;">No safety information found. Please adjust your filters.</p>';
+        return;
+    }
+    
+    safetyToDisplay.forEach(safety => {
+        const card = document.createElement('div');
+        card.className = `safety-card ${safety.priority}`;
+        card.onclick = () => openSafetyModal(safety.id);
+        
+        const priorityBadge = safety.priority === 'critical' ? 'CRITICAL' : 
+                             safety.priority === 'important' ? 'IMPORTANT' : 'GENERAL';
+        
+        card.innerHTML = `
+            <div class="safety-card-image">
+                <span style="font-size: 5rem;">${safety.icon}</span>
+                <div class="priority-badge ${safety.priority}">${priorityBadge}</div>
+            </div>
+            <div class="safety-card-content">
+                <h3>${safety.title}</h3>
+                <div class="safety-category">${safety.category}</div>
+                <p class="safety-description">${safety.description}</p>
+                <div class="safety-key-points">
+                    ${safety.tips.slice(0, 3).map(tip => `
+                        <div class="key-point">
+                            <span class="key-point-icon">✓</span>
+                            <span>${tip}</span>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="safety-card-footer">
+                    <button class="btn-view-safety" onclick="event.stopPropagation(); openSafetyModal(${safety.id})">View Details</button>
+                </div>
+            </div>
+        `;
+        
+        grid.appendChild(card);
+    });
+}
+
+// Search safety information
+function searchSafety() {
+    console.log('Search safety clicked');
+    
+    const category = document.getElementById('categoryFilter').value;
+    const priority = document.getElementById('priorityFilter').value;
+    
+    let filtered = [...safetyInfo];
+    
+    // Filter by category
+    if (category !== 'all') {
+        filtered = filtered.filter(s => s.category === category);
+    }
+    
+    // Filter by priority
+    if (priority !== 'all') {
+        filtered = filtered.filter(s => s.priority === priority);
+    }
+    
+    filteredSafety = filtered;
+    displaySafety(filteredSafety);
+}
+
+// Sort safety information
+function sortSafety() {
+    const sortBy = document.getElementById('sortBy').value;
+    let sorted = [...filteredSafety];
+    
+    if (sortBy === 'priority') {
+        const priorityOrder = { critical: 1, important: 2, general: 3 };
+        sorted.sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
+    } else if (sortBy === 'category') {
+        sorted.sort((a, b) => a.category.localeCompare(b.category));
+    }
+    // 'featured' keeps the original order
+    
+    displaySafety(sorted);
+}
+
+// Open safety modal
+function openSafetyModal(safetyId) {
+    const safety = safetyInfo.find(s => s.id === safetyId);
+    if (!safety) return;
+    
+    currentSafety = safety;
+    
+    // Populate safety information
+    document.getElementById('modalSafetyIcon').textContent = safety.icon;
+    document.getElementById('modalSafetyTitle').textContent = safety.title;
+    document.getElementById('modalCategory').textContent = safety.category.toUpperCase();
+    
+    const priorityBadge = safety.priority === 'critical' ? 'CRITICAL' : 
+                         safety.priority === 'important' ? 'IMPORTANT' : 'GENERAL INFO';
+    document.getElementById('modalPriority').innerHTML = `<span class="${safety.priority}">${priorityBadge}</span>`;
+    
+    document.getElementById('modalDescription').textContent = safety.description;
+    
+    // Populate tips
+    const tipsList = document.getElementById('modalTips');
+    tipsList.innerHTML = `
+        <h4>Key Safety Tips</h4>
+        <ul>
+            ${safety.tips.map(tip => `<li>${tip}</li>`).join('')}
+        </ul>
+    `;
+    
+    // Populate contact
+    document.getElementById('modalContact').innerHTML = `
+        <h4>Emergency Contacts</h4>
+        <div class="contact-info">
+            <p><strong>Primary:</strong> ${safety.contact.primary}</p>
+            <p><strong>Secondary:</strong> ${safety.contact.secondary}</p>
+        </div>
+    `;
+    
+    // Populate procedure
+    document.getElementById('modalProcedure').innerHTML = `
+        <h4>What To Do</h4>
+        <p>${safety.procedure}</p>
+    `;
+    
+    // Populate resources
+    document.getElementById('modalResources').innerHTML = `
+        <h4>Additional Information</h4>
+        <p>${safety.resources}</p>
+    `;
+    
+    // Show modal
+    document.getElementById('safetyModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+// Close safety modal
+function closeSafetyModal() {
+    document.getElementById('safetyModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Call emergency (placeholder)
+function callEmergency() {
+    const emergencyInfo = `🚨 QATAR EMERGENCY NUMBERS
+
+CRITICAL - SAVE THESE:
+☎️ 999 - All Emergencies (Police, Fire, Ambulance)
+☎️ +974 4439 2222 - Hamad Hospital Emergency
+☎️ 16000 - Medical Hotline (non-emergency)
+
+OTHER IMPORTANT NUMBERS:
+☎️ +974 4428 8888 - Coast Guard
+☎️ 8008080 - Consumer Protection
+☎️ +974 4010 6109 - Airport Lost & Found
+
+EMBASSY CONTACTS:
+Contact your embassy for assistance with:
+- Lost/stolen passports
+- Legal issues
+- Emergency repatriation
+
+TOURIST POLICE:
+Available at major tourist sites
+Multilingual assistance
+Can call 999 to summon them
+
+Stay safe in Qatar! 🇶🇦`;
+
+    alert(emergencyInfo);
+}
+
+// Save for reference (placeholder)
+function saveForReference() {
+    if (!currentSafety) return;
+    
+    const info = `SAFETY INFO: ${currentSafety.title}
+
+${currentSafety.description}
+
+KEY TIPS:
+${currentSafety.tips.map((tip, i) => `${i + 1}. ${tip}`).join('\n')}
+
+CONTACTS:
+Primary: ${currentSafety.contact.primary}
+Secondary: ${currentSafety.contact.secondary}
+
+WHAT TO DO:
+${currentSafety.procedure}
+
+Saved from Qatar Tourism Safety Guide`;
+
+    // Create downloadable text file
+    const blob = new Blob([info], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `qatar-safety-${currentSafety.id}.txt`;
+    a.click();
+    window.URL.revokeObjectURL(url);
+    
+    alert('✓ Safety information saved!\n\nCheck your downloads folder for the text file.');
+}

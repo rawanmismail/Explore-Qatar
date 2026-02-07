@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety in Qatar - Discover Qatar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="safety.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <h1>QATAR TOURISM</h1>
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">About Qatar ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="geography.html">Geography of Qatar</a></li>
+                        <li><a href="history.html">History of Qatar</a></li>
+                        <li><a href="climate.html">Qatar's Climate</a></li>
+                        <li><a href="cities.html">Towns & Cities</a></li>
+                        <li><a href="traditions.html">Traditions in Qatar</a></li>
+                        <li><a href="cusine.html">Local Cuisine</a></li>
+                        <li><a href="wildlife.html">Wildlife</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Plan Your Trip ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="visas.html">Visas</a></li>
+                        <li><a href="accommodation.html">Accommodation in Qatar</a></li>
+                        <li><a href="flights.html">Getting to Qatar</a></li>
+                        <li><a href="transportation.html">Transportation</a></li>
+                        <li><a href="airport.html">Hamad Intl. Airport</a></li>
+                        <li><a href="tours.html">Tour Operators</a></li>
+                        <li><a href="safety.html">Safety in Qatar</a></li>
+                        <li><a href="concierge.html">Concierge Services</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Things To Do ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#adventure">Adventure</a></li>
+                        <li><a href="index.html#art-culture">Art & Culture</a></li>
+                        <li><a href="index.html#romantic">Romantic Getaway</a></li>
+                        <li><a href="index.html#beach">Beach Holiday</a></li>
+                        <li><a href="index.html#family">Family Break</a></li>
+                        <li><a href="index.html#dining">Dining</a></li>
+                        <li><a href="index.html#spa">Spa & Wellness</a></li>
+                        <li><a href="index.html#shopping">Shopping</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Events ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#upcoming">Upcoming Events</a></li>
+                        <li><a href="festivals.html">Festivals in Qatar</a></li>
+                        <li><a href="sports.html">Sports Events</a></li>
+                        <li><a href="concerts.html">Concerts & Shows</a></li>
+                        <li><a href="exhibitions.html">Cultural Exhibitions</a></li>
+                        <li><a href="national.html">National Celebrations</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Travel Guide ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="best-time.html">Best Time to Visit</a></li>
+                        <li><a href="laws.html">Local Laws & Customs</a></li>
+                        <li><a href="dress-code.html">Dress Code & Etiquette</a></li>
+                        <li><a href="currency.html">Currency & Payments</a></li>
+                        <li><a href="language.html">Language in Qatar</a></li>
+                        <li><a href="internet.html">Internet & SIM Cards</a></li>
+                        <li><a href="emergency.html">Emergency Numbers</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="#" class="btn-nav">Log In</a>
+                <a href="#" class="btn-nav-primary">Sign Up</a>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-hero-title">Safety in Qatar</h1>
+            <p class="page-hero-subtitle">One of the world's safest countries - Travel with confidence</p>
+        </div>
+    </section>
+
+    <section class="search-section">
+        <div class="container">
+            <div class="search-widget">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: #2c2c2c;">Find Safety Information</h3>
+                
+                <div class="filter-row">
+                    <div class="filter-field">
+                        <label>Category</label>
+                        <select id="categoryFilter">
+                            <option value="all">All Categories</option>
+                            <option value="emergency">Emergency Services</option>
+                            <option value="health">Health & Medical</option>
+                            <option value="security">Security & Crime</option>
+                            <option value="travel">Travel Safety</option>
+                            <option value="laws">Laws & Regulations</option>
+                            <option value="environment">Environment & Weather</option>
+                        </select>
+                    </div>
+                    <div class="filter-field">
+                        <label>Priority</label>
+                        <select id="priorityFilter">
+                            <option value="all">All Priorities</option>
+                            <option value="critical">Critical</option>
+                            <option value="important">Important</option>
+                            <option value="general">General Info</option>
+                        </select>
+                    </div>
+                    <div class="filter-field">
+                        <label>Sort By</label>
+                        <select id="sortBy" onchange="sortSafety()">
+                            <option value="featured">Featured</option>
+                            <option value="priority">By Priority</option>
+                            <option value="category">By Category</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button class="btn-search" onclick="searchSafety()">Search Safety Info</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="safety-section">
+        <div class="container">
+            <div id="safetyGrid" class="safety-grid"></div>
+        </div>
+    </section>
+
+    <div id="safetyModal" class="modal">
+        <div class="modal-content safety-modal-content">
+            <span class="close" onclick="closeSafetyModal()">&times;</span>
+            
+            <div class="modal-layout">
+                <div class="modal-safety-info">
+                    <div id="modalSafetyIcon" class="modal-safety-icon"></div>
+                    <h2 id="modalSafetyTitle" class="modal-safety-title"></h2>
+                    <p id="modalCategory" class="modal-safety-category"></p>
+                    <div id="modalPriority" class="modal-priority-badge"></div>
+                    <div id="modalDescription" class="modal-description"></div>
+                    <div id="modalTips" class="modal-tips"></div>
+                </div>
+                
+                <div class="modal-safety-details">
+                    <h3>Important Information</h3>
+                    <div id="modalContact" class="detail-section"></div>
+                    <div id="modalProcedure" class="detail-section"></div>
+                    <div id="modalResources" class="detail-section"></div>
+                    
+                    <div class="modal-actions">
+                        <button class="btn-primary" onclick="callEmergency()">📞 Emergency Contacts</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="emergency-section">
+        <div class="container">
+            <h2 class="section-title">Emergency Contact Numbers</h2>
+            <div class="emergency-grid">
+                <div class="emergency-card critical">
+                    <div class="emergency-icon">🚨</div>
+                    <h3>Police Emergency</h3>
+                    <a href="tel:999" class="emergency-number">999</a>
+                    <p>All emergencies</p>
+                </div>
+                <div class="emergency-card critical">
+                    <div class="emergency-icon">🚑</div>
+                    <h3>Ambulance</h3>
+                    <a href="tel:999" class="emergency-number">999</a>
+                    <p>Medical emergencies</p>
+                </div>
+                <div class="emergency-card critical">
+                    <div class="emergency-icon">🚒</div>
+                    <h3>Fire Department</h3>
+                    <a href="tel:999" class="emergency-number">999</a>
+                    <p>Fire emergencies</p>
+                </div>
+                <div class="emergency-card">
+                    <div class="emergency-icon">⚕️</div>
+                    <h3>Hamad Hospital</h3>
+                    <a href="tel:+97444392222" class="emergency-number">4439 2222</a>
+                    <p>Main emergency hospital</p>
+                </div>
+                <div class="emergency-card">
+                    <div class="emergency-icon">🏥</div>
+                    <h3>Medical Hotline</h3>
+                    <a href="tel:16000" class="emergency-number">16000</a>
+                    <p>Non-emergency advice</p>
+                </div>
+                <div class="emergency-card">
+                    <div class="emergency-icon">🛟</div>
+                    <h3>Coast Guard</h3>
+                    <a href="tel:+97444288888" class="emergency-number">4428 8888</a>
+                    <p>Maritime emergencies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>QATAR TOURISM</h3>
+                    <p>Your gateway to Arabian excellence</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="accommodation.html">Hotels</a></li>
+                        <li><a href="flights.html">Flights</a></li>
+                        <li><a href="index.html#upcoming">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@discoverqatar.com</p>
+                    <p>Phone: +974 1234 5678</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Qatar Tourism. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="safety.js"></script>
+</body>
+</html>
