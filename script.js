@@ -3233,3 +3233,575 @@ Saved from Qatar Tourism Safety Guide`;
     
     alert('✓ Safety information saved!\n\nCheck your downloads folder for the text file.');
 }
+
+// Concierge Services Database
+
+const conciergeServices = [
+    // TRAVEL & TRANSPORTATION
+    {
+        id: 1,
+        name: "VIP Airport Meet & Greet",
+        type: "travel",
+        availability: "24/7",
+        icon: "✈️",
+        description: "Luxury airport assistance with fast-track immigration, luggage handling, and private lounge access",
+        features: [
+            "Personal greeter at aircraft door",
+            "Fast-track immigration & customs",
+            "VIP lounge access",
+            "Luggage porter service",
+            "Private transfer to hotel"
+        ],
+        pricing: "From QR 500",
+        includes: ["Meet & greet service", "Fast-track processing", "Lounge access", "Porter service", "Transfer coordination"]
+    },
+    {
+        id: 2,
+        name: "Luxury Chauffeur Service",
+        type: "travel",
+        availability: "24/7",
+        icon: "🚗",
+        description: "Professional chauffeur-driven luxury vehicles for all your transportation needs in Qatar",
+        features: [
+            "Mercedes S-Class, BMW 7 Series, or similar",
+            "Professional multilingual drivers",
+            "Complimentary WiFi & refreshments",
+            "Child seats available",
+            "Airport transfers & hourly bookings"
+        ],
+        pricing: "From QR 300/hour",
+        includes: ["Luxury vehicle", "Professional chauffeur", "Fuel & tolls", "Bottled water", "Phone charger"]
+    },
+    {
+        id: 3,
+        name: "Yacht & Boat Charter",
+        type: "luxury",
+        availability: "Advance Booking",
+        icon: "🛥️",
+        description: "Private yacht charters for cruising the Arabian Gulf with crew and catering options",
+        features: [
+            "Luxury yachts 40ft to 100ft+",
+            "Experienced captain & crew",
+            "Fishing equipment available",
+            "Catering packages",
+            "Water sports equipment"
+        ],
+        pricing: "From QR 2,500/4 hours",
+        includes: ["Yacht rental", "Captain & crew", "Fuel", "Safety equipment", "Basic refreshments"]
+    },
+    {
+        id: 4,
+        name: "Private Jet Charter",
+        type: "luxury",
+        availability: "Advance Booking",
+        icon: "🛩️",
+        description: "Executive private jet charters for regional and international travel",
+        features: [
+            "Light jets to heavy jets",
+            "Flexible scheduling",
+            "Catering on board",
+            "Ground transportation included",
+            "Pet-friendly options"
+        ],
+        pricing: "Contact for quote",
+        includes: ["Aircraft charter", "Crew", "Fuel & fees", "Ground handling", "Flight planning"]
+    },
+
+    // LIFESTYLE & PERSONAL
+    {
+        id: 5,
+        name: "Personal Shopping Assistant",
+        type: "lifestyle",
+        availability: "Business Hours",
+        icon: "🛍️",
+        description: "Expert personal shopper to guide you through Qatar's luxury malls and souqs",
+        features: [
+            "Fashion stylist consultation",
+            "Access to exclusive boutiques",
+            "VIP shopping experience",
+            "Tax-free shopping assistance",
+            "Gift selection & wrapping"
+        ],
+        pricing: "QR 400 for 3 hours",
+        includes: ["Personal shopper", "Transportation", "Mall VIP services", "Refreshments", "Delivery to hotel"]
+    },
+    {
+        id: 6,
+        name: "Private Chef & Dining",
+        type: "lifestyle",
+        availability: "Advance Booking",
+        icon: "👨‍🍳",
+        description: "In-villa or yacht private chef service for intimate dining experiences",
+        features: [
+            "Michelin-trained chefs",
+            "Customized menus",
+            "International cuisines",
+            "Dietary accommodations",
+            "Full service setup & cleanup"
+        ],
+        pricing: "From QR 1,500 per experience",
+        includes: ["Private chef", "Premium ingredients", "Service staff", "Table setup", "Cleanup service"]
+    },
+    {
+        id: 7,
+        name: "Spa & Wellness Concierge",
+        type: "lifestyle",
+        availability: "Business Hours",
+        icon: "💆",
+        description: "Curated spa and wellness experiences at Qatar's finest facilities",
+        features: [
+            "Spa reservations at top hotels",
+            "In-room massage services",
+            "Yoga & fitness instructors",
+            "Wellness retreat planning",
+            "Beauty treatments & salons"
+        ],
+        pricing: "From QR 300 booking fee",
+        includes: ["Spa booking service", "Treatment recommendations", "Transportation", "Special requests coordination"]
+    },
+    {
+        id: 8,
+        name: "Personal Styling & Grooming",
+        type: "lifestyle",
+        availability: "Advance Booking",
+        icon: "✂️",
+        description: "Professional styling, hair, and grooming services delivered to your location",
+        features: [
+            "Hair stylist & makeup artist",
+            "Wardrobe consultation",
+            "Formal event preparation",
+            "Photo shoot styling",
+            "Barber & spa services"
+        ],
+        pricing: "From QR 500",
+        includes: ["Professional stylist", "Equipment & products", "Consultation", "Travel to location"]
+    },
+
+    // BUSINESS SERVICES
+    {
+        id: 9,
+        name: "Business Center & Secretarial",
+        type: "business",
+        availability: "Business Hours",
+        icon: "💼",
+        description: "Professional business support services including meeting rooms and secretarial assistance",
+        features: [
+            "Private meeting rooms",
+            "Translation services",
+            "Document preparation",
+            "Video conferencing",
+            "Administrative support"
+        ],
+        pricing: "From QR 200/hour",
+        includes: ["Meeting space", "Equipment", "WiFi", "Refreshments", "Technical support"]
+    },
+    {
+        id: 10,
+        name: "Legal & Documentation Services",
+        type: "business",
+        availability: "Business Hours",
+        icon: "📋",
+        description: "Document attestation, legal assistance, and business setup support",
+        features: [
+            "Document attestation",
+            "Contract review",
+            "Business setup guidance",
+            "Notary services",
+            "Legal consultation"
+        ],
+        pricing: "Contact for quote",
+        includes: ["Consultation", "Document processing", "Government liaison", "Follow-up services"]
+    },
+    {
+        id: 11,
+        name: "Interpreter & Translation",
+        type: "business",
+        availability: "24/7",
+        icon: "🗣️",
+        description: "Professional interpretation and translation services in 30+ languages",
+        features: [
+            "Simultaneous interpretation",
+            "Document translation",
+            "Business meeting support",
+            "Conference interpretation",
+            "Certified translations"
+        ],
+        pricing: "From QR 300/hour",
+        includes: ["Professional interpreter", "Equipment if needed", "Travel to location", "Preparation time"]
+    },
+
+    // EVENTS & ENTERTAINMENT
+    {
+        id: 12,
+        name: "Event Planning & Coordination",
+        type: "events",
+        availability: "Advance Booking",
+        icon: "🎉",
+        description: "Full-service event planning for weddings, corporate events, and celebrations",
+        features: [
+            "Venue selection & booking",
+            "Catering coordination",
+            "Entertainment booking",
+            "Decor & styling",
+            "Guest management"
+        ],
+        pricing: "From QR 5,000",
+        includes: ["Event planner", "Vendor coordination", "Timeline management", "Day-of coordination"]
+    },
+    {
+        id: 13,
+        name: "VIP Event Tickets & Access",
+        type: "events",
+        availability: "Advance Booking",
+        icon: "🎫",
+        description: "Exclusive access to sold-out events, concerts, and sporting events",
+        features: [
+            "Premium seating",
+            "Meet & greet packages",
+            "Hospitality suites",
+            "Transportation included",
+            "Backstage access (when available)"
+        ],
+        pricing: "Varies by event",
+        includes: ["Ticket procurement", "VIP packages", "Transportation", "Concierge escort if requested"]
+    },
+    {
+        id: 14,
+        name: "Restaurant Reservations",
+        type: "events",
+        availability: "24/7",
+        icon: "🍽️",
+        description: "Priority reservations at Qatar's most exclusive restaurants",
+        features: [
+            "Hard-to-get reservations",
+            "Private dining rooms",
+            "Chef's table experiences",
+            "Special occasion setups",
+            "Dietary accommodations"
+        ],
+        pricing: "Complimentary service",
+        includes: ["Reservation booking", "Special requests", "Anniversary setups", "Pre-ordering assistance"]
+    },
+
+    // LUXURY EXPERIENCES
+    {
+        id: 15,
+        name: "Helicopter Tours",
+        type: "luxury",
+        availability: "Advance Booking",
+        icon: "🚁",
+        description: "Aerial tours of Doha and Qatar's stunning landscapes",
+        features: [
+            "City skyline tour",
+            "Desert & inland sea flights",
+            "Customizable routes",
+            "Professional pilot",
+            "Photography allowed"
+        ],
+        pricing: "From QR 3,000 for 30 minutes",
+        includes: ["Helicopter charter", "Pilot", "Fuel", "Safety briefing", "Airport transfers"]
+    },
+    {
+        id: 16,
+        name: "Luxury Desert Experience",
+        type: "luxury",
+        availability: "Advance Booking",
+        icon: "🏜️",
+        description: "Exclusive desert camps with gourmet dining and premium amenities",
+        features: [
+            "Private desert camp setup",
+            "Gourmet BBQ dinner",
+            "Traditional entertainment",
+            "Stargazing with telescope",
+            "Luxury bathroom facilities"
+        ],
+        pricing: "From QR 2,000 per person",
+        includes: ["Private camp", "Gourmet meal", "Entertainment", "Equipment", "4x4 transfer"]
+    },
+    {
+        id: 17,
+        name: "Superyacht Experience",
+        type: "luxury",
+        availability: "Advance Booking",
+        icon: "⛵",
+        description: "Ultra-luxury superyacht charter with full crew and five-star service",
+        features: [
+            "100ft+ superyachts",
+            "Full crew including chef",
+            "Water toys & equipment",
+            "Overnight options",
+            "Customized itineraries"
+        ],
+        pricing: "From QR 15,000/day",
+        includes: ["Superyacht", "Crew & captain", "Chef & catering", "Water sports", "Fuel & permits"]
+    },
+    {
+        id: 18,
+        name: "Exclusive Access Experiences",
+        type: "luxury",
+        availability: "Advance Booking",
+        icon: "🔑",
+        description: "VIP access to normally closed venues and exclusive experiences",
+        features: [
+            "Private museum tours",
+            "After-hours shopping",
+            "Meet local dignitaries",
+            "Cultural immersion",
+            "Unique photo opportunities"
+        ],
+        pricing: "Contact for quote",
+        includes: ["Access arrangement", "Private guide", "Transportation", "Permissions & permits"]
+    },
+
+    // FAMILY SERVICES
+    {
+        id: 19,
+        name: "Babysitting & Childcare",
+        type: "family",
+        availability: "24/7",
+        icon: "👶",
+        description: "Professional, vetted nannies and babysitters for your children",
+        features: [
+            "Experienced caregivers",
+            "Background checked",
+            "Multilingual options",
+            "Activity planning",
+            "Emergency trained"
+        ],
+        pricing: "From QR 80/hour",
+        includes: ["Professional caregiver", "Activities & supplies", "Emergency contact system"]
+    },
+    {
+        id: 20,
+        name: "Kids Activities & Entertainment",
+        type: "family",
+        availability: "Advance Booking",
+        icon: "🎨",
+        description: "Customized children's activities and entertainment programs",
+        features: [
+            "Theme park VIP access",
+            "Birthday party planning",
+            "Educational tours",
+            "Arts & crafts sessions",
+            "Sports activities"
+        ],
+        pricing: "From QR 500",
+        includes: ["Activity coordinator", "Materials & equipment", "Transportation", "Supervision"]
+    },
+    {
+        id: 21,
+        name: "Medical & Healthcare Assistance",
+        type: "family",
+        availability: "24/7",
+        icon: "⚕️",
+        description: "Healthcare coordination including doctor visits and pharmacy needs",
+        features: [
+            "Doctor house calls",
+            "Hospital appointment booking",
+            "Pharmacy delivery",
+            "Medical translation",
+            "Insurance coordination"
+        ],
+        pricing: "Service fee + medical costs",
+        includes: ["Coordination service", "Translation if needed", "Emergency assistance", "Follow-up support"]
+    }
+];
+
+let filteredServices = [...conciergeServices];
+let currentService = null;
+
+// Initialize on page load
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('Concierge.js loaded successfully');
+    console.log('Services database has', conciergeServices.length, 'services');
+    
+    // Set minimum date to today
+    const today = new Date().toISOString().split('T')[0];
+    const serviceDateInput = document.getElementById('serviceDate');
+    if (serviceDateInput) serviceDateInput.min = today;
+    
+    // Display all services initially
+    displayServices(conciergeServices);
+});
+
+// Display services in grid
+function displayServices(servicesToDisplay) {
+    const grid = document.getElementById('servicesGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    if (servicesToDisplay.length === 0) {
+        grid.innerHTML = '<p style="text-align: center; color: #666; padding: 3rem; grid-column: 1/-1;">No services found. Please adjust your filters.</p>';
+        return;
+    }
+    
+    servicesToDisplay.forEach(service => {
+        const card = document.createElement('div');
+        card.className = 'service-card';
+        card.onclick = () => openRequestModal(service.id);
+        
+        card.innerHTML = `
+            <div class="service-card-image">
+                <span style="font-size: 5.5rem;">${service.icon}</span>
+                <div class="availability-badge">${service.availability}</div>
+            </div>
+            <div class="service-card-content">
+                <h3>${service.name}</h3>
+                <div class="service-type">${service.type}</div>
+                <p class="service-description">${service.description}</p>
+                <div class="service-features">
+                    ${service.features.slice(0, 3).map(f => `<div class="feature-item">${f}</div>`).join('')}
+                </div>
+                <div class="service-card-footer">
+                    <span class="service-price">${service.pricing}</span>
+                    <button class="btn-request-service" onclick="event.stopPropagation(); openRequestModal(${service.id})">Request Service</button>
+                </div>
+            </div>
+        `;
+        
+        grid.appendChild(card);
+    });
+}
+
+// Search services
+function searchServices() {
+    console.log('Search services clicked');
+    
+    const type = document.getElementById('typeFilter').value;
+    const availability = document.getElementById('availabilityFilter').value;
+    
+    let filtered = [...conciergeServices];
+    
+    // Filter by type
+    if (type !== 'all') {
+        filtered = filtered.filter(s => s.type === type);
+    }
+    
+    // Filter by availability
+    if (availability !== 'all') {
+        if (availability === '24/7') {
+            filtered = filtered.filter(s => s.availability === '24/7');
+        } else if (availability === 'business') {
+            filtered = filtered.filter(s => s.availability === 'Business Hours');
+        } else if (availability === 'advance') {
+            filtered = filtered.filter(s => s.availability === 'Advance Booking');
+        }
+    }
+    
+    filteredServices = filtered;
+    displayServices(filteredServices);
+}
+
+// Sort services
+function sortServices() {
+    const sortBy = document.getElementById('sortBy').value;
+    let sorted = [...filteredServices];
+    
+    if (sortBy === 'name') {
+        sorted.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === 'type') {
+        sorted.sort((a, b) => a.type.localeCompare(b.type));
+    }
+    // 'featured' keeps the original order
+    
+    displayServices(sorted);
+}
+
+// Open request modal
+function openRequestModal(serviceId) {
+    const service = conciergeServices.find(s => s.id === serviceId);
+    if (!service) return;
+    
+    currentService = service;
+    
+    // Populate service information
+    document.getElementById('modalServiceIcon').textContent = service.icon;
+    document.getElementById('modalServiceName').textContent = service.name;
+    document.getElementById('modalServiceType').textContent = service.type.toUpperCase();
+    document.getElementById('modalAvailability').textContent = `⏰ ${service.availability}`;
+    document.getElementById('modalDescription').textContent = service.description;
+    
+    // Populate includes
+    const includesList = document.getElementById('modalIncludes');
+    includesList.innerHTML = `
+        <h4>Service Includes</h4>
+        <ul>
+            ${service.includes.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+    `;
+    
+    // Update pricing info
+    document.getElementById('pricingInfo').textContent = service.pricing;
+    
+    // Show modal
+    document.getElementById('requestModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+// Close request modal
+function closeRequestModal() {
+    document.getElementById('requestModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+    document.getElementById('requestForm').reset();
+}
+
+// Submit request
+function submitRequest(event) {
+    event.preventDefault();
+    
+    if (!currentService) return;
+    
+    const name = document.getElementById('clientName').value;
+    const email = document.getElementById('clientEmail').value;
+    const phone = document.getElementById('clientPhone').value;
+    const location = document.getElementById('clientLocation').value;
+    const date = document.getElementById('serviceDate').value;
+    const time = document.getElementById('serviceTime').value;
+    const people = document.getElementById('numPeople').value;
+    const requirements = document.getElementById('requirements').value;
+    
+    // Validate
+    if (!name || !email || !phone || !date) {
+        alert('Please fill in all required fields');
+        return;
+    }
+    
+    // Create request data
+    const requestData = {
+        service: currentService.name,
+        serviceType: currentService.type,
+        clientName: name,
+        email: email,
+        phone: phone,
+        location: location,
+        serviceDate: date,
+        serviceTime: time,
+        numberOfPeople: people,
+        requirements: requirements,
+        pricing: currentService.pricing,
+        requestDate: new Date().toISOString()
+    };
+    
+    // Log request data (in real app, this would be sent to server)
+    console.log('Service request submitted:', requestData);
+    
+    // Show success message
+    alert(`✓ Service Request Submitted!
+
+Service: ${currentService.name}
+Client: ${name}
+Date: ${date}${time ? ' at ' + time : ''}
+People: ${people}
+
+Our concierge team will contact you at:
+Email: ${email}
+Phone: ${phone}
+
+You will receive confirmation within 2 hours with pricing details and availability.
+
+Thank you for choosing Qatar Concierge Services!`);
+    
+    // Close modal and reset
+    closeRequestModal();
+}
