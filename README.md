@@ -1,6 +1,6 @@
 <!-- Premium Animated Header -->
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Poppins&weight=600&size=30&duration=2800&pause=800&color=8A1538&center=true&vCenter=true&width=750&lines=Explore+Qatar+🇶🇦;Modern+Tourism+Web+Platform;Designed+%26+Engineered+by+Rawan+Ismail" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Poppins&weight=600&size=30&duration=2800&pause=800&color=8A1538&center=true&vCenter=true&width=750&lines=Explore+Qatar+
 </p>
 
 <p align="center">
