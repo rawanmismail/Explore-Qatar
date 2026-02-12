@@ -31,22 +31,6 @@ Built with clean frontend architecture and integrated database logic for scalabl
 - Adventure & tourism highlights  
 - Structured database integration  
 
----
-
-## 🏗 Architecture Overview
-
-
-
-
----
-
-## 📌 Engineering Highlights
-
-- Modular file structure  
-- Separation of concerns (UI / Logic / Data)  
-- Clean navigation hierarchy  
-- Scalable project organization  
-- Production-ready foundation for deployment  
 
 ---
 
@@ -60,7 +44,6 @@ Built with clean frontend architecture and integrated database logic for scalabl
 ---
 
 <p align="center">
-  <b>Designed & Developed by Rawan Ismail</b><br>
   🇶🇦 Built with precision and ambition
 </p>
 
