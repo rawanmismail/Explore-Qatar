@@ -42,4 +42,13 @@ Visual Studio Code
 
 ---
 
+## 📁 Project Structure
+HTML Pages      → Multi-page website structure
+styles.css      → Global styling
+script.js       → Main interactions
+visa-checker.js → Visa logic
+database.py     → Database configuration
+
+
+
 
