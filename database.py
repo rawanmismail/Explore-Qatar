@@ -34,7 +34,7 @@ def init_db():
         item_type TEXT NOT NULL,
         item_name TEXT NOT NULL,
         FOREIGN KEY (user_id) REFERENCES users(id)
-    )''')
+
     
     c.execute('''CREATE TABLE IF NOT EXISTS notifications (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
