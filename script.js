@@ -83,14 +83,16 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Smooth Scroll to Section
+// Smooth Scroll to Section (only for same-page anchors)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
-        if (href !== '#') {
-            e.preventDefault();
+        
+        // Only handle if it's a valid anchor (not just # and target exists on this page)
+        if (href !== '#' && href.startsWith('#')) {
             const target = document.querySelector(href);
             if (target) {
+                e.preventDefault();
                 const offsetTop = target.offsetTop - 80;
                 window.scrollTo({
                     top: offsetTop,
@@ -100,12 +102,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 // Close mobile menu if open
                 if (navMenu && navMenu.classList.contains('active')) {
                     navMenu.classList.remove('active');
-                    hamburger.classList.remove('active');
+                    if (hamburger) hamburger.classList.remove('active');
                 }
             }
         }
     });
 });
+
+
+
 
 // Back to Top Button
 const backToTopBtn = document.createElement('button');
