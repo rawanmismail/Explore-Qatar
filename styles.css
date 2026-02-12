@@ -6729,7 +6729,6 @@ input:checked + .slider:before {
         font-size: 5rem;
     }
     
-    .price-amount {
-        font-size: 1.6rem;
+
     }
 }
