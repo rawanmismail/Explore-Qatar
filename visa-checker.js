@@ -163,5 +163,5 @@ function checkVisaRequirement() {
     
     resultDiv.innerHTML = resultHTML;
     resultDiv.style.display = 'block';
-    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
 }
