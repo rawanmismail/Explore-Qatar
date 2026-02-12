@@ -1,54 +1,61 @@
-<!-- Animated Header -->
+<!-- Premium Animated Header -->
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Poppins&size=28&duration=3000&pause=800&color=8A1538&center=true&vCenter=true&width=700&lines=Explore+Qatar+🇶🇦;Tourism+Web+Application;Built+With+VS+Code+%26+HTML" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Poppins&weight=600&size=30&duration=2800&pause=800&color=8A1538&center=true&vCenter=true&width=750&lines=Explore+Qatar+🇶🇦;Modern+Tourism+Web+Platform;Designed+%26+Engineered+by+Rawan+Ismail" />
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Frontend-HTML%20%7C%20CSS%20%7C%20JavaScript-8A1538?style=for-the-badge&logo=html5&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Editor-VS%20Code-black?style=for-the-badge&logo=visualstudiocode&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Database-SQL%20Lite-8A1538?style=for-the-badge&logo=sqlite&logoColor=white"/>
-  <img src="https://img.shields.io/github/languages/top/rawanmismail/explore-qatar-website?style=for-the-badge&color=black"/>
+  <img src="https://img.shields.io/badge/Database-SQL%20Lite-000000?style=for-the-badge&logo=sqlite&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Editor-VS%20Code-8A1538?style=for-the-badge&logo=visualstudiocode&logoColor=white"/>
+  <img src="https://img.shields.io/github/languages/top/rawanmismail/explore-qatar-website?style=for-the-badge&color=000000"/>
 </p>
 
 ---
 
-## 🇶🇦 Explore Qatar
+# 🇶🇦 Explore Qatar
 
-**Explore Qatar** is a multi-page tourism web application highlighting Qatar’s culture, attractions, and travel services.
+A structured, multi-page tourism web application showcasing Qatar’s destinations, culture, travel services, and visitor resources.
 
-Designed and developed using modern frontend technologies with structured database integration.
-
----
-
-## ✨ Features
-
-- 🏙️ City & cultural guides  
-- 🛂 Interactive Visa Checker  
-- ✈️ Flights & airport information  
-- 🏨 Accommodation & tours  
-- 🌡️ Climate & geography  
-- 🐪 Adventure & wildlife pages  
-- 🗄️ Database-powered functionality  
+Built with clean frontend architecture and integrated database logic for scalable functionality.
 
 ---
 
-## 🛠️ Built With
+## ✨ Core Features
 
-HTML5
-CSS3
-JavaScript
-SQL Lite
-Visual Studio Code
+- Dynamic multi-page navigation  
+- Interactive Visa Eligibility Checker  
+- Destination & cultural exploration pages  
+- Travel resources (flights, transport, accommodation)  
+- Adventure & tourism highlights  
+- Structured database integration  
 
 ---
 
-## 📁 Project Structure
-HTML Pages      → Multi-page website structure
-styles.css      → Global styling
-script.js       → Main interactions
-visa-checker.js → Visa logic
-database.py     → Database configuration
 
+---
 
+## 📌 Engineering Highlights
+
+- Modular file structure  
+- Separation of concerns (UI / Logic / Data)  
+- Clean navigation hierarchy  
+- Scalable project organization  
+- Production-ready foundation for deployment  
+
+---
+
+## 🚀 Future Enhancements
+
+- User authentication system  
+- Admin dashboard  
+- API integration (live travel data)  
+- Cloud deployment  
+
+---
+
+<p align="center">
+  <b>Designed & Developed by Rawan Ismail</b><br>
+  🇶🇦 Built with precision and ambition
+</p>
 
 
