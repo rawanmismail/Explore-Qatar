@@ -3810,3 +3810,645 @@ Thank you for choosing Qatar Concierge Services!`);
     // Close modal and reset
     closeRequestModal();
 }
+
+
+
+
+// Adventure Activities Database
+
+const adventures = [
+    // DESERT ADVENTURES
+    {
+        id: 1,
+        name: "Desert Safari with Dune Bashing",
+        type: "desert",
+        difficulty: "moderate",
+        duration: "half",
+        durationText: "4-5 hours",
+        minAge: "12 years",
+        price: 350,
+        icon: "🏜️",
+        image: "linear-gradient(135deg, #A12852 0%, #D4A574 100%)",
+        description: "Experience the thrill of dune bashing in powerful 4x4 vehicles across Qatar's stunning sand dunes",
+        highlights: [
+            "Professional 4x4 driver",
+            "High-speed dune bashing",
+            "Sunset photography stops",
+            "Traditional Arabic refreshments"
+        ],
+        includes: ["Hotel pickup & drop-off", "4x4 transport", "Experienced driver", "Refreshments", "Safety equipment", "Insurance"],
+        requirements: "Good physical health, not suitable for pregnant women or back problems"
+    },
+    {
+        id: 2,
+        name: "Overnight Desert Camping",
+        type: "desert",
+        difficulty: "easy",
+        duration: "full",
+        durationText: "18 hours (overnight)",
+        minAge: "8 years",
+        price: 650,
+        icon: "⛺",
+        image: "linear-gradient(135deg, #A12852 0%, #8C1D40 100%)",
+        description: "Sleep under the stars in a traditional Bedouin-style camp with BBQ dinner and sunrise experience",
+        highlights: [
+            "Bedouin-style camping",
+            "BBQ dinner & breakfast",
+            "Campfire & stargazing",
+            "Sunrise dune bashing"
+        ],
+        includes: ["All meals", "Camping equipment", "Sleeping bags & mattresses", "Entertainment", "4x4 transport", "Guide"],
+        requirements: "Comfortable with basic camping facilities"
+    },
+    {
+        id: 3,
+        name: "Sandboarding Adventure",
+        type: "desert",
+        difficulty: "easy",
+        duration: "short",
+        durationText: "2-3 hours",
+        minAge: "10 years",
+        price: 180,
+        icon: "🏂",
+        image: "linear-gradient(135deg, #FFB81C 0%, #D4A574 100%)",
+        description: "Slide down massive sand dunes on a sandboard - perfect for adventure seekers of all skill levels",
+        highlights: [
+            "Professional instruction",
+            "All equipment provided",
+            "Multiple dune runs",
+            "Photo opportunities"
+        ],
+        includes: ["Sandboard rental", "Safety gear", "Instructor", "Transportation to dunes", "Bottled water"],
+        requirements: "Basic balance and coordination"
+    },
+    {
+        id: 4,
+        name: "Quad Biking in the Desert",
+        type: "desert",
+        difficulty: "moderate",
+        duration: "half",
+        durationText: "3-4 hours",
+        minAge: "16 years",
+        price: 420,
+        icon: "🏍️",
+        image: "linear-gradient(135deg, #E53935 0%, #D4A574 100%)",
+        description: "Ride powerful quad bikes through desert terrain with experienced guides",
+        highlights: [
+            "1-2 hour riding time",
+            "Professional safety briefing",
+            "All skill levels welcome",
+            "Desert exploration"
+        ],
+        includes: ["Quad bike rental", "Helmet & gear", "Guide", "Training session", "Fuel", "Insurance"],
+        requirements: "Valid driver's license, good physical condition"
+    },
+
+    // WATER SPORTS
+    {
+        id: 5,
+        name: "Kayaking at Al Thakira Mangroves",
+        type: "water",
+        difficulty: "easy",
+        duration: "half",
+        durationText: "3-4 hours",
+        minAge: "8 years",
+        price: 180,
+        icon: "🛶",
+        image: "linear-gradient(135deg, #4CAF50 0%, #0C616F 100%)",
+        description: "Paddle through serene mangrove forests spotting herons, crabs, and marine life",
+        highlights: [
+            "Eco-friendly tour",
+            "Wildlife spotting",
+            "Professional guide",
+            "Photography stops"
+        ],
+        includes: ["Kayak & paddle", "Life jacket", "Expert guide", "Snacks & water", "Transportation"],
+        requirements: "Basic swimming ability recommended"
+    },
+    {
+        id: 6,
+        name: "Jet Ski Adventure",
+        type: "water",
+        difficulty: "moderate",
+        duration: "short",
+        durationText: "1-2 hours",
+        minAge: "16 years",
+        price: 320,
+        icon: "🏍️",
+        image: "linear-gradient(135deg, #0C616F 0%, #FFB81C 100%)",
+        description: "High-speed jet skiing along Qatar's pristine coastline",
+        highlights: [
+            "Latest jet ski models",
+            "Coastal tour route",
+            "Safety briefing included",
+            "Stunning sea views"
+        ],
+        includes: ["Jet ski rental", "Life jacket", "Instructor", "Fuel", "Locker facilities"],
+        requirements: "Confident swimmer, valid ID"
+    },
+    {
+        id: 7,
+        name: "Stand-Up Paddleboarding",
+        type: "water",
+        difficulty: "easy",
+        duration: "short",
+        durationText: "2 hours",
+        minAge: "12 years",
+        price: 150,
+        icon: "🏄",
+        image: "linear-gradient(135deg, #0C616F 0%, #4CAF50 100%)",
+        description: "Glide across calm waters while enjoying beautiful coastal views",
+        highlights: [
+            "Beginner-friendly",
+            "Calm water locations",
+            "Full instruction",
+            "Great workout"
+        ],
+        includes: ["SUP board", "Paddle", "Life jacket", "Instructor", "Equipment transport"],
+        requirements: "Basic swimming skills"
+    },
+    {
+        id: 8,
+        name: "Scuba Diving Experience",
+        type: "water",
+        difficulty: "challenging",
+        duration: "half",
+        durationText: "4-5 hours",
+        minAge: "12 years",
+        price: 550,
+        icon: "🤿",
+        image: "linear-gradient(135deg, #0C616F 0%, #1976D2 100%)",
+        description: "Discover Qatar's underwater world with experienced PADI instructors",
+        highlights: [
+            "PADI certified instructors",
+            "All equipment included",
+            "Beginner & certified divers",
+            "Marine life encounters"
+        ],
+        includes: ["Full scuba gear", "Boat trip", "2 dives", "Instructor", "Refreshments", "Insurance"],
+        requirements: "Medical clearance, swimming ability"
+    },
+
+    // AERIAL ACTIVITIES
+    {
+        id: 9,
+        name: "Helicopter Tour - Doha Skyline",
+        type: "air",
+        difficulty: "easy",
+        duration: "short",
+        durationText: "30 minutes",
+        minAge: "5 years",
+        price: 1200,
+        icon: "🚁",
+        image: "linear-gradient(135deg, #8C1D40 0%, #0C616F 100%)",
+        description: "Soar above Doha's iconic skyline and see Qatar from a bird's eye view",
+        highlights: [
+            "West Bay skyscrapers",
+            "The Pearl Qatar",
+            "Museum of Islamic Art",
+            "Photography allowed"
+        ],
+        includes: ["Helicopter charter", "Pilot", "Fuel", "Safety briefing", "Airport transfers"],
+        requirements: "Weight limit 120kg per person"
+    },
+    {
+        id: 10,
+        name: "Parasailing Adventure",
+        type: "air",
+        difficulty: "easy",
+        duration: "short",
+        durationText: "1.5 hours",
+        minAge: "10 years",
+        price: 350,
+        icon: "🪂",
+        image: "linear-gradient(135deg, #FFB81C 0%, #0C616F 100%)",
+        description: "Float high above the Arabian Gulf for breathtaking aerial views",
+        highlights: [
+            "Soar up to 200 feet",
+            "Panoramic views",
+            "Safe & thrilling",
+            "Tandem available"
+        ],
+        includes: ["Parasail equipment", "Life jacket", "Boat ride", "Certified crew", "Photos available"],
+        requirements: "Combined weight limit for tandem: 200kg"
+    },
+    {
+        id: 11,
+        name: "Skydiving Experience",
+        type: "air",
+        difficulty: "challenging",
+        duration: "half",
+        durationText: "4-5 hours",
+        minAge: "18 years",
+        price: 1800,
+        icon: "🪂",
+        image: "linear-gradient(135deg, #E53935 0%, #0C616F 100%)",
+        description: "Tandem skydive from 13,000 feet with certified instructors",
+        highlights: [
+            "13,000 feet freefall",
+            "60 seconds freefall",
+            "Experienced instructor",
+            "Video package available"
+        ],
+        includes: ["Tandem jump", "All equipment", "Training", "Certificate", "Transport to drop zone"],
+        requirements: "Weight 90-100kg max, medical fitness, signed waiver"
+    },
+
+    // EXTREME SPORTS
+    {
+        id: 12,
+        name: "Rock Climbing - Indoor Wall",
+        type: "extreme",
+        difficulty: "moderate",
+        duration: "short",
+        durationText: "2-3 hours",
+        minAge: "8 years",
+        price: 200,
+        icon: "🧗",
+        image: "linear-gradient(135deg, #8C1D40 0%, #E53935 100%)",
+        description: "Challenge yourself on Qatar's tallest indoor climbing walls",
+        highlights: [
+            "Various difficulty routes",
+            "Professional instructors",
+            "Safety equipment",
+            "Suitable for beginners"
+        ],
+        includes: ["Climbing equipment", "Harness & shoes", "Instructor", "Safety briefing", "Multiple climbs"],
+        requirements: "Good physical health"
+    },
+    {
+        id: 13,
+        name: "Wakeboarding",
+        type: "extreme",
+        difficulty: "challenging",
+        duration: "short",
+        durationText: "2 hours",
+        minAge: "14 years",
+        price: 380,
+        icon: "🏄",
+        image: "linear-gradient(135deg, #0C616F 0%, #E53935 100%)",
+        description: "Ride the wake behind a speedboat for an adrenaline-pumping experience",
+        highlights: [
+            "Professional instruction",
+            "Latest equipment",
+            "Multiple runs",
+            "Video your session"
+        ],
+        includes: ["Wakeboard & bindings", "Life jacket", "Boat & driver", "Instructor", "Fuel"],
+        requirements: "Strong swimmer, good fitness level"
+    },
+    {
+        id: 14,
+        name: "Kite Surfing Lessons",
+        type: "extreme",
+        difficulty: "challenging",
+        duration: "half",
+        durationText: "4 hours",
+        minAge: "14 years",
+        price: 480,
+        icon: "🪁",
+        image: "linear-gradient(135deg, #FFB81C 0%, #0C616F 100%)",
+        description: "Learn to harness the wind and ride the waves with expert instructors",
+        highlights: [
+            "IKO certified instructors",
+            "All equipment included",
+            "Beach & water training",
+            "Small group sessions"
+        ],
+        includes: ["Kite equipment", "Harness", "Board", "Wetsuit", "Instructor", "Insurance"],
+        requirements: "Good swimming skills, reasonable fitness"
+    },
+
+    // WILDLIFE SAFARI
+    {
+        id: 15,
+        name: "Inland Sea Adventure",
+        type: "safari",
+        difficulty: "easy",
+        duration: "full",
+        durationText: "8 hours",
+        minAge: "6 years",
+        price: 550,
+        icon: "🌊",
+        image: "linear-gradient(135deg, #0C616F 0%, #D4A574 100%)",
+        description: "Visit the spectacular Khor Al Adaid where the desert meets the sea",
+        highlights: [
+            "UNESCO natural reserve",
+            "Swimming in the inland sea",
+            "Dune bashing en route",
+            "Picnic lunch included"
+        ],
+        includes: ["4x4 transport", "Expert driver", "Picnic lunch", "Swimming time", "Photography stops", "All permits"],
+        requirements: "Long journey - comfortable with off-road driving"
+    },
+    {
+        id: 16,
+        name: "Falcon Experience",
+        type: "safari",
+        difficulty: "easy",
+        duration: "short",
+        durationText: "2 hours",
+        minAge: "8 years",
+        price: 250,
+        icon: "🦅",
+        image: "linear-gradient(135deg, #8C1D40 0%, #D4A574 100%)",
+        description: "Learn about falconry traditions and handle these magnificent birds",
+        highlights: [
+            "Handle a falcon",
+            "Learn falconry history",
+            "Traditional dress photos",
+            "Educational talk"
+        ],
+        includes: ["Falcon handling session", "Expert falconer", "Photography", "Refreshments", "Certificate"],
+        requirements: "Follow handler instructions carefully"
+    },
+    {
+        id: 17,
+        name: "Camel Riding Experience",
+        type: "safari",
+        difficulty: "easy",
+        duration: "short",
+        durationText: "1.5 hours",
+        minAge: "6 years",
+        price: 120,
+        icon: "🐪",
+        image: "linear-gradient(135deg, #D4A574 0%, #8C1D40 100%)",
+        description: "Traditional camel ride through the desert landscape",
+        highlights: [
+            "Gentle camels",
+            "Desert scenery",
+            "Cultural experience",
+            "Photo opportunities"
+        ],
+        includes: ["Camel ride", "Handler", "Traditional dress rental", "Refreshments", "Photos"],
+        requirements: "Weight limit 100kg"
+    },
+    {
+        id: 18,
+        name: "Wildlife Photography Safari",
+        type: "safari",
+        difficulty: "easy",
+        duration: "full",
+        durationText: "6-7 hours",
+        minAge: "12 years",
+        price: 480,
+        icon: "📷",
+        image: "linear-gradient(135deg, #4CAF50 0%, #D4A574 100%)",
+        description: "Capture Qatar's wildlife including oryx, gazelles, and desert birds",
+        highlights: [
+            "Professional photography guide",
+            "Visit wildlife reserves",
+            "Arabian oryx spotting",
+            "Bird watching"
+        ],
+        includes: ["4x4 transport", "Photography guide", "Park fees", "Lunch", "Water", "Binoculars"],
+        requirements: "Bring your own camera, patience for wildlife"
+    }
+];
+
+let filteredActivities = [...adventures];
+let currentActivity = null;
+
+// Initialize on page load
+window.addEventListener('DOMContentLoaded', () => {
+    console.log('Adventure.js loaded successfully');
+    console.log('Activities database has', adventures.length, 'adventures');
+    
+    // Set minimum date to today
+    const today = new Date().toISOString().split('T')[0];
+    const activityDateInput = document.getElementById('activityDate');
+    const bookingDateInput = document.getElementById('bookingDate');
+    
+    if (activityDateInput) activityDateInput.min = today;
+    if (bookingDateInput) bookingDateInput.min = today;
+    
+    // Display all activities initially
+    displayActivities(adventures);
+    
+    // Update pricing when participants change
+    const numParticipantsInput = document.getElementById('numParticipants');
+    if (numParticipantsInput) {
+        numParticipantsInput.addEventListener('change', updatePricing);
+    }
+});
+
+// Display activities in grid
+function displayActivities(activitiesToDisplay) {
+    const grid = document.getElementById('activitiesGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    if (activitiesToDisplay.length === 0) {
+        grid.innerHTML = '<p style="text-align: center; color: #666; padding: 3rem; grid-column: 1/-1;">No activities found. Please adjust your filters.</p>';
+        return;
+    }
+    
+    activitiesToDisplay.forEach(activity => {
+        const card = document.createElement('div');
+        card.className = 'activity-card';
+        card.onclick = () => openBookingModal(activity.id);
+        
+        card.innerHTML = `
+            <div class="activity-card-image" style="background: ${activity.image};">
+                <span style="font-size: 6rem;">${activity.icon}</span>
+                <div class="difficulty-badge ${activity.difficulty}">${activity.difficulty.toUpperCase()}</div>
+            </div>
+            <div class="activity-card-content">
+                <h3>${activity.name}</h3>
+                <div class="activity-type">${activity.type}</div>
+                <div class="activity-meta">
+                    <span class="meta-item">
+                        <span class="meta-icon">⏱️</span>
+                        ${activity.durationText}
+                    </span>
+                    <span class="meta-item">
+                        <span class="meta-icon">👥</span>
+                        ${activity.minAge}+
+                    </span>
+                </div>
+                <p class="activity-description">${activity.description}</p>
+                <div class="activity-highlights">
+                    ${activity.highlights.slice(0, 3).map(h => `<div class="highlight-item">${h}</div>`).join('')}
+                </div>
+                <div class="activity-card-footer">
+                    <div class="activity-price">
+                        <span class="price-label">From</span>
+                        <span class="price-amount">QR ${activity.price}</span>
+                        <span class="price-period">per person</span>
+                    </div>
+                    <button class="btn-book-activity" onclick="event.stopPropagation(); openBookingModal(${activity.id})">Book Now</button>
+                </div>
+            </div>
+        `;
+        
+        grid.appendChild(card);
+    });
+}
+
+// Search activities
+function searchActivities() {
+    console.log('Search activities clicked');
+    
+    const type = document.getElementById('typeFilter').value;
+    const duration = document.getElementById('durationFilter').value;
+    const difficulty = document.getElementById('difficultyFilter').value;
+    
+    let filtered = [...adventures];
+    
+    // Filter by type
+    if (type !== 'all') {
+        filtered = filtered.filter(a => a.type === type);
+    }
+    
+    // Filter by duration
+    if (duration !== 'all') {
+        filtered = filtered.filter(a => a.duration === duration);
+    }
+    
+    // Filter by difficulty
+    if (difficulty !== 'all') {
+        filtered = filtered.filter(a => a.difficulty === difficulty);
+    }
+    
+    filteredActivities = filtered;
+    displayActivities(filteredActivities);
+}
+
+// Sort activities
+function sortActivities() {
+    const sortBy = document.getElementById('sortBy').value;
+    let sorted = [...filteredActivities];
+    
+    if (sortBy === 'price-low') {
+        sorted.sort((a, b) => a.price - b.price);
+    } else if (sortBy === 'price-high') {
+        sorted.sort((a, b) => b.price - a.price);
+    } else if (sortBy === 'duration') {
+        const durationOrder = { short: 1, half: 2, full: 3 };
+        sorted.sort((a, b) => durationOrder[a.duration] - durationOrder[b.duration]);
+    }
+    // 'featured' keeps the original order
+    
+    displayActivities(sorted);
+}
+
+// Open booking modal
+function openBookingModal(activityId) {
+    const activity = adventures.find(a => a.id === activityId);
+    if (!activity) return;
+    
+    currentActivity = activity;
+    
+    // Populate activity information
+    document.getElementById('modalActivityImage').innerHTML = `<span style="font-size: 6rem;">${activity.icon}</span>`;
+    document.getElementById('modalActivityImage').style.background = activity.image;
+    document.getElementById('modalActivityName').textContent = activity.name;
+    document.getElementById('modalActivityType').textContent = activity.type.toUpperCase();
+    document.getElementById('modalDuration').innerHTML = `⏱️ ${activity.durationText}`;
+    document.getElementById('modalDifficulty').innerHTML = `🎯 ${activity.difficulty.charAt(0).toUpperCase() + activity.difficulty.slice(1)}`;
+    document.getElementById('modalDescription').textContent = activity.description;
+    
+    // Populate includes
+    const includesList = document.getElementById('modalIncludes');
+    includesList.innerHTML = `
+        <h4>Activity Includes</h4>
+        <ul>
+            ${activity.includes.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+    `;
+    
+    // Update booking summary
+    document.getElementById('summaryDuration').textContent = activity.durationText;
+    document.getElementById('summaryDifficulty').textContent = activity.difficulty.charAt(0).toUpperCase() + activity.difficulty.slice(1);
+    document.getElementById('summaryMinAge').textContent = activity.minAge;
+    
+    // Set initial pricing
+    updatePricing();
+    
+    // Show modal
+    document.getElementById('bookingModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+// Close booking modal
+function closeBookingModal() {
+    document.getElementById('bookingModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+    document.getElementById('bookingForm').reset();
+}
+
+// Update pricing
+function updatePricing() {
+    if (!currentActivity) return;
+    
+    const numParticipants = parseInt(document.getElementById('numParticipants').value) || 2;
+    const pricePerPerson = currentActivity.price;
+    const subtotal = pricePerPerson * numParticipants;
+    const total = subtotal;
+    
+    document.getElementById('pricePerPerson').textContent = `QR ${pricePerPerson}`;
+    document.getElementById('numPax').textContent = numParticipants;
+    document.getElementById('subtotal').textContent = `QR ${subtotal}`;
+    document.getElementById('total').textContent = `QR ${total}`;
+}
+
+// Submit booking
+function submitBooking(event) {
+    event.preventDefault();
+    
+    if (!currentActivity) return;
+    
+    const name = document.getElementById('guestName').value;
+    const email = document.getElementById('guestEmail').value;
+    const phone = document.getElementById('guestPhone').value;
+    const date = document.getElementById('bookingDate').value;
+    const participants = document.getElementById('numParticipants').value;
+    const pickup = document.getElementById('pickupLocation').value;
+    const requests = document.getElementById('specialRequests').value;
+    const total = document.getElementById('total').textContent;
+    
+    // Validate
+    if (!name || !email || !date || !participants) {
+        alert('Please fill in all required fields');
+        return;
+    }
+    
+    // Create booking data
+    const bookingData = {
+        activity: currentActivity.name,
+        type: currentActivity.type,
+        guestName: name,
+        email: email,
+        phone: phone,
+        date: date,
+        participants: participants,
+        pickupLocation: pickup,
+        specialRequests: requests,
+        total: total,
+        bookingDate: new Date().toISOString()
+    };
+    
+    // Log booking data (in real app, this would be sent to server)
+    console.log('Booking submitted:', bookingData);
+    
+    // Show success message
+    alert(`✓ Adventure Booking Confirmed!
+
+Activity: ${currentActivity.name}
+Guest: ${name}
+Date: ${date}
+Participants: ${participants}
+Total: ${total}
+
+A confirmation email will be sent to ${email}
+
+Important Reminders:
+${currentActivity.requirements}
+
+Pickup details will be confirmed 24 hours before your activity.
+Have an amazing adventure in Qatar!`);
+    
+    // Close modal and reset
+    closeBookingModal();
+}
