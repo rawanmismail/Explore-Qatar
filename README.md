@@ -40,3 +40,14 @@ CSS3
 JavaScript
 SQL Lite
 Visual Studio Code
+
+
+---
+## 🛠️ Built With
+
+HTML Pages      → Multi-page website structure
+styles.css      → Global styling
+script.js       → Main interactions
+visa-checker.js → Visa logic
+database.py     → Database configuration
+
