@@ -4452,3 +4452,438 @@ Have an amazing adventure in Qatar!`);
     // Close modal and reset
     closeBookingModal();
 }
+
+
+// Romantic Experiences Database
+
+const experiences = [
+    // ROMANTIC DINING
+    {
+        id: 1,
+        name: "Private Beach Dinner",
+        type: "dining",
+        timeOfDay: "evening",
+        duration: "short",
+        durationText: "3 hours",
+        price: 1500,
+        icon: "🏖️",
+        image: "linear-gradient(135deg, #FF6B9D 0%, #8C1D40 100%)",
+        description: "Exclusive private dinner on the beach with candlelight, champagne, and personalized service",
+        includes: ["Private beach setup", "4-course gourmet menu", "Champagne & wine", "Candlelight ambiance", "Dedicated server", "Floral decoration"]
+    },
+    {
+        id: 2,
+        name: "Rooftop Dining with Skyline Views",
+        type: "dining",
+        timeOfDay: "evening",
+        duration: "short",
+        durationText: "2-3 hours",
+        price: 800,
+        icon: "🌃",
+        image: "linear-gradient(135deg, #8C1D40 0%, #FFB81C 100%)",
+        description: "Intimate rooftop dinner with panoramic views of Doha's glittering skyline",
+        includes: ["Reserved rooftop table", "5-course tasting menu", "Wine pairing", "Live music", "Photographer available"]
+    },
+    {
+        id: 3,
+        name: "Floating Restaurant Experience",
+        type: "dining",
+        timeOfDay: "evening",
+        duration: "short",
+        durationText: "2 hours",
+        price: 650,
+        icon: "⛵",
+        image: "linear-gradient(135deg, #0C616F 0%, #8C1D40 100%)",
+        description: "Dine on a private floating platform with stunning water views",
+        includes: ["Floating platform setup", "Chef-prepared menu", "Premium beverages", "Ambient lighting", "Music playlist"]
+    },
+    {
+        id: 4,
+        name: "Desert Starlight Dinner",
+        type: "dining",
+        timeOfDay: "evening",
+        duration: "half",
+        durationText: "4 hours",
+        price: 1200,
+        icon: "⭐",
+        image: "linear-gradient(135deg, #8C1D40 0%, #D4A574 100%)",
+        description: "Private dinner in the desert under a canopy of stars with traditional entertainment",
+        includes: ["Private desert camp", "Gourmet BBQ dinner", "Champagne", "Stargazing with telescope", "Traditional music", "4x4 transport"]
+    },
+
+    // SUNSET CRUISE
+    {
+        id: 5,
+        name: "Luxury Yacht Sunset Cruise",
+        type: "cruise",
+        timeOfDay: "sunset",
+        duration: "short",
+        durationText: "3 hours",
+        price: 2500,
+        icon: "🛥️",
+        image: "linear-gradient(135deg, #FF6B9D 0%, #0C616F 100%)",
+        description: "Private luxury yacht cruise along the coastline during golden hour",
+        includes: ["Private luxury yacht", "Professional captain & crew", "Gourmet catering", "Champagne & beverages", "Sound system", "Swimming stop"]
+    },
+    {
+        id: 6,
+        name: "Traditional Dhow Sunset Cruise",
+        type: "cruise",
+        timeOfDay: "sunset",
+        duration: "short",
+        durationText: "2 hours",
+        price: 450,
+        icon: "⛵",
+        image: "linear-gradient(135deg, #8C1D40 0%, #0C616F 100%)",
+        description: "Romantic cruise on a traditional wooden dhow with dinner and live music",
+        includes: ["Traditional dhow boat", "International buffet", "Soft drinks included", "Live entertainment", "Sunset views"]
+    },
+    {
+        id: 7,
+        name: "Catamaran Champagne Sunset",
+        type: "cruise",
+        timeOfDay: "sunset",
+        duration: "short",
+        durationText: "2.5 hours",
+        price: 950,
+        icon: "⛵",
+        image: "linear-gradient(135deg, #FFB81C 0%, #0C616F 100%)",
+        description: "Sail on a spacious catamaran with champagne and canapés",
+        includes: ["Catamaran cruise", "Champagne & canapés", "Professional crew", "Comfortable seating", "Sunset photography"]
+    },
+
+    // COUPLES SPA
+    {
+        id: 8,
+        name: "Royal Couples Spa Package",
+        type: "spa",
+        timeOfDay: "afternoon",
+        duration: "half",
+        durationText: "4 hours",
+        price: 1800,
+        icon: "💆",
+        image: "linear-gradient(135deg, #A12852 0%, #8C1D40 100%)",
+        description: "Indulgent spa day with couples massage, hammam, and private relaxation suite",
+        includes: ["Private couples suite", "90-min couples massage", "Traditional hammam", "Facial treatments", "Champagne & refreshments", "Pool & sauna access"]
+    },
+    {
+        id: 9,
+        name: "Sunset Spa & Beach Experience",
+        type: "spa",
+        timeOfDay: "sunset",
+        duration: "half",
+        durationText: "3 hours",
+        price: 1200,
+        icon: "🌅",
+        image: "linear-gradient(135deg, #FF6B9D 0%, #FFB81C 100%)",
+        description: "Beachside couples massage followed by sunset champagne",
+        includes: ["Beach cabana setup", "60-min couples massage", "Sunset champagne service", "Light refreshments", "Private beach access"]
+    },
+    {
+        id: 10,
+        name: "Desert Spa Retreat",
+        type: "spa",
+        timeOfDay: "morning",
+        duration: "full",
+        durationText: "6 hours",
+        price: 2200,
+        icon: "🏜️",
+        image: "linear-gradient(135deg, #8C1D40 0%, #D4A574 100%)",
+        description: "Full-day desert wellness retreat with spa treatments and gourmet lunch",
+        includes: ["Desert resort access", "Couples massage", "Body treatments", "Yoga session", "Gourmet lunch", "Relaxation lounge", "Transport"]
+    },
+
+    // COUPLES ADVENTURE
+    {
+        id: 11,
+        name: "Hot Air Balloon Sunrise Flight",
+        type: "adventure",
+        timeOfDay: "morning",
+        duration: "half",
+        durationText: "4 hours",
+        price: 2800,
+        icon: "🎈",
+        image: "linear-gradient(135deg, #FFB81C 0%, #FF6B9D 100%)",
+        description: "Romantic sunrise hot air balloon flight over the desert with champagne breakfast",
+        includes: ["Hot air balloon flight", "Sunrise views", "Champagne breakfast", "Flight certificate", "Professional pilot", "Hotel pickup"]
+    },
+    {
+        id: 12,
+        name: "Private Island Picnic",
+        type: "adventure",
+        timeOfDay: "afternoon",
+        duration: "half",
+        durationText: "5 hours",
+        price: 1600,
+        icon: "🏝️",
+        image: "linear-gradient(135deg, #0C616F 0%, #4CAF50 100%)",
+        description: "Exclusive access to a private island with gourmet picnic and water activities",
+        includes: ["Private boat transfer", "Secluded island access", "Gourmet picnic basket", "Snorkeling equipment", "Beach setup", "Return transport"]
+    },
+    {
+        id: 13,
+        name: "Horseback Riding on the Beach",
+        type: "adventure",
+        timeOfDay: "sunset",
+        duration: "short",
+        durationText: "2 hours",
+        price: 550,
+        icon: "🐴",
+        image: "linear-gradient(135deg, #D4A574 0%, #FF6B9D 100%)",
+        description: "Romantic beach horseback ride during sunset with refreshments",
+        includes: ["2 horses with guides", "Beach riding route", "Sunset timing", "Photography", "Refreshments", "Safety equipment"]
+    },
+
+    // LUXURY EXPERIENCE
+    {
+        id: 14,
+        name: "Helicopter Tour with Champagne",
+        type: "luxury",
+        timeOfDay: "afternoon",
+        duration: "short",
+        durationText: "1.5 hours",
+        price: 3500,
+        icon: "🚁",
+        image: "linear-gradient(135deg, #8C1D40 0%, #FFB81C 100%)",
+        description: "Private helicopter tour of Doha's landmarks with champagne service",
+        includes: ["Private helicopter", "60-min aerial tour", "Professional pilot", "Champagne service", "Photography", "Airport transfers"]
+    },
+    {
+        id: 15,
+        name: "Luxury Desert Camp Overnight",
+        type: "luxury",
+        timeOfDay: "evening",
+        duration: "full",
+        durationText: "18 hours",
+        price: 3200,
+        icon: "⛺",
+        image: "linear-gradient(135deg, #A12852 0%, #D4A574 100%)",
+        description: "Exclusive desert camp with luxury amenities, private chef, and stargazing",
+        includes: ["Luxury tent suite", "Private chef service", "All meals & beverages", "Stargazing equipment", "Entertainment", "4x4 transport", "Butler service"]
+    },
+    {
+        id: 16,
+        name: "Private Yacht Full-Day Charter",
+        type: "luxury",
+        timeOfDay: "afternoon",
+        duration: "full",
+        durationText: "8 hours",
+        price: 4500,
+        icon: "🛥️",
+        image: "linear-gradient(135deg, #0C616F 0%, #8C1D40 100%)",
+        description: "Full-day luxury yacht charter with gourmet catering and water sports",
+        includes: ["Luxury yacht 8 hours", "Captain & crew", "Gourmet lunch & dinner", "Premium drinks", "Water sports equipment", "Snorkeling gear", "Swimming stops"]
+    },
+    {
+        id: 17,
+        name: "Penthouse Suite Experience",
+        type: "luxury",
+        timeOfDay: "evening",
+        duration: "full",
+        durationText: "24 hours",
+        price: 5000,
+        icon: "🏙️",
+        image: "linear-gradient(135deg, #8C1D40 0%, #FFB81C 100%)",
+        description: "Luxury penthouse suite with private chef, spa, and panoramic city views",
+        includes: ["Penthouse suite 24hrs", "Private chef service", "In-room spa treatments", "Champagne & flowers", "Personal concierge", "Breakfast & dinner"]
+    },
+    {
+        id: 18,
+        name: "Proposal Package - Ultimate Romance",
+        type: "luxury",
+        timeOfDay: "sunset",
+        duration: "half",
+        durationText: "4 hours",
+        price: 6000,
+        icon: "💍",
+        image: "linear-gradient(135deg, #FF6B9D 0%, #8C1D40 100%)",
+        description: "Elaborate marriage proposal setup with photographer, musicians, and champagne celebration",
+        includes: ["Romantic location setup", "Professional photographer", "Live musicians", "Floral decoration", "Champagne & cake", "Private dinner", "Video recording", "Proposal planning"]
+    }
+];
+
+let filteredExperiences = [...experiences];
+let currentExperience = null;
+
+window.addEventListener('DOMContentLoaded', () => {
+    const today = new Date().toISOString().split('T')[0];
+    const experienceDateInput = document.getElementById('experienceDate');
+    const bookingDateInput = document.getElementById('bookingDate');
+    
+    if (experienceDateInput) experienceDateInput.min = today;
+    if (bookingDateInput) bookingDateInput.min = today;
+    
+    displayExperiences(experiences);
+});
+
+function displayExperiences(experiencesToDisplay) {
+    const grid = document.getElementById('experiencesGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    if (experiencesToDisplay.length === 0) {
+        grid.innerHTML = '<p style="text-align: center; color: #666; padding: 3rem; grid-column: 1/-1;">No experiences found. Please adjust your filters.</p>';
+        return;
+    }
+    
+    experiencesToDisplay.forEach(experience => {
+        const card = document.createElement('div');
+        card.className = 'experience-card';
+        card.onclick = () => openBookingModal(experience.id);
+        
+        card.innerHTML = `
+            <div class="experience-card-image" style="background: ${experience.image};">
+                <span style="font-size: 6rem;">${experience.icon}</span>
+            </div>
+            <div class="experience-card-content">
+                <h3>${experience.name}</h3>
+                <div class="experience-category">${experience.type}</div>
+                <div class="experience-meta">
+                    <span class="meta-item">
+                        <span class="meta-icon">⏱️</span>
+                        ${experience.durationText}
+                    </span>
+                    <span class="meta-item">
+                        <span class="meta-icon">🌅</span>
+                        ${experience.timeOfDay}
+                    </span>
+                </div>
+                <p class="experience-description">${experience.description}</p>
+                <div class="experience-highlights">
+                    ${experience.includes.slice(0, 3).map(h => `<div class="highlight-item">${h}</div>`).join('')}
+                </div>
+                <div class="experience-card-footer">
+                    <div class="experience-price">
+                        <span class="price-label">For 2 People</span>
+                        <span class="price-amount">QR ${experience.price}</span>
+                    </div>
+                    <button class="btn-book-experience" onclick="event.stopPropagation(); openBookingModal(${experience.id})">Book Now</button>
+                </div>
+            </div>
+        `;
+        
+        grid.appendChild(card);
+    });
+}
+
+function searchExperiences() {
+    const type = document.getElementById('typeFilter').value;
+    const time = document.getElementById('timeFilter').value;
+    const duration = document.getElementById('durationFilter').value;
+    const priceRange = document.getElementById('priceFilter').value;
+    
+    let filtered = [...experiences];
+    
+    if (type !== 'all') {
+        filtered = filtered.filter(e => e.type === type);
+    }
+    
+    if (time !== 'all') {
+        filtered = filtered.filter(e => e.timeOfDay === time);
+    }
+    
+    if (duration !== 'all') {
+        filtered = filtered.filter(e => e.duration === duration);
+    }
+    
+    if (priceRange !== 'all') {
+        if (priceRange === 'moderate') {
+            filtered = filtered.filter(e => e.price >= 200 && e.price <= 500);
+        } else if (priceRange === 'premium') {
+            filtered = filtered.filter(e => e.price > 500 && e.price <= 1000);
+        } else if (priceRange === 'luxury') {
+            filtered = filtered.filter(e => e.price > 1000);
+        }
+    }
+    
+    filteredExperiences = filtered;
+    displayExperiences(filteredExperiences);
+}
+
+function sortExperiences() {
+    const sortBy = document.getElementById('sortBy').value;
+    let sorted = [...filteredExperiences];
+    
+    if (sortBy === 'price-low') {
+        sorted.sort((a, b) => a.price - b.price);
+    } else if (sortBy === 'price-high') {
+        sorted.sort((a, b) => b.price - a.price);
+    }
+    
+    displayExperiences(sorted);
+}
+
+function openBookingModal(experienceId) {
+    const experience = experiences.find(e => e.id === experienceId);
+    if (!experience) return;
+    
+    currentExperience = experience;
+    
+    document.getElementById('modalExperienceImage').innerHTML = `<span style="font-size: 6rem;">${experience.icon}</span>`;
+    document.getElementById('modalExperienceImage').style.background = experience.image;
+    document.getElementById('modalExperienceName').textContent = experience.name;
+    document.getElementById('modalType').textContent = experience.type.toUpperCase();
+    document.getElementById('modalDuration').innerHTML = `⏱️ ${experience.durationText}`;
+    document.getElementById('modalTime').innerHTML = `🌅 ${experience.timeOfDay}`;
+    document.getElementById('modalDescription').textContent = experience.description;
+    
+    const includesList = document.getElementById('modalIncludes');
+    includesList.innerHTML = `
+        <h4>Experience Includes</h4>
+        <ul>
+            ${experience.includes.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+    `;
+    
+    document.getElementById('totalPrice').textContent = `QR ${experience.price}`;
+    
+    document.getElementById('bookingModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeBookingModal() {
+    document.getElementById('bookingModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+    document.getElementById('bookingForm').reset();
+}
+
+function submitBooking(event) {
+    event.preventDefault();
+    
+    if (!currentExperience) return;
+    
+    const name = document.getElementById('guestName').value;
+    const partner = document.getElementById('partnerName').value;
+    const email = document.getElementById('guestEmail').value;
+    const phone = document.getElementById('guestPhone').value;
+    const date = document.getElementById('bookingDate').value;
+    const occasion = document.getElementById('occasion').value;
+    const requests = document.getElementById('specialRequests').value;
+    
+    if (!name || !email || !phone || !date) {
+        alert('Please fill in all required fields');
+        return;
+    }
+    
+    let occasionText = occasion ? `\nOccasion: ${occasion}` : '';
+    let partnerText = partner ? `\nPartner: ${partner}` : '';
+    
+    alert(`💕 Romantic Experience Confirmed!
+
+Experience: ${currentExperience.name}
+Your Name: ${name}${partnerText}
+Date: ${date}
+Time: ${currentExperience.timeOfDay}${occasionText}
+Total: QR ${currentExperience.price}
+
+Confirmation sent to ${email}
+
+We'll call you at ${phone} to finalize arrangements.
+
+Special Requests: ${requests || 'None'}
+
+Create unforgettable memories in Qatar! 💕`);
+    
+    closeBookingModal();
+}
