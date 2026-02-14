@@ -4887,3 +4887,587 @@ Create unforgettable memories in Qatar! 💕`);
     
     closeBookingModal();
 }
+
+
+// Art & Culture Attractions Database
+
+const attractions = [
+    // MUSEUMS
+    {
+        id: 1,
+        name: "Museum of Islamic Art",
+        category: "museum",
+        duration: "half",
+        durationText: "3-4 hours",
+        price: 50,
+        hours: "9 AM - 7 PM (Closed Mondays)",
+        location: "Corniche, Doha",
+        icon: "🕌",
+        image: "linear-gradient(135deg, #8C1D40 0%, #0C616F 100%)",
+        description: "World-renowned museum designed by I.M. Pei showcasing 1,400 years of Islamic art and culture",
+        highlights: [
+            "I.M. Pei architecture",
+            "Rare Islamic artifacts",
+            "Stunning waterfront location",
+            "Guided tours available",
+            "Gift shop & café"
+        ]
+    },
+    {
+        id: 2,
+        name: "National Museum of Qatar",
+        category: "museum",
+        duration: "half",
+        durationText: "3-4 hours",
+        price: 50,
+        hours: "9 AM - 7 PM (Closed Tuesdays)",
+        location: "Museum Park Street, Doha",
+        icon: "🏛️",
+        image: "linear-gradient(135deg, #A12852 0%, #D4A574 100%)",
+        description: "Stunning building inspired by desert rose crystal, telling the story of Qatar and its people",
+        highlights: [
+            "Jean Nouvel architecture",
+            "Interactive exhibitions",
+            "Qatar's history & heritage",
+            "Multimedia displays",
+            "Restaurant with lagoon views"
+        ]
+    },
+    {
+        id: 3,
+        name: "Mathaf: Arab Museum of Modern Art",
+        category: "museum",
+        duration: "short",
+        durationText: "2 hours",
+        price: 0,
+        hours: "9 AM - 7 PM (Closed Mondays)",
+        location: "Education City, Doha",
+        icon: "🎨",
+        image: "linear-gradient(135deg, #FFB81C 0%, #8C1D40 100%)",
+        description: "Leading institution for modern and contemporary Arab art",
+        highlights: [
+            "Free admission",
+            "Contemporary Arab art",
+            "Rotating exhibitions",
+            "Educational programs",
+            "Museum shop"
+        ]
+    },
+    {
+        id: 4,
+        name: "Fire Station Artist in Residence",
+        category: "museum",
+        duration: "short",
+        durationText: "1-2 hours",
+        price: 0,
+        hours: "9 AM - 5 PM (Sun-Thu)",
+        location: "Al Rumeilah, Doha",
+        icon: "🔥",
+        image: "linear-gradient(135deg, #E53935 0%, #8C1D40 100%)",
+        description: "Contemporary art space in a converted fire station",
+        highlights: [
+            "Free entry",
+            "Artist studios",
+            "Contemporary exhibitions",
+            "Cultural workshops",
+            "Café & outdoor space"
+        ]
+    },
+
+    // HERITAGE SITES
+    {
+        id: 5,
+        name: "Souq Waqif",
+        category: "heritage",
+        duration: "half",
+        durationText: "3-4 hours",
+        price: 0,
+        hours: "24/7 (shops 8 AM - 12 AM)",
+        location: "Souq Waqif Street, Doha",
+        icon: "🏪",
+        image: "linear-gradient(135deg, #D4A574 0%, #8C1D40 100%)",
+        description: "Traditional marketplace with spices, textiles, handicrafts, and authentic Qatari atmosphere",
+        highlights: [
+            "Free to explore",
+            "Traditional souq experience",
+            "Spices & textiles",
+            "Local restaurants",
+            "Falcon souq",
+            "Evening entertainment"
+        ]
+    },
+    {
+        id: 6,
+        name: "Al Zubarah Fort (UNESCO)",
+        category: "heritage",
+        duration: "half",
+        durationText: "3-4 hours including travel",
+        price: 0,
+        hours: "9 AM - 4 PM (Closed Mondays)",
+        location: "Al Zubarah, 105 km from Doha",
+        icon: "🏰",
+        image: "linear-gradient(135deg, #8C1D40 0%, #D4A574 100%)",
+        description: "UNESCO World Heritage Site, Qatar's most extensive archaeological site",
+        highlights: [
+            "Free admission",
+            "UNESCO heritage site",
+            "18th-century fort",
+            "Archaeological remains",
+            "Visitor center",
+            "Guided tours available"
+        ]
+    },
+    {
+        id: 7,
+        name: "Sheikh Faisal Museum",
+        category: "heritage",
+        duration: "half",
+        durationText: "3 hours including travel",
+        price: 25,
+        hours: "9 AM - 4:30 PM (Closed Sun)",
+        location: "Al Samriya, Al Shahaniya",
+        icon: "🏺",
+        image: "linear-gradient(135deg, #A12852 0%, #8C1D40 100%)",
+        description: "Private museum with eclectic collection spanning Islamic art to vintage cars",
+        highlights: [
+            "Vintage car collection",
+            "Islamic art & manuscripts",
+            "Traditional Qatari items",
+            "Carpets & textiles",
+            "Fossil exhibits"
+        ]
+    },
+    {
+        id: 8,
+        name: "Msheireb Museums",
+        category: "heritage",
+        duration: "short",
+        durationText: "2-3 hours",
+        price: 0,
+        hours: "9 AM - 5 PM (Closed Mondays)",
+        location: "Msheireb Downtown, Doha",
+        icon: "🏘️",
+        image: "linear-gradient(135deg, #0C616F 0%, #8C1D40 100%)",
+        description: "Four heritage houses telling stories of family, community, oil, and slavery",
+        highlights: [
+            "Free admission",
+            "Four historic houses",
+            "Qatar's social history",
+            "Interactive displays",
+            "Air-conditioned comfort"
+        ]
+    },
+
+    // ARCHITECTURE
+    {
+        id: 9,
+        name: "Katara Cultural Village",
+        category: "architecture",
+        duration: "half",
+        durationText: "3-4 hours",
+        price: 0,
+        hours: "24/7 access",
+        location: "Katara, Doha",
+        icon: "🎭",
+        image: "linear-gradient(135deg, #8C1D40 0%, #FFB81C 100%)",
+        description: "Cultural hub with amphitheater, galleries, restaurants, and beautiful architecture",
+        highlights: [
+            "Free to explore",
+            "Opera house & amphitheater",
+            "Art galleries",
+            "Beachfront dining",
+            "Cultural events",
+            "Photography spots"
+        ]
+    },
+    {
+        id: 10,
+        name: "The Pearl-Qatar",
+        category: "architecture",
+        duration: "half",
+        durationText: "3-4 hours",
+        price: 0,
+        hours: "24/7 access",
+        location: "The Pearl, Doha",
+        icon: "💎",
+        image: "linear-gradient(135deg, #0C616F 0%, #FFB81C 100%)",
+        description: "Man-made island with Mediterranean-style marinas, luxury shopping, and dining",
+        highlights: [
+            "Free to explore",
+            "Luxury shopping",
+            "Marina views",
+            "High-end dining",
+            "Photo opportunities",
+            "Evening strolls"
+        ]
+    },
+    {
+        id: 11,
+        name: "Education City Mosque",
+        category: "architecture",
+        duration: "short",
+        durationText: "1 hour",
+        price: 0,
+        hours: "Open for tours (check schedule)",
+        location: "Education City, Doha",
+        icon: "🕌",
+        image: "linear-gradient(135deg, #8C1D40 0%, #4CAF50 100%)",
+        description: "Stunning modern Islamic architecture with intricate designs and peaceful atmosphere",
+        highlights: [
+            "Free admission",
+            "Modern Islamic design",
+            "Beautiful interiors",
+            "Guided tours available",
+            "Photography allowed (outside)"
+        ]
+    },
+
+    // PERFORMING ARTS
+    {
+        id: 12,
+        name: "Qatar National Theatre",
+        category: "performance",
+        duration: "short",
+        durationText: "2-3 hours (per show)",
+        price: 150,
+        hours: "Varies by performance",
+        location: "Katara Cultural Village",
+        icon: "🎭",
+        image: "linear-gradient(135deg, #A12852 0%, #8C1D40 100%)",
+        description: "World-class performances including opera, ballet, and theatrical productions",
+        highlights: [
+            "International performances",
+            "Opera & ballet",
+            "Theatre productions",
+            "Concert series",
+            "Modern facilities"
+        ]
+    },
+    {
+        id: 13,
+        name: "Qatar Philharmonic Orchestra",
+        category: "performance",
+        duration: "short",
+        durationText: "2 hours",
+        price: 120,
+        hours: "Varies by concert",
+        location: "Katara Opera House",
+        icon: "🎼",
+        image: "linear-gradient(135deg, #8C1D40 0%, #0C616F 100%)",
+        description: "Classical music performances by resident and guest orchestras",
+        highlights: [
+            "Classical concerts",
+            "International soloists",
+            "Symphony performances",
+            "Chamber music",
+            "World-class venue"
+        ]
+    },
+    {
+        id: 14,
+        name: "Traditional Dhow Cruise with Entertainment",
+        category: "performance",
+        duration: "short",
+        durationText: "2 hours",
+        price: 180,
+        hours: "Evening departures",
+        location: "Corniche, Doha",
+        icon: "⛵",
+        image: "linear-gradient(135deg, #0C616F 0%, #8C1D40 100%)",
+        description: "Sunset cruise with traditional music, dance, and dinner",
+        highlights: [
+            "Traditional dhow boat",
+            "Live entertainment",
+            "Buffet dinner",
+            "Sunset views",
+            "Cultural experience"
+        ]
+    },
+
+    // CULTURAL EXPERIENCES
+    {
+        id: 15,
+        name: "Arabic Calligraphy Workshop",
+        category: "experience",
+        duration: "short",
+        durationText: "2 hours",
+        price: 200,
+        hours: "Various times (booking required)",
+        location: "Katara Cultural Village",
+        icon: "✍️",
+        image: "linear-gradient(135deg, #8C1D40 0%, #D4A574 100%)",
+        description: "Learn the ancient art of Arabic calligraphy from master artists",
+        highlights: [
+            "Hands-on workshop",
+            "Professional instruction",
+            "All materials included",
+            "Take home artwork",
+            "Small group setting"
+        ]
+    },
+    {
+        id: 16,
+        name: "Traditional Henna Art Experience",
+        category: "experience",
+        duration: "short",
+        durationText: "1 hour",
+        price: 80,
+        hours: "Daily 10 AM - 8 PM",
+        location: "Souq Waqif",
+        icon: "🤲",
+        image: "linear-gradient(135deg, #D4A574 0%, #8C1D40 100%)",
+        description: "Get beautiful traditional henna designs applied by skilled artists",
+        highlights: [
+            "Authentic henna art",
+            "Traditional patterns",
+            "Experienced artists",
+            "Natural henna",
+            "Cultural experience"
+        ]
+    },
+    {
+        id: 17,
+        name: "Qatar National Library Tour",
+        category: "experience",
+        duration: "short",
+        durationText: "1-2 hours",
+        price: 0,
+        hours: "8 AM - 8 PM (Sun-Thu)",
+        location: "Education City",
+        icon: "📚",
+        image: "linear-gradient(135deg, #0C616F 0%, #8C1D40 100%)",
+        description: "Explore stunning modern library with millions of books and manuscripts",
+        highlights: [
+            "Free admission",
+            "Architectural marvel",
+            "Heritage library collection",
+            "Modern facilities",
+            "Quiet study spaces",
+            "Café"
+        ]
+    },
+    {
+        id: 18,
+        name: "Spice Market Tour & Cooking Class",
+        category: "experience",
+        duration: "half",
+        durationText: "4 hours",
+        price: 280,
+        hours: "Morning sessions",
+        location: "Souq Waqif",
+        icon: "🌶️",
+        image: "linear-gradient(135deg, #FFB81C 0%, #8C1D40 100%)",
+        description: "Market tour followed by hands-on Qatari cooking class",
+        highlights: [
+            "Guided spice market tour",
+            "Hands-on cooking class",
+            "Traditional recipes",
+            "Enjoy your meal",
+            "Recipe booklet included"
+        ]
+    }
+];
+
+let filteredAttractions = [...attractions];
+let currentAttraction = null;
+
+window.addEventListener('DOMContentLoaded', () => {
+    const today = new Date().toISOString().split('T')[0];
+    const visitDateInput = document.getElementById('visitDate');
+    const bookingDateInput = document.getElementById('bookingDate');
+    
+    if (visitDateInput) visitDateInput.min = today;
+    if (bookingDateInput) bookingDateInput.min = today;
+    
+    displayAttractions(attractions);
+    
+    const numVisitorsInput = document.getElementById('numVisitors');
+    if (numVisitorsInput) {
+        numVisitorsInput.addEventListener('change', updatePricing);
+    }
+});
+
+function displayAttractions(attractionsToDisplay) {
+    const grid = document.getElementById('attractionsGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    if (attractionsToDisplay.length === 0) {
+        grid.innerHTML = '<p style="text-align: center; color: #666; padding: 3rem; grid-column: 1/-1;">No attractions found. Please adjust your filters.</p>';
+        return;
+    }
+    
+    attractionsToDisplay.forEach(attraction => {
+        const card = document.createElement('div');
+        card.className = 'attraction-card';
+        card.onclick = () => openBookingModal(attraction.id);
+        
+        const freeBadge = attraction.price === 0 ? '<div class="free-badge">FREE ENTRY</div>' : '';
+        
+        card.innerHTML = `
+            <div class="attraction-card-image" style="background: ${attraction.image};">
+                <span style="font-size: 6rem;">${attraction.icon}</span>
+                ${freeBadge}
+            </div>
+            <div class="attraction-card-content">
+                <h3>${attraction.name}</h3>
+                <div class="attraction-category">${attraction.category}</div>
+                <div class="attraction-meta">
+                    <span class="meta-item">
+                        <span class="meta-icon">⏱️</span>
+                        ${attraction.durationText}
+                    </span>
+                    <span class="meta-item">
+                        <span class="meta-icon">📍</span>
+                        ${attraction.location}
+                    </span>
+                </div>
+                <p class="attraction-description">${attraction.description}</p>
+                <div class="attraction-highlights">
+                    ${attraction.highlights.slice(0, 3).map(h => `<div class="highlight-item">${h}</div>`).join('')}
+                </div>
+                <div class="attraction-card-footer">
+                    <div class="attraction-price">
+                        ${attraction.price === 0 ? 
+                            '<span class="price-free">Free Entry</span>' : 
+                            `<span class="price-label">From</span>
+                             <span class="price-amount">QR ${attraction.price}</span>
+                             <span class="price-period">per person</span>`
+                        }
+                    </div>
+                    <button class="btn-book-attraction" onclick="event.stopPropagation(); openBookingModal(${attraction.id})">Book Visit</button>
+                </div>
+            </div>
+        `;
+        
+        grid.appendChild(card);
+    });
+}
+
+function searchAttractions() {
+    const category = document.getElementById('categoryFilter').value;
+    const duration = document.getElementById('durationFilter').value;
+    const priceRange = document.getElementById('priceFilter').value;
+    
+    let filtered = [...attractions];
+    
+    if (category !== 'all') {
+        filtered = filtered.filter(a => a.category === category);
+    }
+    
+    if (duration !== 'all') {
+        filtered = filtered.filter(a => a.duration === duration);
+    }
+    
+    if (priceRange !== 'all') {
+        if (priceRange === 'free') {
+            filtered = filtered.filter(a => a.price === 0);
+        } else if (priceRange === 'budget') {
+            filtered = filtered.filter(a => a.price > 0 && a.price < 100);
+        } else if (priceRange === 'moderate') {
+            filtered = filtered.filter(a => a.price >= 100 && a.price <= 300);
+        }
+    }
+    
+    filteredAttractions = filtered;
+    displayAttractions(filteredAttractions);
+}
+
+function sortAttractions() {
+    const sortBy = document.getElementById('sortBy').value;
+    let sorted = [...filteredAttractions];
+    
+    if (sortBy === 'name') {
+        sorted.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === 'price-low') {
+        sorted.sort((a, b) => a.price - b.price);
+    }
+    
+    displayAttractions(sorted);
+}
+
+function openBookingModal(attractionId) {
+    const attraction = attractions.find(a => a.id === attractionId);
+    if (!attraction) return;
+    
+    currentAttraction = attraction;
+    
+    document.getElementById('modalAttractionImage').innerHTML = `<span style="font-size: 6rem;">${attraction.icon}</span>`;
+    document.getElementById('modalAttractionImage').style.background = attraction.image;
+    document.getElementById('modalAttractionName').textContent = attraction.name;
+    document.getElementById('modalCategory').textContent = attraction.category.toUpperCase();
+    document.getElementById('modalDuration').innerHTML = `⏱️ ${attraction.durationText}`;
+    document.getElementById('modalLocation').innerHTML = `📍 ${attraction.location}`;
+    document.getElementById('modalDescription').textContent = attraction.description;
+    
+    const highlightsList = document.getElementById('modalHighlights');
+    highlightsList.innerHTML = `
+        <h4>Highlights</h4>
+        <ul>
+            ${attraction.highlights.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+    `;
+    
+    document.getElementById('summaryDuration').textContent = attraction.durationText;
+    document.getElementById('summaryHours').textContent = attraction.hours;
+    
+    updatePricing();
+    
+    document.getElementById('bookingModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeBookingModal() {
+    document.getElementById('bookingModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+    document.getElementById('bookingForm').reset();
+}
+
+function updatePricing() {
+    if (!currentAttraction) return;
+    
+    const numVisitors = parseInt(document.getElementById('numVisitors').value) || 2;
+    const pricePerPerson = currentAttraction.price;
+    const total = pricePerPerson * numVisitors;
+    
+    document.getElementById('pricePerPerson').textContent = pricePerPerson === 0 ? 'FREE' : `QR ${pricePerPerson}`;
+    document.getElementById('numPax').textContent = numVisitors;
+    document.getElementById('total').textContent = total === 0 ? 'FREE ENTRY' : `QR ${total}`;
+}
+
+function submitBooking(event) {
+    event.preventDefault();
+    
+    if (!currentAttraction) return;
+    
+    const name = document.getElementById('guestName').value;
+    const email = document.getElementById('guestEmail').value;
+    const date = document.getElementById('bookingDate').value;
+    const visitors = document.getElementById('numVisitors').value;
+    const time = document.getElementById('visitTime').value;
+    const total = document.getElementById('total').textContent;
+    
+    if (!name || !email || !date) {
+        alert('Please fill in all required fields');
+        return;
+    }
+    
+    alert(`✓ Visit Confirmed!
+
+Attraction: ${currentAttraction.name}
+Guest: ${name}
+Date: ${date}
+Time: ${time}
+Visitors: ${visitors}
+Total: ${total}
+
+Confirmation sent to ${email}
+
+Opening Hours: ${currentAttraction.hours}
+Location: ${currentAttraction.location}
+
+Enjoy your cultural experience!`);
+    
+    closeBookingModal();
+}
