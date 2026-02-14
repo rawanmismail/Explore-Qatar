@@ -5471,3 +5471,4 @@ Enjoy your cultural experience!`);
     
     closeBookingModal();
 }
+
