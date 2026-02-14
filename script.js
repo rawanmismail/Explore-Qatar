@@ -5472,3 +5472,498 @@ Enjoy your cultural experience!`);
     closeBookingModal();
 }
 
+// Beach Holiday Options Database
+
+const beachOptions = [
+    // BEACH ACCESS
+    {
+        id: 1,
+        name: "Katara Beach",
+        category: "beach",
+        duration: "full",
+        durationText: "Full day access",
+        price: 0,
+        location: "Katara Cultural Village",
+        icon: "🏖️",
+        image: "linear-gradient(135deg, #0C616F 0%, #4CAF50 100%)",
+        description: "Beautiful public beach with golden sand, calm waters, and cultural village nearby",
+        facilities: ["Free access", "Changing rooms", "Showers", "Nearby restaurants", "Lifeguards", "Beach volleyball", "Parking available", "Family-friendly"]
+    },
+    {
+        id: 2,
+        name: "Fuwairit Beach",
+        category: "beach",
+        duration: "full",
+        durationText: "Full day access",
+        price: 0,
+        location: "North of Qatar, 80km from Doha",
+        icon: "🏝️",
+        image: "linear-gradient(135deg, #4CAF50 0%, #0C616F 100%)",
+        description: "Remote pristine beach perfect for camping, turtle watching, and escaping the city",
+        facilities: ["Free access", "Natural beach", "Turtle nesting site", "Camping allowed", "4x4 access recommended", "Secluded", "Bring supplies", "Perfect for day trips"]
+    },
+    {
+        id: 3,
+        name: "Sealine Beach",
+        category: "beach",
+        duration: "full",
+        durationText: "Full day access",
+        price: 0,
+        location: "Mesaieed, 60km south of Doha",
+        icon: "🏜️",
+        image: "linear-gradient(135deg, #D4A574 0%, #0C616F 100%)",
+        description: "Unique beach where desert dunes meet the sea, popular for water sports and camping",
+        facilities: ["Free access", "Desert & beach combo", "Water sports", "Camping spots", "Dune views", "Kite surfing spot", "Basic facilities", "4x4 friendly"]
+    },
+    {
+        id: 4,
+        name: "Simaisma Beach",
+        category: "beach",
+        duration: "full",
+        durationText: "Full day access",
+        price: 0,
+        location: "Simaisma, North of Doha",
+        icon: "🌊",
+        image: "linear-gradient(135deg, #0C616F 0%, #FFB81C 100%)",
+        description: "Quiet family beach with shallow waters perfect for children",
+        facilities: ["Free access", "Shallow waters", "Child-friendly", "Picnic areas", "Clean beach", "Less crowded", "Parking", "Basic amenities"]
+    },
+
+    // WATER SPORTS
+    {
+        id: 5,
+        name: "Jet Ski Rental Package",
+        category: "watersports",
+        duration: "hourly",
+        durationText: "1 hour",
+        price: 300,
+        location: "Multiple beach locations",
+        icon: "🏍️",
+        image: "linear-gradient(135deg, #FFB81C 0%, #0C616F 100%)",
+        description: "High-speed jet ski rental with safety equipment and instruction",
+        facilities: ["Latest jet ski models", "Safety briefing", "Life jackets provided", "Fuel included", "Instructor available", "Locker facilities", "Insurance included"]
+    },
+    {
+        id: 6,
+        name: "Parasailing Adventure",
+        category: "watersports",
+        duration: "hourly",
+        durationText: "30 minutes",
+        price: 350,
+        location: "West Bay Beach",
+        icon: "🪂",
+        image: "linear-gradient(135deg, #0C616F 0%, #FF6B9D 100%)",
+        description: "Soar 200 feet above the Gulf with breathtaking aerial views",
+        facilities: ["Professional crew", "Safety equipment", "200ft flight", "Solo or tandem", "Photos available", "No experience needed", "Weight limit 120kg"]
+    },
+    {
+        id: 7,
+        name: "Banana Boat Ride",
+        category: "watersports",
+        duration: "hourly",
+        durationText: "15 minutes",
+        price: 80,
+        location: "Katara Beach",
+        icon: "🍌",
+        image: "linear-gradient(135deg, #FFB81C 0%, #4CAF50 100%)",
+        description: "Fun group activity bouncing across the waves",
+        facilities: ["Group activity (6-8 people)", "Life jackets", "Experienced driver", "Fun for all ages", "Great for families", "Photos included"]
+    },
+    {
+        id: 8,
+        name: "Kayaking Experience",
+        category: "watersports",
+        duration: "half",
+        durationText: "2 hours",
+        price: 150,
+        location: "Al Thakira Mangroves",
+        icon: "🛶",
+        image: "linear-gradient(135deg, #4CAF50 0%, #0C616F 100%)",
+        description: "Paddle through serene mangroves spotting wildlife",
+        facilities: ["Kayak & paddle", "Life jacket", "Guide included", "Wildlife spotting", "Eco-friendly", "Bottled water", "Scenic route"]
+    },
+    {
+        id: 9,
+        name: "Stand-Up Paddleboarding",
+        category: "watersports",
+        duration: "hourly",
+        durationText: "1 hour",
+        price: 120,
+        location: "The Pearl Marina",
+        icon: "🏄",
+        image: "linear-gradient(135deg, #0C616F 0%, #4CAF50 100%)",
+        description: "Glide across calm marina waters with beautiful views",
+        facilities: ["SUP board rental", "Paddle", "Life vest", "Basic instruction", "Calm waters", "Equipment storage", "All levels welcome"]
+    },
+    {
+        id: 10,
+        name: "Donut Tube Ride",
+        category: "watersports",
+        duration: "hourly",
+        durationText: "15 minutes",
+        price: 70,
+        location: "Multiple locations",
+        icon: "🍩",
+        image: "linear-gradient(135deg, #FF6B9D 0%, #0C616F 100%)",
+        description: "Exciting inflatable tube ride pulled by speedboat",
+        facilities: ["Inflatable tube", "Speedboat ride", "Safety equipment", "Fun for all ages", "Group discounts", "Photos available"]
+    },
+
+    // ISLAND RESORTS
+    {
+        id: 11,
+        name: "Banana Island Day Pass",
+        category: "island",
+        duration: "full",
+        durationText: "Full day (9 AM - 6 PM)",
+        price: 450,
+        location: "Banana Island by Anantara",
+        icon: "🏝️",
+        image: "linear-gradient(135deg, #4CAF50 0%, #FFB81C 100%)",
+        description: "Exclusive luxury island resort with pristine beaches and world-class facilities",
+        facilities: ["Ferry transfer included", "Beach access", "Pool access", "Water sports", "Lunch buffet", "Towels & lockers", "Spa discounts", "Kids club"]
+    },
+    {
+        id: 12,
+        name: "Purple Island (Al Khor Island)",
+        category: "island",
+        duration: "half",
+        durationText: "Half day trip",
+        price: 200,
+        location: "Al Khor, North Qatar",
+        icon: "🟣",
+        image: "linear-gradient(135deg, #A12852 0%, #4CAF50 100%)",
+        description: "Natural island famous for purple flowers and mangrove forests",
+        facilities: ["Boat transfer", "Nature walks", "Mangrove viewing", "Bird watching", "Photography spots", "Guide included", "Refreshments", "Eco-tourism"]
+    },
+    {
+        id: 13,
+        name: "Safliya Island Excursion",
+        category: "island",
+        duration: "full",
+        durationText: "Full day adventure",
+        price: 550,
+        location: "Safliya Island",
+        icon: "⛵",
+        image: "linear-gradient(135deg, #0C616F 0%, #4CAF50 100%)",
+        description: "Remote island adventure with snorkeling and beach BBQ",
+        facilities: ["Boat transport", "Snorkeling equipment", "BBQ lunch", "Beach games", "Swimming", "Professional crew", "Cooler drinks", "Fishing gear"]
+    },
+
+    // BEACH ACTIVITIES
+    {
+        id: 14,
+        name: "Beach Volleyball Court Rental",
+        category: "activity",
+        duration: "hourly",
+        durationText: "2 hours",
+        price: 100,
+        location: "Katara Beach",
+        icon: "🏐",
+        image: "linear-gradient(135deg, #FFB81C 0%, #4CAF50 100%)",
+        description: "Professional beach volleyball court with equipment",
+        facilities: ["Full court access", "Volleyball provided", "Net setup", "Shaded seating", "Changing rooms nearby", "Shower facilities", "Up to 12 players"]
+    },
+    {
+        id: 15,
+        name: "Beach Cabana Rental",
+        category: "activity",
+        duration: "full",
+        durationText: "Full day",
+        price: 300,
+        location: "Various beach clubs",
+        icon: "⛱️",
+        image: "linear-gradient(135deg, #FF6B9D 0%, #0C616F 100%)",
+        description: "Private beachfront cabana with table service",
+        facilities: ["Private cabana", "Comfortable seating", "Shade coverage", "Table service", "Cooler & ice", "Beach toys", "Towels included", "WiFi access"]
+    },
+    {
+        id: 16,
+        name: "Beach Photography Session",
+        category: "activity",
+        duration: "hourly",
+        durationText: "1 hour",
+        price: 400,
+        location: "Your choice of beach",
+        icon: "📸",
+        image: "linear-gradient(135deg, #0C616F 0%, #FFB81C 100%)",
+        description: "Professional beach photography for families or couples",
+        facilities: ["Professional photographer", "1 hour session", "Multiple locations", "Outfit changes", "50+ edited photos", "Online gallery", "Print package available"]
+    },
+    {
+        id: 17,
+        name: "Beach Yoga Class",
+        category: "activity",
+        duration: "hourly",
+        durationText: "1 hour",
+        price: 80,
+        location: "Katara Beach",
+        icon: "🧘",
+        image: "linear-gradient(135deg, #4CAF50 0%, #FFB81C 100%)",
+        description: "Sunrise or sunset yoga session on the beach",
+        facilities: ["Certified instructor", "Yoga mats provided", "All levels welcome", "Sunrise or sunset", "Meditation included", "Small groups", "Refreshing drinks"]
+    },
+
+    // BOAT TRIPS
+    {
+        id: 18,
+        name: "Sunset Dhow Cruise",
+        category: "cruise",
+        duration: "half",
+        durationText: "2 hours",
+        price: 200,
+        location: "Doha Corniche",
+        icon: "⛵",
+        image: "linear-gradient(135deg, #8C1D40 0%, #FFB81C 100%)",
+        description: "Traditional wooden dhow cruise along the coastline during sunset",
+        facilities: ["Traditional dhow boat", "Buffet dinner", "Soft drinks", "Live music", "Sunset views", "Air-conditioned cabin", "Photo opportunities"]
+    },
+    {
+        id: 19,
+        name: "Speed Boat Island Tour",
+        category: "cruise",
+        duration: "half",
+        durationText: "3 hours",
+        price: 450,
+        location: "Multiple departure points",
+        icon: "🚤",
+        image: "linear-gradient(135deg, #0C616F 0%, #E53935 100%)",
+        description: "High-speed boat tour to remote islands with swimming stops",
+        facilities: ["Speed boat", "Professional captain", "Island stops", "Snorkeling gear", "Refreshments", "Safety equipment", "Swimming breaks", "Cooler box"]
+    },
+    {
+        id: 20,
+        name: "Fishing Charter",
+        category: "cruise",
+        duration: "half",
+        durationText: "4 hours",
+        price: 600,
+        location: "Various marinas",
+        icon: "🎣",
+        image: "linear-gradient(135deg, #0C616F 0%, #4CAF50 100%)",
+        description: "Deep sea fishing experience with equipment and expert crew",
+        facilities: ["Fishing boat charter", "All equipment", "Bait included", "Experienced crew", "Fish cleaning", "Refreshments", "Cooler for catch", "Photos of catch"]
+    },
+    {
+        id: 21,
+        name: "Glass Bottom Boat Tour",
+        category: "cruise",
+        duration: "hourly",
+        durationText: "1.5 hours",
+        price: 180,
+        location: "The Pearl Marina",
+        icon: "🐠",
+        image: "linear-gradient(135deg, #4CAF50 0%, #0C616F 100%)",
+        description: "See underwater marine life without getting wet",
+        facilities: ["Glass bottom viewing", "Marine life spotting", "Educational tour", "Family-friendly", "Comfortable seating", "Refreshments", "Photo opportunities", "Air-conditioned"]
+    }
+];
+
+let filteredBeachOptions = [...beachOptions];
+let currentBeach = null;
+
+window.addEventListener('DOMContentLoaded', () => {
+    const today = new Date().toISOString().split('T')[0];
+    const visitDateInput = document.getElementById('visitDate');
+    const bookingDateInput = document.getElementById('bookingDate');
+    
+    if (visitDateInput) visitDateInput.min = today;
+    if (bookingDateInput) bookingDateInput.min = today;
+    
+    displayBeachOptions(beachOptions);
+    
+    const numPeopleInput = document.getElementById('numPeople');
+    if (numPeopleInput) {
+        numPeopleInput.addEventListener('change', updatePricing);
+    }
+});
+
+function displayBeachOptions(optionsToDisplay) {
+    const grid = document.getElementById('beachGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    if (optionsToDisplay.length === 0) {
+        grid.innerHTML = '<p style="text-align: center; color: #666; padding: 3rem; grid-column: 1/-1;">No beach options found. Please adjust your filters.</p>';
+        return;
+    }
+    
+    optionsToDisplay.forEach(option => {
+        const card = document.createElement('div');
+        card.className = 'beach-card';
+        card.onclick = () => openBookingModal(option.id);
+        
+        const freeBadge = option.price === 0 ? '<div class="free-badge">FREE ACCESS</div>' : '';
+        
+        card.innerHTML = `
+            <div class="beach-card-image" style="background: ${option.image};">
+                <span style="font-size: 6rem;">${option.icon}</span>
+                ${freeBadge}
+            </div>
+            <div class="beach-card-content">
+                <h3>${option.name}</h3>
+                <div class="beach-category">${option.category}</div>
+                <div class="beach-meta">
+                    <span class="meta-item">
+                        <span class="meta-icon">📍</span>
+                        ${option.location}
+                    </span>
+                    <span class="meta-item">
+                        <span class="meta-icon">⏱️</span>
+                        ${option.durationText}
+                    </span>
+                </div>
+                <p class="beach-description">${option.description}</p>
+                <div class="beach-highlights">
+                    ${option.facilities.slice(0, 3).map(f => `<div class="highlight-item">${f}</div>`).join('')}
+                </div>
+                <div class="beach-card-footer">
+                    <div class="beach-price">
+                        ${option.price === 0 ? 
+                            '<span class="price-free">Free Access</span>' : 
+                            `<span class="price-label">From</span>
+                             <span class="price-amount">QR ${option.price}</span>
+                             <span class="price-period">per person</span>`
+                        }
+                    </div>
+                    <button class="btn-book-beach" onclick="event.stopPropagation(); openBookingModal(${option.id})">Book Now</button>
+                </div>
+            </div>
+        `;
+        
+        grid.appendChild(card);
+    });
+}
+
+function searchBeachOptions() {
+    const category = document.getElementById('categoryFilter').value;
+    const duration = document.getElementById('durationFilter').value;
+    const priceRange = document.getElementById('priceFilter').value;
+    
+    let filtered = [...beachOptions];
+    
+    if (category !== 'all') {
+        filtered = filtered.filter(b => b.category === category);
+    }
+    
+    if (duration !== 'all') {
+        filtered = filtered.filter(b => b.duration === duration);
+    }
+    
+    if (priceRange !== 'all') {
+        if (priceRange === 'free') {
+            filtered = filtered.filter(b => b.price === 0);
+        } else if (priceRange === 'budget') {
+            filtered = filtered.filter(b => b.price > 0 && b.price < 200);
+        } else if (priceRange === 'moderate') {
+            filtered = filtered.filter(b => b.price >= 200 && b.price <= 500);
+        } else if (priceRange === 'premium') {
+            filtered = filtered.filter(b => b.price > 500);
+        }
+    }
+    
+    filteredBeachOptions = filtered;
+    displayBeachOptions(filteredBeachOptions);
+}
+
+function sortBeachOptions() {
+    const sortBy = document.getElementById('sortBy').value;
+    let sorted = [...filteredBeachOptions];
+    
+    if (sortBy === 'name') {
+        sorted.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === 'price-low') {
+        sorted.sort((a, b) => a.price - b.price);
+    }
+    
+    displayBeachOptions(sorted);
+}
+
+function openBookingModal(beachId) {
+    const beach = beachOptions.find(b => b.id === beachId);
+    if (!beach) return;
+    
+    currentBeach = beach;
+    
+    document.getElementById('modalBeachImage').innerHTML = `<span style="font-size: 6rem;">${beach.icon}</span>`;
+    document.getElementById('modalBeachImage').style.background = beach.image;
+    document.getElementById('modalBeachName').textContent = beach.name;
+    document.getElementById('modalCategory').textContent = beach.category.toUpperCase();
+    document.getElementById('modalLocation').innerHTML = `📍 ${beach.location}`;
+    document.getElementById('modalDuration').innerHTML = `⏱️ ${beach.durationText}`;
+    document.getElementById('modalDescription').textContent = beach.description;
+    
+    const facilitiesList = document.getElementById('modalFacilities');
+    facilitiesList.innerHTML = `
+        <h4>Facilities & Amenities</h4>
+        <ul>
+            ${beach.facilities.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+    `;
+    
+    updatePricing();
+    
+    document.getElementById('bookingModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeBookingModal() {
+    document.getElementById('bookingModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+    document.getElementById('bookingForm').reset();
+}
+
+function updatePricing() {
+    if (!currentBeach) return;
+    
+    const numPeople = parseInt(document.getElementById('numPeople').value) || 2;
+    const pricePerPerson = currentBeach.price;
+    const total = pricePerPerson * numPeople;
+    
+    document.getElementById('pricePerPerson').textContent = pricePerPerson === 0 ? 'FREE' : `QR ${pricePerPerson}`;
+    document.getElementById('numPax').textContent = numPeople;
+    document.getElementById('total').textContent = total === 0 ? 'FREE ACCESS' : `QR ${total}`;
+}
+
+function submitBooking(event) {
+    event.preventDefault();
+    
+    if (!currentBeach) return;
+    
+    const name = document.getElementById('guestName').value;
+    const email = document.getElementById('guestEmail').value;
+    const date = document.getElementById('bookingDate').value;
+    const people = document.getElementById('numPeople').value;
+    const time = document.getElementById('preferredTime').value;
+    const total = document.getElementById('total').textContent;
+    
+    if (!name || !email || !date) {
+        alert('Please fill in all required fields');
+        return;
+    }
+    
+    alert(`🏖️ Beach Day Confirmed!
+
+Experience: ${currentBeach.name}
+Guest: ${name}
+Date: ${date}
+Time: ${time}
+People: ${people}
+Total: ${total}
+
+Confirmation sent to ${email}
+
+Location: ${currentBeach.location}
+
+What to bring:
+- Swimwear & towel
+- Sunscreen (SPF 50+)
+- Sunglasses & hat
+- Plenty of water
+- Beach toys (optional)
+
+Enjoy your beach day in Qatar! ☀️🌊`);
+    
+    closeBookingModal();
+}
