@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Break in Qatar - Discover Qatar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="family.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <h1>QATAR TOURISM</h1>
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">About Qatar ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="geography.html">Geography of Qatar</a></li>
+                        <li><a href="history.html">History of Qatar</a></li>
+                        <li><a href="climate.html">Qatar's Climate</a></li>
+                        <li><a href="cities.html">Towns & Cities</a></li>
+                        <li><a href="traditions.html">Traditions in Qatar</a></li>
+                        <li><a href="cusine.html">Local Cuisine</a></li>
+                        <li><a href="wildlife.html">Wildlife</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Plan Your Trip ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="visas.html">Visas</a></li>
+                        <li><a href="accommodation.html">Accommodation in Qatar</a></li>
+                        <li><a href="flights.html">Getting to Qatar</a></li>
+                        <li><a href="transportation.html">Transportation</a></li>
+                        <li><a href="airport.html">Hamad Intl. Airport</a></li>
+                        <li><a href="tours.html">Tour Operators</a></li>
+                        <li><a href="safety.html">Safety in Qatar</a></li>
+                        <li><a href="concierge.html">Concierge Services</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Things To Do ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="adventure.html">Adventure</a></li>
+                        <li><a href="ArtCulture.html">Art & Culture</a></li>
+                        <li><a href="RomanticGataway.html">Romantic Getaway</a></li>
+                        <li><a href="beach.html">Beach Holiday</a></li>
+                        <li><a href="family.html">Family Break</a></li>
+                        <li><a href="dining.html">Dining</a></li>
+                        <li><a href="spa.html">Spa & Wellness</a></li>
+                        <li><a href="shopping.html">Shopping</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Events ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#upcoming">Upcoming Events</a></li>
+                        <li><a href="festivals.html">Festivals in Qatar</a></li>
+                        <li><a href="sports.html">Sports Events</a></li>
+                        <li><a href="concerts.html">Concerts & Shows</a></li>
+                        <li><a href="exhibitions.html">Cultural Exhibitions</a></li>
+                        <li><a href="national.html">National Celebrations</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Travel Guide ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="best-time.html">Best Time to Visit</a></li>
+                        <li><a href="laws.html">Local Laws & Customs</a></li>
+                        <li><a href="dress-code.html">Dress Code & Etiquette</a></li>
+                        <li><a href="currency.html">Currency & Payments</a></li>
+                        <li><a href="language.html">Language in Qatar</a></li>
+                        <li><a href="internet.html">Internet & SIM Cards</a></li>
+                        <li><a href="emergency.html">Emergency Numbers</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="#" class="btn-nav">Log In</a>
+                <a href="#" class="btn-nav-primary">Sign Up</a>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-hero-title">Family Break</h1>
+            <p class="page-hero-subtitle">Fun-filled adventures for the whole family</p>
+        </div>
+    </section>
+
+    <section class="search-section">
+        <div class="container">
+            <div class="search-widget">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: #2c2c2c;">Find Family Activities</h3>
+                
+                <div class="search-row">
+                    <div class="search-field">
+                        <label>Visit Date</label>
+                        <input type="date" id="visitDate">
+                    </div>
+                    <div class="search-field">
+                        <label>Family Size</label>
+                        <input type="number" id="familySize" min="2" max="20" value="4">
+                    </div>
+                    <div class="search-field">
+                        <label>Children's Age Range</label>
+                        <select id="ageFilter">
+                            <option value="all">All Ages</option>
+                            <option value="toddler">0-3 years</option>
+                            <option value="child">4-12 years</option>
+                            <option value="teen">13+ years</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="filter-row">
+                    <div class="filter-field">
+                        <label>Activity Type</label>
+                        <select id="typeFilter">
+                            <option value="all">All Activities</option>
+                            <option value="theme-park">Theme Parks</option>
+                            <option value="educational">Educational</option>
+                            <option value="outdoor">Outdoor Fun</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="water">Water Activities</option>
+                        </select>
+                    </div>
+                    <div class="filter-field">
+                        <label>Price Range</label>
+                        <select id="priceFilter">
+                            <option value="all">All Prices</option>
+                            <option value="free">Free Entry</option>
+                            <option value="budget">Under QR 100/person</option>
+                            <option value="moderate">QR 100-300/person</option>
+                        </select>
+                    </div>
+                    <div class="filter-field">
+                        <label>Sort By</label>
+                        <select id="sortBy" onchange="sortActivities()">
+                            <option value="featured">Most Popular</option>
+                            <option value="name">Name A-Z</option>
+                            <option value="price-low">Price: Low to High</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button class="btn-search" onclick="searchActivities()">Search Activities</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="activities-section">
+        <div class="container">
+            <div id="activitiesGrid" class="activities-grid"></div>
+        </div>
+    </section>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content booking-modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            
+            <div class="modal-layout">
+                <div class="modal-activity-info">
+                    <div id="modalActivityImage" class="modal-activity-image"></div>
+                    <h2 id="modalActivityName" class="modal-activity-title"></h2>
+                    <p id="modalType" class="modal-activity-type"></p>
+                    <div class="modal-meta">
+                        <span id="modalAgeRange" class="modal-age"></span>
+                        <span id="modalDuration" class="modal-duration"></span>
+                    </div>
+                    <p id="modalDescription" class="modal-description"></p>
+                    <div id="modalFeatures" class="modal-features"></div>
+                </div>
+                
+                <div class="modal-booking-form">
+                    <h3>Book Family Activity</h3>
+                    
+                    <form id="bookingForm" onsubmit="submitBooking(event)">
+                        <div class="form-group">
+                            <label>Parent/Guardian Name *</label>
+                            <input type="text" id="parentName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" id="guestEmail" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Phone *</label>
+                            <input type="tel" id="guestPhone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Visit Date *</label>
+                            <input type="date" id="bookingDate" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Number of Adults *</label>
+                            <input type="number" id="numAdults" min="1" max="20" value="2" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Number of Children *</label>
+                            <input type="number" id="numChildren" min="0" max="20" value="2" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Children's Ages</label>
+                            <input type="text" id="childrenAges" placeholder="e.g., 5, 8, 12">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Special Requirements</label>
+                            <textarea id="specialRequests" rows="3" placeholder="Dietary needs, accessibility, allergies, etc."></textarea>
+                        </div>
+                        
+                        <div class="price-breakdown">
+                            <h4>Price Summary</h4>
+                            <div class="price-row">
+                                <span>Adults (<span id="adultCount">2</span> × <span id="adultPrice">QR 0</span>):</span>
+                                <strong id="adultTotal">QR 0</strong>
+                            </div>
+                            <div class="price-row">
+                                <span>Children (<span id="childCount">2</span> × <span id="childPrice">QR 0</span>):</span>
+                                <strong id="childTotal">QR 0</strong>
+                            </div>
+                            <div class="price-row total-row">
+                                <span>Total:</span>
+                                <strong id="total">QR 0</strong>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Confirm Booking</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>QATAR TOURISM</h3>
+                    <p>Your gateway to Arabian excellence</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="accommodation.html">Hotels</a></li>
+                        <li><a href="flights.html">Flights</a></li>
+                        <li><a href="index.html#upcoming">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@discoverqatar.com</p>
+                    <p>Phone: +974 1234 5678</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Qatar Tourism. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="family.js"></script>
+</body>
+</html>

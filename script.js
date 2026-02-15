@@ -5967,3 +5967,508 @@ Enjoy your beach day in Qatar! ☀️🌊`);
     
     closeBookingModal();
 }
+
+// Family Activities Database
+
+const familyActivities = [
+    // THEME PARKS
+    {
+        id: 1,
+        name: "Angry Birds World",
+        type: "theme-park",
+        ageRange: "all",
+        ageText: "All ages (best 3-12)",
+        duration: "4-5 hours",
+        adultPrice: 250,
+        childPrice: 200,
+        location: "Doha Festival City Mall",
+        icon: "🎮",
+        image: "linear-gradient(135deg, #E53935 0%, #FFB81C 100%)",
+        description: "Qatar's first indoor theme park with rides, games, and entertainment based on Angry Birds",
+        features: ["15+ rides & attractions", "Indoor air-conditioned", "Arcade games", "Character meet & greet", "Birthday party packages", "Food court nearby", "All-day access", "Lockers available"]
+    },
+    {
+        id: 2,
+        name: "Virtuocity - VR Gaming",
+        type: "entertainment",
+        ageRange: "teen",
+        ageText: "8+ years",
+        duration: "2-3 hours",
+        adultPrice: 150,
+        childPrice: 150,
+        location: "Place Vendôme Mall",
+        icon: "🎮",
+        image: "linear-gradient(135deg, #8C1D40 0%, #0C616F 100%)",
+        description: "State-of-the-art virtual reality gaming center with latest VR experiences",
+        features: ["Latest VR technology", "Multiple game zones", "Racing simulators", "Adventure games", "Family-friendly options", "Comfortable gaming pods", "Snack bar", "Group packages"]
+    },
+    {
+        id: 3,
+        name: "Quest Qatar",
+        type: "theme-park",
+        ageRange: "all",
+        ageText: "All ages",
+        duration: "Full day",
+        adultPrice: 300,
+        childPrice: 250,
+        location: "Doha Oasis",
+        icon: "🎢",
+        image: "linear-gradient(135deg, #FFB81C 0%, #E53935 100%)",
+        description: "Adventure theme park with rides, climbing walls, and family activities",
+        features: ["Rock climbing", "Zip lines", "Rope courses", "Kids play areas", "Restaurants", "All-day wristbands", "Birthday venues", "Group activities"]
+    },
+
+    // EDUCATIONAL
+    {
+        id: 4,
+        name: "Qatar National Library - Kids Program",
+        type: "educational",
+        ageRange: "child",
+        ageText: "4-12 years",
+        duration: "2 hours",
+        adultPrice: 0,
+        childPrice: 0,
+        location: "Education City",
+        icon: "📚",
+        image: "linear-gradient(135deg, #4CAF50 0%, #0C616F 100%)",
+        description: "Free children's library with storytelling sessions and educational programs",
+        features: ["Free admission", "Children's library", "Storytelling sessions", "Educational workshops", "Reading areas", "Computer access", "Café", "Beautiful architecture"]
+    },
+    {
+        id: 5,
+        name: "Oxygen Park",
+        type: "outdoor",
+        ageRange: "all",
+        ageText: "All ages",
+        duration: "3-4 hours",
+        adultPrice: 0,
+        childPrice: 0,
+        location: "Al Gharrafa",
+        icon: "🌳",
+        image: "linear-gradient(135deg, #4CAF50 0%, #FFB81C 100%)",
+        description: "Qatar's largest park with playgrounds, cycling tracks, and family picnic areas",
+        features: ["Free entry", "Multiple playgrounds", "Cycling tracks", "Picnic areas", "Walking trails", "Cafeteria", "Clean facilities", "Evening lighting"]
+    },
+    {
+        id: 6,
+        name: "Mathaf - Arab Museum (Family Tours)",
+        type: "educational",
+        ageRange: "child",
+        ageText: "6+ years",
+        duration: "2 hours",
+        adultPrice: 0,
+        childPrice: 0,
+        location: "Education City",
+        icon: "🎨",
+        image: "linear-gradient(135deg, #8C1D40 0%, #FFB81C 100%)",
+        description: "Free museum with family-friendly art workshops and guided tours",
+        features: ["Free admission", "Family art workshops", "Interactive exhibits", "Guided tours", "Kids activities", "Modern art", "Café", "Gift shop"]
+    },
+
+    // OUTDOOR FUN
+    {
+        id: 7,
+        name: "Desert Safari Family Package",
+        type: "outdoor",
+        ageRange: "child",
+        ageText: "5+ years",
+        duration: "5 hours",
+        adultPrice: 350,
+        childPrice: 250,
+        location: "Desert pickup",
+        icon: "🏜️",
+        image: "linear-gradient(135deg, #D4A574 0%, #8C1D40 100%)",
+        description: "Family-friendly desert adventure with gentle dune bashing and camel rides",
+        facilities: ["Family-safe 4x4 driving", "Camel riding", "Sandboarding", "Traditional camp", "BBQ dinner", "Entertainment", "Photo opportunities", "Hotel pickup"]
+    },
+    {
+        id: 8,
+        name: "Al Bidda Park",
+        type: "outdoor",
+        ageRange: "all",
+        ageText: "All ages",
+        duration: "2-3 hours",
+        adultPrice: 0,
+        childPrice: 0,
+        location: "Corniche, West Bay",
+        icon: "⛲",
+        image: "linear-gradient(135deg, #4CAF50 0%, #0C616F 100%)",
+        description: "Waterfront park with fountains, playgrounds, and stunning city views",
+        features: ["Free entry", "Water fountains", "Playgrounds", "Walking paths", "Skyline views", "Cafés", "Clean toilets", "Evening shows"]
+    },
+    {
+        id: 9,
+        name: "Aspire Park & Lake",
+        type: "outdoor",
+        ageRange: "all",
+        ageText: "All ages",
+        duration: "3-4 hours",
+        adultPrice: 0,
+        childPrice: 0,
+        location: "Aspire Zone",
+        icon: "🦆",
+        image: "linear-gradient(135deg, #4CAF50 0%, #0C616F 100%)",
+        description: "Beautiful park with lake, duck feeding, playgrounds, and sports facilities",
+        features: ["Free entry", "Duck feeding", "Playground", "Lake views", "Cycling paths", "Kiosks", "Picnic spots", "Torch Tower views"]
+    },
+
+    // ENTERTAINMENT
+    {
+        id: 10,
+        name: "Magic Planet",
+        type: "entertainment",
+        ageRange: "child",
+        ageText: "2-12 years",
+        duration: "2-3 hours",
+        adultPrice: 80,
+        childPrice: 120,
+        location: "Multiple malls",
+        icon: "🎪",
+        image: "linear-gradient(135deg, #FF6B9D 0%, #FFB81C 100%)",
+        description: "Indoor family entertainment center with games, rides, and activities",
+        features: ["Arcade games", "Soft play areas", "Bumper cars", "Ball pits", "Prizes", "Birthday packages", "Café", "Token system"]
+    },
+    {
+        id: 11,
+        name: "Gondolania Theme Park",
+        type: "theme-park",
+        ageRange: "all",
+        ageText: "All ages",
+        duration: "3-4 hours",
+        adultPrice: 150,
+        childPrice: 120,
+        location: "Villaggio Mall",
+        icon: "🎡",
+        image: "linear-gradient(135deg, #0C616F 0%, #FFB81C 100%)",
+        description: "Indoor theme park with gondola rides through Venice-themed canals",
+        features: ["Gondola rides", "Roller coasters", "Carousel", "Arcade games", "Indoor ice rink nearby", "Food court", "Shopping mall access", "Air-conditioned"]
+    },
+    {
+        id: 12,
+        name: "Circus Land",
+        type: "entertainment",
+        ageRange: "child",
+        ageText: "3-12 years",
+        duration: "2 hours",
+        adultPrice: 100,
+        childPrice: 150,
+        location: "Various malls",
+        icon: "🎪",
+        image: "linear-gradient(135deg, #E53935 0%, #FFB81C 100%)",
+        description: "Circus-themed play center with climbing structures and games",
+        features: ["Climbing frames", "Slides", "Ball pits", "Trampolines", "Party rooms", "Supervised play", "Sock requirement", "Parent café"]
+    },
+
+    // WATER ACTIVITIES
+    {
+        id: 13,
+        name: "Aqua Park Qatar",
+        type: "water",
+        ageRange: "all",
+        ageText: "All ages",
+        duration: "Full day",
+        adultPrice: 200,
+        childPrice: 150,
+        location: "Salwa Road",
+        icon: "💦",
+        image: "linear-gradient(135deg, #0C616F 0%, #4CAF50 100%)",
+        description: "Water park with slides, wave pools, and family-friendly attractions",
+        features: ["Water slides", "Wave pool", "Lazy river", "Kids splash zone", "Lifeguards", "Lockers", "Food outlets", "Cabana rental"]
+    },
+    {
+        id: 14,
+        name: "Katara Beach Family Day",
+        type: "water",
+        ageRange: "all",
+        ageText: "All ages",
+        duration: "4-6 hours",
+        adultPrice: 0,
+        childPrice: 0,
+        location: "Katara Cultural Village",
+        icon: "🏖️",
+        image: "linear-gradient(135deg, #0C616F 0%, #FFB81C 100%)",
+        description: "Free public beach perfect for families with calm waters",
+        features: ["Free access", "Calm waters", "Lifeguards", "Changing rooms", "Beach volleyball", "Nearby restaurants", "Cultural village", "Evening atmosphere"]
+    },
+    {
+        id: 15,
+        name: "Banana Boat Family Ride",
+        type: "water",
+        ageRange: "child",
+        ageText: "6+ years",
+        duration: "20 minutes",
+        adultPrice: 80,
+        childPrice: 80,
+        location: "Multiple beaches",
+        icon: "🍌",
+        image: "linear-gradient(135deg, #FFB81C 0%, #0C616F 100%)",
+        description: "Fun inflatable banana boat ride for the whole family",
+        features: ["Family group activity", "Life jackets provided", "Safe speeds", "Professional driver", "Photos available", "Laughter guaranteed", "All safety equipment", "Beach access"]
+    },
+    {
+        id: 16,
+        name: "Kayaking for Families",
+        type: "water",
+        ageRange: "child",
+        ageText: "8+ years",
+        duration: "2 hours",
+        adultPrice: 150,
+        childPrice: 100,
+        location: "Al Thakira Mangroves",
+        icon: "🛶",
+        image: "linear-gradient(135deg, #4CAF50 0%, #0C616F 100%)",
+        description: "Gentle kayaking through mangroves with wildlife spotting",
+        features: ["Family kayaks available", "Calm waters", "Wildlife viewing", "Guide included", "All equipment", "Snacks & water", "Educational", "Photo stops"]
+    },
+    {
+        id: 17,
+        name: "Swimming Pool Day Pass - 5 Star Hotels",
+        type: "water",
+        ageRange: "all",
+        ageText: "All ages",
+        duration: "Full day",
+        adultPrice: 300,
+        childPrice: 200,
+        location: "Various luxury hotels",
+        icon: "🏊",
+        image: "linear-gradient(135deg, #0C616F 0%, #8C1D40 100%)",
+        description: "Day access to luxury hotel pools with facilities",
+        features: ["Pool access", "Beach access", "Towels included", "Changing rooms", "Kids pools", "Food & beverage credit", "Lounge chairs", "Waiter service"]
+    },
+    {
+        id: 18,
+        name: "Indoor Trampoline Park",
+        type: "entertainment",
+        ageRange: "child",
+        ageText: "4+ years",
+        duration: "2 hours",
+        adultPrice: 100,
+        childPrice: 120,
+        location: "Various locations",
+        icon: "🤸",
+        image: "linear-gradient(135deg, #FFB81C 0%, #E53935 100%)",
+        description: "Indoor trampoline facility with foam pits and dodgeball",
+        features: ["Trampoline zones", "Foam pits", "Dodgeball courts", "Toddler area", "Safety briefing", "Grip socks required", "Party packages", "Café area"]
+    }
+];
+
+let filteredActivities = [...familyActivities];
+let currentActivity = null;
+
+window.addEventListener('DOMContentLoaded', () => {
+    const today = new Date().toISOString().split('T')[0];
+    const visitDateInput = document.getElementById('visitDate');
+    const bookingDateInput = document.getElementById('bookingDate');
+    
+    if (visitDateInput) visitDateInput.min = today;
+    if (bookingDateInput) bookingDateInput.min = today;
+    
+    displayActivities(familyActivities);
+    
+    const numAdultsInput = document.getElementById('numAdults');
+    const numChildrenInput = document.getElementById('numChildren');
+    
+    if (numAdultsInput) numAdultsInput.addEventListener('change', updatePricing);
+    if (numChildrenInput) numChildrenInput.addEventListener('change', updatePricing);
+});
+
+function displayActivities(activitiesToDisplay) {
+    const grid = document.getElementById('activitiesGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    if (activitiesToDisplay.length === 0) {
+        grid.innerHTML = '<p style="text-align: center; color: #666; padding: 3rem; grid-column: 1/-1;">No activities found. Please adjust your filters.</p>';
+        return;
+    }
+    
+    activitiesToDisplay.forEach(activity => {
+        const card = document.createElement('div');
+        card.className = 'activity-card';
+        card.onclick = () => openBookingModal(activity.id);
+        
+        const freeBadge = activity.adultPrice === 0 ? '<div class="free-badge">FREE</div>' : '';
+        
+        card.innerHTML = `
+            <div class="activity-card-image" style="background: ${activity.image};">
+                <span style="font-size: 6rem;">${activity.icon}</span>
+                ${freeBadge}
+            </div>
+            <div class="activity-card-content">
+                <h3>${activity.name}</h3>
+                <div class="activity-category">${activity.type}</div>
+                <div class="activity-meta">
+                    <span class="meta-item">
+                        <span class="meta-icon">👶</span>
+                        ${activity.ageText}
+                    </span>
+                    <span class="meta-item">
+                        <span class="meta-icon">⏱️</span>
+                        ${activity.duration}
+                    </span>
+                </div>
+                <p class="activity-description">${activity.description}</p>
+                <div class="activity-highlights">
+                    ${activity.features.slice(0, 3).map(f => `<div class="highlight-item">${f}</div>`).join('')}
+                </div>
+                <div class="activity-card-footer">
+                    <div class="activity-price">
+                        ${activity.adultPrice === 0 ? 
+                            '<span class="price-free">Free Entry</span>' : 
+                            `<span class="price-label">From</span>
+                             <span class="price-amount">QR ${Math.min(activity.adultPrice, activity.childPrice)}</span>
+                             <span class="price-period">per person</span>`
+                        }
+                    </div>
+                    <button class="btn-book-activity" onclick="event.stopPropagation(); openBookingModal(${activity.id})">Book Now</button>
+                </div>
+            </div>
+        `;
+        
+        grid.appendChild(card);
+    });
+}
+
+function searchActivities() {
+    const type = document.getElementById('typeFilter').value;
+    const age = document.getElementById('ageFilter').value;
+    const priceRange = document.getElementById('priceFilter').value;
+    
+    let filtered = [...familyActivities];
+    
+    if (type !== 'all') {
+        filtered = filtered.filter(a => a.type === type);
+    }
+    
+    if (age !== 'all') {
+        filtered = filtered.filter(a => a.ageRange === age || a.ageRange === 'all');
+    }
+    
+    if (priceRange !== 'all') {
+        if (priceRange === 'free') {
+            filtered = filtered.filter(a => a.adultPrice === 0);
+        } else if (priceRange === 'budget') {
+            filtered = filtered.filter(a => a.adultPrice > 0 && a.adultPrice < 100);
+        } else if (priceRange === 'moderate') {
+            filtered = filtered.filter(a => a.adultPrice >= 100 && a.adultPrice <= 300);
+        }
+    }
+    
+    filteredActivities = filtered;
+    displayActivities(filteredActivities);
+}
+
+function sortActivities() {
+    const sortBy = document.getElementById('sortBy').value;
+    let sorted = [...filteredActivities];
+    
+    if (sortBy === 'name') {
+        sorted.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === 'price-low') {
+        sorted.sort((a, b) => a.adultPrice - b.adultPrice);
+    }
+    
+    displayActivities(sorted);
+}
+
+function openBookingModal(activityId) {
+    const activity = familyActivities.find(a => a.id === activityId);
+    if (!activity) return;
+    
+    currentActivity = activity;
+    
+    document.getElementById('modalActivityImage').innerHTML = `<span style="font-size: 6rem;">${activity.icon}</span>`;
+    document.getElementById('modalActivityImage').style.background = activity.image;
+    document.getElementById('modalActivityName').textContent = activity.name;
+    document.getElementById('modalType').textContent = activity.type.toUpperCase();
+    document.getElementById('modalAgeRange').innerHTML = `👶 ${activity.ageText}`;
+    document.getElementById('modalDuration').innerHTML = `⏱️ ${activity.duration}`;
+    document.getElementById('modalDescription').textContent = activity.description;
+    
+    const featuresList = document.getElementById('modalFeatures');
+    featuresList.innerHTML = `
+        <h4>Features & Facilities</h4>
+        <ul>
+            ${activity.features.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+    `;
+    
+    updatePricing();
+    
+    document.getElementById('bookingModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeBookingModal() {
+    document.getElementById('bookingModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+    document.getElementById('bookingForm').reset();
+}
+
+function updatePricing() {
+    if (!currentActivity) return;
+    
+    const numAdults = parseInt(document.getElementById('numAdults').value) || 2;
+    const numChildren = parseInt(document.getElementById('numChildren').value) || 2;
+    
+    const adultPriceEach = currentActivity.adultPrice;
+    const childPriceEach = currentActivity.childPrice;
+    
+    const adultTotal = adultPriceEach * numAdults;
+    const childTotal = childPriceEach * numChildren;
+    const total = adultTotal + childTotal;
+    
+    document.getElementById('adultCount').textContent = numAdults;
+    document.getElementById('childCount').textContent = numChildren;
+    document.getElementById('adultPrice').textContent = adultPriceEach === 0 ? 'FREE' : `QR ${adultPriceEach}`;
+    document.getElementById('childPrice').textContent = childPriceEach === 0 ? 'FREE' : `QR ${childPriceEach}`;
+    document.getElementById('adultTotal').textContent = adultTotal === 0 ? 'FREE' : `QR ${adultTotal}`;
+    document.getElementById('childTotal').textContent = childTotal === 0 ? 'FREE' : `QR ${childTotal}`;
+    document.getElementById('total').textContent = total === 0 ? 'FREE ENTRY' : `QR ${total}`;
+}
+
+function submitBooking(event) {
+    event.preventDefault();
+    
+    if (!currentActivity) return;
+    
+    const name = document.getElementById('parentName').value;
+    const email = document.getElementById('guestEmail').value;
+    const date = document.getElementById('bookingDate').value;
+    const adults = document.getElementById('numAdults').value;
+    const children = document.getElementById('numChildren').value;
+    const ages = document.getElementById('childrenAges').value;
+    const total = document.getElementById('total').textContent;
+    
+    if (!name || !email || !date) {
+        alert('Please fill in all required fields');
+        return;
+    }
+    
+    alert(`👨‍👩‍👧‍👦 Family Activity Booked!
+
+Activity: ${currentActivity.name}
+Parent: ${name}
+Date: ${date}
+Adults: ${adults}
+Children: ${children}
+Children's Ages: ${ages || 'Not specified'}
+Total: ${total}
+
+Confirmation sent to ${email}
+
+Location: ${currentActivity.location}
+Age Range: ${currentActivity.ageText}
+
+What to bring:
+- Comfortable clothes & shoes
+- Water bottles
+- Snacks (if needed)
+- Sunscreen & hats
+- Camera for memories!
+
+Have a wonderful family day! 🎉`);
+    
+    closeBookingModal();
+}
