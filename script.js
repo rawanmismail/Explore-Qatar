@@ -6933,3 +6933,4 @@ Enjoy your dining experience! 🎉`);
     
     closeReservationModal();
 }
+
