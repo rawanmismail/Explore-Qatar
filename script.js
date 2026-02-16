@@ -7915,3 +7915,4 @@ function closePlaceModal() {
     document.getElementById('placeModal').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
+
