@@ -7916,3 +7916,482 @@ function closePlaceModal() {
     document.body.style.overflow = 'auto';
 }
 
+// Upcoming Events Database - Organized by Category
+
+const events = {
+    featured: [
+        {
+            id: 1,
+            name: "Qatar National Day Celebrations",
+            category: "National Holiday",
+            date: "December 18, 2026",
+            time: "All Day",
+            location: "Multiple Locations Citywide",
+            venue: "Doha Corniche, Katara, Souq Waqif",
+            icon: "🇶🇦",
+            image: "linear-gradient(135deg, #8C1D40 0%, #FFFFFF 100%)",
+            description: "Qatar's biggest celebration featuring parades, fireworks, traditional performances, and cultural activities across the city",
+            highlights: ["Grand parade", "Fireworks displays", "Traditional performances", "Cultural exhibitions", "Family activities", "Street celebrations"],
+            tickets: "Free admission to all public events",
+            booking: "No booking required for public areas",
+            performers: ["Qatar Armed Forces", "Traditional dance groups", "Local artists", "International performers"]
+        },
+        {
+            id: 2,
+            name: "Doha Jewellery & Watches Exhibition",
+            category: "Exhibition",
+            date: "February 20-25, 2026",
+            time: "10 AM - 10 PM daily",
+            location: "Doha Exhibition and Convention Center",
+            venue: "DECC, West Bay",
+            icon: "💎",
+            image: "linear-gradient(135deg, #FFB81C 0%, #8C1D40 100%)",
+            description: "Prestigious international exhibition showcasing luxury jewelry, watches, and precious gems from around the world",
+            highlights: ["International exhibitors", "Luxury brands", "Rare gems", "Watch collections", "Fashion shows", "VIP lounge"],
+            tickets: "QR 50 general admission, QR 200 VIP",
+            booking: "Available online and at venue",
+            performers: ["International jewelers", "Watch brands", "Fashion designers"]
+        },
+        {
+            id: 3,
+            name: "Qatar International Food Festival",
+            category: "Food Festival",
+            date: "March 15-30, 2026",
+            time: "4 PM - 11 PM",
+            location: "Oxygen Park",
+            venue: "Oxygen Park, Al Gharrafa",
+            icon: "🍽️",
+            image: "linear-gradient(135deg, #E53935 0%, #FFB81C 100%)",
+            description: "Two weeks of culinary excellence featuring international cuisines, celebrity chefs, and food competitions",
+            highlights: ["100+ food stalls", "Celebrity chefs", "Cooking demonstrations", "Live entertainment", "Kids activities", "Cultural performances"],
+            tickets: "QR 20 entry, food purchased separately",
+            booking: "Tickets at gate or online",
+            performers: ["International chefs", "Local restaurants", "Live bands"]
+        }
+    ],
+    
+    sports: [
+        {
+            id: 4,
+            name: "Qatar ExxonMobil Open (Tennis)",
+            category: "Tennis Tournament",
+            date: "February 17-22, 2026",
+            time: "Matches from 3 PM daily",
+            location: "Khalifa International Tennis Complex",
+            venue: "Khalifa Tennis Complex, Aspire Zone",
+            icon: "🎾",
+            image: "linear-gradient(135deg, #4CAF50 0%, #FFB81C 100%)",
+            description: "ATP 250 tennis tournament attracting world-class players to Doha",
+            highlights: ["ATP 250 event", "World-class players", "Night matches", "VIP hospitality", "Meet & greet", "Practice sessions"],
+            tickets: "QR 100-500 depending on seat",
+            booking: "Q-Tickets.com",
+            performers: ["ATP Tour players", "International tennis stars"]
+        },
+        {
+            id: 5,
+            name: "Qatar Marine Festival",
+            category: "Water Sports",
+            date: "March 1-8, 2026",
+            time: "9 AM - 9 PM daily",
+            location: "Katara Cultural Village",
+            venue: "Katara Beach & Marina",
+            icon: "⛵",
+            image: "linear-gradient(135deg, #0C616F 0%, #4CAF50 100%)",
+            description: "Week-long celebration of maritime heritage with dhow races, water sports, and marine exhibitions",
+            highlights: ["Traditional dhow races", "Water sports competitions", "Marine exhibitions", "Beach activities", "Cultural shows", "Food festival"],
+            tickets: "Free admission",
+            booking: "No booking required",
+            performers: ["Sailors", "Water sports athletes", "Traditional performers"]
+        },
+        {
+            id: 6,
+            name: "Qatar Prix de l'Arc de Triomphe",
+            category: "Horse Racing",
+            date: "October 5, 2026",
+            time: "2 PM - 8 PM",
+            location: "Longchamp Racecourse",
+            venue: "Al Rayyan Racecourse",
+            icon: "🏇",
+            image: "linear-gradient(135deg, #8C1D40 0%, #D4A574 100%)",
+            description: "Prestigious horse racing event featuring Qatar's finest thoroughbreds",
+            highlights: ["Premium racing", "International horses", "Fashion competition", "VIP hospitality", "Prize money", "Entertainment"],
+            tickets: "QR 100-1000",
+            booking: "QREC website",
+            performers: ["International jockeys", "Racing champions"]
+        },
+        {
+            id: 7,
+            name: "Doha Marathon",
+            category: "Running Event",
+            date: "January 10, 2026",
+            time: "6 AM start",
+            location: "Doha Corniche",
+            venue: "Starting at Sheraton Park",
+            icon: "🏃",
+            image: "linear-gradient(135deg, #4CAF50 0%, #0C616F 100%)",
+            description: "Annual marathon event with full marathon, half marathon, and fun run categories",
+            highlights: ["Full marathon", "Half marathon", "10K run", "5K fun run", "Elite athletes", "Finisher medals"],
+            tickets: "QR 150-300 registration",
+            booking: "Registration opens October 2025",
+            performers: ["Elite runners", "Community participants"]
+        }
+    ],
+    
+    concerts: [
+        {
+            id: 8,
+            name: "Andrea Bocelli Live in Doha",
+            category: "Classical Concert",
+            date: "April 12, 2026",
+            time: "8 PM",
+            location: "Lusail Stadium",
+            venue: "Lusail Iconic Stadium",
+            icon: "🎵",
+            image: "linear-gradient(135deg, #8C1D40 0%, #FFB81C 100%)",
+            description: "World-renowned tenor Andrea Bocelli performs his greatest hits in a spectacular outdoor concert",
+            highlights: ["Andrea Bocelli", "Classical repertoire", "Orchestra performance", "Stadium setting", "World-class production", "VIP packages"],
+            tickets: "QR 300-2000",
+            booking: "Q-Tickets.com",
+            performers: ["Andrea Bocelli", "Qatar Philharmonic Orchestra"]
+        },
+        {
+            id: 9,
+            name: "Jazz in the Park",
+            category: "Music Festival",
+            date: "Every Friday in March",
+            time: "7 PM - 10 PM",
+            location: "Aspire Park",
+            venue: "Aspire Park Amphitheater",
+            icon: "🎷",
+            image: "linear-gradient(135deg, #FFB81C 0%, #2c2c2c 100%)",
+            description: "Monthly outdoor jazz concerts featuring local and international artists",
+            highlights: ["Live jazz performances", "Outdoor setting", "Food vendors", "Picnic atmosphere", "Free admission", "Family-friendly"],
+            tickets: "Free admission",
+            booking: "No booking required",
+            performers: ["International jazz artists", "Local bands", "Guest performers"]
+        },
+        {
+            id: 10,
+            name: "Doha Film Institute Concert Series",
+            category: "Film Music Concert",
+            date: "May 20, 2026",
+            time: "8 PM",
+            location: "Katara Opera House",
+            venue: "Katara Cultural Village",
+            icon: "🎬",
+            image: "linear-gradient(135deg, #E53935 0%, #2c2c2c 100%)",
+            description: "Orchestra performing iconic film scores and soundtracks",
+            highlights: ["Film soundtracks", "Live orchestra", "Visual presentations", "Classic films", "Modern scores", "Guest conductors"],
+            tickets: "QR 150-600",
+            booking: "Katara box office",
+            performers: ["Qatar Philharmonic Orchestra", "Guest soloists"]
+        }
+    ],
+    
+    cultural: [
+        {
+            id: 11,
+            name: "Doha Cultural Festival",
+            category: "Cultural Festival",
+            date: "March 10-20, 2026",
+            time: "4 PM - 11 PM daily",
+            location: "Katara Cultural Village",
+            venue: "Multiple venues in Katara",
+            icon: "🎭",
+            image: "linear-gradient(135deg, #8C1D40 0%, #FFB81C 100%)",
+            description: "Ten-day celebration of arts, music, theater, and cultural performances from around the world",
+            highlights: ["Theater performances", "Art exhibitions", "Music concerts", "Dance shows", "Film screenings", "Cultural workshops"],
+            tickets: "Free to QR 200 per event",
+            booking: "Katara website",
+            performers: ["International artists", "Theater companies", "Dance troupes", "Musicians"]
+        },
+        {
+            id: 12,
+            name: "Qatar International Art Festival",
+            category: "Art Festival",
+            date: "November 5-15, 2026",
+            time: "10 AM - 9 PM",
+            location: "Fire Station",
+            venue: "Fire Station Artist Residence",
+            icon: "🎨",
+            image: "linear-gradient(135deg, #FFB81C 0%, #8C1D40 100%)",
+            description: "Contemporary art festival featuring exhibitions, installations, and artist talks",
+            highlights: ["Contemporary art", "Artist talks", "Workshops", "Installations", "Gallery openings", "Networking events"],
+            tickets: "Free admission",
+            booking: "No booking required",
+            performers: ["International artists", "Local creators", "Art collectives"]
+        },
+        {
+            id: 13,
+            name: "Traditional Poetry Evening",
+            category: "Poetry Reading",
+            date: "Every Thursday",
+            time: "8 PM - 10 PM",
+            location: "Souq Waqif",
+            venue: "Souq Waqif Cultural Center",
+            icon: "📜",
+            image: "linear-gradient(135deg, #D4A574 0%, #8C1D40 100%)",
+            description: "Weekly gathering celebrating Arabic poetry and traditional storytelling",
+            highlights: ["Arabic poetry", "Traditional storytelling", "Cultural atmosphere", "Tea & dates", "Free admission", "Local poets"],
+            tickets: "Free",
+            booking: "Walk-ins welcome",
+            performers: ["Qatari poets", "Storytellers", "Cultural ambassadors"]
+        }
+    ],
+    
+    festivals: [
+        {
+            id: 14,
+            name: "Eid Al Fitr Celebrations",
+            category: "Religious Festival",
+            date: "March 30 - April 2, 2026",
+            time: "All Day",
+            location: "Multiple Locations",
+            venue: "Parks, Malls, Cultural Centers",
+            icon: "🌙",
+            image: "linear-gradient(135deg, #4CAF50 0%, #FFB81C 100%)",
+            description: "Three-day celebration marking the end of Ramadan with festivities across Qatar",
+            highlights: ["Family activities", "Traditional performances", "Fireworks", "Special prayers", "Food festivals", "Kids entertainment"],
+            tickets: "Free at public venues",
+            booking: "No booking required",
+            performers: ["Traditional groups", "Entertainers", "Cultural performers"]
+        },
+        {
+            id: 15,
+            name: "Qatar International Boat Show",
+            category: "Boat Exhibition",
+            date: "November 10-14, 2026",
+            time: "10 AM - 8 PM",
+            location: "Lusail Marina",
+            venue: "Lusail Marina District",
+            icon: "🛥️",
+            image: "linear-gradient(135deg, #0C616F 0%, #8C1D40 100%)",
+            description: "Premier luxury boat and yacht exhibition showcasing marine lifestyle",
+            highlights: ["Luxury yachts", "Speedboats", "Marine equipment", "Water sports gear", "VIP experiences", "Test drives"],
+            tickets: "QR 50 entry",
+            booking: "Online or at gate",
+            performers: ["Boat manufacturers", "Marine brands", "Water sports experts"]
+        },
+        {
+            id: 16,
+            name: "Ajyal Film Festival",
+            category: "Film Festival",
+            date: "November 20-26, 2026",
+            time: "Various screenings",
+            location: "Multiple Cinemas",
+            venue: "Katara, VOX Cinemas, Museums",
+            icon: "🎬",
+            image: "linear-gradient(135deg, #E53935 0%, #2c2c2c 100%)",
+            description: "Youth-focused film festival by Doha Film Institute showcasing international cinema",
+            highlights: ["Film screenings", "Director Q&As", "Workshops", "Youth programs", "Red carpet events", "Awards ceremony"],
+            tickets: "QR 30-100 per screening",
+            booking: "DFI website",
+            performers: ["Filmmakers", "Actors", "Industry professionals"]
+        }
+    ],
+    
+    family: [
+        {
+            id: 17,
+            name: "Kids Festival Qatar",
+            category: "Children's Festival",
+            date: "June 1-7, 2026",
+            time: "4 PM - 10 PM",
+            location: "MIA Park",
+            venue: "Museum of Islamic Art Park",
+            icon: "🎈",
+            image: "linear-gradient(135deg, #FF6B9D 0%, #FFB81C 100%)",
+            description: "Week-long festival designed for children with rides, games, workshops, and entertainment",
+            highlights: ["Rides & games", "Face painting", "Magic shows", "Character meet & greet", "Art workshops", "Food stalls"],
+            tickets: "QR 50 per family",
+            booking: "Tickets at gate",
+            performers: ["Magicians", "Clowns", "Character performers", "Children's entertainers"]
+        },
+        {
+            id: 18,
+            name: "Family Fun Day at the Park",
+            category: "Family Event",
+            date: "Every Saturday",
+            time: "4 PM - 8 PM",
+            location: "Oxygen Park",
+            venue: "Oxygen Park, Al Gharrafa",
+            icon: "👨‍👩‍👧‍👦",
+            image: "linear-gradient(135deg, #4CAF50 0%, #FFB81C 100%)",
+            description: "Weekly family activities including sports, games, and entertainment",
+            highlights: ["Free admission", "Sports activities", "Kids games", "Food trucks", "Live music", "Community gathering"],
+            tickets: "Free",
+            booking: "No booking required",
+            performers: ["Local entertainers", "Sports coaches", "Musicians"]
+        },
+        {
+            id: 19,
+            name: "Science Discovery Fair",
+            category: "Educational Event",
+            date: "October 15-17, 2026",
+            time: "9 AM - 6 PM",
+            location: "Qatar National Convention Centre",
+            venue: "QNCC, Education City",
+            icon: "🔬",
+            image: "linear-gradient(135deg, #0C616F 0%, #4CAF50 100%)",
+            description: "Interactive science fair for families with experiments, demonstrations, and hands-on activities",
+            highlights: ["Science experiments", "Robot demonstrations", "Space exhibits", "Chemistry shows", "Interactive displays", "STEM workshops"],
+            tickets: "QR 30 adults, QR 20 children",
+            booking: "Online booking available",
+            performers: ["Scientists", "Educators", "STEM experts"]
+        }
+    ],
+    
+    exhibitions: [
+        {
+            id: 20,
+            name: "Qatar Auto Show",
+            category: "Automotive Exhibition",
+            date: "January 20-24, 2026",
+            time: "10 AM - 10 PM",
+            location: "DECC",
+            venue: "Doha Exhibition Center",
+            icon: "🚗",
+            image: "linear-gradient(135deg, #E53935 0%, #2c2c2c 100%)",
+            description: "Major automotive exhibition featuring latest car models, electric vehicles, and luxury brands",
+            highlights: ["Latest car models", "Electric vehicles", "Luxury brands", "Test drives", "Auto accessories", "Technology displays"],
+            tickets: "QR 40 entry",
+            booking: "Online or at venue",
+            performers: ["Car manufacturers", "Brand ambassadors", "Auto experts"]
+        },
+        {
+            id: 21,
+            name: "Qatar Home & Design Expo",
+            category: "Home Exhibition",
+            date: "September 5-10, 2026",
+            time: "10 AM - 9 PM",
+            location: "DECC",
+            venue: "Doha Exhibition Center",
+            icon: "🏠",
+            image: "linear-gradient(135deg, #8C1D40 0%, #D4A574 100%)",
+            description: "Interior design and home décor exhibition featuring furniture, fixtures, and smart home solutions",
+            highlights: ["Furniture brands", "Interior design", "Smart home tech", "Workshops", "Designer consultations", "Special offers"],
+            tickets: "QR 30 entry",
+            booking: "Available online",
+            performers: ["Interior designers", "Furniture brands", "Home tech companies"]
+        }
+    ]
+};
+
+let currentEvent = null;
+
+// Initialize on page load
+window.addEventListener('DOMContentLoaded', () => {
+    displayAllEvents();
+});
+
+function displayAllEvents() {
+    displayCategory('featuredGrid', events.featured);
+    displayCategory('sportsGrid', events.sports);
+    displayCategory('concertsGrid', events.concerts);
+    displayCategory('culturalGrid', events.cultural);
+    displayCategory('festivalsGrid', events.festivals);
+    displayCategory('familyGrid', events.family);
+    displayCategory('exhibitionsGrid', events.exhibitions);
+}
+
+function displayCategory(gridId, items) {
+    const grid = document.getElementById(gridId);
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    items.forEach(event => {
+        const card = document.createElement('div');
+        card.className = 'event-card';
+        
+        const freeTicket = event.tickets.toLowerCase().includes("free") ? 
+            '<div class="free-badge">FREE</div>' : '';
+        
+        card.innerHTML = `
+            <div class="event-card-image" style="background: ${event.image};">
+                <span style="font-size: 5rem;">${event.icon}</span>
+                ${freeTicket}
+            </div>
+            <div class="event-card-content">
+                <h3>${event.name}</h3>
+                <div class="event-category">${event.category}</div>
+                <div class="event-meta">
+                    <span class="meta-item">📅 ${event.date}</span>
+                </div>
+                <div class="event-meta">
+                    <span class="meta-item">🕐 ${event.time}</span>
+                </div>
+                <div class="event-meta">
+                    <span class="meta-item">📍 ${event.location}</span>
+                </div>
+                <p class="event-description">${event.description}</p>
+                <div class="event-highlights">
+                    ${event.highlights.slice(0, 4).map(h => `<span class="highlight-tag">${h}</span>`).join('')}
+                </div>
+                <div class="event-card-footer">
+                    <button class="btn-view-event">View Details</button>
+                </div>
+            </div>
+        `;
+        
+        // Add click event to the entire card
+        card.onclick = () => openEventModal(event);
+        
+        grid.appendChild(card);
+    });
+}
+
+function openEventModal(event) {
+    currentEvent = event;
+    
+    document.getElementById('modalEventImage').innerHTML = `<span style="font-size: 6rem;">${event.icon}</span>`;
+    document.getElementById('modalEventImage').style.background = event.image;
+    document.getElementById('modalEventName').textContent = event.name;
+    document.getElementById('modalCategory').textContent = event.category;
+    document.getElementById('modalDate').textContent = `📅 ${event.date}`;
+    document.getElementById('modalTime').textContent = `🕐 ${event.time}`;
+    document.getElementById('modalLocation').textContent = `📍 ${event.location}`;
+    document.getElementById('modalDescription').textContent = event.description;
+    
+    const highlightsList = document.getElementById('modalHighlights');
+    highlightsList.innerHTML = `
+        <h4>Event Highlights</h4>
+        <ul>
+            ${event.highlights.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+    `;
+    
+    document.getElementById('detailDate').textContent = event.date;
+    document.getElementById('detailTime').textContent = event.time;
+    document.getElementById('detailVenue').textContent = event.venue;
+    document.getElementById('detailAddress').textContent = event.location;
+    document.getElementById('detailTickets').textContent = event.tickets;
+    document.getElementById('detailBooking').textContent = event.booking;
+    
+    const performersDiv = document.getElementById('detailPerformers');
+    if (event.performers && event.performers.length > 0) {
+        performersDiv.innerHTML = `
+            <ul style="list-style: none; padding: 0;">
+                ${event.performers.map(p => `<li style="padding: 0.3rem 0;">⭐ ${p}</li>`).join('')}
+            </ul>
+        `;
+        document.getElementById('performersSection').style.display = 'block';
+    } else {
+        document.getElementById('performersSection').style.display = 'none';
+    }
+    
+    // Set tickets link (in real app, this would be actual booking URL)
+    document.getElementById('ticketsLink').href = '#';
+    document.getElementById('ticketsLink').onclick = (e) => {
+        e.preventDefault();
+        alert(`Ticket booking for ${event.name}\n\nTickets: ${event.tickets}\nBooking: ${event.booking}\n\nIn a live site, this would redirect to the ticketing platform.`);
+    };
+    
+    document.getElementById('eventModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeEventModal() {
+    document.getElementById('eventModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
