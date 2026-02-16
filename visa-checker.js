@@ -165,3 +165,4 @@ function checkVisaRequirement() {
     resultDiv.style.display = 'block';
     resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
+
