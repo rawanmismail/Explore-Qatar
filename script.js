@@ -6472,3 +6472,4 @@ Have a wonderful family day! 🎉`);
     
     closeBookingModal();
 }
+
