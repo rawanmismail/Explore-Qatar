@@ -6473,3 +6473,463 @@ Have a wonderful family day! 🎉`);
     closeBookingModal();
 }
 
+// Restaurants Database
+
+const restaurants = [
+    // ARABIC & MIDDLE EASTERN
+    {
+        id: 1,
+        name: "Al Mourjan",
+        cuisine: "arabic",
+        priceRange: "fine",
+        rating: 5,
+        location: "Katara Cultural Village",
+        icon: "🍽️",
+        image: "linear-gradient(135deg, #8C1D40 0%, #D4A574 100%)",
+        description: "Authentic Qatari and Arabic cuisine in an elegant waterfront setting with traditional hospitality",
+        specialties: ["Machboos (spiced rice)", "Harees", "Lamb Ouzi", "Fresh seafood", "Traditional desserts", "Arabic coffee"],
+        ambiance: "Elegant traditional",
+        dressCode: "Smart casual"
+    },
+    {
+        id: 2,
+        name: "Yasmine Palace",
+        cuisine: "arabic",
+        priceRange: "upscale",
+        rating: 5,
+        location: "The Pearl Qatar",
+        icon: "🕌",
+        image: "linear-gradient(135deg, #A12852 0%, #FFB81C 100%)",
+        description: "Lebanese fine dining with stunning marina views and live entertainment",
+        specialties: ["Mezze platters", "Grilled meats", "Fresh juices", "Shisha", "Live Arabic music", "Seafood"],
+        ambiance: "Upscale Lebanese",
+        dressCode: "Smart casual"
+    },
+    {
+        id: 3,
+        name: "Souq Waqif Traditional Restaurants",
+        cuisine: "arabic",
+        priceRange: "moderate",
+        rating: 4,
+        location: "Souq Waqif",
+        icon: "🏪",
+        image: "linear-gradient(135deg, #D4A574 0%, #8C1D40 100%)",
+        description: "Authentic Qatari dining in the heart of the traditional souq",
+        specialties: ["Saloona", "Thareed", "Traditional bread", "Karak tea", "Local sweets", "Grilled meats"],
+        ambiance: "Traditional souq",
+        dressCode: "Casual"
+    },
+
+    // ASIAN
+    {
+        id: 4,
+        name: "Nobu Doha",
+        cuisine: "asian",
+        priceRange: "fine",
+        rating: 5,
+        location: "Four Seasons Hotel",
+        icon: "🍱",
+        image: "linear-gradient(135deg, #E53935 0%, #2c2c2c 100%)",
+        description: "World-renowned Japanese-Peruvian fusion by Chef Nobu Matsuhisa",
+        specialties: ["Black cod miso", "Yellowtail jalapeño", "Wagyu beef", "Omakase", "Signature cocktails", "Sushi"],
+        ambiance: "Contemporary fine dining",
+        dressCode: "Smart casual"
+    },
+    {
+        id: 5,
+        name: "Wagamama",
+        cuisine: "asian",
+        priceRange: "moderate",
+        rating: 4,
+        location: "Multiple locations",
+        icon: "🍜",
+        image: "linear-gradient(135deg, #FFB81C 0%, #E53935 100%)",
+        description: "Asian-inspired noodles and rice dishes in a vibrant setting",
+        specialties: ["Ramen", "Curry", "Teppanyaki", "Gyoza", "Bao buns", "Fresh juices"],
+        ambiance: "Casual modern",
+        dressCode: "Casual"
+    },
+    {
+        id: 6,
+        name: "Morimoto Doha",
+        cuisine: "asian",
+        priceRange: "fine",
+        rating: 5,
+        location: "Mondrian Doha",
+        icon: "🍣",
+        image: "linear-gradient(135deg, #8C1D40 0%, #E53935 100%)",
+        description: "Iron Chef Morimoto's Japanese restaurant with innovative dishes",
+        specialties: ["Signature sushi", "Toro tartare", "Wagyu", "Sake pairings", "Omakase menu", "Japanese whisky"],
+        ambiance: "Modern Japanese",
+        dressCode: "Smart casual"
+    },
+    {
+        id: 7,
+        name: "Pai Thai",
+        cuisine: "asian",
+        priceRange: "upscale",
+        rating: 5,
+        location: "Al Maha Island",
+        icon: "🌶️",
+        image: "linear-gradient(135deg, #4CAF50 0%, #E53935 100%)",
+        description: "Authentic Thai cuisine on a private island with boat transfer",
+        specialties: ["Tom yum", "Pad thai", "Green curry", "Mango sticky rice", "Fresh seafood", "Thai herbs"],
+        ambiance: "Island paradise",
+        dressCode: "Resort casual"
+    },
+
+    // EUROPEAN
+    {
+        id: 8,
+        name: "Gordon Ramsay Plane Food",
+        cuisine: "european",
+        priceRange: "fine",
+        rating: 5,
+        location: "Hamad International Airport",
+        icon: "🍔",
+        image: "linear-gradient(135deg, #8C1D40 0%, #FFB81C 100%)",
+        description: "Celebrity chef Gordon Ramsay's British classics",
+        specialties: ["Fish & chips", "Beef Wellington", "Sticky toffee pudding", "Full English breakfast", "British pies"],
+        ambiance: "Contemporary British",
+        dressCode: "Casual"
+    },
+    {
+        id: 9,
+        name: "IDAM by Alain Ducasse",
+        cuisine: "european",
+        priceRange: "fine",
+        rating: 5,
+        location: "Museum of Islamic Art",
+        icon: "🇫🇷",
+        image: "linear-gradient(135deg, #8C1D40 0%, #0C616F 100%)",
+        description: "French Mediterranean fine dining with museum views",
+        specialties: ["Contemporary French", "Mediterranean flavors", "Tasting menus", "Wine pairings", "Art-inspired dishes"],
+        ambiance: "Museum elegance",
+        dressCode: "Smart casual"
+    },
+    {
+        id: 10,
+        name: "Rossini's",
+        cuisine: "european",
+        priceRange: "upscale",
+        rating: 5,
+        location: "The Pearl Qatar",
+        icon: "🇮🇹",
+        image: "linear-gradient(135deg, #4CAF50 0%, #E53935 100%)",
+        description: "Authentic Italian fine dining with homemade pasta",
+        specialties: ["Fresh pasta", "Risotto", "Osso buco", "Tiramisu", "Italian wines", "Wood-fired pizza"],
+        ambiance: "Classic Italian",
+        dressCode: "Smart casual"
+    },
+
+    // INTERNATIONAL
+    {
+        id: 11,
+        name: "Market by Jean-Georges",
+        cuisine: "international",
+        priceRange: "fine",
+        rating: 5,
+        location: "W Doha",
+        icon: "🌍",
+        image: "linear-gradient(135deg, #8C1D40 0%, #4CAF50 100%)",
+        description: "Global cuisine by renowned chef Jean-Georges Vongerichten",
+        specialties: ["International fusion", "Tasting menus", "Farm-to-table", "Contemporary dishes", "Creative cocktails"],
+        ambiance: "Contemporary chic",
+        dressCode: "Smart casual"
+    },
+    {
+        id: 12,
+        name: "The Cellar",
+        cuisine: "international",
+        priceRange: "fine",
+        rating: 5,
+        location: "Ritz-Carlton Doha",
+        icon: "🍷",
+        image: "linear-gradient(135deg, #2c2c2c 0%, #8C1D40 100%)",
+        description: "Wine-focused fine dining with extensive cellar collection",
+        specialties: ["Wine pairings", "Contemporary cuisine", "Chef's table", "Rare wines", "Sommelier selection"],
+        ambiance: "Intimate wine cellar",
+        dressCode: "Smart"
+    },
+    {
+        id: 13,
+        name: "CUT by Wolfgang Puck",
+        cuisine: "international",
+        priceRange: "fine",
+        rating: 5,
+        location: "Mondrian Doha",
+        icon: "🥩",
+        image: "linear-gradient(135deg, #8C1D40 0%, #2c2c2c 100%)",
+        description: "Premium steakhouse by celebrity chef Wolfgang Puck",
+        specialties: ["Prime steaks", "Wagyu", "Seafood", "Craft cocktails", "Extensive wine list", "Tableside service"],
+        ambiance: "Modern steakhouse",
+        dressCode: "Smart casual"
+    },
+
+    // SEAFOOD
+    {
+        id: 14,
+        name: "Seafood Market",
+        cuisine: "seafood",
+        priceRange: "upscale",
+        rating: 5,
+        location: "St. Regis Doha",
+        icon: "🦞",
+        image: "linear-gradient(135deg, #0C616F 0%, #4CAF50 100%)",
+        description: "Choose your seafood from the market and have it prepared to order",
+        specialties: ["Fresh fish", "Lobster", "King crab", "Oysters", "Grilled seafood", "Asian-style preparations"],
+        ambiance: "Market-style dining",
+        dressCode: "Resort casual"
+    },
+    {
+        id: 15,
+        name: "Pearl Lounge",
+        cuisine: "seafood",
+        priceRange: "upscale",
+        rating: 4,
+        location: "The Pearl Marina",
+        icon: "🐟",
+        image: "linear-gradient(135deg, #0C616F 0%, #FFB81C 100%)",
+        description: "Waterfront seafood dining with marina views",
+        specialties: ["Mediterranean seafood", "Grilled fish", "Seafood platters", "Fresh oysters", "Sunset views"],
+        ambiance: "Marina dining",
+        dressCode: "Resort casual"
+    },
+
+    // BUDGET-FRIENDLY
+    {
+        id: 16,
+        name: "Evergreen Organics",
+        cuisine: "international",
+        priceRange: "moderate",
+        rating: 4,
+        location: "Multiple locations",
+        icon: "🥗",
+        image: "linear-gradient(135deg, #4CAF50 0%, #FFB81C 100%)",
+        description: "Healthy organic dining with vegan and vegetarian options",
+        specialties: ["Organic salads", "Smoothie bowls", "Vegan options", "Cold-pressed juices", "Healthy wraps"],
+        ambiance: "Casual healthy",
+        dressCode: "Casual"
+    },
+    {
+        id: 17,
+        name: "Shakespeare & Co.",
+        cuisine: "international",
+        priceRange: "moderate",
+        rating: 4,
+        location: "Multiple locations",
+        icon: "☕",
+        image: "linear-gradient(135deg, #8C1D40 0%, #D4A574 100%)",
+        description: "All-day dining with extensive menu and cozy atmosphere",
+        specialties: ["Breakfast all day", "Pastries", "International dishes", "Coffee", "Desserts", "Brunch"],
+        ambiance: "Café dining",
+        dressCode: "Casual"
+    },
+    {
+        id: 18,
+        name: "Chapati & Karak",
+        cuisine: "asian",
+        priceRange: "budget",
+        rating: 4,
+        location: "Various locations",
+        icon: "🫓",
+        image: "linear-gradient(135deg, #FFB81C 0%, #E53935 100%)",
+        description: "Casual Indian dining with authentic street food flavors",
+        specialties: ["Fresh chapati", "Karak tea", "Biryani", "Curry", "Samosas", "Mango lassi"],
+        ambiance: "Casual street food",
+        dressCode: "Casual"
+    }
+];
+
+let filteredRestaurants = [...restaurants];
+let currentRestaurant = null;
+
+window.addEventListener('DOMContentLoaded', () => {
+    const today = new Date().toISOString().split('T')[0];
+    const reservationDateInput = document.getElementById('reservationDate');
+    const bookingDateInput = document.getElementById('bookingDate');
+    
+    if (reservationDateInput) reservationDateInput.min = today;
+    if (bookingDateInput) bookingDateInput.min = today;
+    
+    displayRestaurants(restaurants);
+});
+
+function displayRestaurants(restaurantsToDisplay) {
+    const grid = document.getElementById('restaurantsGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    if (restaurantsToDisplay.length === 0) {
+        grid.innerHTML = '<p style="text-align: center; color: #666; padding: 3rem; grid-column: 1/-1;">No restaurants found. Please adjust your filters.</p>';
+        return;
+    }
+    
+    restaurantsToDisplay.forEach(restaurant => {
+        const card = document.createElement('div');
+        card.className = 'restaurant-card';
+        card.onclick = () => openReservationModal(restaurant.id);
+        
+        const priceSymbols = {
+            budget: '$',
+            moderate: '$$',
+            upscale: '$$$',
+            fine: '$$$$'
+        };
+        
+        card.innerHTML = `
+            <div class="restaurant-card-image" style="background: ${restaurant.image};">
+                <span style="font-size: 6rem;">${restaurant.icon}</span>
+            </div>
+            <div class="restaurant-card-content">
+                <h3>${restaurant.name}</h3>
+                <div class="restaurant-category">${restaurant.cuisine}</div>
+                <div class="restaurant-meta">
+                    <span class="meta-item">
+                        <span class="meta-icon">⭐</span>
+                        ${restaurant.rating}/5
+                    </span>
+                    <span class="meta-item">
+                        <span class="meta-icon">💰</span>
+                        ${priceSymbols[restaurant.priceRange]}
+                    </span>
+                    <span class="meta-item">
+                        <span class="meta-icon">📍</span>
+                        ${restaurant.location}
+                    </span>
+                </div>
+                <p class="restaurant-description">${restaurant.description}</p>
+                <div class="restaurant-highlights">
+                    ${restaurant.specialties.slice(0, 3).map(s => `<div class="highlight-item">${s}</div>`).join('')}
+                </div>
+                <div class="restaurant-card-footer">
+                    <span class="restaurant-ambiance">${restaurant.ambiance}</span>
+                    <button class="btn-book-restaurant" onclick="event.stopPropagation(); openReservationModal(${restaurant.id})">Reserve Table</button>
+                </div>
+            </div>
+        `;
+        
+        grid.appendChild(card);
+    });
+}
+
+function searchRestaurants() {
+    const cuisine = document.getElementById('cuisineFilter').value;
+    const price = document.getElementById('priceFilter').value;
+    
+    let filtered = [...restaurants];
+    
+    if (cuisine !== 'all') {
+        filtered = filtered.filter(r => r.cuisine === cuisine);
+    }
+    
+    if (price !== 'all') {
+        filtered = filtered.filter(r => r.priceRange === price);
+    }
+    
+    filteredRestaurants = filtered;
+    displayRestaurants(filteredRestaurants);
+}
+
+function sortRestaurants() {
+    const sortBy = document.getElementById('sortBy').value;
+    let sorted = [...filteredRestaurants];
+    
+    if (sortBy === 'name') {
+        sorted.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === 'rating') {
+        sorted.sort((a, b) => b.rating - a.rating);
+    }
+    
+    displayRestaurants(sorted);
+}
+
+function openReservationModal(restaurantId) {
+    const restaurant = restaurants.find(r => r.id === restaurantId);
+    if (!restaurant) return;
+    
+    currentRestaurant = restaurant;
+    
+    const priceSymbols = {
+        budget: '$',
+        moderate: '$$',
+        upscale: '$$$',
+        fine: '$$$$'
+    };
+    
+    document.getElementById('modalRestaurantImage').innerHTML = `<span style="font-size: 6rem;">${restaurant.icon}</span>`;
+    document.getElementById('modalRestaurantImage').style.background = restaurant.image;
+    document.getElementById('modalRestaurantName').textContent = restaurant.name;
+    document.getElementById('modalCuisine').textContent = restaurant.cuisine.toUpperCase();
+    document.getElementById('modalRating').textContent = '⭐'.repeat(restaurant.rating);
+    document.getElementById('modalLocation').innerHTML = `📍 ${restaurant.location}`;
+    document.getElementById('modalPrice').innerHTML = `💰 ${priceSymbols[restaurant.priceRange]}`;
+    document.getElementById('modalDescription').textContent = restaurant.description;
+    
+    const specialtiesList = document.getElementById('modalSpecialties');
+    specialtiesList.innerHTML = `
+        <h4>Signature Dishes & Specialties</h4>
+        <ul>
+            ${restaurant.specialties.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+        <p style="margin-top: 1rem; color: #666;"><strong>Ambiance:</strong> ${restaurant.ambiance}</p>
+        <p style="color: #666;"><strong>Dress Code:</strong> ${restaurant.dressCode}</p>
+    `;
+    
+    document.getElementById('reservationModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeReservationModal() {
+    document.getElementById('reservationModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+    document.getElementById('reservationForm').reset();
+}
+
+function submitReservation(event) {
+    event.preventDefault();
+    
+    if (!currentRestaurant) return;
+    
+    const name = document.getElementById('guestName').value;
+    const email = document.getElementById('guestEmail').value;
+    const phone = document.getElementById('guestPhone').value;
+    const date = document.getElementById('bookingDate').value;
+    const time = document.getElementById('bookingTime').value;
+    const guests = document.getElementById('numGuests').value;
+    const occasion = document.getElementById('occasion').value;
+    const requests = document.getElementById('specialRequests').value;
+    
+    if (!name || !email || !phone || !date || !time) {
+        alert('Please fill in all required fields');
+        return;
+    }
+    
+    const occasionText = occasion ? `\nOccasion: ${occasion}` : '';
+    const requestsText = requests ? `\nSpecial Requests: ${requests}` : '';
+    
+    alert(`🍽️ Reservation Confirmed!
+
+Restaurant: ${currentRestaurant.name}
+Guest: ${name}
+Date: ${date}
+Time: ${time}
+Party Size: ${guests} guests${occasionText}
+
+Location: ${currentRestaurant.location}
+Cuisine: ${currentRestaurant.cuisine}
+Dress Code: ${currentRestaurant.dressCode}${requestsText}
+
+Confirmation sent to ${email}
+We'll call ${phone} if any changes are needed.
+
+Important Reminders:
+• Please arrive 10 minutes early
+• Cancellations accepted up to 24h in advance
+• ${currentRestaurant.dressCode} dress code applies
+
+Enjoy your dining experience! 🎉`);
+    
+    closeReservationModal();
+}
