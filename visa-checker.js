@@ -166,3 +166,4 @@ function checkVisaRequirement() {
     resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
+
