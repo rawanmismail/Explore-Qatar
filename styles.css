@@ -9661,3 +9661,379 @@ input:checked + .slider:before {
     }
 }
 
+/* Shopping & Attractions Page Styles */
+
+/* Category Sections */
+.category-section {
+    padding: 60px 20px;
+    background: white;
+}
+
+.category-section.alt-bg {
+    background: #fafafa;
+}
+
+.category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #2c2c2c;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Places Grid */
+.places-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.place-card {
+    background: white;
+    box-shadow: 0 3px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.place-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.place-card-image {
+    height: 200px;
+    background: linear-gradient(135deg, #8C1D40 0%, #0C616F 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    position: relative;
+}
+
+.free-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #4CAF50;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 20px;
+}
+
+.place-card-content {
+    padding: 1.5rem;
+}
+
+.place-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #2c2c2c;
+    margin-bottom: 0.5rem;
+}
+
+.place-category {
+    display: inline-block;
+    background: #8C1D40;
+    color: white;
+    padding: 0.3rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+}
+
+.place-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.place-description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.place-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.highlight-tag {
+    background: #f8f5f0;
+    color: #8C1D40;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.place-card-footer {
+    padding-top: 1rem;
+    border-top: 1px solid #f0f0f0;
+    text-align: center;
+}
+
+.btn-view-place {
+    padding: 0.8rem 2rem;
+    background: #8C1D40;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.btn-view-place:hover {
+    background: #6d1532;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    overflow: auto;
+}
+
+.place-modal-content {
+    background: white;
+    margin: 2% auto;
+    max-width: 1100px;
+    width: 90%;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    right: 2rem;
+    top: 1.5rem;
+    font-size: 2rem;
+    color: #999;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.close:hover {
+    color: #2c2c2c;
+}
+
+.modal-layout {
+    display: grid;
+    grid-template-columns: 450px 1fr;
+}
+
+.modal-place-info {
+    background: #f8f5f0;
+    padding: 3rem 2rem;
+}
+
+.modal-place-image {
+    height: 200px;
+    background: linear-gradient(135deg, #8C1D40 0%, #0C616F 100%);
+    margin: -3rem -2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+}
+
+.modal-place-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #2c2c2c;
+    margin-bottom: 0.5rem;
+}
+
+.modal-place-category {
+    background: #8C1D40;
+    color: white;
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.5rem;
+    border-radius: 20px;
+}
+
+.modal-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.modal-location,
+.modal-hours {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.modal-description {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.modal-highlights {
+    background: white;
+    padding: 1.5rem;
+    margin: -1rem -2rem -3rem;
+}
+
+.modal-highlights h4 {
+    color: #8C1D40;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.modal-highlights ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.8rem;
+}
+
+.modal-highlights li {
+    padding-left: 1.5rem;
+    position: relative;
+    color: #555;
+}
+
+.modal-highlights li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #8C1D40;
+    font-weight: bold;
+}
+
+.modal-place-details {
+    padding: 3rem 2.5rem;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-place-details h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #2c2c2c;
+    margin-bottom: 2rem;
+}
+
+.info-section {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.info-section:last-of-type {
+    border-bottom: none;
+}
+
+.info-section h4 {
+    color: #8C1D40;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.info-section p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}
+
+.modal-actions {
+    margin-top: 2rem;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 1.2rem;
+    background: #8C1D40;
+    color: white;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.btn-primary:hover {
+    background: #6d1532;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .modal-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .places-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .places-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .category-title {
+        font-size: 2rem;
+    }
+}
