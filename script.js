@@ -7422,3 +7422,4 @@ Enjoy your wellness journey! 🌸`);
     
     closeBookingModal();
 }
+
