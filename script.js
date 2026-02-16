@@ -6935,4 +6935,490 @@ Enjoy your dining experience! 🎉`);
 }
 
 
+// Spa & Wellness Treatments Database
 
+const treatments = [
+    // MASSAGE THERAPY
+    {
+        id: 1,
+        name: "Royal Qatari Massage",
+        type: "massage",
+        duration: "medium",
+        durationText: "90 minutes",
+        price: 800,
+        location: "CHI, The Spa at Shangri-La",
+        icon: "💆",
+        image: "linear-gradient(135deg, #8C1D40 0%, #D4A574 100%)",
+        description: "Luxurious full-body massage using traditional Arabic techniques with aromatic oils",
+        benefits: ["Deep muscle relaxation", "Stress relief", "Improved circulation", "Arabian ambiance", "Premium oils", "Hot stone therapy"]
+    },
+    {
+        id: 2,
+        name: "Deep Tissue Massage",
+        type: "massage",
+        duration: "short",
+        durationText: "60 minutes",
+        price: 500,
+        location: "Multiple luxury spas",
+        icon: "💪",
+        image: "linear-gradient(135deg, #8C1D40 0%, #2c2c2c 100%)",
+        description: "Therapeutic massage targeting chronic muscle tension and knots",
+        benefits: ["Releases muscle tension", "Pain relief", "Improved flexibility", "Sports recovery", "Targeted pressure", "Professional therapists"]
+    },
+    {
+        id: 3,
+        name: "Hot Stone Therapy",
+        type: "massage",
+        duration: "medium",
+        durationText: "90 minutes",
+        price: 700,
+        location: "Ritz-Carlton Spa",
+        icon: "🔥",
+        image: "linear-gradient(135deg, #E53935 0%, #2c2c2c 100%)",
+        description: "Heated volcanic stones placed on key points to melt away tension",
+        benefits: ["Deep heat therapy", "Muscle relaxation", "Energy balance", "Improved sleep", "Stress reduction", "Heated stones"]
+    },
+    {
+        id: 4,
+        name: "Swedish Relaxation Massage",
+        type: "massage",
+        duration: "short",
+        durationText: "60 minutes",
+        price: 450,
+        location: "Various luxury spas",
+        icon: "🌸",
+        image: "linear-gradient(135deg, #FF6B9D 0%, #FFB81C 100%)",
+        description: "Classic full-body massage for ultimate relaxation and stress relief",
+        benefits: ["Full body relaxation", "Gentle pressure", "Improved circulation", "Perfect for beginners", "Calming experience", "Essential oils"]
+    },
+
+    // FACIALS & SKINCARE
+    {
+        id: 5,
+        name: "24K Gold Facial",
+        type: "facial",
+        duration: "medium",
+        durationText: "90 minutes",
+        price: 1200,
+        location: "Mandarin Oriental Spa",
+        icon: "✨",
+        image: "linear-gradient(135deg, #FFB81C 0%, #8C1D40 100%)",
+        description: "Luxurious anti-aging facial with 24-karat gold to rejuvenate skin",
+        benefits: ["Anti-aging properties", "24K gold infusion", "Skin brightening", "Collagen boost", "Luxury experience", "Visible results"]
+    },
+    {
+        id: 6,
+        name: "Deep Cleansing Facial",
+        type: "facial",
+        duration: "short",
+        durationText: "60 minutes",
+        price: 400,
+        location: "Multiple locations",
+        icon: "🧖",
+        image: "linear-gradient(135deg, #4CAF50 0%, #0C616F 100%)",
+        description: "Thorough facial cleansing with extractions and hydration",
+        benefits: ["Deep pore cleansing", "Extractions", "Oil control", "Hydration", "Refreshed skin", "Perfect for all skin types"]
+    },
+    {
+        id: 7,
+        name: "Hydrating Oxygen Facial",
+        type: "facial",
+        duration: "short",
+        durationText: "60 minutes",
+        price: 650,
+        location: "Four Seasons Spa",
+        icon: "💧",
+        image: "linear-gradient(135deg, #0C616F 0%, #4CAF50 100%)",
+        description: "Oxygen-infused treatment to deeply hydrate and revitalize skin",
+        benefits: ["Deep hydration", "Oxygen infusion", "Plumper skin", "Radiant glow", "Anti-aging", "Instant results"]
+    },
+    {
+        id: 8,
+        name: "Gentleman's Facial",
+        type: "facial",
+        duration: "short",
+        durationText: "60 minutes",
+        price: 500,
+        location: "Various spas",
+        icon: "🧔",
+        image: "linear-gradient(135deg, #2c2c2c 0%, #8C1D40 100%)",
+        description: "Tailored facial treatment designed specifically for men's skin",
+        benefits: ["Men's skincare", "Deep cleansing", "Reduces razor burn", "Energizing", "Anti-aging", "Professional products"]
+    },
+
+    // BODY TREATMENTS
+    {
+        id: 9,
+        name: "Arabian Coffee Body Scrub",
+        type: "body",
+        duration: "short",
+        durationText: "45 minutes",
+        price: 450,
+        location: "Banana Island Resort Spa",
+        icon: "☕",
+        image: "linear-gradient(135deg, #D4A574 0%, #2c2c2c 100%)",
+        description: "Exfoliating body scrub using traditional Arabic coffee and oils",
+        benefits: ["Full body exfoliation", "Coffee grounds", "Smooth skin", "Arabian tradition", "Detoxifying", "Invigorating scent"]
+    },
+    {
+        id: 10,
+        name: "Detox Body Wrap",
+        type: "body",
+        duration: "medium",
+        durationText: "90 minutes",
+        price: 700,
+        location: "St. Regis Spa",
+        icon: "🌿",
+        image: "linear-gradient(135deg, #4CAF50 0%, #8C1D40 100%)",
+        description: "Purifying body wrap with natural ingredients to eliminate toxins",
+        benefits: ["Detoxification", "Skin toning", "Inch loss", "Natural ingredients", "Relaxation", "Full body treatment"]
+    },
+    {
+        id: 11,
+        name: "Salt Glow Body Polish",
+        type: "body",
+        duration: "short",
+        durationText: "45 minutes",
+        price: 400,
+        location: "Various spas",
+        icon: "🧂",
+        image: "linear-gradient(135deg, #0C616F 0%, #FFB81C 100%)",
+        description: "Invigorating sea salt scrub to reveal silky smooth skin",
+        benefits: ["Deep exfoliation", "Sea minerals", "Improved circulation", "Baby-soft skin", "Pre-treatment prep", "Energizing"]
+    },
+
+    // TRADITIONAL HAMMAM
+    {
+        id: 12,
+        name: "Traditional Turkish Hammam",
+        type: "hammam",
+        duration: "medium",
+        durationText: "90 minutes",
+        price: 600,
+        location: "Souq Waqif Spa",
+        icon: "🛁",
+        image: "linear-gradient(135deg, #8C1D40 0%, #0C616F 100%)",
+        description: "Authentic hammam ritual with steam, scrub, and foam massage",
+        benefits: ["Traditional ceremony", "Steam therapy", "Exfoliating scrub", "Foam massage", "Cultural experience", "Deep cleansing"]
+    },
+    {
+        id: 13,
+        name: "Moroccan Hammam Ritual",
+        type: "hammam",
+        duration: "medium",
+        durationText: "120 minutes",
+        price: 800,
+        location: "W Doha Spa",
+        icon: "🕌",
+        image: "linear-gradient(135deg, #A12852 0%, #D4A574 100%)",
+        description: "Complete Moroccan spa journey with black soap and rhassoul clay",
+        benefits: ["Black soap treatment", "Rhassoul clay", "Body scrub", "Argan oil massage", "Complete ritual", "2 hour experience"]
+    },
+    {
+        id: 14,
+        name: "Arabian Hammam Experience",
+        type: "hammam",
+        duration: "long",
+        durationText: "3 hours",
+        price: 1000,
+        location: "Sharq Village & Spa",
+        icon: "👑",
+        image: "linear-gradient(135deg, #8C1D40 0%, #FFB81C 100%)",
+        description: "Extended Arabian spa ritual combining hammam with massage",
+        benefits: ["Extended ritual", "Steam room", "Body scrub", "Oil massage", "Hair treatment", "Relaxation lounge"]
+    },
+
+    // WELLNESS PROGRAMS
+    {
+        id: 15,
+        name: "Half-Day Wellness Escape",
+        type: "wellness",
+        duration: "long",
+        durationText: "4 hours",
+        price: 1500,
+        location: "Banana Island Resort",
+        icon: "🧘",
+        image: "linear-gradient(135deg, #4CAF50 0%, #0C616F 100%)",
+        description: "Comprehensive wellness journey with multiple treatments and facilities",
+        benefits: ["Multiple treatments", "Spa facilities access", "Healthy lunch", "Yoga or meditation", "Pool access", "Relaxation time"]
+    },
+    {
+        id: 16,
+        name: "Full-Day Spa Retreat",
+        type: "wellness",
+        duration: "fullday",
+        durationText: "6 hours",
+        price: 2500,
+        location: "Mandarin Oriental",
+        icon: "🌺",
+        image: "linear-gradient(135deg, #FF6B9D 0%, #8C1D40 100%)",
+        description: "Ultimate day of pampering with signature treatments and meals",
+        benefits: ["Full day experience", "3-4 treatments", "Lunch & refreshments", "All facilities", "Personal therapist", "Ultimate relaxation"]
+    },
+    {
+        id: 17,
+        name: "Yoga & Meditation Session",
+        type: "wellness",
+        duration: "short",
+        durationText: "60 minutes",
+        price: 300,
+        location: "Various wellness centers",
+        icon: "🧘‍♀️",
+        image: "linear-gradient(135deg, #4CAF50 0%, #FFB81C 100%)",
+        description: "Private or group yoga and guided meditation for mind-body balance",
+        benefits: ["Professional instructor", "Mindfulness", "Stress relief", "Flexibility", "Mental clarity", "Private or group"]
+    },
+
+    // COUPLES TREATMENTS
+    {
+        id: 18,
+        name: "Couples Royal Suite Experience",
+        type: "couples",
+        duration: "long",
+        durationText: "3 hours",
+        price: 3000,
+        location: "Ritz-Carlton Spa",
+        icon: "💑",
+        image: "linear-gradient(135deg, #FF6B9D 0%, #8C1D40 100%)",
+        description: "Private suite experience for two with champagne and treatments",
+        benefits: ["Private couple's suite", "Synchronous massage", "Body treatments", "Champagne & treats", "Romantic ambiance", "Extended time"]
+    },
+    {
+        id: 19,
+        name: "Couples Massage Retreat",
+        type: "couples",
+        duration: "medium",
+        durationText: "90 minutes",
+        price: 1400,
+        location: "Multiple luxury spas",
+        icon: "💝",
+        image: "linear-gradient(135deg, #8C1D40 0%, #FF6B9D 100%)",
+        description: "Side-by-side massage for couples with aromatic oils",
+        benefits: ["Side-by-side massage", "Romantic setting", "Aromatherapy", "Quality time together", "Relaxation for two", "Private room"]
+    },
+    {
+        id: 20,
+        name: "Couples Beach Spa Package",
+        type: "couples",
+        duration: "long",
+        durationText: "4 hours",
+        price: 3500,
+        location: "Banana Island Resort",
+        icon: "🏖️",
+        image: "linear-gradient(135deg, #0C616F 0%, #FF6B9D 100%)",
+        description: "Beachfront couples spa day with massage and champagne",
+        benefits: ["Beach cabana", "Couples massage", "Beach access", "Champagne lunch", "Sunset views", "Island paradise"]
+    }
+];
+
+let filteredTreatments = [...treatments];
+let currentTreatment = null;
+
+window.addEventListener('DOMContentLoaded', () => {
+    const today = new Date().toISOString().split('T')[0];
+    const appointmentDateInput = document.getElementById('appointmentDate');
+    const bookingDateInput = document.getElementById('bookingDate');
+    
+    if (appointmentDateInput) appointmentDateInput.min = today;
+    if (bookingDateInput) bookingDateInput.min = today;
+    
+    displayTreatments(treatments);
+    
+    const numGuestsInput = document.getElementById('numGuests');
+    if (numGuestsInput) {
+        numGuestsInput.addEventListener('change', updatePricing);
+    }
+});
+
+function displayTreatments(treatmentsToDisplay) {
+    const grid = document.getElementById('treatmentsGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+    
+    if (treatmentsToDisplay.length === 0) {
+        grid.innerHTML = '<p style="text-align: center; color: #666; padding: 3rem; grid-column: 1/-1;">No treatments found. Please adjust your filters.</p>';
+        return;
+    }
+    
+    treatmentsToDisplay.forEach(treatment => {
+        const card = document.createElement('div');
+        card.className = 'treatment-card';
+        card.onclick = () => openBookingModal(treatment.id);
+        
+        card.innerHTML = `
+            <div class="treatment-card-image" style="background: ${treatment.image};">
+                <span style="font-size: 6rem;">${treatment.icon}</span>
+            </div>
+            <div class="treatment-card-content">
+                <h3>${treatment.name}</h3>
+                <div class="treatment-category">${treatment.type}</div>
+                <div class="treatment-meta">
+                    <span class="meta-item">
+                        <span class="meta-icon">⏱️</span>
+                        ${treatment.durationText}
+                    </span>
+                    <span class="meta-item">
+                        <span class="meta-icon">📍</span>
+                        ${treatment.location}
+                    </span>
+                </div>
+                <p class="treatment-description">${treatment.description}</p>
+                <div class="treatment-highlights">
+                    ${treatment.benefits.slice(0, 3).map(b => `<div class="highlight-item">${b}</div>`).join('')}
+                </div>
+                <div class="treatment-card-footer">
+                    <div class="treatment-price">
+                        <span class="price-label">From</span>
+                        <span class="price-amount">QR ${treatment.price}</span>
+                        <span class="price-period">per person</span>
+                    </div>
+                    <button class="btn-book-treatment" onclick="event.stopPropagation(); openBookingModal(${treatment.id})">Book Now</button>
+                </div>
+            </div>
+        `;
+        
+        grid.appendChild(card);
+    });
+}
+
+function searchTreatments() {
+    const type = document.getElementById('typeFilter').value;
+    const duration = document.getElementById('durationFilter').value;
+    const priceRange = document.getElementById('priceFilter').value;
+    
+    let filtered = [...treatments];
+    
+    if (type !== 'all') {
+        filtered = filtered.filter(t => t.type === type);
+    }
+    
+    if (duration !== 'all') {
+        filtered = filtered.filter(t => t.duration === duration);
+    }
+    
+    if (priceRange !== 'all') {
+        if (priceRange === 'moderate') {
+            filtered = filtered.filter(t => t.price >= 300 && t.price < 600);
+        } else if (priceRange === 'premium') {
+            filtered = filtered.filter(t => t.price >= 600 && t.price < 1200);
+        } else if (priceRange === 'luxury') {
+            filtered = filtered.filter(t => t.price >= 1200);
+        }
+    }
+    
+    filteredTreatments = filtered;
+    displayTreatments(filteredTreatments);
+}
+
+function sortTreatments() {
+    const sortBy = document.getElementById('sortBy').value;
+    let sorted = [...filteredTreatments];
+    
+    if (sortBy === 'name') {
+        sorted.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === 'price-low') {
+        sorted.sort((a, b) => a.price - b.price);
+    }
+    
+    displayTreatments(sorted);
+}
+
+function openBookingModal(treatmentId) {
+    const treatment = treatments.find(t => t.id === treatmentId);
+    if (!treatment) return;
+    
+    currentTreatment = treatment;
+    
+    document.getElementById('modalTreatmentImage').innerHTML = `<span style="font-size: 6rem;">${treatment.icon}</span>`;
+    document.getElementById('modalTreatmentImage').style.background = treatment.image;
+    document.getElementById('modalTreatmentName').textContent = treatment.name;
+    document.getElementById('modalType').textContent = treatment.type.toUpperCase();
+    document.getElementById('modalDuration').innerHTML = `⏱️ ${treatment.durationText}`;
+    document.getElementById('modalLocation').innerHTML = `📍 ${treatment.location}`;
+    document.getElementById('modalDescription').textContent = treatment.description;
+    
+    const benefitsList = document.getElementById('modalBenefits');
+    benefitsList.innerHTML = `
+        <h4>Treatment Benefits</h4>
+        <ul>
+            ${treatment.benefits.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+    `;
+    
+    updatePricing();
+    
+    document.getElementById('bookingModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeBookingModal() {
+    document.getElementById('bookingModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+    document.getElementById('bookingForm').reset();
+}
+
+function updatePricing() {
+    if (!currentTreatment) return;
+    
+    const numGuests = parseInt(document.getElementById('numGuests').value) || 1;
+    const pricePerPerson = currentTreatment.price;
+    const total = pricePerPerson * numGuests;
+    
+    document.getElementById('pricePerPerson').textContent = `QR ${pricePerPerson}`;
+    document.getElementById('numPax').textContent = numGuests;
+    document.getElementById('total').textContent = `QR ${total}`;
+}
+
+function submitBooking(event) {
+    event.preventDefault();
+    
+    if (!currentTreatment) return;
+    
+    const name = document.getElementById('guestName').value;
+    const email = document.getElementById('guestEmail').value;
+    const phone = document.getElementById('guestPhone').value;
+    const date = document.getElementById('bookingDate').value;
+    const time = document.getElementById('preferredTime').value;
+    const guests = document.getElementById('numGuests').value;
+    const gender = document.getElementById('therapistGender').value;
+    const requests = document.getElementById('specialRequests').value;
+    const total = document.getElementById('total').textContent;
+    
+    if (!name || !email || !phone || !date || !time) {
+        alert('Please fill in all required fields');
+        return;
+    }
+    
+    const genderText = gender ? `\nTherapist Preference: ${gender}` : '';
+    const requestsText = requests ? `\nSpecial Requirements: ${requests}` : '';
+    
+    alert(`💆 Spa Treatment Booked!
+
+Treatment: ${currentTreatment.name}
+Guest: ${name}
+Date: ${date}
+Time: ${time}
+People: ${guests}${genderText}
+Total: ${total}
+
+Location: ${currentTreatment.location}
+Duration: ${currentTreatment.durationText}${requestsText}
+
+Confirmation sent to ${email}
+We'll call ${phone} to confirm your appointment.
+
+What to bring:
+• Arrive 15 minutes early
+• Swimwear (if using facilities)
+• Comfortable clothing
+• Personal items secure in lockers
+
+Cancellation Policy:
+• Free cancellation up to 24 hours before
+• 50% charge for late cancellations
+
+Enjoy your wellness journey! 🌸`);
+    
+    closeBookingModal();
+}
