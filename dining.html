@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dining in Qatar - Discover Qatar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dining.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <h1>QATAR TOURISM</h1>
+                </a>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">About Qatar ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="geography.html">Geography of Qatar</a></li>
+                        <li><a href="history.html">History of Qatar</a></li>
+                        <li><a href="climate.html">Qatar's Climate</a></li>
+                        <li><a href="cities.html">Towns & Cities</a></li>
+                        <li><a href="traditions.html">Traditions in Qatar</a></li>
+                        <li><a href="cusine.html">Local Cuisine</a></li>
+                        <li><a href="wildlife.html">Wildlife</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Plan Your Trip ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="visas.html">Visas</a></li>
+                        <li><a href="accommodation.html">Accommodation in Qatar</a></li>
+                        <li><a href="flights.html">Getting to Qatar</a></li>
+                        <li><a href="transportation.html">Transportation</a></li>
+                        <li><a href="airport.html">Hamad Intl. Airport</a></li>
+                        <li><a href="tours.html">Tour Operators</a></li>
+                        <li><a href="safety.html">Safety in Qatar</a></li>
+                        <li><a href="concierge.html">Concierge Services</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Things To Do ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="adventure.html">Adventure</a></li>
+                        <li><a href="ArtCulture.html">Art & Culture</a></li>
+                        <li><a href="RomanticGataway.html">Romantic Getaway</a></li>
+                        <li><a href="beach.html">Beach Holiday</a></li>
+                        <li><a href="family.html">Family Break</a></li>
+                        <li><a href="dining.html">Dining</a></li>
+                        <li><a href="spa.html">Spa & Wellness</a></li>
+                        <li><a href="shopping.html">Shopping</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Events ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#upcoming">Upcoming Events</a></li>
+                        <li><a href="festivals.html">Festivals in Qatar</a></li>
+                        <li><a href="sports.html">Sports Events</a></li>
+                        <li><a href="concerts.html">Concerts & Shows</a></li>
+                        <li><a href="exhibitions.html">Cultural Exhibitions</a></li>
+                        <li><a href="national.html">National Celebrations</a></li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Travel Guide ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="best-time.html">Best Time to Visit</a></li>
+                        <li><a href="laws.html">Local Laws & Customs</a></li>
+                        <li><a href="dress-code.html">Dress Code & Etiquette</a></li>
+                        <li><a href="currency.html">Currency & Payments</a></li>
+                        <li><a href="language.html">Language in Qatar</a></li>
+                        <li><a href="internet.html">Internet & SIM Cards</a></li>
+                        <li><a href="emergency.html">Emergency Numbers</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="#" class="btn-nav">Log In</a>
+                <a href="#" class="btn-nav-primary">Sign Up</a>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-hero-title">Dining in Qatar</h1>
+            <p class="page-hero-subtitle">A world-class culinary journey from traditional Arabic to international fine dining</p>
+        </div>
+    </section>
+
+    <section class="search-section">
+        <div class="container">
+            <div class="search-widget">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: #2c2c2c;">Find Your Perfect Restaurant</h3>
+                
+                <div class="search-row">
+                    <div class="search-field">
+                        <label>Reservation Date</label>
+                        <input type="date" id="reservationDate">
+                    </div>
+                    <div class="search-field">
+                        <label>Party Size</label>
+                        <input type="number" id="partySize" min="1" max="20" value="2">
+                    </div>
+                    <div class="search-field">
+                        <label>Time</label>
+                        <select id="timeFilter">
+                            <option value="all">Any Time</option>
+                            <option value="lunch">Lunch (12-3 PM)</option>
+                            <option value="dinner">Dinner (6-11 PM)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="filter-row">
+                    <div class="filter-field">
+                        <label>Cuisine Type</label>
+                        <select id="cuisineFilter">
+                            <option value="all">All Cuisines</option>
+                            <option value="arabic">Arabic & Middle Eastern</option>
+                            <option value="asian">Asian</option>
+                            <option value="european">European</option>
+                            <option value="international">International</option>
+                            <option value="seafood">Seafood</option>
+                        </select>
+                    </div>
+                    <div class="filter-field">
+                        <label>Price Range</label>
+                        <select id="priceFilter">
+                            <option value="all">All Prices</option>
+                            <option value="budget">$ - Budget</option>
+                            <option value="moderate">$$ - Moderate</option>
+                            <option value="upscale">$$$ - Upscale</option>
+                            <option value="fine">$$$$ - Fine Dining</option>
+                        </select>
+                    </div>
+                    <div class="filter-field">
+                        <label>Sort By</label>
+                        <select id="sortBy" onchange="sortRestaurants()">
+                            <option value="featured">Featured</option>
+                            <option value="name">Name A-Z</option>
+                            <option value="rating">Highest Rated</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button class="btn-search" onclick="searchRestaurants()">Search Restaurants</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="restaurants-section">
+        <div class="container">
+            <div id="restaurantsGrid" class="restaurants-grid"></div>
+        </div>
+    </section>
+
+    <div id="reservationModal" class="modal">
+        <div class="modal-content reservation-modal-content">
+            <span class="close" onclick="closeReservationModal()">&times;</span>
+            
+            <div class="modal-layout">
+                <div class="modal-restaurant-info">
+                    <div id="modalRestaurantImage" class="modal-restaurant-image"></div>
+                    <h2 id="modalRestaurantName" class="modal-restaurant-title"></h2>
+                    <p id="modalCuisine" class="modal-restaurant-cuisine"></p>
+                    <div class="modal-rating" id="modalRating"></div>
+                    <div class="modal-meta">
+                        <span id="modalLocation" class="modal-location"></span>
+                        <span id="modalPrice" class="modal-price-range"></span>
+                    </div>
+                    <p id="modalDescription" class="modal-description"></p>
+                    <div id="modalSpecialties" class="modal-specialties"></div>
+                </div>
+                
+                <div class="modal-reservation-form">
+                    <h3>Make a Reservation</h3>
+                    
+                    <form id="reservationForm" onsubmit="submitReservation(event)">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" id="guestName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" id="guestEmail" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Phone *</label>
+                            <input type="tel" id="guestPhone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Reservation Date *</label>
+                            <input type="date" id="bookingDate" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Reservation Time *</label>
+                            <select id="bookingTime" required>
+                                <option value="">Select time</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="12:30">12:30 PM</option>
+                                <option value="13:00">1:00 PM</option>
+                                <option value="13:30">1:30 PM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="18:00">6:00 PM</option>
+                                <option value="18:30">6:30 PM</option>
+                                <option value="19:00">7:00 PM</option>
+                                <option value="19:30">7:30 PM</option>
+                                <option value="20:00">8:00 PM</option>
+                                <option value="20:30">8:30 PM</option>
+                                <option value="21:00">9:00 PM</option>
+                                <option value="21:30">9:30 PM</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Number of Guests *</label>
+                            <input type="number" id="numGuests" min="1" max="20" value="2" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Special Occasion</label>
+                            <select id="occasion">
+                                <option value="">None</option>
+                                <option value="birthday">Birthday</option>
+                                <option value="anniversary">Anniversary</option>
+                                <option value="business">Business Dinner</option>
+                                <option value="celebration">Celebration</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Special Requests</label>
+                            <textarea id="specialRequests" rows="3" placeholder="Dietary restrictions, seating preferences, etc."></textarea>
+                        </div>
+                        
+                        <div class="reservation-note">
+                            <p><strong>Reservation Policy:</strong></p>
+                            <p>• Reservations confirmed within 2 hours</p>
+                            <p>• Please arrive 10 minutes early</p>
+                            <p>• Smart casual dress code applies</p>
+                            <p>• Cancellations accepted up to 24h in advance</p>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Confirm Reservation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>QATAR TOURISM</h3>
+                    <p>Your gateway to Arabian excellence</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="accommodation.html">Hotels</a></li>
+                        <li><a href="flights.html">Flights</a></li>
+                        <li><a href="index.html#upcoming">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@discoverqatar.com</p>
+                    <p>Phone: +974 1234 5678</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Qatar Tourism. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="dining.js"></script>
+</body>
+</html>
