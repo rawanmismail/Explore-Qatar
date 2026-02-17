@@ -8395,3 +8395,4 @@ function closeEventModal() {
     document.getElementById('eventModal').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
+
