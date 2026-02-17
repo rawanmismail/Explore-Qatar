@@ -8835,3 +8835,454 @@ function closeFestivalModal() {
     document.getElementById('festivalModal').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
+
+
+// Sports Events Database - Organized by Category
+
+const sportsEvents = {
+
+    football: [
+        {
+            id: 1,
+            name: "Qatar Stars League - Season Matches",
+            category: "Football",
+            date: "October 2025 - May 2026",
+            time: "Various kick-off times",
+            venue: "Multiple QSL Stadiums",
+            location: "Khalifa, Al Wakrah, Al Janoub Stadiums",
+            icon: "⚽",
+            image: "linear-gradient(135deg, #8C1D40 0%, #4CAF50 100%)",
+            description: "Qatar's top professional football league featuring Al Sadd, Al Rayyan, Al Duhail, Al Arabi and more. Fast-paced, passionate matches in world-class FIFA World Cup 2022 venues with dedicated local fan culture.",
+            highlights: ["Top QSL clubs", "World Cup stadiums", "Local fan atmosphere", "International players", "Affordable tickets", "Family sections", "Live broadcast matches"],
+            tickets: "QR 20 - 100 per match",
+            booking: "QSL official website and at stadium gates",
+            tips: ["Al Sadd vs Al Duhail is the biggest derby", "Stadiums are fully air-conditioned", "Arrive 30 mins early for atmosphere", "Family sections are well-managed and safe"]
+        },
+        {
+            id: 2,
+            name: "Qatar National Team Friendly Matches",
+            category: "International Football",
+            date: "March & June 2026",
+            time: "8:00 PM",
+            venue: "Khalifa International Stadium",
+            location: "Aspire Zone, Doha",
+            icon: "🏟️",
+            image: "linear-gradient(135deg, #8C1D40 0%, #FFFFFF 100%)",
+            description: "Qatar's national team plays high-profile international friendlies and qualifying matches at the iconic Khalifa International Stadium. Electric atmosphere with passionate Qatari fans.",
+            highlights: ["Qatar national team", "International opponents", "Khalifa Stadium", "National pride", "Flag displays", "Passionate crowd"],
+            tickets: "QR 30 - 150",
+            booking: "Q-Tickets.com",
+            tips: ["Book early — Qatar vs strong teams sell out fast", "Metro to Aspire Zone is easiest transport", "Bring Qatar flag to join the atmosphere"]
+        },
+        {
+            id: 3,
+            name: "AFC Champions League — Qatar Clubs",
+            category: "Continental Football",
+            date: "February - May 2026",
+            time: "7:00 PM & 9:00 PM",
+            venue: "Khalifa & Al Janoub Stadiums",
+            location: "Doha",
+            icon: "🏆",
+            image: "linear-gradient(135deg, #FFB81C 0%, #8C1D40 100%)",
+            description: "Qatar's elite clubs compete in Asia's biggest club competition, the AFC Champions League. Watch Al Sadd, Al Duhail, and Al Rayyan battle against top Asian clubs in thrilling knockout football.",
+            highlights: ["Top Asian clubs", "Knockout football", "International players", "High stakes matches", "Group stages & knockouts", "UEFA-standard production"],
+            tickets: "QR 50 - 200",
+            booking: "Q-Tickets.com",
+            tips: ["Group stage matches are great value", "Final matches attract very large crowds", "International away fans add great atmosphere"]
+        }
+    ],
+
+    tennis: [
+        {
+            id: 4,
+            name: "Qatar ExxonMobil Open (ATP 250)",
+            category: "Professional Tennis",
+            date: "February 17-22, 2026",
+            time: "Matches from 3:00 PM daily",
+            venue: "Khalifa International Tennis Complex",
+            location: "Aspire Zone, Doha",
+            icon: "🎾",
+            image: "linear-gradient(135deg, #4CAF50 0%, #FFB81C 100%)",
+            description: "One of the longest-running ATP Tour events in the Middle East, attracting world-class players to Doha's state-of-the-art tennis complex. Past champions include Djokovic, Federer, and Murray. Night matches under the lights are a spectacular experience.",
+            highlights: ["ATP 250 ranking event", "World top-50 players", "Night matches", "VIP hospitality boxes", "Practice session access", "Player autographs", "Centre court + outer courts"],
+            tickets: "QR 100 - 500 per session",
+            booking: "Q-Tickets.com or Khalifa Tennis Complex",
+            tips: ["Night sessions are the most atmospheric", "Outer courts offer free movement to watch multiple matches", "Semi-finals and finals sell out — book early", "Players often practice openly in the morning"]
+        },
+        {
+            id: 5,
+            name: "Qatar Total Open (WTA)",
+            category: "Professional Tennis",
+            date: "February 10-16, 2026",
+            time: "Matches from 2:00 PM daily",
+            venue: "Khalifa International Tennis Complex",
+            location: "Aspire Zone, Doha",
+            icon: "🎾",
+            image: "linear-gradient(135deg, #FF6B9D 0%, #FFB81C 100%)",
+            description: "Premier WTA event bringing the world's top women's tennis players to Doha. A WTA 1000 tournament attracting Grand Slam champions competing in one of the sport's most prestigious Middle East events.",
+            highlights: ["WTA 1000 tournament", "Grand Slam champions", "World top-10 players", "Evening sessions", "Kids programs", "Tennis clinics", "Championship atmosphere"],
+            tickets: "QR 100 - 500 per session",
+            booking: "Q-Tickets.com",
+            tips: ["Combined with ATP week makes a great tennis fortnight in Doha", "Day sessions offer good value and close-up play", "The new stadium roof provides shade and comfort"]
+        }
+    ],
+
+    motorsport: [
+        {
+            id: 6,
+            name: "Formula 1 Qatar Grand Prix",
+            category: "Formula 1",
+            date: "November 28-30, 2026",
+            time: "Race Sunday 6:00 PM",
+            venue: "Lusail International Circuit",
+            location: "Lusail, north of Doha",
+            icon: "🏎️",
+            image: "linear-gradient(135deg, #E53935 0%, #2c2c2c 100%)",
+            description: "One of the most spectacular events on the F1 calendar — night racing at Lusail International Circuit under 3,600 floodlights. Qatar's F1 Grand Prix draws all the world's top teams and drivers for a breathtaking evening of motorsport.",
+            highlights: ["Night race spectacle", "All F1 teams", "3-day race weekend", "Qualifying & sprint", "Fan zone", "Merchandise", "Pit lane walk (select packages)", "Concert performances"],
+            tickets: "QR 500 - 5000 per session",
+            booking: "Formula1.com or Q-Tickets.com",
+            tips: ["Book 3-day passes for the full experience", "The grandstands facing turn 1 have the best views", "Shuttle buses run from Lusail metro station", "Bring ear protection — engines are extremely loud"]
+        },
+        {
+            id: 7,
+            name: "MotoGP Qatar Grand Prix",
+            category: "MotoGP",
+            date: "March 6-8, 2026",
+            time: "Race Sunday 7:00 PM",
+            venue: "Losail International Circuit",
+            location: "Losail, north of Doha",
+            icon: "🏍️",
+            image: "linear-gradient(135deg, #FFB81C 0%, #E53935 100%)",
+            description: "The iconic season opener for MotoGP — traditionally the first race of the world championship calendar. Losail hosts the only MotoGP night race in the world, creating an unmatched spectacle as bikes hit 300km/h under the floodlights.",
+            highlights: ["Season opening race", "Only MotoGP night race", "World champions", "All factory teams", "Fan zones", "Merchandise village", "Practice sessions", "Race atmosphere"],
+            tickets: "QR 200 - 1500",
+            booking: "MotoGP.com or Q-Tickets.com",
+            tips: ["The night race under lights is one of sport's great spectacles", "Practice sessions on Friday are lower priced but very exciting", "The main straight grandstand offers the best view of top speed"]
+        },
+        {
+            id: 8,
+            name: "Qatar Rally (FIA Cross-Country)",
+            category: "Rally Racing",
+            date: "January 8-12, 2026",
+            time: "Daily stages from 8:00 AM",
+            venue: "Sealine Desert & Mesaieed",
+            location: "Southern Qatar desert",
+            icon: "🚙",
+            image: "linear-gradient(135deg, #D4A574 0%, #E53935 100%)",
+            description: "Qatar's legendary desert rally — a round of the FIA World Cross-Country Rally Championship. Watch world-class drivers and riders navigate the dramatic dunes and desert terrain of southern Qatar at incredible speed.",
+            highlights: ["FIA World Championship", "Desert dune stages", "Trucks & buggies", "Motorcycles", "Podium ceremonies", "Desert spectating spots", "International competitors"],
+            tickets: "QR 50 - 300",
+            booking: "QMMF.com",
+            tips: ["Desert stages are free to spectate from designated areas", "The Sealine beachside stage is the most accessible", "4x4 vehicles recommended for spectating in dunes", "Bring plenty of water and sun protection"]
+        }
+    ],
+
+    athletics: [
+        {
+            id: 9,
+            name: "Doha Diamond League",
+            category: "Athletics",
+            date: "May 15, 2026",
+            time: "6:30 PM",
+            venue: "Khalifa International Stadium",
+            location: "Aspire Zone, Doha",
+            icon: "🏃",
+            image: "linear-gradient(135deg, #4CAF50 0%, #0C616F 100%)",
+            description: "Part of the prestigious World Athletics Diamond League series — the pinnacle of track and field athletics. World record holders and Olympic champions compete in sprints, jumps, throws, and middle distance races under the Khalifa Stadium lights.",
+            highlights: ["Diamond League event", "Olympic champions", "World record attempts", "100m, 200m, 400m", "High jump & pole vault", "Shot put & javelin", "Mile race", "Evening atmosphere"],
+            tickets: "QR 50 - 300",
+            booking: "Q-Tickets.com",
+            tips: ["Arrive early to watch warm-ups on the field", "The field events (high jump, pole vault) run simultaneously — move around the stadium", "World records are frequently attempted at this meeting", "Evening start makes for a beautiful stadium atmosphere"]
+        },
+        {
+            id: 10,
+            name: "Doha Marathon",
+            category: "Road Running",
+            date: "January 10, 2026",
+            time: "6:00 AM start",
+            venue: "Doha Corniche",
+            location: "Starting at Sheraton Park, Corniche",
+            icon: "🏅",
+            image: "linear-gradient(135deg, #8C1D40 0%, #4CAF50 100%)",
+            description: "Qatar's flagship road running event along the stunning Doha Corniche. Choose from full marathon (42km), half marathon (21km), 10K, or 5K fun run. Elite African runners compete alongside thousands of community participants from over 80 nationalities.",
+            highlights: ["Full & half marathon", "10K & 5K fun run", "Corniche route", "Elite athletes", "80+ nationalities", "Finisher medals", "Chip timing", "Support stations"],
+            tickets: "QR 150 - 300 registration",
+            booking: "DohaMarathon.com",
+            tips: ["Register months in advance — popular event fills up", "Start time 6 AM is essential to beat the heat", "The Corniche route offers beautiful sunrise views", "Well-organized with excellent crowd support throughout"]
+        },
+        {
+            id: 11,
+            name: "QF Torch Run 5K",
+            category: "Community Running",
+            date: "October 3, 2026",
+            time: "6:30 AM",
+            venue: "Education City",
+            location: "Education City Campus, Doha",
+            icon: "🔥",
+            image: "linear-gradient(135deg, #FFB81C 0%, #4CAF50 100%)",
+            description: "Qatar Foundation's annual 5K fun run through the beautiful Education City campus. Open to everyone — from competitive runners to families with strollers. A celebration of sport and community.",
+            highlights: ["5K flat route", "Beautiful campus", "All fitness levels", "Family-friendly", "T-shirt included", "Post-race breakfast", "Community atmosphere", "Prize categories"],
+            tickets: "QR 100 registration (includes T-shirt)",
+            booking: "QF website",
+            tips: ["Great first race for beginners", "Strollers and wheelchairs welcome", "Beautiful campus makes for enjoyable running", "Post-race breakfast is a community highlight"]
+        }
+    ],
+
+    equestrian: [
+        {
+            id: 12,
+            name: "HH Emir's Sword Horse Race",
+            category: "Horse Racing",
+            date: "December 20, 2026",
+            time: "3:00 PM",
+            venue: "Al Rayyan Racecourse",
+            location: "Al Rayyan",
+            icon: "🏇",
+            image: "linear-gradient(135deg, #8C1D40 0%, #D4A574 100%)",
+            description: "The most prestigious horse race in Qatar — the HH Emir's Sword is awarded to the winner of this glamorous annual flat race. Qatar's finest thoroughbreds compete for the highest honour in Qatari racing in a festival atmosphere of traditional dress, music, and national pride.",
+            highlights: ["Emir's Sword trophy", "Premier flat race", "Traditional atmosphere", "Fashion competition", "VIP enclosures", "Falconry display", "Live music", "Racing programme all day"],
+            tickets: "QR 50 - 800 (free public areas available)",
+            booking: "QREC.com.qa",
+            tips: ["Traditional Qatari dress is celebrated and welcomed", "The public lawn areas offer a great free view", "Arrive early for the best positions", "The pre-race falconry display is unmissable"]
+        },
+        {
+            id: 13,
+            name: "Katara International Arabian Horse Show",
+            category: "Equestrian Show",
+            date: "February 5-10, 2026",
+            time: "4:00 PM - 10:00 PM",
+            venue: "Katara Cultural Village",
+            location: "Katara, Doha",
+            icon: "🐎",
+            image: "linear-gradient(135deg, #D4A574 0%, #8C1D40 100%)",
+            description: "A spectacular celebration of the Arabian horse — one of the oldest and most beautiful horse breeds in the world. Breeders from across the Gulf compete to showcase their finest horses in beauty and movement competitions, set against the stunning backdrop of Katara.",
+            highlights: ["Arabian horse beauty shows", "Movement competitions", "Breeding displays", "Heritage exhibitions", "Falconry", "Traditional music", "Camel displays", "Cultural village atmosphere"],
+            tickets: "QR 30 - 100",
+            booking: "Katara website",
+            tips: ["Morning sessions are best for horse photography", "The evening show with lighting is spectacular", "Children love the horse interaction areas", "Combine with a Katara dinner for a full evening"]
+        },
+        {
+            id: 14,
+            name: "Qatar International Camel Race",
+            category: "Traditional Sport",
+            date: "March 20, 2026",
+            time: "7:00 AM",
+            venue: "Al Shahaniya Camel Racetrack",
+            location: "Al Shahaniya, 45km from Doha",
+            icon: "🐪",
+            image: "linear-gradient(135deg, #D4A574 0%, #FFB81C 100%)",
+            description: "Qatar's most traditional sporting spectacle — camel racing is embedded in Gulf heritage. Modern robot jockeys have replaced child riders, controlled remotely by owners in 4x4s racing alongside the track. An extraordinary and uniquely Qatari experience.",
+            highlights: ["Robot jockeys", "Traditional camel racing", "Owners in 4x4s", "Heritage atmosphere", "Prize camels", "Bedouin culture", "Early morning desert setting", "Unique Qatari experience"],
+            tickets: "Free",
+            booking: "No booking required — public spectator event",
+            tips: ["Start at 7 AM — finish by 9 AM as it gets hot", "4x4 vehicle recommended for the track route", "Cameras welcome — spectacular photography opportunity", "Bring binoculars for watching the full track"]
+        }
+    ],
+
+    water: [
+        {
+            id: 15,
+            name: "Qatar Marine Festival Race",
+            category: "Traditional Dhow Racing",
+            date: "March 1-8, 2026",
+            time: "9:00 AM daily",
+            venue: "Katara Beach & Marina",
+            location: "Katara Cultural Village",
+            icon: "⛵",
+            image: "linear-gradient(135deg, #0C616F 0%, #4CAF50 100%)",
+            description: "Qatar's premier celebration of its maritime heritage with traditional dhow races at the heart. Gulf-style wooden dhows race along the Katara coastline as they have for centuries, accompanied by water sports competitions and a vibrant festival atmosphere.",
+            highlights: ["Traditional dhow races", "Sea kayak competitions", "Jet ski races", "Swimming events", "Marine exhibitions", "Heritage boats", "Food festival", "Free entry"],
+            tickets: "Free",
+            booking: "No booking required",
+            tips: ["The dhow finals on Day 7-8 are the most exciting", "Best viewing from the Katara waterfront promenade", "Arrive by 8:30 AM for prime waterfront position", "Evening food and culture festival runs alongside"]
+        },
+        {
+            id: 16,
+            name: "Kitesurfing Qatar Championship",
+            category: "Water Sports",
+            date: "November 14-15, 2026",
+            time: "10:00 AM",
+            venue: "Sealine Beach",
+            location: "Mesaieed, south of Doha",
+            icon: "🪁",
+            image: "linear-gradient(135deg, #0C616F 0%, #FFB81C 100%)",
+            description: "Qatar's premier kitesurfing competition held on the stunning Sealine Beach where desert dunes meet the Arabian Gulf. Watch the country's best kitesurfers battle in freestyle and slalom disciplines in a spectacular natural arena.",
+            highlights: ["Freestyle competition", "Slalom racing", "Regional & international riders", "Stunning beach setting", "Desert dune backdrop", "Free spectating", "Beach activities"],
+            tickets: "Free for spectators",
+            booking: "No booking required",
+            tips: ["Sealine Beach is 60km south of Doha — 45-min drive", "4x4 access helps for the best beach positions", "Bring your own food and water — limited facilities", "Afternoon wind is strongest — best riding from 2-5 PM"]
+        }
+    ],
+
+    combat: [
+        {
+            id: 17,
+            name: "ONE Championship: Qatar",
+            category: "Mixed Martial Arts",
+            date: "April 25, 2026",
+            time: "7:00 PM",
+            venue: "Lusail Sports Arena",
+            location: "Lusail",
+            icon: "🥊",
+            image: "linear-gradient(135deg, #E53935 0%, #2c2c2c 100%)",
+            description: "Asia's biggest MMA promotion brings its spectacular show to Qatar. ONE Championship events feature world title fights across MMA, Muay Thai, and submission grappling with world champions from every corner of the globe in one incredible night of combat sports.",
+            highlights: ["World title fights", "MMA & Muay Thai", "Grappling matches", "International champions", "Spectacular production", "Fan zones", "Merchandise", "Post-fight shows"],
+            tickets: "QR 100 - 800",
+            booking: "Q-Tickets.com",
+            tips: ["VIP ringside seats offer incredible close-up action", "Pre-event weigh-ins are free and exciting to attend", "Arrive 30 mins early to soak up the atmosphere", "Prelim fights start before main card — great value"]
+        },
+        {
+            id: 18,
+            name: "Qatar Boxing Championship",
+            category: "Boxing",
+            date: "February 14, 2026",
+            time: "6:00 PM",
+            venue: "Ali Bin Hamad Al Attiyah Arena",
+            location: "Doha",
+            icon: "🥋",
+            image: "linear-gradient(135deg, #8C1D40 0%, #E53935 100%)",
+            description: "Qatar's national boxing championship and international bouts showcasing the country's rising boxing talent alongside international challengers. A passionate crowd and competitive matchmaking make for excellent fight night entertainment.",
+            highlights: ["National champions", "International bouts", "Multiple weight classes", "Amateur & pro divisions", "Youth categories", "Live scoring", "Passionate atmosphere"],
+            tickets: "QR 50 - 300",
+            booking: "QOC website and at venue",
+            tips: ["Amateur bouts earlier in the card are excellent to watch", "The main events typically start around 9 PM", "A great way to discover Qatar's local boxing talent"]
+        }
+    ],
+
+    aquatics: [
+        {
+            id: 19,
+            name: "Qatar Cycling Tour",
+            category: "Professional Cycling",
+            date: "February 24 - March 1, 2026",
+            time: "Stages from 2:00 PM daily",
+            venue: "Citywide road circuit",
+            location: "Doha, Lusail, Al Wakrah, Mesaieed",
+            icon: "🚴",
+            image: "linear-gradient(135deg, #FFB81C 0%, #4CAF50 100%)",
+            description: "An elite UCI WorldTour cycling race through Qatar's diverse landscapes — from coastal roads to desert highways and city centre sprint finishes. World-class professional cycling teams compete across six thrilling stages, with the iconic Doha Corniche finale always delivering dramatic racing.",
+            highlights: ["UCI WorldTour event", "World-class pro teams", "6 stages", "Sprint & mountain finishes", "Corniche finish", "Free roadside spectating", "Team time trial", "General classification battle"],
+            tickets: "Free for roadside spectating",
+            booking: "No booking required — line the route",
+            tips: ["The Doha Corniche final stage finish is unmissable", "Stand near sprint finish lines for the fastest passing", "Teams practice the Corniche circuit — watch free", "Qatar Cycling Federation website has full stage routes"]
+        },
+        {
+            id: 20,
+            name: "Qatar Swimming & Aquatics Championships",
+            category: "Swimming",
+            date: "April 10-12, 2026",
+            time: "Morning & evening sessions",
+            venue: "Hamad Aquatic Centre",
+            location: "Aspire Zone, Doha",
+            icon: "🏊",
+            image: "linear-gradient(135deg, #0C616F 0%, #4CAF50 100%)",
+            description: "Qatar's national swimming championships held at the world-class Hamad Aquatic Centre — a venue that hosted international competitions during the Asian Games. Both national records and regional titles are contested across all strokes and age groups.",
+            highlights: ["National championships", "International competitors", "All swim strokes", "Youth & senior categories", "Olympic-size pool", "Record attempts", "Relay events", "Awards ceremony"],
+            tickets: "QR 20 - 50",
+            booking: "QSF website",
+            tips: ["Morning qualifying sessions are cheaper and less crowded", "Evening finals are the most competitive and exciting", "Great for families — children enjoy watching swimming closely", "The Hamad Aquatic Centre is a stunning venue"]
+        }
+    ]
+};
+
+let currentEvent = null;
+
+window.addEventListener('DOMContentLoaded', () => {
+    displayAllSports();
+});
+
+function displayAllSports() {
+    displayCategory('footballGrid', sportsEvents.football);
+    displayCategory('tennisGrid', sportsEvents.tennis);
+    displayCategory('motorsportGrid', sportsEvents.motorsport);
+    displayCategory('athleticsGrid', sportsEvents.athletics);
+    displayCategory('equestrianGrid', sportsEvents.equestrian);
+    displayCategory('waterGrid', sportsEvents.water);
+    displayCategory('combatGrid', sportsEvents.combat);
+    displayCategory('aquaticsGrid', sportsEvents.aquatics);
+}
+
+function displayCategory(gridId, items) {
+    const grid = document.getElementById(gridId);
+    if (!grid) return;
+
+    grid.innerHTML = '';
+
+    items.forEach(event => {
+        const card = document.createElement('div');
+        card.className = 'sports-card';
+
+        const freeBadge = event.tickets.toLowerCase().includes('free') ?
+            '<div class="free-badge">FREE</div>' : '';
+
+        card.innerHTML = `
+            <div class="sports-card-image" style="background: ${event.image};">
+                <span style="font-size: 5rem;">${event.icon}</span>
+                ${freeBadge}
+            </div>
+            <div class="sports-card-content">
+                <h3>${event.name}</h3>
+                <div class="sports-category">${event.category}</div>
+                <div class="sports-meta">
+                    <span class="meta-item">📅 ${event.date}</span>
+                </div>
+                <div class="sports-meta">
+                    <span class="meta-item">🕐 ${event.time}</span>
+                </div>
+                <div class="sports-meta">
+                    <span class="meta-item">📍 ${event.venue}</span>
+                </div>
+                <p class="sports-description">${event.description.substring(0, 130)}...</p>
+                <div class="sports-highlights">
+                    ${event.highlights.slice(0, 4).map(h => `<span class="highlight-tag">${h}</span>`).join('')}
+                </div>
+                <div class="sports-card-footer">
+                    <button class="btn-view-sports">View Details</button>
+                </div>
+            </div>
+        `;
+
+        card.onclick = () => openSportsModal(event);
+        grid.appendChild(card);
+    });
+}
+
+function openSportsModal(event) {
+    currentEvent = event;
+
+    document.getElementById('modalSportsImage').innerHTML = `<span style="font-size: 6rem;">${event.icon}</span>`;
+    document.getElementById('modalSportsImage').style.background = event.image;
+    document.getElementById('modalSportsName').textContent = event.name;
+    document.getElementById('modalSportsCategory').textContent = event.category;
+    document.getElementById('modalSportsDate').textContent = `📅 ${event.date}`;
+    document.getElementById('modalSportsTime').textContent = `🕐 ${event.time}`;
+    document.getElementById('modalSportsVenue').textContent = `📍 ${event.venue}`;
+    document.getElementById('modalSportsDescription').textContent = event.description;
+
+    document.getElementById('modalSportsHighlights').innerHTML = `
+        <h4>Event Highlights</h4>
+        <ul>${event.highlights.map(h => `<li>${h}</li>`).join('')}</ul>
+    `;
+
+    document.getElementById('detailDate').textContent = event.date;
+    document.getElementById('detailTime').textContent = event.time;
+    document.getElementById('detailVenue').textContent = event.venue;
+    document.getElementById('detailLocation').textContent = event.location;
+    document.getElementById('detailTickets').textContent = event.tickets;
+    document.getElementById('detailBooking').textContent = `Booking: ${event.booking}`;
+
+    document.getElementById('detailTips').innerHTML = `
+        <ul style="list-style:none; padding:0;">
+            ${event.tips.map(t => `<li style="padding:0.4rem 0; color:#555;">💡 ${t}</li>`).join('')}
+        </ul>
+    `;
+
+    document.getElementById('sportsModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeSportsModal() {
+    document.getElementById('sportsModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
