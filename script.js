@@ -8396,3 +8396,442 @@ function closeEventModal() {
     document.body.style.overflow = 'auto';
 }
 
+// Festivals in Qatar - Full Database
+
+const festivals = {
+
+    religious: [
+        {
+            id: 1,
+            name: "Ramadan",
+            category: "Islamic Festival",
+            date: "February 28 - March 29, 2026 (approximate)",
+            duration: "30 days",
+            location: "Nationwide",
+            venue: "Mosques, homes, souqs, restaurants across Qatar",
+            icon: "🌙",
+            image: "linear-gradient(135deg, #0C616F 0%, #1a1a2e 100%)",
+            description: "The holiest month in the Islamic calendar when Muslims fast from dawn to sunset. Qatar transforms with a unique spiritual atmosphere — nights come alive with Iftar gatherings, Suhoor feasts, and Taraweeh prayers. Non-Muslim visitors are welcome to experience this special time respectfully.",
+            highlights: ["Nightly Iftar buffets", "Suhoor dining", "Taraweeh prayers", "Ramadan tents", "Special shopping hours", "Cultural activities", "Traditional sweets", "Charity events"],
+            entry: "Free - public celebrations open to all",
+            tips: ["Respect fasting by not eating in public during daylight", "Many restaurants closed by day, vibrant at night", "Dress more conservatively", "Experience an Iftar meal at a local restaurant", "Business hours shift to evenings"]
+        },
+        {
+            id: 2,
+            name: "Eid Al Fitr",
+            category: "Islamic Festival",
+            date: "March 30 - April 2, 2026 (approximate)",
+            duration: "3 days",
+            location: "Nationwide",
+            venue: "Mosques, parks, shopping malls, public squares",
+            icon: "🎊",
+            image: "linear-gradient(135deg, #4CAF50 0%, #FFB81C 100%)",
+            description: "The festival marking the end of Ramadan — one of the most joyful celebrations in Qatar. Families dress in new clothes, exchange gifts, share feasts, and enjoy entertainment across the city. The atmosphere is electric with fireworks, concerts, and family activities everywhere.",
+            highlights: ["Eid prayers at sunrise", "Fireworks displays", "Family feasts", "Fairground rides", "Live entertainment", "Gift exchanges", "Traditional sweets", "Shopping sales"],
+            entry: "Free at public venues",
+            tips: ["Greet people with 'Eid Mubarak'", "Many attractions offer free entry", "Dress smartly — festive occasion", "Book restaurants in advance", "Experience the morning prayers atmosphere"]
+        },
+        {
+            id: 3,
+            name: "Eid Al Adha",
+            category: "Islamic Festival",
+            date: "June 6-9, 2026 (approximate)",
+            duration: "4 days",
+            location: "Nationwide",
+            venue: "Mosques, parks, family homes",
+            icon: "🐑",
+            image: "linear-gradient(135deg, #8C1D40 0%, #D4A574 100%)",
+            description: "The Festival of Sacrifice commemorating Ibrahim's devotion. Qatar celebrates with prayers, charitable giving, and family gatherings. A deeply spiritual and communal occasion with traditional foods shared generously among neighbors and the less fortunate.",
+            highlights: ["Eid morning prayers", "Traditional feasts", "Charity & giving", "Family gatherings", "Cultural performances", "Markets", "Traditional dress"],
+            entry: "Free",
+            tips: ["Public holiday — plan transport accordingly", "Expect closures for 2-3 days", "Wonderful time to experience Qatari hospitality", "Book accommodation well in advance"]
+        },
+        {
+            id: 4,
+            name: "Al Isra Wal Miraj",
+            category: "Islamic Observance",
+            date: "January 26, 2026",
+            duration: "1 day",
+            location: "Nationwide",
+            venue: "Mosques and cultural centers",
+            icon: "✨",
+            image: "linear-gradient(135deg, #8C1D40 0%, #0C616F 100%)",
+            description: "The night journey and ascension of the Prophet Muhammad. Mosques are beautifully lit and special prayers are held across Qatar. A peaceful, reflective public holiday.",
+            highlights: ["Special mosque prayers", "Religious lectures", "Cultural programs", "Community gatherings", "Spiritual reflection"],
+            entry: "Free",
+            tips: ["Public holiday", "Respectful, quieter day", "Many mosques hold special events"]
+        }
+    ],
+
+    national: [
+        {
+            id: 5,
+            name: "Qatar National Day",
+            category: "National Celebration",
+            date: "December 18, 2026",
+            duration: "Full day & night",
+            location: "Citywide — Doha and all regions",
+            venue: "Corniche, Katara, Souq Waqif, Lusail",
+            icon: "🇶🇦",
+            image: "linear-gradient(135deg, #8C1D40 0%, #FFFFFF 100%)",
+            description: "Qatar's most spectacular celebration marking the unification of the country under Sheikh Jassim bin Mohammed Al Thani in 1878. The entire nation transforms — streets are draped in maroon and white, military parades march along the Corniche, traditional performances fill every corner, and the night sky explodes with fireworks.",
+            highlights: ["Military parade", "Fireworks over the bay", "Heritage village", "Traditional music & dance", "Camel parades", "Classic car processions", "Free concerts", "Flag installations"],
+            entry: "All public events are free",
+            tips: ["Wear maroon and white to join the spirit", "Corniche gets extremely crowded — arrive early", "Parking is very limited — use metro", "Street food and celebrations go until midnight", "One of the best nights of the year in Qatar"]
+        },
+        {
+            id: 6,
+            name: "Qatar Foundation Annual Research Conference",
+            category: "Knowledge Festival",
+            date: "March 25-26, 2026",
+            duration: "2 days",
+            location: "Education City, Doha",
+            venue: "QNCC & Education City Campus",
+            icon: "🎓",
+            image: "linear-gradient(135deg, #0C616F 0%, #4CAF50 100%)",
+            description: "Qatar's premier knowledge and innovation festival celebrating education, research, and the future. World-class speakers, interactive exhibitions, student showcases, and public lectures make this a must for curious minds of all ages.",
+            highlights: ["World-class speakers", "Innovation exhibitions", "Student showcases", "Public lectures", "Tech demos", "Networking events"],
+            entry: "QR 50 - some sessions free",
+            tips: ["Register online in advance", "Great for families and students", "International speakers announced on QF website"]
+        }
+    ],
+
+    food: [
+        {
+            id: 7,
+            name: "Qatar International Food Festival",
+            category: "Food Festival",
+            date: "March 15-30, 2026",
+            duration: "15 days",
+            location: "Oxygen Park, Al Gharrafa",
+            venue: "Oxygen Park main grounds",
+            icon: "🍽️",
+            image: "linear-gradient(135deg, #E53935 0%, #FFB81C 100%)",
+            description: "Two spectacular weeks of culinary heaven bringing together 100+ food stalls, celebrity chefs, cooking competitions, and global cuisines. From street food to fine dining demos, this is Qatar's biggest celebration of food and flavours.",
+            highlights: ["100+ food stalls", "Celebrity chef demos", "Live cooking competitions", "International cuisines", "Local Qatari food", "Kids food activities", "Evening concerts", "Food awards"],
+            entry: "QR 20 entry, food purchased separately",
+            tips: ["Go on weekdays to avoid crowds", "Bring cash for smaller stalls", "Evening sessions are the most atmospheric", "Try the local Qatari street food section"]
+        },
+        {
+            id: 8,
+            name: "Taste of Doha",
+            category: "Restaurant Festival",
+            date: "October 8-12, 2026",
+            duration: "5 days",
+            location: "The Pearl Qatar",
+            venue: "Porto Arabia, The Pearl",
+            icon: "👨‍🍳",
+            image: "linear-gradient(135deg, #8C1D40 0%, #FFB81C 100%)",
+            description: "Doha's premium outdoor food festival on the beautiful Pearl marina, featuring Qatar's top restaurants, mixologists, and artisan food producers in a stunning waterfront setting.",
+            highlights: ["Top restaurant pop-ups", "Waterfront dining", "Artisan producers", "Cocktail workshops", "Wine & food pairings", "Live music", "VIP sessions"],
+            entry: "QR 50 entry, food & drinks extra",
+            tips: ["Evening sessions fill up fast — book in advance", "Smart casual dress code", "The sunset session is especially beautiful"]
+        },
+        {
+            id: 9,
+            name: "Ramadan Food Festival",
+            category: "Food Festival",
+            date: "During Ramadan nightly",
+            duration: "30 nights",
+            location: "Souq Waqif & Katara",
+            venue: "Souq Waqif and Katara Cultural Village",
+            icon: "🥘",
+            image: "linear-gradient(135deg, #D4A574 0%, #8C1D40 100%)",
+            description: "Every night of Ramadan, Qatar's souqs and cultural villages transform into magical food destinations. Enormous Iftar spreads, traditional sweets, dates, and regional specialties from across the Arab world fill the air with incredible aromas.",
+            highlights: ["Nightly Iftar spreads", "Traditional sweets", "Regional Arabic cuisine", "Dates & juices", "Outdoor tents", "Live Quran recitation", "Cultural ambiance"],
+            entry: "Free entry, food purchased",
+            tips: ["Best experienced just after sunset Iftar call", "Extremely atmospheric and memorable", "Book Iftar at a tent restaurant in advance", "Suhoor continues until 3-4 AM"]
+        }
+    ],
+
+    arts: [
+        {
+            id: 10,
+            name: "Ajyal Film Festival",
+            category: "Film Festival",
+            date: "November 20-26, 2026",
+            duration: "7 days",
+            location: "Multiple cinemas & cultural venues",
+            venue: "Katara, VOX Cinemas, MIA, Museums",
+            icon: "🎬",
+            image: "linear-gradient(135deg, #E53935 0%, #2c2c2c 100%)",
+            description: "Doha Film Institute's celebrated annual festival showcasing the best in world cinema with a special focus on youth perspectives. Red carpet premieres, director Q&As, workshops for aspiring filmmakers, and a vibrant programme of international films make this a highlight of Qatar's cultural calendar.",
+            highlights: ["World cinema screenings", "Director Q&As", "Red carpet events", "Youth workshops", "Jury prizes", "Film masterclasses", "Industry talks", "Family screenings"],
+            entry: "QR 30-100 per screening",
+            tips: ["Book popular screenings early on DFI website", "Weekday daytime screenings are less crowded", "Some outdoor screenings are free", "Great for film enthusiasts of all ages"]
+        },
+        {
+            id: 11,
+            name: "Doha Cultural Festival",
+            category: "Arts Festival",
+            date: "March 10-20, 2026",
+            duration: "10 days",
+            location: "Katara Cultural Village",
+            venue: "Multiple venues throughout Katara",
+            icon: "🎭",
+            image: "linear-gradient(135deg, #8C1D40 0%, #FFB81C 100%)",
+            description: "Ten days of world-class arts, theater, music, dance, and cultural performances. International troupes share the stage with Qatari talent, creating a rich tapestry of global culture in one of the most beautiful settings in the Middle East.",
+            highlights: ["International theater", "Dance performances", "Art installations", "Music concerts", "Poetry slams", "Film screenings", "Cultural workshops", "Children's program"],
+            entry: "Free to QR 200 depending on event",
+            tips: ["Check Katara website for full programme", "Outdoor performances are free", "The amphitheater shows are spectacular at night", "Arrive early for popular performances"]
+        },
+        {
+            id: 12,
+            name: "Qatar International Art Festival",
+            category: "Visual Art Festival",
+            date: "November 5-15, 2026",
+            duration: "10 days",
+            location: "Fire Station & galleries citywide",
+            venue: "Fire Station Artist Residence + partner galleries",
+            icon: "🎨",
+            image: "linear-gradient(135deg, #FFB81C 0%, #8C1D40 100%)",
+            description: "Qatar's premier visual arts celebration, bringing together artists from across the Arab world and beyond. Galleries open their doors to stunning new works, installations appear across public spaces, and artist talks and workshops invite the public to engage deeply with contemporary art.",
+            highlights: ["Contemporary exhibitions", "Public art installations", "Artist talks & workshops", "Gallery openings", "Live art sessions", "Photography showcases", "Sculpture gardens"],
+            entry: "Free",
+            tips: ["Most exhibitions are completely free", "Evening gallery openings are the most social", "Collect the festival map at Fire Station entrance", "Visit multiple galleries on one day"]
+        },
+        {
+            id: 13,
+            name: "Sikka Art & Design Festival",
+            category: "Design Festival",
+            date: "April 5-15, 2026",
+            duration: "10 days",
+            location: "Msheireb Downtown Doha",
+            venue: "Msheireb Streets & Cultural Spaces",
+            icon: "✏️",
+            image: "linear-gradient(135deg, #0C616F 0%, #8C1D40 100%)",
+            description: "A vibrant celebration of design, crafts, and creative culture held in the restored heritage district. Street art, design markets, fashion shows, and interactive workshops make the entire neighborhood a living canvas.",
+            highlights: ["Street art", "Design markets", "Fashion shows", "Craft workshops", "Architecture tours", "Food & music", "Photography walks", "Heritage exploration"],
+            entry: "Free",
+            tips: ["Best explored on foot across 2-3 hours", "Morning and evening are most comfortable weather-wise", "The design market is a great place to buy unique gifts"]
+        }
+    ],
+
+    music: [
+        {
+            id: 14,
+            name: "Qatar Music Festival",
+            category: "Music Festival",
+            date: "January 15-25, 2026",
+            duration: "10 days",
+            location: "Katara Cultural Village",
+            venue: "Katara Amphitheater & Outdoor Stages",
+            icon: "🎶",
+            image: "linear-gradient(135deg, #8C1D40 0%, #0C616F 100%)",
+            description: "Qatar's biggest annual music festival bringing together world-class Arabic and international performers across multiple outdoor stages. From classical Arabic music to contemporary pop, jazz, and world music, ten nights of unforgettable performances under the stars.",
+            highlights: ["International headliners", "Arabic music nights", "Jazz evenings", "World music", "Classical orchestra", "Emerging artists stage", "Food & drinks", "Fireworks finale"],
+            entry: "QR 100-500 per night",
+            tips: ["Buy tickets early — popular nights sell out fast", "Check Q-Tickets for lineup announcements", "The Katara amphitheater setting is magical at night", "Bring a light jacket — evenings can be breezy"]
+        },
+        {
+            id: 15,
+            name: "Jazz in the Park",
+            category: "Jazz Festival",
+            date: "Every Friday in March & April",
+            duration: "Weekly event",
+            location: "Aspire Park",
+            venue: "Aspire Park Amphitheater",
+            icon: "🎷",
+            image: "linear-gradient(135deg, #FFB81C 0%, #2c2c2c 100%)",
+            description: "A beloved weekly tradition — every Friday evening Aspire Park fills with the sound of live jazz. Local and visiting musicians perform in a relaxed, open-air setting. Bring a picnic blanket, gather friends and family, and enjoy free music under the stars.",
+            highlights: ["Free entry", "Live jazz bands", "Picnic atmosphere", "Food kiosks", "Family-friendly", "International musicians", "Local talent", "Stunning park setting"],
+            entry: "Completely free",
+            tips: ["Arrive by 6 PM to get a good spot on the grass", "Bring a picnic blanket and snacks", "The park gets lively with families and groups", "Parking fills up — consider a taxi or ride-share"]
+        },
+        {
+            id: 16,
+            name: "Katara International Arabian Horse Festival",
+            category: "Heritage & Music",
+            date: "February 5-10, 2026",
+            duration: "6 days",
+            location: "Katara Cultural Village",
+            venue: "Katara Village outdoor arena",
+            icon: "🐎",
+            image: "linear-gradient(135deg, #D4A574 0%, #8C1D40 100%)",
+            description: "A breathtaking celebration combining the magnificence of Arabian horses with traditional music, Bedouin heritage, and live performances. Horse displays, traditional dress competitions, equestrian shows, and folk music create an immersive journey into Gulf culture.",
+            highlights: ["Arabian horse displays", "Traditional music", "Heritage exhibitions", "Equestrian shows", "Falconry", "Traditional dress", "Bedouin village", "Camel racing"],
+            entry: "QR 30-100",
+            tips: ["Morning sessions are quieter and better for horse viewing", "Photography opportunities are spectacular", "Traditional dress is welcomed and celebrated here"]
+        }
+    ],
+
+    sports: [
+        {
+            id: 17,
+            name: "Qatar Marine Festival",
+            category: "Water Sports Festival",
+            date: "March 1-8, 2026",
+            duration: "8 days",
+            location: "Katara Beach & Marina",
+            venue: "Katara Cultural Village waterfront",
+            icon: "⛵",
+            image: "linear-gradient(135deg, #0C616F 0%, #4CAF50 100%)",
+            description: "Qatar's premier celebration of its rich maritime heritage. Traditional dhow races are the star of the show, alongside thrilling water sports competitions, marine exhibitions, and demonstrations of ancient seafaring skills passed down through generations.",
+            highlights: ["Traditional dhow races", "Jet ski competitions", "Swimming races", "Marine exhibitions", "Kayak events", "Boat displays", "Heritage crafts", "Sea food festival"],
+            entry: "Free",
+            tips: ["Dhow race finals on the last day are the most exciting", "Waterfront seating fills up quickly — arrive early", "Great opportunity for children to see traditional dhows up close"]
+        },
+        {
+            id: 18,
+            name: "Qatar SportsFest",
+            category: "Multi-Sport Festival",
+            date: "November 1-10, 2026",
+            duration: "10 days",
+            location: "Aspire Zone",
+            venue: "Aspire Park & Sports Facilities",
+            icon: "🏅",
+            image: "linear-gradient(135deg, #4CAF50 0%, #8C1D40 100%)",
+            description: "A massive 10-day celebration of sport for participants and spectators of all ages. Try your hand at dozens of sports, watch professional demonstrations, join fun runs and competitions, and enjoy Qatar's world-class sporting infrastructure in a festive, community atmosphere.",
+            highlights: ["Try 30+ sports", "Professional demos", "Fun runs & races", "Youth competitions", "Fitness challenges", "Sports workshops", "Health screenings", "Family activities"],
+            entry: "Free",
+            tips: ["Wear comfortable sports clothing", "Events run morning to evening", "Excellent for families with active children", "Some activities require advance sign-up on Qatar Olympic Committee website"]
+        }
+    ],
+
+    family: [
+        {
+            id: 19,
+            name: "Qatar Summer Festival",
+            category: "Summer Festival",
+            date: "June 15 - August 31, 2026",
+            duration: "11 weeks",
+            location: "Malls & venues citywide",
+            venue: "All major malls, parks, and cultural venues",
+            icon: "☀️",
+            image: "linear-gradient(135deg, #FFB81C 0%, #E53935 100%)",
+            description: "Qatar's beloved summer-long celebration offering weeks of discounts, entertainment, raffles, and family fun across all major malls and attractions. Despite the heat outside, Qatar comes alive indoors with incredible experiences and amazing prizes.",
+            highlights: ["Mega shopping discounts", "Raffles & prizes", "Car giveaways", "Kids entertainment", "Live shows", "Hotel deals", "Theme nights", "Family packages"],
+            entry: "Free entry to events (shopping extra)",
+            tips: ["Best time for incredible shopping discounts", "Most activity happens in air-conditioned malls", "Raffle tickets available with purchases", "Hotel rates drop significantly in summer"]
+        },
+        {
+            id: 20,
+            name: "Kids Festival Qatar",
+            category: "Children's Festival",
+            date: "June 1-7, 2026",
+            duration: "7 days",
+            location: "MIA Park, Doha",
+            venue: "Museum of Islamic Art Park",
+            icon: "🎈",
+            image: "linear-gradient(135deg, #FF6B9D 0%, #FFB81C 100%)",
+            description: "A magical week dedicated entirely to children. The beautiful MIA Park transforms into a wonderland with rides, games, arts and crafts, magic shows, character performances, and activities designed to delight kids of every age.",
+            highlights: ["Rides & inflatables", "Face painting", "Magic shows", "Arts & crafts", "Character meet & greet", "Science experiments", "Food stalls", "Photography spots"],
+            entry: "QR 50 per family",
+            tips: ["Best for children aged 2-14", "Weekday mornings are less busy", "Bring sunscreen and hats", "The MIA café is excellent for family breaks"]
+        },
+        {
+            id: 21,
+            name: "Winter Wonderland Qatar",
+            category: "Winter Festival",
+            date: "December 1-31, 2026",
+            duration: "31 days",
+            location: "Multiple venues citywide",
+            venue: "Katara, The Pearl, Lusail",
+            icon: "❄️",
+            image: "linear-gradient(135deg, #0C616F 0%, #FFFFFF 100%)",
+            description: "Qatar's magical festive season transforms the city into a sparkling winter destination. Outdoor markets, lights installations, ice skating rinks, live music, and festive dining fill December with joy and celebration for residents and visitors alike.",
+            highlights: ["Outdoor festive markets", "Ice skating rinks", "Light installations", "Christmas & New Year events", "Live music nightly", "Festive dining menus", "New Year's fireworks", "Family shows"],
+            entry: "Free for outdoor events, some venues charge",
+            tips: ["December is Qatar's most pleasant weather month", "New Year's Eve fireworks at The Pearl are spectacular", "Book restaurants weeks in advance for December", "Lusail boulevard is beautiful with festive lights"]
+        }
+    ]
+};
+
+let currentFestival = null;
+
+window.addEventListener('DOMContentLoaded', () => {
+    displayAllFestivals();
+});
+
+function displayAllFestivals() {
+    displayCategory('religiousGrid', festivals.religious);
+    displayCategory('nationalGrid', festivals.national);
+    displayCategory('foodGrid', festivals.food);
+    displayCategory('artsGrid', festivals.arts);
+    displayCategory('musicGrid', festivals.music);
+    displayCategory('sportsGrid', festivals.sports);
+    displayCategory('familyGrid', festivals.family);
+}
+
+function displayCategory(gridId, items) {
+    const grid = document.getElementById(gridId);
+    if (!grid) return;
+
+    grid.innerHTML = '';
+
+    items.forEach(festival => {
+        const card = document.createElement('div');
+        card.className = 'festival-card';
+
+        const freeBadge = festival.entry.toLowerCase().includes('free') ?
+            '<div class="free-badge">FREE</div>' : '';
+
+        card.innerHTML = `
+            <div class="festival-card-image" style="background: ${festival.image};">
+                <span style="font-size: 5rem;">${festival.icon}</span>
+                ${freeBadge}
+            </div>
+            <div class="festival-card-content">
+                <h3>${festival.name}</h3>
+                <div class="festival-category">${festival.category}</div>
+                <div class="festival-meta">
+                    <span class="meta-item">📅 ${festival.date}</span>
+                </div>
+                <div class="festival-meta">
+                    <span class="meta-item">⏳ ${festival.duration}</span>
+                </div>
+                <div class="festival-meta">
+                    <span class="meta-item">📍 ${festival.location}</span>
+                </div>
+                <p class="festival-description">${festival.description.substring(0, 130)}...</p>
+                <div class="festival-highlights">
+                    ${festival.highlights.slice(0, 4).map(h => `<span class="highlight-tag">${h}</span>`).join('')}
+                </div>
+                <div class="festival-card-footer">
+                    <button class="btn-view-festival">View Details</button>
+                </div>
+            </div>
+        `;
+
+        card.onclick = () => openFestivalModal(festival);
+        grid.appendChild(card);
+    });
+}
+
+function openFestivalModal(festival) {
+    currentFestival = festival;
+
+    document.getElementById('modalFestivalImage').innerHTML = `<span style="font-size: 6rem;">${festival.icon}</span>`;
+    document.getElementById('modalFestivalImage').style.background = festival.image;
+    document.getElementById('modalFestivalName').textContent = festival.name;
+    document.getElementById('modalFestivalCategory').textContent = festival.category;
+    document.getElementById('modalFestivalDate').textContent = `📅 ${festival.date}`;
+    document.getElementById('modalFestivalDuration').textContent = `⏳ ${festival.duration}`;
+    document.getElementById('modalFestivalLocation').textContent = `📍 ${festival.location}`;
+    document.getElementById('modalFestivalDescription').textContent = festival.description;
+
+    document.getElementById('modalFestivalHighlights').innerHTML = `
+        <h4>Festival Highlights</h4>
+        <ul>${festival.highlights.map(h => `<li>${h}</li>`).join('')}</ul>
+    `;
+
+    document.getElementById('detailDate').textContent = festival.date;
+    document.getElementById('detailDuration').textContent = `Duration: ${festival.duration}`;
+    document.getElementById('detailLocation').textContent = festival.location;
+    document.getElementById('detailVenue').textContent = festival.venue;
+    document.getElementById('detailEntry').textContent = festival.entry;
+
+    document.getElementById('detailTips').innerHTML = `
+        <ul style="list-style:none; padding:0;">
+            ${festival.tips.map(t => `<li style="padding:0.4rem 0; color:#555;">💡 ${t}</li>`).join('')}
+        </ul>
+    `;
+
+    document.getElementById('festivalModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeFestivalModal() {
+    document.getElementById('festivalModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
