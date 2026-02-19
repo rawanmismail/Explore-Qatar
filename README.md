@@ -2,7 +2,7 @@
 
 <br/>
 
-# 🇶🇦 Explore Qatar
+# Explore Qatar
 ### A Multi-Page Tourism Web Application
 
 <br/>
