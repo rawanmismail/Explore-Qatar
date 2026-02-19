@@ -9288,3 +9288,385 @@ function closeSportsModal() {
 }
 
 
+// Cultural Exhibitions Database - Organized by Category
+
+const exhibitions = {
+
+    art: [
+        {
+            id: 1,
+            name: "Contemporary Arab Artists: New Voices",
+            category: "Contemporary Art",
+            dates: "January 15 - April 30, 2026",
+            hours: "9 AM - 7 PM (Closed Mondays)",
+            venue: "Mathaf: Arab Museum of Modern Art",
+            location: "Education City, Doha",
+            icon: "🎨",
+            image: "linear-gradient(135deg, #FFB81C 0%, #8C1D40 100%)",
+            description: "A groundbreaking exhibition showcasing emerging contemporary artists from across the Arab world. Featuring painting, sculpture, video art, and installations that explore themes of identity, migration, and cultural transformation in the 21st century.",
+            highlights: ["30+ contemporary artists", "Mixed media installations", "Video art", "Interactive pieces", "Artist talks", "Guided tours", "Educational workshops", "Free admission"],
+            admission: "Free",
+            featured: ["Installation by Moroccan artist Mounir Fatmi", "Video work by Palestinian collective", "Sculpture series from Syrian artists", "Digital art from UAE creators"],
+            tips: ["Free admission every day", "Guided tours available in English & Arabic", "Wednesday evenings feature artist talks", "Photography allowed without flash", "Café with terrace has beautiful views"]
+        },
+        {
+            id: 2,
+            name: "Impressionism to Modernism: European Masters",
+            category: "Classical Art",
+            dates: "March 1 - June 15, 2026",
+            hours: "9 AM - 7 PM (Closed Tuesdays)",
+            venue: "Museum of Islamic Art",
+            location: "MIA Park, Corniche",
+            icon: "🖼️",
+            image: "linear-gradient(135deg, #8C1D40 0%, #0C616F 100%)",
+            description: "A spectacular loan exhibition bringing masterworks by Monet, Renoir, Cézanne, Picasso, and Matisse to Doha. This once-in-a-lifetime exhibition features over 50 works from major European museums, tracing the evolution of Western art from Impressionism through Modernism.",
+            highlights: ["50+ masterworks", "Monet, Renoir, Picasso", "Major museum loans", "Audio guide included", "Special evening viewings", "Expert lectures", "Limited engagement", "Premium exhibition"],
+            admission: "QR 100 adults, QR 50 students, Free under 16",
+            featured: ["Monet's Water Lilies series", "Picasso's Blue Period works", "Van Gogh landscape", "Matisse's The Dance studies"],
+            tips: ["Book timed entry tickets online to avoid queues", "Audio guide highly recommended", "Evening viewings Thu-Sat less crowded", "Allow 2-3 hours to fully appreciate", "Museum café overlooks the bay"]
+        },
+        {
+            id: 3,
+            name: "Qatari Artists Collective - Annual Show",
+            category: "Local Art",
+            dates: "October 1-31, 2026",
+            hours: "10 AM - 9 PM daily",
+            venue: "Fire Station Artist in Residence",
+            location: "Al Rumeilah, Doha",
+            icon: "🔥",
+            image: "linear-gradient(135deg, #E53935 0%, #8C1D40 100%)",
+            description: "The annual showcase of Qatar's vibrant local art scene featuring paintings, photography, sculpture, and multimedia works by Qatari nationals and resident artists. A celebration of creative talent rooted in Gulf culture and contemporary global influences.",
+            highlights: ["50+ local artists", "Diverse media", "Artist studios open", "Live painting", "Art sales", "Opening reception", "Free admission", "Cultural atmosphere"],
+            admission: "Free",
+            featured: ["Traditional calligraphy meets digital art", "Photography series: Doha Then & Now", "Sculpture garden installations", "Bedouin heritage reimagined"],
+            tips: ["Opening night Oct 1 is a vibrant social event", "Many artists present throughout the month", "Artworks available for purchase", "The converted fire station building is architecturally stunning", "Excellent café and outdoor seating"]
+        },
+        {
+            id: 4,
+            name: "Islamic Art: Divine Beauty",
+            category: "Islamic Art",
+            dates: "Permanent Collection",
+            hours: "9 AM - 7 PM (Closed Mondays)",
+            venue: "Museum of Islamic Art",
+            location: "MIA Park, Corniche",
+            icon: "🕌",
+            image: "linear-gradient(135deg, #8C1D40 0%, #D4A574 100%)",
+            description: "The permanent collection of the Museum of Islamic Art spans 1,400 years and three continents. Featuring metalwork, ceramics, glass, manuscripts, textiles, and jewelry representing the artistic heights of Islamic civilization from Spain to India.",
+            highlights: ["1,400 years of art", "Rare manuscripts", "Persian carpets", "Mughal miniatures", "Ottoman ceramics", "Andalusian artifacts", "Rotating special displays", "I.M. Pei architecture"],
+            admission: "QR 50 adults, Free under 16",
+            featured: ["9th century astrolabe", "16th century Quran manuscripts", "Timurid tilework", "Ottoman court jewelry"],
+            tips: ["Allow 3-4 hours for full exploration", "Free guided tours daily at 2 PM", "The building itself is a work of art", "Museum park perfect for post-visit stroll", "Thursday late nights until 9 PM"]
+        }
+    ],
+
+    history: [
+        {
+            id: 5,
+            name: "Qatar: A Nation's Journey",
+            category: "National History",
+            dates: "Permanent Exhibition",
+            hours: "9 AM - 7 PM (Closed Tuesdays)",
+            venue: "National Museum of Qatar",
+            location: "Museum Park Street, Doha",
+            icon: "🏛️",
+            image: "linear-gradient(135deg, #A12852 0%, #D4A574 100%)",
+            description: "The National Museum of Qatar tells the story of Qatar from geological formation through pearl diving heritage to modern nation. Housed in Jean Nouvel's stunning desert rose-inspired building, this immersive journey uses artifacts, film, and multimedia to bring Qatar's past to life.",
+            highlights: ["Desert rose architecture", "Geological origins", "Pearl diving heritage", "Bedouin life exhibits", "Oil discovery timeline", "Multimedia storytelling", "Immersive galleries", "Contemporary nation"],
+            admission: "QR 50 adults, Free under 16",
+            featured: ["Historical pearl diving boats", "Sheikh Abdullah bin Jassim Palace", "Archaeological finds", "Multimedia nation-building displays"],
+            tips: ["The building architecture alone is worth the visit", "Start with the intro film", "Interactive displays perfect for children", "Allow 2-3 hours minimum", "Café designed by Alain Ducasse"]
+        },
+        {
+            id: 6,
+            name: "Msheireb Museums: Doha's Heritage Houses",
+            category: "Cultural Heritage",
+            dates: "Permanent - Four Museums",
+            hours: "9 AM - 5 PM (Closed Mondays)",
+            venue: "Msheireb Downtown Doha",
+            location: "Msheireb Museums Quarter",
+            icon: "🏠",
+            image: "linear-gradient(135deg, #8C1D40 0%, #FFB81C 100%)",
+            description: "Four beautifully restored heritage houses telling different aspects of Qatari life: Bin Jelmood House (slavery history), Company House (oil industry), Radwani House (family life), and Mohammed Bin Jassim House (national leader). Together they paint a complete picture of Qatar's transformation.",
+            highlights: ["Four restored houses", "Slavery abolition story", "Oil discovery history", "Traditional family life", "National leadership", "Interactive displays", "Beautiful restoration", "Free admission"],
+            admission: "Free",
+            featured: ["Bin Jelmood House - slavery abolition exhibition", "Company House - first oil company offices", "Traditional Qatari house interiors", "Historical photographs & documents"],
+            tips: ["All four museums free — visit all in one visit", "Air-conditioned comfort", "Excellent for understanding Qatari society", "Each house takes 30-45 mins", "Start with Mohammed Bin Jassim House for context"]
+        },
+        {
+            id: 7,
+            name: "Al Zubarah: Archaeological Discovery",
+            category: "Archaeology",
+            dates: "Permanent with rotating displays",
+            hours: "9 AM - 4:30 PM (Closed Mondays)",
+            venue: "Al Zubarah Fort & Site Museum",
+            location: "Al Zubarah, Northwestern Qatar (90km from Doha)",
+            icon: "🏰",
+            image: "linear-gradient(135deg, #D4A574 0%, #8C1D40 100%)",
+            description: "UNESCO World Heritage site Al Zubarah was Qatar's most important pearl trading town in the 18th-19th centuries. The fort and on-site museum display archaeological finds revealing the cosmopolitan Gulf trading culture that once thrived here.",
+            highlights: ["UNESCO World Heritage", "18th century fort", "Archaeological excavations", "Pearl trading history", "Desert fortress", "Trade route artifacts", "Site museum", "Free admission"],
+            admission: "Free",
+            featured: ["Restored Al Zubarah Fort", "Excavated street layouts", "Trade goods from India & East Africa", "Traditional architecture examples"],
+            tips: ["90-minute drive from Doha — plan a half-day trip", "Bring water — desert location gets hot", "The fort offers panoramic desert views", "Combine with beach visit nearby", "Best visited October-April for weather"]
+        }
+    ],
+
+    science: [
+        {
+            id: 8,
+            name: "Space: The Universe Unveiled",
+            category: "Astronomy",
+            dates: "February 1 - May 31, 2026",
+            hours: "9 AM - 9 PM daily",
+            venue: "Qatar Science & Technology Park",
+            location: "Education City",
+            icon: "🚀",
+            image: "linear-gradient(135deg, #0C616F 0%, #2c2c2c 100%)",
+            description: "An awe-inspiring exhibition exploring space from the solar system to distant galaxies. Featuring meteorite samples, interactive planetarium shows, NASA partnership displays, and hands-on activities that bring the cosmos within reach.",
+            highlights: ["Real meteorite samples", "Planetarium shows", "NASA partnership", "Mars rover replica", "Interactive displays", "VR space walks", "Kids activities", "Evening telescope sessions"],
+            admission: "QR 60 adults, QR 30 children",
+            featured: ["Actual moon rock sample", "Mars Curiosity Rover full-scale model", "Interactive mission control", "Hubble telescope imagery"],
+            tips: ["Planetarium shows every hour — book on arrival", "Friday evening telescope sessions weather permitting", "Very popular with school groups — visit evenings or weekends", "VR space walk experience has age/height requirements", "Allow 2-3 hours"]
+        },
+        {
+            id: 9,
+            name: "Ocean Depths: Marine Life of the Arabian Gulf",
+            category: "Marine Biology",
+            dates: "April 15 - August 15, 2026",
+            hours: "10 AM - 8 PM daily",
+            venue: "Katara Cultural Village - Exhibition Hall",
+            location: "Katara, Doha",
+            icon: "🐠",
+            image: "linear-gradient(135deg, #0C616F 0%, #4CAF50 100%)",
+            description: "Dive into the rich marine ecosystem of the Arabian Gulf with this interactive exhibition featuring aquariums, educational displays, conservation messaging, and stunning underwater photography showcasing Qatar's maritime biodiversity.",
+            highlights: ["Live aquariums", "Gulf marine species", "Underwater photography", "Conservation focus", "Touch tanks", "Educational programs", "Kids workshops", "Daily feeding shows"],
+            admission: "QR 40 adults, QR 20 children",
+            featured: ["Live Gulf reef aquarium", "Seahorse breeding display", "Pearl oyster lifecycle", "Underwater photography gallery"],
+            tips: ["Feeding times at 11 AM and 3 PM are exciting", "Touch tank lets children interact with starfish & crabs", "Excellent for families", "Combine with Katara beach visit", "Photography encouraged"]
+        },
+        {
+            id: 10,
+            name: "Innovation Lab: Qatar's Tech Future",
+            category: "Technology",
+            dates: "Permanent Interactive Center",
+            hours: "10 AM - 6 PM (Closed Fridays)",
+            venue: "Qatar Foundation - Innovation Center",
+            location: "Education City",
+            icon: "💻",
+            image: "linear-gradient(135deg, #FFB81C 0%, #0C616F 100%)",
+            description: "An interactive technology center showcasing Qatar's innovation ecosystem. Hands-on exhibits cover AI, robotics, renewable energy, smart cities, and startups. Visitors can code robots, design apps, and explore cutting-edge tech.",
+            highlights: ["Robotics lab", "Coding workshops", "AI demonstrations", "Startup showcase", "3D printing", "Smart city models", "Hands-on activities", "Free admission"],
+            admission: "Free",
+            featured: ["Build & program your own robot", "AI face recognition demos", "Qatar's first satellites display", "Student innovation projects"],
+            tips: ["Perfect for tech-interested teens", "Workshops require advance booking", "Very hands-on — plan 2-3 hours", "Experts available to answer questions", "Great for understanding Qatar's future vision"]
+        }
+    ],
+
+    photo: [
+        {
+            id: 11,
+            name: "World Press Photo Exhibition",
+            category: "Photojournalism",
+            dates: "March 10 - April 20, 2026",
+            hours: "10 AM - 8 PM daily",
+            venue: "Katara Cultural Village - Gallery",
+            location: "Katara, Doha",
+            icon: "📸",
+            image: "linear-gradient(135deg, #2c2c2c 0%, #8C1D40 100%)",
+            description: "The prestigious World Press Photo exhibition brings the year's most powerful photojournalism to Doha. Award-winning images documenting global events, conflicts, human stories, and environmental crises — journalism at its most impactful.",
+            highlights: ["Award-winning photojournalism", "Global news stories", "Documentary photography", "Human interest", "Environmental crises", "Conflict zones", "Free admission", "Powerful imagery"],
+            admission: "Free",
+            featured: ["Photo of the Year winner", "Regional stories coverage", "Environmental documentary series", "Human rights photography"],
+            tips: ["Powerful and sometimes challenging subject matter", "Allow time for reflection", "Excellent discussion starter", "Not suitable for young children due to content", "Free guided tours on weekends"]
+        },
+        {
+            id: 12,
+            name: "Tasweer Qatar Photo Festival",
+            category: "Photography Festival",
+            dates: "November 1-30, 2026",
+            hours: "Various venues & times",
+            venue: "Multiple Locations Citywide",
+            location: "Katara, Fire Station, Souq Waqif, Museums",
+            icon: "📷",
+            image: "linear-gradient(135deg, #FFB81C 0%, #E53935 100%)",
+            description: "Qatar's annual photography festival transforms the city into an open-air gallery. International and local photographers exhibit across multiple venues, with workshops, photo walks, competitions, and talks creating a month-long celebration of photography.",
+            highlights: ["Citywide festival", "Multiple exhibitions", "Photography workshops", "Photo walks", "Portfolio reviews", "Competitions", "Talks & lectures", "Most events free"],
+            admission: "Most exhibitions free",
+            featured: ["International photographer retrospectives", "Local photographer showcases", "Street photography in Souq Waqif", "Architectural photography series"],
+            tips: ["Check festival website for full schedule", "Photo walks are popular — register early", "Portfolio reviews for aspiring photographers", "Great networking for photography enthusiasts", "The month-long format lets you explore at your pace"]
+        }
+    ],
+
+    heritage: [
+        {
+            id: 13,
+            name: "Bedouin Heritage: Life in the Desert",
+            category: "Cultural Heritage",
+            dates: "Permanent Exhibition",
+            hours: "9 AM - 5 PM (Closed Mondays)",
+            venue: "Sheikh Faisal Museum",
+            location: "Al Samriya, 20km from Doha",
+            icon: "🏜️",
+            image: "linear-gradient(135deg, #D4A574 0%, #8C1D40 100%)",
+            description: "Sheikh Faisal's extraordinary private collection showcasing Bedouin life, traditional crafts, falconry, and desert culture alongside vintage cars, Islamic art, and carpets. One of Qatar's most fascinating and eclectic museums.",
+            highlights: ["Bedouin tents & tools", "Traditional weapons", "Falconry displays", "Vintage car collection", "Islamic manuscripts", "Persian carpets", "Coins & currency", "Eclectic collection"],
+            admission: "QR 25 adults, QR 10 children",
+            featured: ["Sheikh Faisal's vintage car collection", "Traditional Bedouin tent setup", "Falconry equipment & displays", "Ancient Quran manuscripts"],
+            tips: ["Personal passion collection makes it unique", "Very eclectic — cars, carpets, coins, culture", "Allow 2-3 hours", "Combine with desert excursion", "Photography allowed in most areas"]
+        },
+        {
+            id: 14,
+            name: "Pearl Diving Heritage",
+            category: "Maritime History",
+            dates: "Ongoing Display",
+            hours: "Museum hours vary by venue",
+            venue: "Multiple Museums",
+            location: "National Museum, Al Wakrah Museum",
+            icon: "🦪",
+            image: "linear-gradient(135deg, #0C616F 0%, #D4A574 100%)",
+            description: "Before oil, Qatar's economy was built on pearl diving. Exhibitions across multiple museums showcase the boats, tools, songs, and social structure of this dangerous profession that defined Gulf culture for centuries.",
+            highlights: ["Traditional dhow boats", "Diving equipment", "Pearl sorting tools", "Merchant houses", "Historical photos", "Oral histories", "Cultural context", "Free admission"],
+            admission: "Free at most venues",
+            featured: ["Full-size pearl diving dhow", "Historical diving equipment", "Merchant weighing scales", "Black and white photography of divers"],
+            tips: ["National Museum has the most comprehensive displays", "Al Wakrah Museum set in old market quarter", "The human stories are as important as the objects", "Free at both venues", "Combine with Souq Waqif for pearl shopping"]
+        }
+    ],
+
+    interactive: [
+        {
+            id: 15,
+            name: "KidZania Doha - Edutainment City",
+            category: "Interactive Learning",
+            dates: "Permanent Attraction",
+            hours: "9 AM - 9 PM daily",
+            venue: "Aspire Zone",
+            location: "Doha",
+            icon: "🎪",
+            image: "linear-gradient(135deg, #FF6B9D 0%, #FFB81C 100%)",
+            description: "A 7,000 sqm indoor city built for children aged 4-14 where they role-play adult professions. Kids can be doctors, firefighters, pilots, chefs, bankers — earning KidZos currency in over 40 establishments.",
+            highlights: ["40+ role-play activities", "Real-world professions", "Educational fun", "Kids earn currency", "Parental lounge", "All-day access", "Safe environment", "Multiple age groups"],
+            admission: "QR 110 children, QR 60 adults (supervising)",
+            featured: ["Hospital with surgery room", "Fire station with real trucks", "Aviation academy with flight simulator", "TV studio for news broadcasting"],
+            tips: ["Book online for best prices", "Minimum 3-4 hours needed", "Children must attend without parent participation", "Parents can watch from lounges", "Birthday party packages available"]
+        },
+        {
+            id: 16,
+            name: "Virtual Reality: Journey Through Time",
+            category: "Immersive Experience",
+            dates: "March 1 - December 31, 2026",
+            hours: "10 AM - 10 PM daily",
+            venue: "Mall of Qatar - VR Zone",
+            location: "Al Rayyan",
+            icon: "🥽",
+            image: "linear-gradient(135deg, #8C1D40 0%, #0C616F 100%)",
+            description: "Step into history with this cutting-edge VR experience. Walk through ancient Qatar, witness pearl diving, experience the desert Bedouin life, and witness modern Qatar's transformation — all through immersive virtual reality.",
+            highlights: ["VR technology", "Historical recreation", "Bedouin camp experience", "Pearl diving simulation", "Modern Doha flythrough", "Educational entertainment", "Multiple experiences", "All ages"],
+            admission: "QR 50 per experience",
+            featured: ["Ancient Zubarah trading port VR reconstruction", "Pearl diving underwater simulation", "Bedouin majlis gathering", "Doha skyline transformation time-lapse"],
+            tips: ["Each VR experience is 15-20 minutes", "Can book multiple experiences", "Height restrictions apply for some", "Not recommended for motion sickness sufferers", "Great for teens and adults"]
+        }
+    ]
+};
+
+let currentExhibition = null;
+
+window.addEventListener('DOMContentLoaded', () => {
+    displayAllExhibitions();
+});
+
+function displayAllExhibitions() {
+    displayCategory('artGrid', exhibitions.art);
+    displayCategory('historyGrid', exhibitions.history);
+    displayCategory('scienceGrid', exhibitions.science);
+    displayCategory('photoGrid', exhibitions.photo);
+    displayCategory('heritageGrid', exhibitions.heritage);
+    displayCategory('interactiveGrid', exhibitions.interactive);
+}
+
+function displayCategory(gridId, items) {
+    const grid = document.getElementById(gridId);
+    if (!grid) return;
+
+    grid.innerHTML = '';
+
+    items.forEach(exhibition => {
+        const card = document.createElement('div');
+        card.className = 'exhibition-card';
+
+        const freeBadge = exhibition.admission.toLowerCase().includes('free') ?
+            '<div class="free-badge">FREE</div>' : '';
+
+        card.innerHTML = `
+            <div class="exhibition-card-image" style="background: ${exhibition.image};">
+                <span style="font-size: 5rem;">${exhibition.icon}</span>
+                ${freeBadge}
+            </div>
+            <div class="exhibition-card-content">
+                <h3>${exhibition.name}</h3>
+                <div class="exhibition-category">${exhibition.category}</div>
+                <div class="exhibition-meta">
+                    <span class="meta-item">📅 ${exhibition.dates}</span>
+                </div>
+                <div class="exhibition-meta">
+                    <span class="meta-item">🕐 ${exhibition.hours}</span>
+                </div>
+                <div class="exhibition-meta">
+                    <span class="meta-item">📍 ${exhibition.venue}</span>
+                </div>
+                <p class="exhibition-description">${exhibition.description.substring(0, 130)}...</p>
+                <div class="exhibition-highlights">
+                    ${exhibition.highlights.slice(0, 4).map(h => `<span class="highlight-tag">${h}</span>`).join('')}
+                </div>
+                <div class="exhibition-card-footer">
+                    <button class="btn-view-exhibition">View Details</button>
+                </div>
+            </div>
+        `;
+
+        card.onclick = () => openExhibitionModal(exhibition);
+        grid.appendChild(card);
+    });
+}
+
+function openExhibitionModal(exhibition) {
+    currentExhibition = exhibition;
+
+    document.getElementById('modalExhibitionImage').innerHTML = `<span style="font-size: 6rem;">${exhibition.icon}</span>`;
+    document.getElementById('modalExhibitionImage').style.background = exhibition.image;
+    document.getElementById('modalExhibitionName').textContent = exhibition.name;
+    document.getElementById('modalExhibitionCategory').textContent = exhibition.category;
+    document.getElementById('modalExhibitionDates').textContent = `📅 ${exhibition.dates}`;
+    document.getElementById('modalExhibitionHours').textContent = `🕐 ${exhibition.hours}`;
+    document.getElementById('modalExhibitionVenue').textContent = `📍 ${exhibition.venue}`;
+    document.getElementById('modalExhibitionDescription').textContent = exhibition.description;
+
+    document.getElementById('modalExhibitionHighlights').innerHTML = `
+        <h4>Exhibition Highlights</h4>
+        <ul>${exhibition.highlights.map(h => `<li>${h}</li>`).join('')}</ul>
+    `;
+
+    document.getElementById('detailDates').textContent = exhibition.dates;
+    document.getElementById('detailHours').textContent = exhibition.hours;
+    document.getElementById('detailVenue').textContent = exhibition.venue;
+    document.getElementById('detailLocation').textContent = exhibition.location;
+    document.getElementById('detailAdmission').textContent = exhibition.admission;
+
+    document.getElementById('detailFeatured').innerHTML = `
+        <ul style="list-style:none; padding:0;">
+            ${exhibition.featured.map(f => `<li style="padding:0.4rem 0; color:#555;">⭐ ${f}</li>`).join('')}
+        </ul>
+    `;
+
+    document.getElementById('detailTips').innerHTML = `
+        <ul style="list-style:none; padding:0;">
+            ${exhibition.tips.map(t => `<li style="padding:0.4rem 0; color:#555;">💡 ${t}</li>`).join('')}
+        </ul>
+    `;
+
+    document.getElementById('exhibitionModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeExhibitionModal() {
+    document.getElementById('exhibitionModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
