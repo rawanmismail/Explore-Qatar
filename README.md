@@ -66,7 +66,6 @@
 
 ## Features
 
-- 🗺️ **Multi-page navigation** across 25+ destination and resource pages
 - ✈️ **Interactive Visa Eligibility Checker** — real-time filtering via `visa-checker.js`
 - 🗄️ **Database integration** — Python backend (`app.py`, `database.py`) for scalable data handling
 - 📱 **Consistent styling** — unified `styles.css` and shared `script.js` across all pages
@@ -85,49 +84,4 @@
 
 ---
 
-## File Structure
 
-```
-explore-qatar-website/
-│
-├── index.html              ← Homepage
-├── styles.css              ← Global stylesheet
-├── script.js               ← Shared scripts
-├── visa-checker.js         ← Visa eligibility logic
-│
-├── app.py                  ← Python backend
-├── database.py             ← Database layer
-│
-├── cities.html
-├── beach.html
-├── adventure.html
-├── history.html
-├── traditions.html
-├── festivals.html
-├── dining.html
-├── shopping.html
-├── sports.html
-├── tours.html
-├── visas.html
-├── flights.html
-├── accommodation.html
-├── transportation.html
-└── ...and more
-```
-
----
-
-## Roadmap
-
-- [ ] User authentication system
-- [ ] Admin dashboard
-- [ ] Live API integration (travel data, weather)
-- [ ] Cloud deployment
-
----
-
-<div align="center">
-
-Made by [Rawan Mismail](https://github.com/rawanmismail) · 🇶🇦 Built with precision and ambition
-
-</div>
