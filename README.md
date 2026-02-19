@@ -7,10 +7,6 @@
 
 <br/>
 
-![HTML](https://img.shields.io/badge/HTML-44.8%25-E34F26?style=flat-square&logo=html5&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-36.8%25-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![CSS](https://img.shields.io/badge/CSS-17.6%25-1572B6?style=flat-square&logo=css3&logoColor=white)
-![Python](https://img.shields.io/badge/Python-0.8%25-3776AB?style=flat-square&logo=python&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Active-27AE60?style=flat-square)
 
 <br/>
