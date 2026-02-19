@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultural Exhibitions in Qatar - Discover Qatar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="exhibitions.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <h1>QATAR TOURISM</h1>
+                </a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">About Qatar ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="geography.html">Geography of Qatar</a></li>
+                        <li><a href="history.html">History of Qatar</a></li>
+                        <li><a href="climate.html">Qatar's Climate</a></li>
+                        <li><a href="cities.html">Towns & Cities</a></li>
+                        <li><a href="traditions.html">Traditions in Qatar</a></li>
+                        <li><a href="cusine.html">Local Cuisine</a></li>
+                        <li><a href="wildlife.html">Wildlife</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Plan Your Trip ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="visas.html">Visas</a></li>
+                        <li><a href="accommodation.html">Accommodation in Qatar</a></li>
+                        <li><a href="flights.html">Getting to Qatar</a></li>
+                        <li><a href="transportation.html">Transportation</a></li>
+                        <li><a href="airport.html">Hamad Intl. Airport</a></li>
+                        <li><a href="tours.html">Tour Operators</a></li>
+                        <li><a href="safety.html">Safety in Qatar</a></li>
+                        <li><a href="concierge.html">Concierge Services</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Things To Do ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="adventure.html">Adventure</a></li>
+                        <li><a href="ArtCulture.html">Art & Culture</a></li>
+                        <li><a href="RomanticGataway.html">Romantic Getaway</a></li>
+                        <li><a href="beach.html">Beach Holiday</a></li>
+                        <li><a href="family.html">Family Break</a></li>
+                        <li><a href="dining.html">Dining</a></li>
+                        <li><a href="spa.html">Spa & Wellness</a></li>
+                        <li><a href="shopping.html">Shopping</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Events ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="events.html">Upcoming Events</a></li>
+                        <li><a href="festivals.html">Festivals in Qatar</a></li>
+                        <li><a href="sports.html">Sports Events</a></li>
+                        <li><a href="concerts.html">Concerts & Shows</a></li>
+                        <li><a href="exhibitions.html">Cultural Exhibitions</a></li>
+                        <li><a href="national.html">National Celebrations</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Travel Guide ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="best-time.html">Best Time to Visit</a></li>
+                        <li><a href="laws.html">Local Laws & Customs</a></li>
+                        <li><a href="dress-code.html">Dress Code & Etiquette</a></li>
+                        <li><a href="currency.html">Currency & Payments</a></li>
+                        <li><a href="language.html">Language in Qatar</a></li>
+                        <li><a href="internet.html">Internet & SIM Cards</a></li>
+                        <li><a href="emergency.html">Emergency Numbers</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="btn-nav">Log In</a>
+                <a href="#" class="btn-nav-primary">Sign Up</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-hero-title">Cultural Exhibitions</h1>
+            <p class="page-hero-subtitle">Explore world-class art, history, science, and cultural exhibitions across Qatar's museums and galleries</p>
+        </div>
+    </section>
+
+    <section class="category-section">
+        <div class="container">
+            <h2 class="category-title">🎨 Art Exhibitions</h2>
+            <div id="artGrid" class="exhibitions-grid"></div>
+        </div>
+    </section>
+
+    <section class="category-section alt-bg">
+        <div class="container">
+            <h2 class="category-title">🏛️ Historical Exhibitions</h2>
+            <div id="historyGrid" class="exhibitions-grid"></div>
+        </div>
+    </section>
+
+    <section class="category-section">
+        <div class="container">
+            <h2 class="category-title">🔬 Science & Technology</h2>
+            <div id="scienceGrid" class="exhibitions-grid"></div>
+        </div>
+    </section>
+
+    <section class="category-section alt-bg">
+        <div class="container">
+            <h2 class="category-title">📸 Photography Exhibitions</h2>
+            <div id="photoGrid" class="exhibitions-grid"></div>
+        </div>
+    </section>
+
+    <section class="category-section">
+        <div class="container">
+            <h2 class="category-title">🌍 Cultural Heritage</h2>
+            <div id="heritageGrid" class="exhibitions-grid"></div>
+        </div>
+    </section>
+
+    <section class="category-section alt-bg">
+        <div class="container">
+            <h2 class="category-title">🎭 Interactive & Immersive</h2>
+            <div id="interactiveGrid" class="exhibitions-grid"></div>
+        </div>
+    </section>
+
+    <div id="exhibitionModal" class="modal">
+        <div class="modal-content exhibition-modal-content">
+            <span class="close" onclick="closeExhibitionModal()">&times;</span>
+            <div class="modal-layout">
+                <div class="modal-exhibition-info">
+                    <div id="modalExhibitionImage" class="modal-exhibition-image"></div>
+                    <h2 id="modalExhibitionName" class="modal-exhibition-title"></h2>
+                    <p id="modalExhibitionCategory" class="modal-exhibition-category"></p>
+                    <div class="modal-meta">
+                        <span id="modalExhibitionDates"></span>
+                        <span id="modalExhibitionHours"></span>
+                        <span id="modalExhibitionVenue"></span>
+                    </div>
+                    <p id="modalExhibitionDescription" class="modal-description"></p>
+                    <div id="modalExhibitionHighlights" class="modal-highlights"></div>
+                </div>
+                <div class="modal-exhibition-details">
+                    <h3>Exhibition Information</h3>
+                    <div class="info-section">
+                        <h4>📅 Exhibition Dates</h4>
+                        <p id="detailDates"></p>
+                        <p id="detailHours"></p>
+                    </div>
+                    <div class="info-section">
+                        <h4>📍 Location</h4>
+                        <p id="detailVenue"></p>
+                        <p id="detailLocation"></p>
+                    </div>
+                    <div class="info-section">
+                        <h4>🎫 Admission</h4>
+                        <p id="detailAdmission"></p>
+                    </div>
+                    <div class="info-section">
+                        <h4>✨ Featured Works</h4>
+                        <div id="detailFeatured"></div>
+                    </div>
+                    <div class="info-section">
+                        <h4>💡 Visitor Tips</h4>
+                        <div id="detailTips"></div>
+                    </div>
+                    <div class="modal-actions">
+                        <button onclick="closeExhibitionModal()" class="btn-primary">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>QATAR TOURISM</h3>
+                    <p>Your gateway to Arabian excellence</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="accommodation.html">Hotels</a></li>
+                        <li><a href="flights.html">Flights</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@discoverqatar.com</p>
+                    <p>Phone: +974 1234 5678</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Qatar Tourism. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="exhibitions.js"></script>
+</body>
+</html>
