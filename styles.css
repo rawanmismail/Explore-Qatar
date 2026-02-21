@@ -11554,4 +11554,322 @@ input:checked + .slider:before {
 }
 
 
+/* Best Time to Visit Page - New Layout */
 
+/* Overview Section */
+.overview-section {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #8C1D40 0%, #0C616F 100%);
+}
+
+.overview-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.overview-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #8C1D40;
+    margin-bottom: 1.5rem;
+}
+
+.highlight-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #2c2c2c;
+    margin-bottom: 2rem;
+}
+
+.season-badges {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.badge {
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.badge.best {
+    background: #4CAF50;
+    color: white;
+}
+
+.badge.good {
+    background: #FFB81C;
+    color: #2c2c2c;
+}
+
+.badge.hot {
+    background: #E53935;
+    color: white;
+}
+
+/* Months Grid */
+.months-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.month-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid #8C1D40;
+}
+
+.month-card.winter {
+    border-left-color: #0C616F;
+    background: linear-gradient(to bottom, #f0f8ff 0%, white 100%);
+}
+
+.month-card.spring {
+    border-left-color: #4CAF50;
+    background: linear-gradient(to bottom, #f0fff4 0%, white 100%);
+}
+
+.month-card.summer {
+    border-left-color: #E53935;
+    background: linear-gradient(to bottom, #fff5f5 0%, white 100%);
+}
+
+.month-card.autumn {
+    border-left-color: #FFB81C;
+    background: linear-gradient(to bottom, #fffbf0 0%, white 100%);
+}
+
+.month-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.month-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #2c2c2c;
+    margin: 0;
+}
+
+.temp {
+    background: #8C1D40;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.rating {
+    font-size: 0.9rem;
+    color: #FFB81C;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.month-card p {
+    margin: 0.6rem 0;
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.month-card strong {
+    color: #2c2c2c;
+}
+
+.pros-cons {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.pros-cons p {
+    margin: 0.5rem 0;
+    font-size: 0.85rem;
+}
+
+/* Seasonal Overview */
+.seasons-section {
+    padding: 60px 20px;
+    background: #fafafa;
+}
+
+.season-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.season-detail {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+}
+
+.season-detail h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.season-subtitle {
+    color: #8C1D40;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.season-content p {
+    margin: 1rem 0;
+    line-height: 1.8;
+    color: #555;
+}
+
+.winter-season {
+    border-top: 4px solid #0C616F;
+}
+
+.summer-season {
+    border-top: 4px solid #E53935;
+}
+
+.spring-season {
+    border-top: 4px solid #FFB81C;
+}
+
+/* Consideration Grid */
+.consideration-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.consideration-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+}
+
+.consideration-card h3 {
+    font-size: 1.4rem;
+    color: #8C1D40;
+    margin-bottom: 1rem;
+}
+
+.consideration-card p {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #2c2c2c;
+}
+
+.consideration-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.consideration-card li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #555;
+    line-height: 1.6;
+}
+
+.consideration-card li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #8C1D40;
+    font-weight: bold;
+}
+
+/* Recommendations Section */
+.recommendations-section {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #0C616F 0%, #8C1D40 100%);
+}
+
+.recommendations-section .section-title {
+    color: white;
+}
+
+.recommendation-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.rec-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.rec-box h3 {
+    font-size: 1.5rem;
+    color: #8C1D40;
+    margin-bottom: 1rem;
+}
+
+.rec-box p {
+    margin: 0.8rem 0;
+    line-height: 1.6;
+    color: #555;
+}
+
+.rec-box p strong {
+    color: #2c2c2c;
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .overview-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .overview-card h2 {
+        font-size: 2rem;
+    }
+
+    .highlight-text {
+        font-size: 1.1rem;
+    }
+
+    .season-badges {
+        flex-direction: column;
+    }
+
+    .months-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .season-cards,
+    .consideration-grid,
+    .recommendation-boxes {
+        grid-template-columns: 1fr;
+    }
+}
