@@ -9670,3 +9670,270 @@ function closeExhibitionModal() {
     document.getElementById('exhibitionModal').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
+
+
+// National Celebrations Database - Organized by Category
+
+const celebrations = {
+
+    national: [
+        {
+            id: 1,
+            name: "Qatar National Day",
+            category: "National Holiday",
+            date: "December 18",
+            significance: "Foundation Day",
+            icon: "🇶🇦",
+            image: "linear-gradient(135deg, #8C1D40 0%, #FFFFFF 100%)",
+            description: "Qatar's most important national celebration commemorating the unification of the country under Sheikh Jassim bin Mohammed Al Thani on December 18, 1878. The entire nation transforms into a sea of maroon and white with military parades, fireworks, heritage displays, and massive public celebrations across every corner of the country.",
+            highlights: ["Military parade on Corniche", "Fireworks displays citywide", "Traditional performances", "Maroon & white decorations everywhere", "Heritage villages", "Free concerts", "Family celebrations", "Public holiday"],
+            observance: "December 18 annually - Public holiday",
+            locations: "Nationwide - Major celebrations at Doha Corniche, Katara Cultural Village, Souq Waqif, Lusail",
+            celebrationDetails: ["Grand military parade along Doha Corniche", "Spectacular fireworks over the bay at night", "Traditional dhow boat displays", "Camel parades and equestrian shows", "Heritage village setups across the city", "Free outdoor concerts and performances", "Classical car processions", "Flag installations on every building"],
+            significanceText: "National Day marks Qatar's transformation from scattered tribes to a unified nation under the leadership of Sheikh Jassim bin Mohammed Al Thani, the Founder of the State. The day symbolizes national identity, independence, and the spirit of unity that defines modern Qatar.",
+            visitorExperience: ["Wear maroon and white to join the celebrations", "The Corniche becomes extremely crowded — arrive early for parade", "Metro runs extended hours", "Most restaurants and cafes offer special National Day menus", "Fireworks typically start around 8 PM", "Street celebrations continue until midnight", "One of the most atmospheric nights of the year in Qatar", "All museums and cultural sites host special programs"]
+        },
+        {
+            id: 2,
+            name: "Sports Day",
+            category: "National Holiday",
+            date: "Second Tuesday of February",
+            significance: "Health & Wellness Celebration",
+            icon: "🏃",
+            image: "linear-gradient(135deg, #4CAF50 0%, #8C1D40 100%)",
+            description: "A uniquely Qatari public holiday dedicated to promoting sports, fitness, and active lifestyles. Schools, businesses, and government offices close so everyone can participate in sports activities. The entire country comes alive with organized runs, football matches, cycling events, and family fitness activities in parks and sports facilities nationwide.",
+            highlights: ["Public holiday for sports", "Fun runs & marathons", "Free sports activities citywide", "Football tournaments", "Cycling events", "Parks host fitness classes", "Family-friendly atmosphere", "Completely free participation"],
+            observance: "Second Tuesday of February annually - Public holiday",
+            locations: "Nationwide - Major events at Aspire Zone, Oxygen Park, Al Bidda Park, Corniche",
+            celebrationDetails: ["Organized 5K and 10K community runs", "Football tournaments for all ages", "Cycling groups throughout the city", "Free fitness classes in parks", "Swimming competitions at public pools", "Basketball and volleyball tournaments", "Skateboarding and extreme sports demonstrations", "Traditional Qatari sports exhibitions"],
+            significanceText: "Sports Day was established to promote the importance of sports and physical fitness in Qatar's society. It reflects the nation's commitment to building a healthy, active population and celebrates Qatar's sporting heritage and future ambitions.",
+            visitorExperience: ["Most organized events are completely free", "Wear comfortable sports clothing", "Events run from morning through afternoon", "Water stations provided at major events", "Great for families with children", "Perfect opportunity to meet local Qataris", "Parks get very busy — arrive early", "Check Aspire Zone for the largest concentration of activities"]
+        },
+        {
+            id: 3,
+            name: "Eid Al Fitr",
+            category: "Religious National Celebration",
+            date: "1st Shawwal (Islamic Calendar)",
+            significance: "End of Ramadan",
+            icon: "🌙",
+            image: "linear-gradient(135deg, #4CAF50 0%, #FFB81C 100%)",
+            description: "The joyous three-day celebration marking the end of the holy month of Ramadan. Qatar comes alive with special prayers, family gatherings, gift-giving, traditional feasts, and public festivities. While religious in nature, Eid Al Fitr is one of Qatar's most important national celebrations that brings the entire society together.",
+            highlights: ["Three-day public holiday", "Eid prayers at mosques", "Fireworks displays", "Family feasts", "Gift exchanges - Eidiya", "New clothes tradition", "Fairgrounds & rides", "Public celebrations"],
+            observance: "Three days - Dates vary by Islamic calendar (March 30 - April 1, 2026 approximate)",
+            locations: "Nationwide - Major celebrations at Grand Mosque, parks, malls, public squares",
+            celebrationDetails: ["Eid prayers at sunrise in mosques nationwide", "Families dress in new clothes", "Children receive Eidiya (gift money)", "Traditional sweets and delicacies served", "Family visits and gatherings", "Fairgrounds with rides and games for children", "Shopping malls host special events", "Fireworks in the evenings"],
+            significanceText: "Eid Al Fitr celebrates the spiritual accomplishment of completing Ramadan's month of fasting and prayer. It's a time of gratitude, charity, community, and joy — embodying the values of compassion and togetherness central to Qatari society.",
+            visitorExperience: ["Greet people with 'Eid Mubarak' (Blessed Eid)", "Many attractions offer free entry during Eid", "Restaurants may be busy — book ahead", "Traditional dress is common and welcomed", "Great time to experience Qatari hospitality", "Morning prayers create a peaceful atmosphere", "Children are central to celebrations", "Shopping sales everywhere"]
+        },
+        {
+            id: 4,
+            name: "Eid Al Adha",
+            category: "Religious National Celebration",
+            date: "10th Dhul Hijjah (Islamic Calendar)",
+            significance: "Festival of Sacrifice",
+            icon: "🐑",
+            image: "linear-gradient(135deg, #8C1D40 0%, #D4A574 100%)",
+            description: "The holiest of the two Eids, commemorating Prophet Ibrahim's willingness to sacrifice his son in obedience to God. A four-day public holiday marked by prayers, sacrifice, charitable giving, and family gatherings. The spiritual centerpiece of Qatar's national calendar.",
+            highlights: ["Four-day public holiday", "Eid prayers", "Animal sacrifice tradition", "Charity & giving", "Family gatherings", "Traditional foods", "Cultural events", "Spiritual reflection"],
+            observance: "Four days - Dates vary by Islamic calendar (June 6-9, 2026 approximate)",
+            locations: "Nationwide - Prayers at mosques, family celebrations at homes",
+            celebrationDetails: ["Eid prayers on first morning", "Traditional animal sacrifice distributed to poor", "Large family gatherings and feasts", "Visiting relatives and friends", "Charitable donations to those in need", "Traditional Qatari dishes served", "Spiritual reflection and gratitude", "Cultural performances at heritage sites"],
+            significanceText: "Eid Al Adha honors devotion, sacrifice, and submission to God's will. It coincides with the Hajj pilgrimage and represents the pinnacle of spiritual devotion in Islamic tradition, bringing Qatari society together in faith and compassion.",
+            visitorExperience: ["Extremely important religious holiday", "Many businesses closed for 3-4 days", "Respectful, quieter atmosphere than Eid Al Fitr", "Wonderful time to witness Qatari culture", "Traditional hospitality is emphasized", "Book hotels well in advance", "Public transport may run reduced services", "Perfect time for museum visits"]
+        }
+    ],
+
+    sporting: [
+        {
+            id: 5,
+            name: "FIFA World Cup 2022 Legacy",
+            category: "Sporting Achievement",
+            date: "Ongoing Celebration",
+            significance: "Historic Tournament Host",
+            icon: "⚽",
+            image: "linear-gradient(135deg, #8C1D40 0%, #4CAF50 100%)",
+            description: "Qatar's hosting of the 2022 FIFA World Cup was the most significant sporting event in the nation's history and the first World Cup in the Middle East. The legacy continues with anniversary celebrations, stadium tours, and ongoing pride in Qatar's achievement in delivering an unforgettable tournament.",
+            highlights: ["World Cup legacy celebrations", "Stadium tours year-round", "Anniversary events", "National pride", "Sporting excellence", "Infrastructure showcase", "Tourism boost", "Global recognition"],
+            observance: "November-December anniversary period, year-round legacy",
+            locations: "World Cup stadiums - Lusail, Al Bayt, Khalifa, Education City, Al Janoub, Al Thumama, Ahmad Bin Ali, Ras Abu Aboud",
+            celebrationDetails: ["Stadium tours showcasing World Cup venues", "Anniversary matches and events", "Museums featuring World Cup exhibits", "Documentary screenings and retrospectives", "Youth football tournaments in World Cup stadiums", "Legacy programs promoting football", "Public exhibitions of memorabilia", "Community engagement events"],
+            significanceText: "Hosting the 2022 World Cup was a transformational moment for Qatar, showcasing the country's capabilities, culture, and hospitality to 5 billion global viewers. The successful tournament elevated Qatar's international standing and created lasting infrastructure and national pride.",
+            visitorExperience: ["Tour the magnificent World Cup stadiums", "Lusail Stadium is the crown jewel", "Al Bayt Stadium showcases Qatari heritage", "Most stadiums host regular events", "Metro provides excellent access to venues", "Photo opportunities at iconic locations", "Museums feature World Cup sections", "The legacy is visible throughout the country"]
+        },
+        {
+            id: 6,
+            name: "AFC Asian Cup 2023 Victory",
+            category: "Sporting Triumph",
+            date: "February celebration annually",
+            significance: "Continental Champions",
+            icon: "🏆",
+            image: "linear-gradient(135deg, #FFB81C 0%, #8C1D40 100%)",
+            description: "Qatar's national football team won the AFC Asian Cup in 2019 and successfully defended the title in 2023, marking Qatar as a dominant force in Asian football. These victories are celebrated as moments of immense national pride, showcasing Qatar's sporting development and excellence.",
+            highlights: ["Back-to-back Asian Cup champions", "National football pride", "Undefeated tournament runs", "Home advantage celebrations", "Youth development success", "Regional dominance", "Continental recognition", "Sporting ambition realized"],
+            observance: "Anniversary celebrations in February",
+            locations: "Major celebrations at Khalifa Stadium, Aspire Zone, Corniche",
+            celebrationDetails: ["Victory parades through Doha", "Trophy displayed publicly", "Player meet-and-greets", "Football exhibition matches", "Youth tournament initiatives", "National team jersey days", "Public screenings of historic matches", "Pride events at Aspire Academy"],
+            significanceText: "The Asian Cup victories represent the culmination of Qatar's strategic investment in sports development and the success of the Aspire Academy system. These triumphs demonstrated Qatar's arrival as a genuine footballing nation on the Asian stage.",
+            visitorExperience: ["Visit Aspire Academy to see youth development", "National team memorabilia at stadiums", "Watch Qatar Stars League matches", "Football culture is extremely passionate", "Jerseys worn with pride throughout the year", "Anniversary matches draw huge crowds", "Great atmosphere at local football", "The nation lives and breathes football"]
+        },
+        {
+            id: 7,
+            name: "MotoGP Season Opener",
+            category: "Annual Sporting Event",
+            date: "March annually",
+            significance: "Motorsport Excellence",
+            icon: "🏍️",
+            image: "linear-gradient(135deg, #E53935 0%, #FFB81C 100%)",
+            description: "Losail International Circuit's hosting of the MotoGP season opener is a source of national pride. As the only night race in MotoGP and traditionally the championship's first round, it showcases Qatar's world-class sporting infrastructure and passion for motorsport.",
+            highlights: ["Season opening race", "Only MotoGP night race", "International spotlight", "World-class facility", "Passionate fanbase", "Tourism draw", "Motorsport tradition", "National prestige"],
+            observance: "March annually - race weekend",
+            locations: "Losail International Circuit",
+            celebrationDetails: ["Three days of racing action", "Practice and qualifying sessions", "Main race under floodlights", "Fan zones and exhibitions", "International media coverage", "Corporate hospitality events", "Rider meet-and-greets", "Motorsport festival atmosphere"],
+            significanceText: "Qatar's MotoGP race represents the country's commitment to world-class sporting events and has put Losail Circuit on the global motorsport map. The night race under floodlights creates a unique spectacle recognized worldwide.",
+            visitorExperience: ["The night race atmosphere is incredible", "Buy tickets well in advance", "Camping available at the circuit", "Shuttle buses from Lusail metro", "Bring ear protection for the bikes", "General admission offers excellent value", "Three-day passes recommended", "One of motorsport's great experiences"]
+        }
+    ],
+
+    cultural: [
+        {
+            id: 8,
+            name: "Qatar Foundation Annual Day",
+            category: "Educational Milestone",
+            date: "November annually",
+            significance: "Knowledge & Innovation",
+            icon: "🎓",
+            image: "linear-gradient(135deg, #0C616F 0%, #4CAF50 100%)",
+            description: "Qatar Foundation's annual celebration showcasing Education City's achievements in research, innovation, and education. A public open day allows families to explore world-class universities, research institutes, and innovation centers that represent Qatar's vision for a knowledge-based economy.",
+            highlights: ["Education City open day", "University campus tours", "Research exhibitions", "Innovation showcases", "Student performances", "Free admission", "Family-friendly", "Knowledge celebration"],
+            observance: "November annually - weekend event",
+            locations: "Education City campus - all universities and Qatar Foundation buildings",
+            celebrationDetails: ["Open campus tours of all universities", "Science demonstrations and experiments", "Student art and performance exhibitions", "Innovation and robotics displays", "Food festival with international cuisines", "Sports activities and competitions", "Cultural performances from diverse communities", "Free activities for children"],
+            significanceText: "Qatar Foundation represents the nation's commitment to education, research, and human development as the foundation of future prosperity. The annual celebration showcases how Qatar is building a knowledge economy beyond oil and gas.",
+            visitorExperience: ["Completely free and open to all", "Perfect for families with children", "Explore world-class university campuses", "Interactive science and tech exhibits", "Food represents global student body", "Parking can be challenging — use metro", "Bring comfortable walking shoes", "Great way to see Education City"]
+        },
+        {
+            id: 9,
+            name: "Katara Traditional Dhow Festival",
+            category: "Heritage Celebration",
+            date: "December annually",
+            significance: "Maritime Heritage",
+            icon: "⛵",
+            image: "linear-gradient(135deg, #0C616F 0%, #D4A574 100%)",
+            description: "An annual celebration of Qatar's pearl diving and maritime heritage featuring traditional dhow boat races, heritage crafts, pearl diving demonstrations, and celebrations of the seafaring culture that sustained Qatar before oil. A beautiful fusion of tradition and national pride.",
+            highlights: ["Traditional dhow races", "Pearl diving heritage", "Maritime crafts", "Heritage village", "Traditional food", "Seafaring stories", "Family activities", "Free event"],
+            observance: "December annually - week-long festival",
+            locations: "Katara Cultural Village waterfront",
+            celebrationDetails: ["Traditional wooden dhow racing", "Pearl diving demonstrations in the water", "Heritage crafts workshops", "Traditional Bedouin tents and majlis", "Storytelling sessions about maritime history", "Traditional Qatari food stalls", "Children's activities and games", "Evening cultural performances"],
+            significanceText: "Before oil, Qatar's economy depended on pearl diving and maritime trade. This festival honors the brave pearl divers and seafarers whose traditions shaped Qatari identity and reminds the nation of its humble, hardworking origins.",
+            visitorExperience: ["Free admission to all activities", "The dhow races are thrilling to watch", "Waterfront setting is beautiful", "Try traditional Qatari foods", "Children love the hands-on activities", "Evening performances are magical", "Combine with Katara beach visit", "Wonderful photo opportunities"]
+        },
+        {
+            id: 10,
+            name: "Flag Day",
+            category: "National Pride Day",
+            date: "December 18 (part of National Day)",
+            significance: "National Symbol",
+            icon: "🏳️",
+            image: "linear-gradient(135deg, #8C1D40 0%, #FFFFFF 100%)",
+            description: "While celebrated as part of National Day, Flag Day specifically honors Qatar's maroon and white flag — representing the nation's identity, sacrifices, and values. Buildings, vehicles, and streets are adorned with flags, and Qataris wear traditional dress in the flag's colors.",
+            highlights: ["Flag-raising ceremonies", "Maroon & white everywhere", "Traditional dress encouraged", "Building decorations", "Vehicle flag displays", "National pride", "Unity celebrations", "Free flag distribution"],
+            observance: "December 18 with National Day",
+            locations: "Nationwide - particularly visible in Doha, government buildings, corniche",
+            celebrationDetails: ["Official flag-raising ceremony at dawn", "Every building displays the flag", "Cars adorned with flags and ribbons", "Traditional dress in maroon and white", "Public distribution of small flags", "Schools hold flag ceremonies", "Photography of iconic flag locations", "National anthem performances"],
+            significanceText: "The Qatari flag's maroon color represents the blood shed in 19th-century wars, while the white symbolizes peace. The nine-point serrated edge represents Qatar as the ninth member of the reconciled Emirates of the Arabian Gulf after the signing of the Qatari-British treaty in 1916.",
+            visitorExperience: ["The whole city transforms into maroon & white", "Wear maroon/white to participate", "Flags given out for free at major locations", "Great for photography", "Powerful display of national unity", "The Corniche is the best viewing location", "Evening brings special flag lighting", "Unforgettable patriotic atmosphere"]
+        }
+    ]
+};
+
+let currentCelebration = null;
+
+window.addEventListener('DOMContentLoaded', () => {
+    displayAllCelebrations();
+});
+
+function displayAllCelebrations() {
+    displayCategory('nationalGrid', celebrations.national);
+    displayCategory('sportingGrid', celebrations.sporting);
+    displayCategory('culturalGrid', celebrations.cultural);
+}
+
+function displayCategory(gridId, items) {
+    const grid = document.getElementById(gridId);
+    if (!grid) return;
+
+    grid.innerHTML = '';
+
+    items.forEach(celebration => {
+        const card = document.createElement('div');
+        card.className = 'celebration-card';
+
+        card.innerHTML = `
+            <div class="celebration-card-image" style="background: ${celebration.image};">
+                <span style="font-size: 5rem;">${celebration.icon}</span>
+            </div>
+            <div class="celebration-card-content">
+                <h3>${celebration.name}</h3>
+                <div class="celebration-category">${celebration.category}</div>
+                <div class="celebration-meta">
+                    <span class="meta-item">📅 ${celebration.date}</span>
+                </div>
+                <div class="celebration-meta">
+                    <span class="meta-item">🌟 ${celebration.significance}</span>
+                </div>
+                <p class="celebration-description">${celebration.description.substring(0, 130)}...</p>
+                <div class="celebration-highlights">
+                    ${celebration.highlights.slice(0, 4).map(h => `<span class="highlight-tag">${h}</span>`).join('')}
+                </div>
+                <div class="celebration-card-footer">
+                    <button class="btn-view-celebration">View Details</button>
+                </div>
+            </div>
+        `;
+
+        card.onclick = () => openCelebrationModal(celebration);
+        grid.appendChild(card);
+    });
+}
+
+function openCelebrationModal(celebration) {
+    currentCelebration = celebration;
+
+    document.getElementById('modalCelebrationImage').innerHTML = `<span style="font-size: 6rem;">${celebration.icon}</span>`;
+    document.getElementById('modalCelebrationImage').style.background = celebration.image;
+    document.getElementById('modalCelebrationName').textContent = celebration.name;
+    document.getElementById('modalCelebrationCategory').textContent = celebration.category;
+    document.getElementById('modalCelebrationDate').textContent = `📅 ${celebration.date}`;
+    document.getElementById('modalCelebrationSignificance').textContent = `🌟 ${celebration.significance}`;
+    document.getElementById('modalCelebrationDescription').textContent = celebration.description;
+
+    document.getElementById('modalCelebrationHighlights').innerHTML = `
+        <h4>Celebration Highlights</h4>
+        <ul>${celebration.highlights.map(h => `<li>${h}</li>`).join('')}</ul>
+    `;
+
+    document.getElementById('detailDate').textContent = celebration.date;
+    document.getElementById('detailObservance').textContent = celebration.observance;
+    document.getElementById('detailLocations').textContent = celebration.locations;
+    document.getElementById('detailSignificance').textContent = celebration.significanceText;
+
+    document.getElementById('detailCelebrations').innerHTML = `
+        <ul style="list-style:none; padding:0;">
+            ${celebration.celebrationDetails.map(c => `<li style="padding:0.4rem 0; color:#555;">🎉 ${c}</li>`).join('')}
+        </ul>
+    `;
+
+    document.getElementById('detailExperience').innerHTML = `
+        <ul style="list-style:none; padding:0;">
+            ${celebration.visitorExperience.map(e => `<li style="padding:0.4rem 0; color:#555;">💡 ${e}</li>`).join('')}
+        </ul>
+    `;
+
+    document.getElementById('celebrationModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCelebrationModal() {
+    document.getElementById('celebrationModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
