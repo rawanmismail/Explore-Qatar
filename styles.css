@@ -11873,3 +11873,337 @@ input:checked + .slider:before {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* Local Laws & Customs Page Styles */
+
+/* Notice Sections */
+.notice-section {
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #E53935 0%, #8C1D40 100%);
+}
+
+.notice-box {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    max-width: 900px;
+    margin: 0 auto;
+    border-left: 6px solid #E53935;
+}
+
+.notice-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #E53935;
+    margin-bottom: 1rem;
+}
+
+.notice-box p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2c2c2c;
+}
+
+/* Section Intro */
+.section-intro {
+    font-size: 1.15rem;
+    color: #555;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Law Grid */
+.law-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.law-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    border-top: 4px solid #8C1D40;
+}
+
+.law-card.critical {
+    background: linear-gradient(to bottom, #fff5f5 0%, white 100%);
+    border-top: 4px solid #E53935;
+}
+
+.law-icon {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.law-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #2c2c2c;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.penalty {
+    background: #E53935;
+    color: white;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.law-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.law-card li {
+    padding: 0.6rem 0;
+    padding-left: 1.8rem;
+    position: relative;
+    color: #555;
+    line-height: 1.6;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.law-card li:last-child {
+    border-bottom: none;
+}
+
+.law-card.critical li::before {
+    content: "⚠️";
+    position: absolute;
+    left: 0;
+    font-size: 1rem;
+}
+
+.law-card:not(.critical) li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #8C1D40;
+    font-weight: bold;
+}
+
+/* Customs Grid */
+.customs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.custom-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+}
+
+.custom-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #8C1D40;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.do-dont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.do, .dont {
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.do {
+    background: #f0fff4;
+    border: 2px solid #4CAF50;
+}
+
+.dont {
+    background: #fff5f5;
+    border: 2px solid #E53935;
+}
+
+.do h4 {
+    color: #4CAF50;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.dont h4 {
+    color: #E53935;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.do ul, .dont ul {
+    list-style: none;
+    padding: 0;
+}
+
+.do li, .dont li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #2c2c2c;
+}
+
+.do li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.dont li::before {
+    content: "✗";
+    position: absolute;
+    left: 0;
+    color: #E53935;
+    font-weight: bold;
+}
+
+/* Tips Section */
+.tips-section {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #0C616F 0%, #8C1D40 100%);
+}
+
+.tips-section .section-title {
+    color: white;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.tip-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.tip-box h3 {
+    font-size: 1.4rem;
+    color: #8C1D40;
+    margin-bottom: 1.5rem;
+}
+
+.tip-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tip-box li {
+    padding: 0.6rem 0;
+    padding-left: 1.8rem;
+    position: relative;
+    color: #555;
+    line-height: 1.6;
+}
+
+.tip-box li::before {
+    content: "💡";
+    position: absolute;
+    left: 0;
+    font-size: 1rem;
+}
+
+/* Bottom Notice */
+.bottom-notice {
+    padding: 60px 20px;
+    background: #fafafa;
+}
+
+.notice-final {
+    background: white;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    max-width: 900px;
+    margin: 0 auto;
+    border-left: 6px solid #4CAF50;
+}
+
+.notice-final h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+.notice-final p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+}
+
+.final-tip {
+    font-style: italic;
+    color: #8C1D40;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .do-dont {
+        grid-template-columns: 1fr;
+    }
+
+    .customs-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .notice-box,
+    .notice-final {
+        padding: 1.5rem;
+    }
+
+    .law-grid,
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .notice-box h2,
+    .notice-final h2 {
+        font-size: 1.5rem;
+    }
+
+    .notice-box p,
+    .notice-final p {
+        font-size: 1rem;
+    }
+
+    .law-card,
+    .custom-card,
+    .tip-box {
+        padding: 1.5rem;
+    }
+}
