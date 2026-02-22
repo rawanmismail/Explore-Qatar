@@ -12209,3 +12209,406 @@ input:checked + .slider:before {
 }
 
 
+/* Dress Code & Etiquette Page Styles */
+
+/* Quick Guide Section */
+.quick-guide-section {
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #8C1D40 0%, #0C616F 100%);
+}
+
+.quick-guide-box {
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.quick-guide-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #8C1D40;
+    margin-bottom: 1.5rem;
+}
+
+.golden-rule {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #8C1D40;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.quick-guide-box p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2c2c2c;
+}
+
+/* Dress Scenarios */
+.dress-scenarios {
+    display: grid;
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.scenario-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.scenario-header {
+    padding: 1.5rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.scenario-header.public {
+    background: linear-gradient(135deg, #8C1D40 0%, #A12852 100%);
+}
+
+.scenario-header.hotel {
+    background: linear-gradient(135deg, #0C616F 0%, #4CAF50 100%);
+}
+
+.scenario-header.beach {
+    background: linear-gradient(135deg, #0C616F 0%, #FFB81C 100%);
+}
+
+.scenario-header.mosque {
+    background: linear-gradient(135deg, #8C1D40 0%, #D4A574 100%);
+}
+
+.scenario-header.ramadan {
+    background: linear-gradient(135deg, #4CAF50 0%, #8C1D40 100%);
+}
+
+.scenario-header.business {
+    background: linear-gradient(135deg, #2c2c2c 0%, #8C1D40 100%);
+}
+
+.scenario-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.modesty-level {
+    background: rgba(255,255,255,0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.modesty-level.moderate {
+    background: rgba(255,255,255,0.4);
+}
+
+.modesty-level.relaxed {
+    background: rgba(255,255,255,0.5);
+}
+
+.scenario-content {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.acceptable, .not-acceptable, .tips {
+    background: #fafafa;
+    padding: 1.5rem;
+    border-radius: 6px;
+}
+
+.acceptable {
+    border-left: 4px solid #4CAF50;
+}
+
+.not-acceptable {
+    border-left: 4px solid #E53935;
+}
+
+.tips {
+    border-left: 4px solid #FFB81C;
+}
+
+.acceptable h4 {
+    color: #4CAF50;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.not-acceptable h4 {
+    color: #E53935;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.tips h4 {
+    color: #FFB81C;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.acceptable ul, .not-acceptable ul, .tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.acceptable li, .not-acceptable li, .tips li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+    color: #2c2c2c;
+}
+
+.acceptable li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.not-acceptable li::before {
+    content: "✗";
+    position: absolute;
+    left: 0;
+    color: #E53935;
+    font-weight: bold;
+}
+
+.tips li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #FFB81C;
+    font-weight: bold;
+}
+
+/* Etiquette Grid */
+.etiquette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.etiquette-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    border-top: 4px solid #8C1D40;
+}
+
+.etiquette-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #8C1D40;
+    margin-bottom: 1rem;
+}
+
+.etiquette-rules p {
+    font-weight: 600;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+}
+
+.etiquette-rules ul {
+    list-style: none;
+    padding: 0;
+}
+
+.etiquette-rules li {
+    padding: 0.6rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+    color: #555;
+}
+
+.etiquette-rules li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #8C1D40;
+    font-weight: bold;
+}
+
+.etiquette-rules strong {
+    color: #2c2c2c;
+}
+
+/* Packing Section */
+.packing-section {
+    padding: 60px 20px;
+    background: #fafafa;
+}
+
+.packing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.packing-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+}
+
+.packing-card.women {
+    border-top: 4px solid #FF6B9D;
+}
+
+.packing-card.men {
+    border-top: 4px solid #0C616F;
+}
+
+.packing-card.general {
+    border-top: 4px solid #8C1D40;
+}
+
+.packing-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #2c2c2c;
+    margin-bottom: 1.5rem;
+}
+
+.packing-category {
+    margin-bottom: 1.5rem;
+}
+
+.packing-category h4 {
+    color: #8C1D40;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.packing-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.packing-card li {
+    padding: 0.4rem 0;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Final Tips Section */
+.final-tips-section {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #4CAF50 0%, #8C1D40 100%);
+}
+
+.final-tips-box {
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.final-tips-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #8C1D40;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.tips-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.tip-column h3 {
+    color: #8C1D40;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.tip-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tip-column li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+    color: #555;
+}
+
+.tip-column li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .scenario-content {
+        grid-template-columns: 1fr;
+    }
+
+    .tips-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .quick-guide-box {
+        padding: 2rem 1.5rem;
+    }
+
+    .quick-guide-box h2 {
+        font-size: 2rem;
+    }
+
+    .golden-rule {
+        font-size: 1.2rem;
+    }
+
+    .scenario-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .scenario-content {
+        padding: 1.5rem;
+    }
+
+    .packing-grid,
+    .etiquette-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .final-tips-box {
+        padding: 2rem 1.5rem;
+    }
+}
